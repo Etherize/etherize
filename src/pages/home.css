@@ -1,0 +1,39 @@
+
+.introText {
+  width: 80%;
+  border: 1px solid #787878;
+  background: #c7c7cc;
+  color: #2e2e2e;
+  margin: auto;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.navWrapper {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.navButton {
+  display: inline-block;
+  margin: auto;
+  margin-bottom: 30px;
+  border: 2px solid #2e2e2e;
+  background: #dedede;
+  padding: 10px 20px;
+  color: #2e2e2e;
+  width: 200px;
+  text-align: center;
+  text-decoration: none;
+}
+.navButton:hover {
+  text-decoration: none;
+  color: #3d8cde;
+}
+.navButton span:first-child {
+  margin-right: 10px;
+}

@@ -1,0 +1,374 @@
+####
+show title:false;
+####
+
+<%
+# Series/Child Variant v1.0
+# Based off of DAO-LLC Operating Agreement v1.0
+# Original Source: https://app.openlaw.io/template/LLC-DAO%20Operating%20Agreement
+
+# This document is not legal advice.
+
+# Grouping of variables to ensure that variables fields appear under headings.
+
+
+
+==Company Member A==
+[[CompanyMemberA Signatory Email: Identity]]
+[[CompanyMemberA Signatory Title]]
+[[CompanyMemberA Contributions: Collection<Text>]]
+
+==Company Member B==
+[[CompanyMemberB Signatory Email: Identity]]
+[[CompanyMemberB Signatory Title]]
+[[CompanyMemberB Contributions: Collection<Text>]]
+
+
+==Parent Entity==
+[[Company Name: Text("Sprout") "What is the name of the Company (parent)?"]]
+[[Company Suffix: Text("LLC") "How is the limited liability stated at the end of the name?"]]
+[[Company Logo: Image]]
+#Following two for when the Parent LLC is also a hybrid entity
+[[Company Cryptographic Governance Interface Address: Text("https://mainnet.aragon.org/#/sprout.aragonid.eth/")]]
+[[Company TokenAddress: EthAddress("0xd5b0448e27a3269f3203531f83c4c206cce81ee9") "What is parent entity's Ethereum token contract network address?"]]
+[[Company Email: Identity "What is the parent company's executive's email address?"]]
+[[Company Ownership Percentage: Text("10% NON-VOTING") "What is the Company's ownership percentage of the Series LLC?"]]
+
+==Dates and Place==
+[[Effective Date: DateTime]]
+[[State: Text("Wyoming") "In which state is this LLC to be incorporated?"]]
+[[Company Formation Date: DateTime "When was the Parent Company formed?"]]
+# Below is for Series Only
+[[SeriesFormation Date: DateTime "When will Series be formed?"]]
+[[StateBill: Text("Wyoming HB0126") "The act providing for incorporation. (e.g. Wyoming HB0126)"]]
+
+
+==Series==
+[[Series Name: Text("Sprout") "What is the series' legal name?"]]
+[[Series Suffix: Text("1") "What is the identifier suffix for this particular series?"]]
+# In Wyoming, each Child must contain the Parent's name. Sprout's children must be named Sprout [X]
+[[Series DBA: Text("Etherize.It") "What name will the company do business as?"]]
+[[Series Address: Address "What is the Series's address?"]]
+[[Series Logo: Image]]
+[[Series Cryptographic Governance Interface Address: Text("https://mainnet.aragon.org/#/etherize.aragonid.eth/")]]
+[[Series TokenAddress: EthAddress("0x63add339de4c1e60d2369a882d7140392d74feab") "What is parent entity's Ethereum token contract network address?"]]
+
+==Member A==
+[[SeriesMemberA Name: Text("Eric Tristan Ryan Roberts") "What is the name of Member A?"]]
+[[SeriesMemberA Address: Address "What is their address?"]]
+[[SeriesMemberA EthAddress: EthAddress("0x262b4F07e42BBc33F597fcf0d854e9DAFaf3D469") "What is Series Member A's Ethereum blockchain network address?"]]
+[[SeriesMemberA Email: Identity "What is Series Member A's email address?"]]
+[[SeriesMemberA Initial Contribution: Text("1/2 initial Company formation services, ETH Gas costs") "What is Series Member A's initial contribution to Series?"]]
+[[SeriesMemberA Ownership Percentage: Text("30%") "What is A's ownership percentage of Series?"]]
+
+
+==Member B==
+[[SeriesMemberB Name: Text("Yue Bin Dong Roberts") "What is the name of Series Member B?"]]
+[[SeriesMemberB Address: Address "What is B's address?"]]
+[[SeriesMemberB EthAddress: EthAddress("0xf2c95B1A1d24E66F3d796E83Ae0Ed5FD6e98f72f") "What is Series Member B's Ethereum blockchain network address?"]]
+[[SeriesMemberB Email: Identity "What is Series Member B's email address?"]]
+[[SeriesMemberB Initial Contribution: Text("Web hosting") "What is Series Member B's initial contribution to Series?"]]
+[[SeriesMemberB Ownership Percentage: Text("30%") "What is Series Member B's their ownership percentage of Series?"]]
+
+
+
+==Member C==
+[[SeriesMemberC Name: Text("David Murry") "What is the name of Member C?"]]
+[[SeriesMemberC Address: Address "What is Series Member C's address?"]]
+[[SeriesMemberC EthAddress: EthAddress("0xa1687246979b8e68fabD38dFD50A3B4B0863AdEa") "What is Series Member C's Ethereum blockchain network address?"]]
+[[SeriesMemberC Email: Identity "What is Series Member C's email address?"]]
+[[SeriesMemberC Initial Contribution: Text("1/2 Registration Fees") "What is Series Member C's initial contribution of the Series?"]]
+[[SeriesMemberC Ownership Percentage: Text("30%") "What is Series Member C's  ownership percentage of the Series?"]]
+%>
+
+
+{{ Conditional "Question to Prompt User" =>
+  Text to include in an agreement if a user selects 'yes'
+  {{Subconditional1 "Text of Sub-Question 1" => Text}}
+  {{Subconditional2 "Text of Sub-Question 2" => Text}}
+  {{Subconditional3 "Text of Sub-Question 3" => Text}}
+}}
+
+\centered [[Series Logo]]
+
+
+\centered **LIMITED LIABILITY COMPANY OPERATING AGREEMENT**
+\centered **[[Series Name | Uppercase]] [[Series Suffix| Uppercase]] aka [[Series DBA | Uppercase]]**
+
+\centered *A Member-Managed Limited Liability Company*
+\centered *A Series of  [[Parent Name | Uppercase]]*
+
+\centered **[[State | Uppercase]] LLC OPERATING AGREEMENT**
+
+
+
+
+**THIS OPERATING AGREEMENT** is made and entered into effective [[Effective Date]], by and between: [[MemberA Name]], [[MemberB Name]], [[MemberC Name]], and [[Parent Name]] (collectively referred to in this agreement as the "***Members***").
+
+\centered **SECTION 1**
+\centered **THE LIMITED LIABILITY COMPANY**
+
+**1.1 Formation**. Effective [[LLC Formation Date]], the Members form a limited liability company under the name [[Series Name]] [[Series Suffix]] LLC (the "***Company***") on the terms and conditions in this Operating Agreement (the "***Agreement***") and pursuant to Limited Liability Company Law of the State of [[State]] (the "***Act***"). The Members agree to file with the appropriate agency within the State of [[State]] charged with processing and maintaining such records all documentation required for the formation of the Company. The rights and obligations of the parties are as provided in the Act except as otherwise expressly provided in this Agreement.
+
+**1.2 Name**. The business of the Company will be conducted under the name [[Series Name]] [[Series Suffix]] LLC, or [[Series DBA]], or any such other name upon which the Members may unanimously agree and signify through Cryptographic Consensus (*defined below*).
+
+**1.3 Purpose**. The purpose of the Company is to engage in any lawful act or activity for which a Limited Liability Company may be formed within the State of [[State]].
+
+**1.4 Office**. The Company will maintain its principal business office within the State of [[State]] at the following address: [[Series Address]], or at such other places of business or Ethereum blockchain network address(es) as the Members may deem advisable for the conduct of the Company's business.
+
+**1.5 Term**. The term of the Company commences on [[LLC Formation Date]] and shall continue perpetually unless sooner terminated as provided in this Agreement.
+
+**1.6 Names and Addresses of Members**. The Members' names and addresses are attached as *Schedule 1* to this Agreement.
+
+**1.7 Admission of Additional Members**. Except as otherwise expressly provided in this Agreement, no additional members may be admitted to the Company through issuance by the Company of a new interest in the Company without the consent of the Members as signified through Cryptographic Consensus (*defined below*).
+
+\centered **SECTION 2**
+\centered **CAPITAL CONTRIBUTIONS**
+
+**2.1 Initial Contributions**. The Members initially shall contribute to the Company capital as described in *Schedule 2* attached to this Agreement.
+
+**2.2 Additional Contributions**. No Member shall be obligated to make any additional contribution to the Company's capital without the prior unanimous consent of the Members as signified through Cryptographic Consensus (*defined below*).
+
+**2.3 No Interest on Capital Contributions**. Members are not entitled to interest or other compensation for or on account of their capital contributions to the Company except to the extent, if any, expressly provided in this Agreement.
+
+\centered **SECTION 3**
+\centered **ALLOCATION OF PROFITS AND LOSSES; DISTRIBUTIONS**
+
+**3.1 Profits/Losses**. For financial accounting and tax purposes, the Company's net profits or net losses shall be determined on an annual basis and shall be allocated to the Members in proportion to each Member's relative capital interest in the Company as set forth in *Schedule 2* as amended from time to time in accordance with *U.S. Department of the Treasury Regulation 1.704-1*. The parent company does not share in losses.
+
+**3.2 Distributions**. The Members shall determine and distribute available funds annually or at more frequent intervals as they see fit and signify through Cryptographic Consensus (*defined below*). Available funds, as referred to herein, shall mean the net cash and/or cryptocurrency equivalent(s) of the Company available after appropriate provision for expenses and liabilities, as determined by the Members. Distributions in liquidation of the Company or in liquidation of a Member's interest shall be made in accordance with the positive capital account balances pursuant to *U.S. Department of the Treasury Regulation 1.704.1(b)(2)(ii)(b)(2)*. To the extent a Member shall have a negative capital account balance, there shall be a qualified income offset, as set forth in *U.S. Department of the Treasury Regulation 1.704.1(b)(2)(ii)(d)*.
+
+**3.3 No Right to Demand Return of Capital**. No Member has any right to any return of capital or other distribution except as expressly provided in this Agreement. No Member has any drawing account in the Company.
+
+\centered **SECTION 4**
+\centered **INDEMNIFICATION**
+
+The Company shall indemnify any person who was or is a party defendant or is threatened to be made a party defendant, pending or completed action, suit or proceeding, whether civil, criminal, administrative, or investigative (other than an action by or in the right of the Company) by reason of the fact that they are or were a Member of the Company, Manager, employee or agent of the Company, or are or were serving at the request of the Company or Cryptographic Consensus (*defined below*), against expenses (including attorney's fees), judgments, fines, and amounts paid in settlement actually and reasonably incurred in connection with such action, suit or proceeding if the Members determine that they acted in good faith and in a manner they reasonably believed to be in or not opposed to the best interest of the Company, and with respect to any criminal action proceeding, have no reasonable cause to believe their conduct was unlawful. The termination of any action, suit, or proceeding by judgment, order, settlement, conviction, or upon a plea of "no lo Contendere" or its equivalent, shall not in itself create a presumption that the person did or did not act in good faith and in a manner which they reasonably believed to be in the best interest of the Company, and, with respect to any criminal action or proceeding, had reasonable cause to believe that their conduct was lawful.
+
+\centered **SECTION 5**
+\centered **POWERS AND DUTIES OF MANAGERS**
+
+**5.1 Management of Company**.
+
+**5.1.1** The Members, within the authority granted by the Act and the terms of this Agreement and as signified through Cryptographic Consensus (*defined below*), shall have the complete power and authority to manage and operate the Company and make all decisions affecting its business and affairs.
+
+**5.1.2** Except as otherwise provided in this Agreement, all decisions and documents relating to the management and operation of the Company shall be made and executed by a "Majority in Interest" (*Majority*), where such Majority shall be determined by the Members' vote of their respective ERC20 tokenized interests secured by the following Ethereum blockchain network address "*0x[[Membership Token EthAddress]]*" and as signified through the cryptographic governance interface located at: "*[[Series Cryptographic Governance Interface Address]]*" (such determination, "***Cryptographic Consensus***").
+
+**5.1.3** Third parties dealing with the Company shall be entitled to rely conclusively upon the power and authority of a Majority of the Members to manage and operate the business and affairs of the Company as signified through Cryptographic Consensus and any Company operations effected and/or automated thereby.
+
+**5.2 Decisions by Members**. Whenever in this Agreement reference is made to the decision, consent, approval, judgment, or action of the Members, unless otherwise expressly provided in this Agreement, such decision, consent, approval, judgment, or action shall mean a Majority of the Members.
+
+**5.3 Withdrawal by a Member**. A Member has no power to withdraw from the Company, except as otherwise provided in *Section 8*.
+
+\centered **SECTION 6**
+\centered **SALARIES, REIMBURSEMENT, AND PAYMENT OF EXPENSES**
+
+**6.1 Organization Expenses**. All expenses incurred in connection with organization of the Company will be paid by the Company.
+
+**6.2 Salary**. No salary will be paid to a Member for the performance of his or her duties under this Agreement unless the salary has been approved by Majority.
+
+**6.3 Legal and Accounting Services**. The Company may obtain legal and accounting services to the extent reasonably necessary for the conduct of the Company's business.
+
+\centered **SECTION 7**
+\centered **BOOKS OF ACCOUNT, ACCOUNTING REPORTS, TAX RETURNS, FISCAL YEAR, BANKING**
+
+**7.1 Method of Accounting**. The Company will use the method of accounting previously determined by the Members for financial reporting and tax purposes.
+
+**7.2 Fiscal Year; Taxable Year**. The fiscal year and the taxable year of the Company is the calendar year.
+
+**7.3 Capital Accounts**. The Company will maintain a Capital Account for each Member on a cumulative basis in accordance with federal income tax accounting principles.
+
+**7.4 Banking**. All funds of the Company will be deposited in a separate bank account and/or multisignature digital wallet in the name of the Company as determined by Majority.
+
+\centered **SECTION 8**
+\centered **TRANSFER OF MEMBERSHIP INTEREST**
+
+**8.1 Sale or Encumbrance Prohibited**. Except as otherwise permitted in this Agreement, no Member may voluntarily or involuntarily transfer, sell, convey, encumber, pledge, assign, or otherwise dispose of (collectively, "***Transfer***") an interest in the Company without the prior consent of a Majority of the other non-transferring Members determined on a *per capita* basis.
+
+**8.2 Right of First Refusal**. Notwithstanding *Section 8.1*, a Member may transfer all or any part of the Member's interest in the Company (the "***Interest***") as follows:
+
+**8.2.1** The Member desiring to transfer his or her Interest first must provide written notice (the "***Notice***") to the other Members, specifying the price and terms on which the Member is prepared to sell the Interest (the "***Offer***").
+
+**8.2.2** For a period of thirty (30) days after receipt of the Notice, the Members may acquire all, but not less than all, of the Interest at the price and under the terms specified in the Offer. If the other Members desiring to acquire the Interest cannot agree among themselves on the allocation of the Interest among them, the allocation will be proportional to the Ownership Interests of those Members desiring to acquire the Interest.
+
+**8.2.3** Closing of the sale of the Interest will occur as stated in the Offer; provided, however, that the closing will not be less than forty-five (45) days after expiration of the thirty (30) day notice period.
+
+**8.2.4** If the other Members fail or refuse to notify the transferring Member of their desire to acquire all of the Interest proposed to be transferred within the thirty (30) day period following receipt of the Notice, then the Members will be deemed to have waived their right to acquire the Interest on the terms described in the Offer, and the transferring Member may sell and convey the Interest consistent with the Offer to any other person or entity; provided, however, that notwithstanding anything in *Section 8.2* to the contrary, should the sale to a third person be at a price or on terms that are more favorable to the purchaser than stated in the Offer, then the transferring Member must reoffer the sale of the Interest to the remaining Members at that other price or other terms; provided, further, that if the sale to a third person is not closed within six (6) months after the expiration of the thirty (30) day period describe above, then the provisions of *Section 8.2* will again apply to the Interest proposed to be sold or conveyed.
+
+**8.2.5** Notwithstanding the foregoing provisions of *Section 8.2*, should the sole remaining Member be entitled to and elect to acquire all the Interests of the other Members of the Company in accordance with the provisions of *Section 8.2*, the acquiring Member may assign the right to acquire the Interests to a spouse, lineal descendent, or an affiliated entity if the assignment is reasonably believed to be necessary to continue the existence of the Company as a limited liability company.
+
+**8.3 Substituted Parties**. Any transfer in which the Transferee becomes a fully substituted Member is not permitted unless and until:
+
+**8.3.1** The transferor and assignee execute and deliver to the Company the documents and instruments of conveyance necessary or appropriate in the opinion of counsel to the Company to effect the transfer and to confirm the agreement of the permitted assignee to be bound by the provisions of this Agreement; and
+
+**8.3.2** The transferor furnishes to the Company an opinion of counsel, satisfactory to the Company, that the transfer will not cause the Company to terminate for federal income tax purposes or that any termination is not adverse to the Company or the other Members.
+
+**8.4 Death, Incompetency, or Bankruptcy of Member**. On the death, adjudicated incompetence, or bankruptcy of a Member, unless the Company exercises its rights under *Section 8.5*, the successor in interest to the Member (whether an estate, bankruptcy trustee, or otherwise) will receive only the economic right to receive distributions whenever made by the Company and the Member's allocable share of taxable income, gain, loss, deduction, and credit (the "***Economic Rights***") unless and until a majority of the other Members determined on a *per capita* basis admit the transferee as a fully substituted Member in accordance with the provisions of *Section 8.3*.
+
+**8.4.1** Any transfer of Economic Rights pursuant to *Section 8.4* will not include any right to participate in management of the Company, including any right to vote, consent to, and will not include any right to information on the Company or its operations or financial condition. Following any transfer of only the Economic Rights of a Member's Interest in the Company, the transferring Member's power and right to vote or consent to any matter submitted to the Members will be eliminated, and the Ownership Interests of the remaining Members, for purposes only of such votes, consents, and participation in management, will be proportionately increased until such time, if any, as the transferee of the Economic Rights becomes a fully substituted Member.
+
+**8.5 Death Buy Out**. Notwithstanding the foregoing provision of *Section 8*, the Members covenant and agree that on the death of any Member, the Company, at its option, by providing written notice to the estate of the deceased Member within one-hundred eighty (180) days of the death of the Member, may purchase, acquire, and redeem the Interest of the deceased Member in the Company pursuant to the provision of *Section 8.5*.
+
+**8.5.1** The value of each Member's Interest in the Company will be determined within ninety (90) days of execution of this Agreement and signified through Cryptographic Consensus. The value of each Member's Interest will be redetermined unanimously by the Members annually, unless the Members unanimously decide to redetermine those values more frequently. The purchase price for a decedent Member's interest conclusively is the value last determined before the death of such Member; provided, however, that if the latest valuation is more than two years before the death of the deceased Member, the provisions of *Section 8.5.2* will apply in determining the value of the Member's Interest in the Company.
+
+**8.5.2** If the Members have failed to value the deceased Member's Interest within the prior two (2) year period, the value of each Member's Interest in the Company on the date of death, in the first instance, will be determined by mutual agreement of the surviving Members and the personal representative of the estate of the deceased Member. If the parties cannot reach an agreement on the value within thirty (30) days after the appointment of the personal representative of the deceased Member, then the surviving Members and the personal representative each must select a qualified appraiser within the next succeeding thirty (30) days. The appraisers so selected must attempt to determine the value of the Company Interest owned by the decedent at the time of death based solely on their appraisal of the total value of the Company's assets and the amount the decedent would have received had the assets of the Company been sold at that time for an amount equal to their fair market value and the proceeds (after payment of all Company obligations) were distributed in the manner contemplated in *Section 8*. The appraisal may not consider and discount for the sale of a minority Interest in the Company. In the event the appraisers cannot agree on the value within thirty (30) days after being selected, the two appraisers must, within thirty (30) days, select a third appraiser. The value of the Interest of the decedent in the Company and the purchase price of it will be the average of the two appraisals nearest in amount to one another. That amount will be final and binding on all parties and their respective successors, assigns, and representatives. The costs and expenses of the third appraiser and any costs and expenses of the appraiser retained but not paid for by the estate of the deceased Member will be offset against the purchase price paid for the deceased Member's Interest in the Company.
+
+**8.5.3** Closing of the sale of the deceased Member's Interest in the Company will be held at the office of the Company on a date designated by the Company, not be later than ninety (90) days after agreement with the personal representative of the deceased Member's estate on the fair market value of the deceased Member's Interest in the Company; provided, however, that if the purchase price are determined by appraisals as set forth in *Section 8.5.2*, the closing will be thirty (30) days after the final appraisal and purchase price are determined. If no personal representative has been appointed within sixty (60) days after the deceased Member's death, the surviving Members have the right to apply for and have a personal representative appointed.
+
+**8.5.4** At closing, the Company will pay the purchase price for the deceased Member's Interest in the Company. If the purchase price is less than $1,000.00, the purchase price will be paid in cash; if the purchase price is $1,000.00 or more, the purchase price will be paid as follows: (1) $1,000.00 in cash, bank cashier's check, or certified funds; (2) The balance of the purchase price by the Company executing and delivering its promissory note for the balance, with interest at the prime interest rate stated by primary banking institution utilized by the Company, its successors and assigns, at the time of the deceased Member's death. Interest will be payable monthly, with the principal sum being due and payable in three equal annual installments. The promissory note will be unsecured and will contain provisions that the principal sum may be paid in whole or in part at any time, without penalty.
+
+**8.5.5** At the closing, the deceased Member's estate or personal representative must assign to the Company all of the deceased Member's Interest in the Company free and clear of all liens, claims, and encumbrances, and, at the request of the Company, the estate or personal representative must execute all other instruments as may reasonably be necessary to vest in the Company all of the deceased Member's right, title, and interest in the Company and its assets. If either the Company or the deceased Member's estate or personal representative fails or refuses to execute any instrument required by this Agreement, the other party is hereby granted the irrevocable power of attorney which, it is agreed, is coupled with an interest, to execute and deliver on behalf of the failing or refusing party all instruments required to be executed and delivered by the failing or refusing party.
+
+**8.5.6** On completion of the purchase of the deceased Member's Interest in the Company, the Ownership Interests of the remaining Members will increase proportionately to their then existing Ownership Interests.
+
+\centered **SECTION 9**
+\centered **DISSOLUTION AND WINDING UP OF THE COMPANY**
+
+**9.1 Dissolution**. The Company will be dissolved on the happening of any of the following events:
+
+**9.1.1** Sale, transfer, or other disposition of all or substantially all of the property of the Company;
+
+**9.1.2** The agreement of all of the Members;
+
+**9.1.3** By operation of law; or
+
+**9.1.4** The death, incompetence, expulsion, or bankruptcy of a Member, or the occurrence of any event that terminates the continued membership of a Member in the Company, unless there are then remaining at least the minimum number of Members required by law and all of the remaining Members, within one-hundred twenty (120) days after the date of the event, elect to continue the business of the Company.
+
+**9.2 Winding Up**. On the dissolution of the Company (if the Company is not continued), the Members must take full account of the Company's assets and liabilities, and the assets will be liquidated as promptly as is consistent with obtaining their fair value, and the proceeds, to the extent sufficient to pay the Company's obligations with respect to the liquidation, will be applied and distributed, after any gain or loss realized in connection with the liquidation has been allocated in accordance with *Section 3* of this Agreement, and the Members' Capital Accounts have been adjusted to reflect the allocation and all other transactions through the date of the distribution, in the following order:
+
+**9.2.1** To payment and discharge of the expenses of liquidation and of all the Company's debts and liabilities to persons or organizations other than Members;
+
+**9.2.2** To the payment and discharge of any Company debts and liabilities owed to Members; and
+
+**9.2.3** To Members in the amount of their respective adjusted Capital Account balances on the date of distribution; provided, however, that any then outstanding Default Advances (with interest and costs of collection) first must be repaid from distributions otherwise allocable to the Defaulting Member pursuant to *Section 9.2.3*.
+
+\centered **SECTION 10**
+\centered **GENERAL PROVISIONS**
+
+**10.1 Amendments**. Amendments to this Agreement may be proposed by any Member. A proposed amendment will be adopted and become effective as an amendment upon the unanimous consent of the Members as signified through Cryptographic Consensus.
+
+**10.2 Governing Law**. This Agreement and the rights and obligations of the parties under it are governed by and interpreted in accordance with the laws of the State of [[State]] (without regard to principles of conflicts of law).
+
+**10.3 Entire Agreement; Modification**. This Agreement constitutes the entire understanding and agreement between the Members with respect to the subject matter of this Agreement. No agreements, understandings, restrictions, representations, or warranties exist between or among the members other than those in this Agreement or referred to or provided for in this Agreement. No modification or amendment of any provision of this Agreement will be binding on any Member unless in writing and signed by all the Members.
+
+**10.4 Attorney Fees**. In the event of any suit or action to enforce or interpret any provision of this Agreement (or that is based on this Agreement), the prevailing party is entitled to recover, in addition to other costs, reasonable attorney fees in connection with the suit, action, or arbitration, and in any appeals. The determination of who is the prevailing party and the amount of reasonable attorney fees to be paid to the prevailing party will be decided by the court or courts, including any appellate courts, in which the matter is tried, heard, or decided.
+
+**10.5 Further Effect**. The parties agree to execute other documents reasonably necessary to further effect and evidence the terms of this Agreement, as long as the terms and provisions of the other documents are fully consistent with the terms of this Agreement.
+
+**10.6 Severability**. If any term or provision of this Agreement is held to be void or unenforceable, that term or provision will be severed from this Agreement, the balance of the Agreement will survive, and the balance of this Agreement will be reasonably construed to carry out the intent of the parties as evidenced by the terms of this Agreement.
+
+**10.7 Captions**. The captions used in this Agreement are for the convenience of the parties only and will not be interpreted to enlarge, contract, or alter the terms and provisions of this Agreement.
+
+**10.8 Notices**. All notices required to be given by this Agreement will be in writing and will be effective when actually delivered or, if mailed, when deposited as certified mail, postage prepaid, directed to the addresses first shown above for each Member or to such other address as a Member may specify by notice given in conformance with these provisions to the other Members.
+
+\centered [*Signature Page Follows*]
+\pagebreak
+
+**IN WITNESS WHEREOF**, the parties to this Agreement execute this Operating Agreement as of the date and year first above written.
+
+
+**MEMBERS:**
+
+
+[[MemberA Email: Identity | Signature]]
+_______________________
+[[MemberA Name]]
+
+[[MemberB Email: Identity | Signature]]
+_______________________
+[[MemberB Name]]
+[[MemberC Email: Identity | Signature]]
+_______________________
+[[MemberC Name]]
+
+[[Parent Email: Identity | Signature]]
+_______________________
+[[Parent Name]]
+
+\pagebreak
+\centered **Listing of Members - Schedule 1**
+
+\centered **LIMITED LIABILITY COMPANY OPERATING AGREEMENT**
+\centered **FOR [[Series Name | Uppercase]] [[Series Suffix | Uppercase]]  LLC**
+
+\centered **LISTING OF MEMBERS**
+
+As of [[Effective Date]], the following is a list of Members of the Company:
+
+| NAME | ADDRESS |
+| --------- | --------- |
+| [[MemberA Name]] | [[MemberA Address]] |
+| [[MemberB Name]] | [[MemberB Address]] |
+| [[MemberC Name]] | [[MemberC Address]] |
+
+
+ [[Parent Name]]  is located on the Ethereum Network at  [[Parent Token Address]] and its manager/founder may be reached at [[Parent Email]]
+
+
+Authorized by Members to provide Member Listing as of [[Effective Date]].
+
+
+*[[MemberA Email: Identity | Signature]]*
+_______________________
+[[MemberA Name]]
+*0x[[MemberA EthAddress]]*
+
+
+
+*[[MemberB Email: Identity | Signature]]*
+_______________________
+[[MemberB Name]]
+*0x[[MemberB EthAddress]]*
+
+*[[MemberC Email: Identity | Signature]]*
+_______________________
+[[MemberC Name]]
+*0x[[MemberC EthAddress]]*
+
+*[[Parent Email: Identity | Signature]]*
+_______________________
+[[Parent Name]]
+*0x[[Parent Token Address]]*
+
+\pagebreak
+\centered **Listing of Capital Contributions - Schedule 2**
+
+\centered **LIMITED LIABILITY COMPANY OPERATING AGREEMENT**
+\centered **FOR [[Series Name | Uppercase]] [[Series Suffix | Uppercase]] LLC**
+
+\centered **CAPITAL CONTRIBUTIONS**
+
+Pursuant to *ARTICLE 2*, the Members' initial contribution to the Company capital is stated to be $100.00 or the equivalent fair market value in cryptocurrency. The description and each individual portion of this initial contribution is as follows:
+
+| NAME | CONTRIBUTION | OWNERSHIP |
+| --------- | --------- | --------- |
+| [[MemberA Name]] | [[MemberA Initial Contribution]] | [[MemberA Ownership Percentage]] |
+| [[MemberB Name]] | [[MemberB Initial Contribution]] | [[MemberB Ownership Percentage]] |
+| [[MemberC Name]] | [[MemberC Initial Contribution]] | [[MemberC Ownership Percentage]] |
+| [[Parent Name]] | N/A                              | [[Parent Ownership Percentage]] |
+
+
+**SIGNED AND AGREED** as of [[Effective Date]].
+
+
+*[[MemberA Email: Identity | Signature]]*
+_______________________
+[[MemberA Name]]
+*0x[[MemberA EthAddress]]*
+
+
+
+*[[MemberB Email: Identity | Signature]]*
+_______________________
+[[MemberB Name]]
+*0x[[MemberB EthAddress]]*
+
+*[[MemberC Email: Identity | Signature]]*
+_______________________
+[[MemberC Name]]
+*0x[[MemberC EthAddress]]*
+
+*[[Parent Email: Identity | Signature]]*
+_______________________
+[[Parent Name]]
+*0x[[Parent Token Address]]*

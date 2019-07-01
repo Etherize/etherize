@@ -1,0 +1,50 @@
+.banner {
+  height: 120px;
+  text-align: center;
+  background: #333b40;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.bannerHeader {
+  font-size: 50px;
+  font-weight: bold;
+  flex: 1;
+}
+.bannerSub {
+  font-size: 20px;
+  flex: 1;
+}
+
+.footer {
+  height: 100px;
+  background: #8a8a8a;
+}
+.siteWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.contentWrapper {
+  padding: 50px 0;
+}
+
+.navBar {
+  height: 50px;
+  background: #8a8a8a;
+}
+.navBar .navbrand {
+  color: #7dbdff;
+  font-size: 20px;
+  font-weight: bold;
+}
+.navBar a {
+  color: #fff;
+  display: inline-block;
+  padding: 8px 20px;
+
+  text-decoration: none;
+}
+.navBar a:hover, .navBar a.active {
+  color: #7dbdff;
+  text-decoration: none;
+}
