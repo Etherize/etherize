@@ -10,10 +10,10 @@ import { Grid, Button } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
 // configure openlaw
-const URL = "https://app.openlaw.io";
-const TEMPLATE_NAME = "ben-test-agreement";
-const OPENLAW_USER = 'gbsben@gmail.com';
-const OPENLAW_PASSWORD = '7TjAxWupmU;uumXiUo'
+const URL = "https://etherizeit.openlaw.io";
+const TEMPLATE_NAME = "service-argreement-organizer";
+const OPENLAW_USER = 'etherize@protonmail.com';
+const OPENLAW_PASSWORD = 'useresponsibly'
 
 //create config
 const openLawConfig = {
