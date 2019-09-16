@@ -1,0 +1,128 @@
+
+@import url('https://fonts.googleapis.com/css?family=Syncopate:400,700&display=swap');
+
+/** darker than space cadet:
+140C4C 20, 12, 76
+space cadet:
+#2E294E   46, 41, 78, **/
+
+
+.openlaw-form {
+  font-family: 'Syncopate', sans-serif!important;
+  color: RGBA(36, 80, 117, .8);
+  font-size: 1.5rem;
+    max-width: 70%!important;
+    margin: auto;
+}
+
+.openlaw-form::placeholder {
+  color: red!important;
+}
+
+input:not([type=checkbox])
+{
+  border-radius: 7px!important;
+    border: 1px solid #3B83BF!important;
+      color: black;
+
+}
+
+select{
+    border-radius: 7px!important;
+    border: 1px solid #3B83BF!important;
+      color: RGBA(36, 80, 117, .8)!important;
+}
+
+
+.openlaw-form .contract-section>span:first-of-type  {
+  color: RGBA(36, 80, 117, 1);
+    font-size: 2.5rem!important;
+    font-weight: 700!important;
+    padding-top: 10px;
+      font-family: 'NemoyMedium'!important;
+      border-bottom: 3px solid RGBA(36, 80, 117, .8);
+      padding-bottom: 10px;
+}
+
+
+.contentPanel {
+  border-radius: 30px;
+  text-align: center;
+  color: #ffffff;
+  border: 3px solid #0F68DD;
+  -webkit-box-shadow: -5px 5px 3px 0px rgba(20, 12, 76, 0.5);
+  -moz-box-shadow:    -5px 5px 3px 0px rgba(20, 12, 76, 0.5);
+  box-shadow:         -5px 5px 3px 0px rgba(20, 12, 76, 0.5);
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#207cca+2,2989d8+10,2989d8+10,7db9e8+30,7db9e8+70,7db9e8+70,2989d8+90,207cca+100&0.6+0,0.8+15,0.9+25,0.9+75,0.8+85,0.6+100 */
+  background: -moz-linear-gradient(left, rgba(32,124,202,0.6) 0%, rgba(32,124,202,0.63) 2%, rgba(41,137,216,0.73) 10%, rgba(62,149,220,0.8) 15%, rgba(104,173,228,0.9) 25%, rgba(125,185,232,0.9) 30%, rgba(125,185,232,0.9) 70%, rgba(104,173,228,0.9) 75%, rgba(62,149,220,0.8) 85%, rgba(41,137,216,0.73) 90%, rgba(32,124,202,0.6) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(32,124,202,0.6) 0%,rgba(32,124,202,0.63) 2%,rgba(41,137,216,0.73) 10%,rgba(62,149,220,0.8) 15%,rgba(104,173,228,0.9) 25%,rgba(125,185,232,0.9) 30%,rgba(125,185,232,0.9) 70%,rgba(104,173,228,0.9) 75%,rgba(62,149,220,0.8) 85%,rgba(41,137,216,0.73) 90%,rgba(32,124,202,0.6) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(32,124,202,0.6) 0%,rgba(32,124,202,0.63) 2%,rgba(41,137,216,0.73) 10%,rgba(62,149,220,0.8) 15%,rgba(104,173,228,0.9) 25%,rgba(125,185,232,0.9) 30%,rgba(125,185,232,0.9) 70%,rgba(104,173,228,0.9) 75%,rgba(62,149,220,0.8) 85%,rgba(41,137,216,0.73) 90%,rgba(32,124,202,0.6) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99207cca', endColorstr='#99207cca',GradientType=1 ); /* IE6-9 */
+}
+
+.contract-section {
+ /**  color: #245075!important; **/
+}
+
+.content{
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    font-family: 'Play', sans-serif;
+}
+
+.content a {
+  font-size: 1.3em;
+}
+
+.ui.list .list>.item a, .ui.list>.item a {
+  color: white!important;
+  text-shadow: #252622 1px 1px 0;
+}
+
+.contentHeader {
+    color: RGBA(36, 80, 117, .8)!important;
+  border-top-left-radius: 30px!important;
+  border-top-right-radius: 30px!important;
+  border: 2px solid #0C4BB7!important;
+  height: 60px;
+  -webkit-box-shadow: inset 0px 10px 5px 0px rgba(36, 80, 117, 0.5)!important;
+  -moz-box-shadow:    inset 0px 10px 5px 0px rgba(36, 80, 117, 0.5)!important;
+  box-shadow:         inset 0px 10px 5px 0px rgba(36, 80, 117, 0.5)!important;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1e5799+0,207cca+26,2989d8+58,7db9e8+83,2989d8+100&1+0,0.8+100 */
+  background: -moz-linear-gradient(top, rgba(30,87,153,1) 0%, rgba(32,124,202,0.95) 26%, rgba(41,137,216,0.89) 58%, rgba(125,185,232,0.84) 83%, rgba(41,137,216,0.8) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(32,124,202,0.95) 26%,rgba(41,137,216,0.89) 58%,rgba(125,185,232,0.84) 83%,rgba(41,137,216,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(32,124,202,0.95) 26%,rgba(41,137,216,0.89) 58%,rgba(125,185,232,0.84) 83%,rgba(41,137,216,0.8) 100%)!important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#cc2989d8',GradientType=0 ); /* IE6-9 */
+  padding-top: 0px!important;
+  padding-bottom: 0px!important;
+}
+
+/** .contentHeader:hover{
+  text-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 5px #fff, 0 0 8px #ff00de, 0 0 10px #ff00de, 0 0 15px #ff00de, 0 0 20px #ff00de, 0 0 30px #ff00de;
+} **/
+
+.contentHeaderText {
+  font-family: 'Syncopate', sans-serif;
+  line-height: .85;
+    padding-top: 5px;
+    padding-bottom: 25px!important;
+    font-size: 3.4em;
+    position: relative;
+    bottom: -7px;
+    color:  RGBA(36, 80, 117, 1);
+
+text-shadow: 0 0 1px rgba(125,185,232,0.84), 0 0 3px rgba(125,185,232,0.84), 0 0 5px rgba(125,185,232,0.84);
+}
+
+.contentHeaderText:hover {
+  text-shadow: 0 0 1px rgba(125,185,232,1), 0 0 3px rgba(125,185,232,1), 0 0 5px rgba(125,185,232,1);
+}
+
+.header {
+  font-family: 'Syncopate', sans-serif!important;
+}
+
+.contentBuffer {
+  margin-top: 0px!important;
+}

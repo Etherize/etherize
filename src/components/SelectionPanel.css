@@ -1,0 +1,31 @@
+.selectionPanel {
+  width: 100%;
+  margin: auto;
+}
+
+.buttonPadding{
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.subPanel {
+  flex-direction: column;
+}
+
+.draft-gray {
+  color: rgba(12, 22, 32, 1);
+background: rgba(136, 146, 155,1);
+}
+
+.etherize-pink {
+  border: 2px solid  #e03997;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#a52b6e+0,e03997+15,e03997+85,a52b6e+99&0.8+0,1+50,0.8+100 */
+background: -moz-linear-gradient(left, rgba(165,43,110,0.8) 0%, rgba(224,57,151,0.86) 15%, rgba(224,57,151,1) 50%, rgba(224,57,151,0.86) 85%, rgba(165,43,110,0.8) 99%, rgba(165,43,110,0.8) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(165,43,110,0.8) 0%,rgba(224,57,151,0.86) 15%,rgba(224,57,151,1) 50%,rgba(224,57,151,0.86) 85%,rgba(165,43,110,0.8) 99%,rgba(165,43,110,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(165,43,110,0.8) 0%,rgba(224,57,151,0.86) 15%,rgba(224,57,151,1) 50%,rgba(224,57,151,0.86) 85%,rgba(165,43,110,0.8) 99%,rgba(165,43,110,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cca52b6e', endColorstr='#cca52b6e',GradientType=1 ); /* IE6-9 */
+}
+
+.finalize-blue {
+background: rgba( 4, 61, 110, 1);
+}

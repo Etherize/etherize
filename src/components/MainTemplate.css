@@ -1,50 +1,506 @@
+
+/*
+
+
+green /red / purple triad
+
+GB: 186–213–74
+
+RGB [%]: 72.9–83.5–29
+
+97B519
+
+RGB: 151–181–25
+
+RGB [%]: 59.2–71–9.8
+
+6B8500
+
+RGB: 107–133–0
+
+RGB [%]: 42–52.2–0
+
+354200
+
+RGB: 53–66–0
+
+RGB [%]: 20.8–25.9–0
+
+Secondary color #1
+E9A3B7
+
+RGB: 233–163–183
+
+RGB [%]: 91.4–63.9–71.8
+
+C7466B
+
+RGB: 199–70–107
+
+RGB [%]: 78–27.5–42
+
+A91741
+
+RGB: 169–23–65
+
+RGB [%]: 66.3–9–25.5
+
+7C0023
+
+RGB: 124–0–35
+
+RGB [%]: 48.6–0–13.7
+
+3E0012
+
+RGB: 62–0–18
+
+RGB [%]: 24.3–0–7.1
+
+Secondary color #2
+9C84B7
+
+RGB: 156–132–183
+
+RGB [%]: 61.2–51.8–71.8
+
+663C96
+
+RGB: 102–60–150
+
+RGB [%]: 40–23.5–58.8
+
+4A1A7F
+
+RGB: 74–26–127
+
+RGB [%]: 29–10.2–49.8
+
+2F065D
+
+RGB: 47–6–93
+
+RGB [%]: 18.4–2.4–36.5
+
+16012F
+
+RGB: 22–1–47
+
+RGB [%]: 8.6–0.4–18.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pink glow
+  text-shadow: #FFF 0px 0px 2px, #FFF 0px 0px 5px, #FFF 0px 0px 7px, #FF2D95 0px 0px 10px, #FF2D95 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px;
+
+
+pale green
+eaf0aa
+med green
+#bec66d
+dark green
+#a2aa43
+darker green
+3C3F18
+
+3F4418
+licorice
+#1A1C0A
+
+Jet
+#
+
+darker pink
+da4c78
+
+pink
+e566b7
+
+lighter pink
+ed90b5
+
+darker than space cadet:
+140C4C 20, 12, 76
+space cadet:
+#2E294E   46, 41, 78,
+cameo pinkish
+#EFBCD5
+pasatel violet
+BE97C6
+middle blue purple
+#8661C1
+INDEPENDENCE
+#4B5267
+
+
+tinged paper
+#b6a6a9
+salmon
+#927c7f
+friendly tree
+#5b4b4e
+
+light gray
+#6b6c64
+mid gray
+#2a2b28
+'black'
+#16050b
+
+
+pinkish
+#ee2990
+magenta
+  #fc39df
+lilac
+#916ccf
+purp
+#ae2ecf
+darker purp
+#6b35e9
+darkest purp
+3b217c
+
+
+dark blue
+#245075
+RGBA(36, 80, 117, 1)
+
+mid dark blue
+#3B83BF
+blue
+#4DAEFB
+lighter blue
+#7FC5FF
+RGBA(127, 197, 255, 1)
+diamond blue
+#BFE2FF
+191 , 226, 255
+
+*/
+@import url('https://fonts.googleapis.com/css?family=Exo+2:400,700|Play&display=swap');
+@import url('https://fontlibrary.org/face/datalegreya');
+@import url('https://fontlibrary.org/face/ouroboros');
+@import url('https://fontlibrary.org/face/florida-project');
+
+@import url('https://fontlibrary.org/face/nemoy');
+
+/* OPENLAW STUFF */
+
+.playBold {
+  font-weight: 700;
+}
+
+.playNormal {
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 720px) {
+   .disappearMobile{ display: none !important; }
+   .showMobile {display: inline!important;}
+}
+
+
+
+.react-autosuggest__suggestion {
+  background: #7FC5FF;
+}
+
+
+/* WEB STUFF */
+h2 h1 {
+      text-shadow: #2E294E 1px 1px 0;
+
+}
+
+table.ui {
+  background-color: rgba(127, 197, 255, .8)!important;
+  border-radius: 30px!important;
+}
+
+th{
+  background-color: rgba(191 , 226, 255, .7)!important;
+
+  text-align: center!important;
+  font-family: 'syncopate';
+}
+
+.topLeftRadius {
+    border-top-left-radius: 30px!important;
+}
+
+.topRightRadius{
+  border-top-right-radius: 30px!important;
+}
+
+.link{
+  color: black;
+}
+
+.clear {
+  background: rgba(0, 0 , 0, 0)!important;
+}
+
+.root {
+  height: 100%;
+  min-height: 100%;
+}
+
 .banner {
-  height: 120px;
-  text-align: center;
-  background: #333b40;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
+  background: rgba(46, 41, 78, .8)!important;
+  border-bottom: 3px solid #8661C1;
+  display: inline-flex;
+  width: 100%;
+  height: 50px;
 }
-.bannerHeader {
-  font-size: 50px;
-  font-weight: bold;
+
+.flex1 {
   flex: 1;
+  display: inline-flex;
 }
+
+.faded {
+  background: rgba(46, 41, 78, .7)!important;
+}
+
+thead  {
+    background: rgba(41, 137, 216, .2)!important;
+    border: 1px solid transparent!important;
+}
+
+.customButton {
+  border-radius: 30px!important;
+}
+
+.subPanel {
+  background: rgba(191 , 226, 255, .2);
+  border: 2px solid #BFE2FF;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  text-align: center;
+  flex-grow: 1; /* default 0 */
+  display: flex;
+}
+
+.trimmedPanel {
+  width: 80%;
+  margin: 0 auto;
+  font-family: 'Play'!important;
+  font-size: 1.2em!important;
+}
+
+.buttwidth {
+  min-width: 150px;
+}
+
+.lightGreen {
+  color: #eaf0aa;
+}
+
+.midGreen {
+  color: #bec66d;
+}
+
+.darkGreen {
+  color: #a2aa43;
+}
+
+.minnish {
+  min-height: 100px!important;
+}
+
+.finalizePanel{
+  background: rgba(46, 41, 78, .8)!important;
+  border: 2px solid #8661C1;
+  padding-left: 5px!important;
+  padding-right: 5px!important;
+}
+
+.extraPadding {
+  margin-top: 30px!important;
+  padding: 20px!important;
+}
+
+.listText {
+  font-size: 2.1em;
+}
+
+
+
+.contentBuffer {
+  padding-top: 5px!important;
+  margin-top: 40px!important;
+}
+
+.width{
+  min-width: 700px;
+}
+
+.panelText{
+  color: #BFE2FF;
+}
+
+.panelText h2{
+  font-size: 2em;
+}
+
+.panelText a {
+  color: #245075;
+}
+
+.listHeader {
+  background: RGBA(36, 80, 117, .8);
+  border-radius: 20px;
+  padding-top: 5px!important;
+  padding-left: 30px!important;
+  padding-right: 30px!important;
+}
+
+.biggerText{
+  font-size: 2em;
+  text-shadow: #252622 1px 1px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
 .bannerSub {
   font-size: 20px;
   flex: 1;
 }
 
 .footer {
-  height: 100px;
-  background: #8a8a8a;
+   flex: 0 1 50px;
+  background: rgba(46, 41, 78, .8);
+  border-top: 3px solid #8661C1;
 }
 .siteWrapper {
-  display: flex;
+  height: 100vh;
+ display: flex;
   flex-direction: column;
-}
-.contentWrapper {
-  padding: 50px 0;
+  overflow: hidden;
 }
 
-.navBar {
-  height: 50px;
-  background: #8a8a8a;
-}
-.navBar .navbrand {
-  color: #7dbdff;
-  font-size: 20px;
-  font-weight: bold;
-}
-.navBar a {
-  color: #fff;
-  display: inline-block;
-  padding: 8px 20px;
 
-  text-decoration: none;
+
+
+.main {
+  flex: 1;
+  display: flex;
+  height: auto;
 }
-.navBar a:hover, .navBar a.active {
-  color: #7dbdff;
-  text-decoration: none;
+
+.article {
+  -webkit-flex: 1 1 auto;
+  overflow-y: auto!important;
+  min-height: 0px;
+  padding: 2em;
+}
+
+.aside{
+  -webkit-flex: 1 1 auto;
+    overflow-y: auto!important;
+    min-height: 0px;
+  padding: 2em;
+}
+
+.aside {
+  flex: 1;
+}
+
+.article {
+  flex: 2;
+}
+
+
+.scroll {
+  overflow: scroll;
+}
+
+.customCard {
+
+  background: rgba(191 , 226, 255, .8)!important;
+  border: 2px solid #BFE2FF;
+  margin-left: 20px!important;
+  margin-right: 20px!important;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-top-left-radius: 30px!important;
+  border-top-right-radius: 30px!important;
+  border-bottom-left-radius: 30px!important;
+  border-bottom-right-radius: 30px!important;
+  text-align: center;
+}
+
+.createButton {
+  font-family: 'Exo 2'!important;
+  font-weight: 700;
+  border-radius: 30px!important;
+}
+
+.bottomMargin {
+  margin-bottom: 15px!important;
+}
+
+.Entity-Name {
+
+    max-width: 370px!important;
+}
+
+.Jurisdiction {
+
+    max-width: 370px!important;
+}
+
+.Member-Phone {
+
+    max-width: 510px!important;
+}
+.Member-Signature {
+
+    max-width: 370px!important;
+}
+.Member-Name {
+
+    max-width: 370px!important;
+}
+
+.Mail-Address {
+
+    max-width: 500px!important;
+}
+
+.Owner-EthAddress{
+
+    max-width: 500px!important;
+}
+
+select.Entity-Type {
+  max-width: 370px!important;
 }

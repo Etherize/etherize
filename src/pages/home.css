@@ -1,6 +1,12 @@
 
+.contentWrapper{
+  flex: 0 1 auto;
+  min-height: 50px;
+}
+
 .introText {
-  width: 80%;
+  width: 40%;
+  text-align: center;
   border: 1px solid #787878;
   background: #c7c7cc;
   color: #2e2e2e;
@@ -8,13 +14,20 @@
   padding: 20px;
   margin-top: 20px;
   margin-bottom: 40px;
+  flex: 2;
 }
 
-.navWrapper {
+.menu {
+  flex: 1;
   width: 80%;
   margin: auto;
   display: flex;
   flex-direction: column;
+}
+
+.navMenu {
+  flex-direction: row;
+  display:flex;
 }
 
 

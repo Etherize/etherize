@@ -1,0 +1,25 @@
+.topImage {
+  border-top-left-radius: 20px!important;
+}
+
+.bottomImage {
+  border-bottom-left-radius: 20px!important;
+}
+
+.header {
+  text-size: 5em;
+}
+
+.paddingRight{
+  padding-right: 100px;
+}
+
+.fadePadding {
+  margin-right: 200px!important;
+}
+
+
+.roundedImage{
+border-radius: 30px!important;
+border: 3px solid RGBA(36, 80, 117, .8);
+}
