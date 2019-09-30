@@ -1,6 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { Component } from 'react';
 import { Grid, List } from 'semantic-ui-react'
 
 import ContentPanel from '../components/ContentPanel';
@@ -14,8 +12,6 @@ import './home.css';
 class Tools extends Component {
   render() {
     return (
-
-
       <Grid>
         <Grid.Row>
         </Grid.Row>
@@ -99,14 +95,6 @@ class Tools extends Component {
            </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-          <Grid.Column>
-
-          </Grid.Column>
-          <Grid.Column>
-          </Grid.Column>
-          <Grid.Column>
-          </Grid.Column>
-
           </Grid.Row>
         </Grid>
 

@@ -1,44 +1,40 @@
 import React, { Component } from 'react';
-import { Button, Icon, Image, Item, Label } from 'semantic-ui-react'
+import { Button, Icon, Item, Label } from 'semantic-ui-react'
 import ContentPanel from '../components/ContentPanel';
 import {  Link } from 'react-router-dom';
 import "./EntityServices.css";
 
-import portal from '../assets/img/blue-portal2.png';
 import self from '../assets/img/self.webp';
-
 import deconstruct from '../assets/img/deconstruct-beeple.webp';
 import poly from '../assets/img/awaken-giant-beeple.webp';
 
-const paragraph = <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
-
 const EntityServices = () => (
     <ContentPanel  header="SERVICES">
-    <Item.Group divided>
-      <Item>
-        <Item.Image rounded className="topImage" src={poly} />
-        <Item.Content>
-          <Item.Header  class="fadePadding" as='a'>CREATE NEW HYBRID ENTITY</Item.Header>
-          <Item.Meta  class="fadePadding">
-            <span className='cinema'>2 ETH or $400 USD</span>
-          </Item.Meta>
-          <Item.Description  class="fadePadding">
-              Create a Hybrid Entity, capable of traversing the "real world" of court rooms and the virtual worlds of Ethereum and other distributed networks.  <br/> <br/>  Includes Entity Formation, Thirty Minutes of Consultation, and 1 Year of Registered Agent Service. <br/> <br/> Consultation may be used towards generating an Operating Agreement, attaining EIN, or advising you and your lawyer on Hybrid Entities.
-          </Item.Description>
+      <Item.Group divided>
+        <Item>
+          <Item.Image rounded className="topImage" src={poly} />
+          <Item.Content>
+            <Item.Header  class="fadePadding" as='a'>CREATE NEW HYBRID ENTITY</Item.Header>
+            <Item.Meta  class="fadePadding">
+              <span className='cinema'>2 ETH or $400 USD</span>
+            </Item.Meta>
+            <Item.Description  class="fadePadding">
+                Create a Hybrid Entity, capable of traversing the "real world" of court rooms and the virtual worlds of Ethereum and other distributed networks.  <br/> <br/>  Includes Entity Formation, Thirty Minutes of Consultation, and 1 Year of Registered Agent Service. <br/> <br/> Consultation may be used towards generating an Operating Agreement, attaining EIN, or advising you and your lawyer on Hybrid Entities.
+            </Item.Description>
 
-          <Item.Extra>
-            <Link to="/create">
-            <Button  className="big pink buttwidth" floated='right'>
-              Create
-              <Icon name='right chevron' />
-            </Button>
-            </Link>
-              <Label>Wyoming, Maine, Delaware</Label>
-              <Label> LLC, Series LLC, or Non-Profit</Label>
-              <Label>Ethereum (Rinkeby)</Label>
-          </Item.Extra>
-        </Item.Content>
-      </Item>
+            <Item.Extra>
+              <Link to="/create">
+              <Button  className="big pink buttwidth pillButton" floated='right'>
+                Create
+                <Icon name='right chevron' />
+              </Button>
+              </Link>
+                <Label>Wyoming, Maine, Delaware</Label>
+                <Label> LLC, Series LLC, or Non-Profit</Label>
+                <Label>Ethereum (Rinkeby)</Label>
+            </Item.Extra>
+          </Item.Content>
+        </Item>
 
       <Item>
         <Item.Image rounded src={self} />
@@ -59,7 +55,7 @@ const EntityServices = () => (
           <Item.Extra>
 
           <Link to="/adopt">
-          <Button  className="big blue buttwidth" floated='right'>
+          <Button  className="big blue buttwidth pillButton" floated='right'>
             Adopt
             <Icon name='right chevron' />
           </Button>
@@ -90,7 +86,7 @@ const EntityServices = () => (
           <Label>Any Blockchain</Label>
 
           <Link to="/draft">
-          <Button  className="big white buttwidth" floated='right'>
+          <Button  className="big white buttwidth pillButton" floated='right'>
             Draft
             <Icon name='right chevron' />
           </Button>
