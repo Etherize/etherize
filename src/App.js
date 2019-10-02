@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react';
+import React, { } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 // font awesome library and initiation
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -9,7 +9,7 @@ import './App.css';
 import Home from './pages/home';
 import Create from './pages/create';
 import Tools from './pages/tools';
-import Vision from './pages/vision';
+// import Vision from './pages/vision';
 import Contact from './pages/contact';
 import Adopt from './pages/adopt';
 

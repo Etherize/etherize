@@ -1,12 +1,6 @@
-import React, { Component, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import mountain from '../assets/img/mountain-portal.jpg'
-import ice from '../assets/img/ice-pool-beeple.webp'
-import { Accordion, Button, Grid, Portal, Segment, Header, Form, Divider } from 'semantic-ui-react';
+import React, { Component} from 'react';
+import { Grid } from 'semantic-ui-react';
 import EntityServices from '../components/EntityServices.js';
-
 import './home.css';
 
 

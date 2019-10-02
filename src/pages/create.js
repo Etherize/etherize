@@ -1,6 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { } from 'react';
 // import openlaw
 import { APIClient, Openlaw } from "openlaw";
 import OpenLawForm from "openlaw-elements";
@@ -32,8 +30,6 @@ class Create extends React.Component {
 
 
   render() {
-    const { open, dimmer } = this.state
-
     return (
         <React.Fragment>
           <HeavenlyInterface templateName={'Formation Service Agreement'}/>

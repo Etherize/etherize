@@ -1,16 +1,19 @@
 
 
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .main {
     flex-direction: column;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 }
 
 body > #root > div {
   height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
-
 
 
 .App {
@@ -26,6 +29,8 @@ body > #root > div {
   height: 100%;
   z-index: 9999;
   min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .App-logo {

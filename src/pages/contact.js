@@ -1,21 +1,7 @@
-import React, { Component, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Grid, List, Button, Icon } from 'semantic-ui-react';
-import mountain from '../assets/img/mountain-portal.jpg';
+import React, { Component } from 'react';
+import { Grid, List, Icon } from 'semantic-ui-react';
 import ContentPanel from '../components/ContentPanel';
 import './home.css';
-
-
-
-function IntroText() {
-  return (
-    <div className="introText">
-      <p>Reach out, gain more.</p>
-    </div>
-  );
-}
-
 
 
 class Contact extends Component {

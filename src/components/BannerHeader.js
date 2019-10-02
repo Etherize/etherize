@@ -1,6 +1,6 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { } from 'react';
 
-import { Grid, Menu, Sticky, Button } from 'semantic-ui-react';
+import { Grid, Sticky, Button } from 'semantic-ui-react';
 import "./BannerHeader.css";
 import {   NavLink} from 'react-router-dom';
 

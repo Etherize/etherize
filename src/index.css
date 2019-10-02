@@ -1,9 +1,9 @@
 body {
-  backgroundImage: 'assets/img/ice-pool-beeple.webp'!important;
-  backgroundPosition: 'center';
-  backgroundSize: 'cover';
-  backgroundRepeat: 'no-repeat';
-  backgroundAttachment: 'fixed';
+  /*backgroundImage: 'assets/img/ice-pool-beeple.webp'!important;*/
+  /*backgroundPosition: 'center';*/
+  /*backgroundSize: 'cover';*/
+  /*backgroundRepeat: 'no-repeat';*/
+  /*backgroundAttachment: 'fixed';*/
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -14,9 +14,8 @@ body {
   min-height: 100%;
 }
 
-html, body, #app, #app>div, root, {
+html, body, #app, #app>div, root{
   height: 100%;
-
 }
 
 code {

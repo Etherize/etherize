@@ -1,19 +1,18 @@
-import React, { Component, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useState, useEffect } from 'react';
+// import { Link } from 'react-router-dom';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import openlaw
 import { APIClient, Openlaw } from "openlaw";
 import OpenLawForm from "openlaw-elements";
 import ice from '../assets/img/ice-pool-beeple.webp'
 import AgreementPreview from "../components/AgreementPreview";
-import SelectionPanel from "../components/SelectionPanel";
-import SubPanel from "../components/SubPanel";
+// import SelectionPanel from "../components/SelectionPanel";
+// import SubPanel from "../components/SubPanel";
 import "openlaw-elements/dist/openlaw-elements.min.css";
 import "./HeavenlyInterface.css";
 // importing UI components
 import { Grid, Button, Accordion, Icon, Loader, Image, Card, Placeholder, Ref, Container, Divider, Segment, Header, Search } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
-import _ from 'lodash'
 // configure openlaw
 const URL = "https://etherizeit.openlaw.io";
 // You can change TEMPLATE_NAME to 'articles-of-organization' to make the code work ...

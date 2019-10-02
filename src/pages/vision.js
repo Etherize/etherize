@@ -1,7 +1,5 @@
-import React, { Component, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Rail, Grid} from 'semantic-ui-react';
+import React, { Component } from 'react';
+import { Grid} from 'semantic-ui-react';
 import mountain from '../assets/img/mountain-portal.jpg'
 
 import './home.css';
@@ -53,23 +51,23 @@ function Content() {
 
   );
 }
-
-function NavButton(props) {
-  const [icon, setIcon] = useState('coffee');
-  const [text, setText] = useState('Button');
-  const [to, setTo] = useState('/');
-  useEffect(() => {
-    setIcon(props.icon);
-    setText(props.text);
-    setTo(props.to);
-  }, [props.icon, props.text, props.to]);
-  return (
-    <Link to={to} className="navButton">
-      <span>{<FontAwesomeIcon icon={icon} />}</span>
-      <span>{text}</span>
-    </Link>
-  );
-}
+//
+// function NavButton(props) {
+//   const [icon, setIcon] = useState('coffee');
+//   const [text, setText] = useState('Button');
+//   const [to, setTo] = useState('/');
+//   useEffect(() => {
+//     setIcon(props.icon);
+//     setText(props.text);
+//     setTo(props.to);
+//   }, [props.icon, props.text, props.to]);
+//   return (
+//     <Link to={to} className="navButton">
+//       <span>{<FontAwesomeIcon icon={icon} />}</span>
+//       <span>{text}</span>
+//     </Link>
+//   );
+// }
 
 class Vision extends Component {
   render() {
