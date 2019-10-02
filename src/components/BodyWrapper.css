@@ -3,8 +3,10 @@
 .bodyWrapper {
   flex: 1 1 auto;
   overflow: scroll;
+    overflow-x: hidden;
   display: flex;
- flex-flow: column;
- height: 100%;
- padding-bottom: 200px;
+  flex-flow: column;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 200px;
 }

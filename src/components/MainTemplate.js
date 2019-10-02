@@ -30,13 +30,13 @@ render() {
   return (
 
     <div className="Background" style={{
-       backgroundImage: `url(${ice})`,
-       backgroundPosition: 'center',
-       backgroundSize: 'cover',
-       backgroundRepeat: 'no-repeat',
-       backgroundAttachment: 'fixed',
-       height: '100%!important',
-     }}>
+        backgroundImage: `url(${ice})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        height: '100%!important',
+    }}>
 
 
      <BannerHeader/>

@@ -33,22 +33,22 @@
 /*}*/
 
 
-.navButton {
-  display: inline-block;
-  margin: auto;
-  margin-bottom: 30px;
-  border: 2px solid #2e2e2e;
-  background: #dedede;
-  padding: 10px 20px;
-  color: #2e2e2e;
-  width: 200px;
-  text-align: center;
-  text-decoration: none;
-}
-.navButton:hover {
-  text-decoration: none;
-  color: #3d8cde;
-}
-.navButton span:first-child {
-  margin-right: 10px;
-}
+/*.navButton {*/
+/*  display: inline-block;*/
+/*  margin: auto;*/
+/*  margin-bottom: 30px;*/
+/*  border: 2px solid #2e2e2e;*/
+/*  background: #dedede;*/
+/*  padding: 10px 20px;*/
+/*  color: #2e2e2e;*/
+/*  width: 200px;*/
+/*  text-align: center;*/
+/*  text-decoration: none;*/
+/*}*/
+/*.navButton:hover {*/
+/*  text-decoration: none;*/
+/*  color: #3d8cde;*/
+/*}*/
+/*.navButton span:first-child {*/
+/*  margin-right: 10px;*/
+/*}*/
