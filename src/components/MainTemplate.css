@@ -400,12 +400,12 @@ thead  {
   background: rgba(46, 41, 78, .8);
   border-top: 3px solid #8661C1;
 }
-.siteWrapper {
-  height: 100vh;
- display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
+/*.siteWrapper {*/
+/*  height: 100vh;*/
+/* display: flex;*/
+/*  flex-direction: column;*/
+/*  overflow: hidden;*/
+/*}*/
 
 
 
@@ -413,7 +413,7 @@ thead  {
 .main {
   flex: 1;
   display: flex;
-  height: auto;
+  height: 100%;
 }
 
 .article {

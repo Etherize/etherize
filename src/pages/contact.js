@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Grid, List, Icon } from 'semantic-ui-react';
+import {Grid, List, Icon} from 'semantic-ui-react';
 import ContentPanel from '../components/ContentPanel';
-import './home.css';
 
 
 class Contact extends Component {
@@ -29,21 +28,15 @@ class Contact extends Component {
                    />
                  </List>
             </ContentPanel>
+
            </Grid.Column>
             <Grid.Column  only='tablet computer' computer={5} tablet={1}>
            </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-          <Grid.Column>
-
-          </Grid.Column>
-          <Grid.Column>
-          </Grid.Column>
-          <Grid.Column>
-          </Grid.Column>
 
           </Grid.Row>
-        </Grid>
+      </Grid>
     );
   }
 }

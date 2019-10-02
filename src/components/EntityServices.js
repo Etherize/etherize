@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import { Button, Icon, Image, Item, Label } from 'semantic-ui-react'
+import React, { } from 'react';
+import { Button, Icon, Item, Label } from 'semantic-ui-react'
 import ContentPanel from '../components/ContentPanel';
 import {  Link } from 'react-router-dom';
 import "./EntityServices.css";
 
-import portal from '../assets/img/blue-portal2.png';
+// import portal from '../assets/img/blue-portal2.png';
 import self from '../assets/img/self.webp';
 
 import deconstruct from '../assets/img/deconstruct-beeple.webp';
 import poly from '../assets/img/awaken-giant-beeple.webp';
 
-const paragraph = <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
+// const paragraph = <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
 
 const EntityServices = () => (
     <ContentPanel  header="SERVICES">
