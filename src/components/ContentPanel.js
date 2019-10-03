@@ -1,11 +1,8 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import "./ContentPanel.css";
 
 
 export default class ContentPanel extends React.Component {
-
-
-
   render () {
     return (
       <div className="ui contentPanel ">

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {Grid, List, Icon} from 'semantic-ui-react';
 import ContentPanel from '../components/ContentPanel';
 
-
 class Contact extends Component {
   render() {
     return (
@@ -11,10 +10,8 @@ class Contact extends Component {
         </Grid.Row>
         <Grid.Row>
           <Grid.Column only='tablet computer' computer={5} tablet={1}>
-
           </Grid.Column>
           <Grid.Column  computer={6} tablet={14} mobile={16}>
-
             <ContentPanel   header="CONTACT">
                 <List className="contentBuffer">
                   <List.Item className="listText"
@@ -37,6 +34,7 @@ class Contact extends Component {
 
           </Grid.Row>
       </Grid>
+
     );
   }
 }

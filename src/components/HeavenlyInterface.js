@@ -1,23 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { } from 'react';
 // import { Link } from 'react-router-dom';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import openlaw
 import { APIClient, Openlaw } from "openlaw";
 import OpenLawForm from "openlaw-elements";
-import ice from '../assets/img/ice-pool-beeple.webp'
 import AgreementPreview from "../components/AgreementPreview";
 // import SelectionPanel from "../components/SelectionPanel";
 // import SubPanel from "../components/SubPanel";
 import "openlaw-elements/dist/openlaw-elements.min.css";
 import "./HeavenlyInterface.css";
 // importing UI components
-import { Grid, Button, Accordion, Icon, Loader, Image, Card, Placeholder, Ref, Container, Divider, Segment, Header, Search } from 'semantic-ui-react';
+import { Grid, Button, Loader, Card, Container  } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 // configure openlaw
 const URL = "https://etherizeit.openlaw.io";
 // You can change TEMPLATE_NAME to 'articles-of-organization' to make the code work ...
 // Right now, both deal templates on Etherizeit instance are causing the same issue
-const TEMPLATE_NAME = "";
 const OPENLAW_USER = 'etherize@protonmail.com';
 const OPENLAW_PASSWORD = 'useresponsibly'
 
@@ -62,7 +60,6 @@ export default class HeavenlyInterface extends React.Component {
    };
 
    const apiClient = new APIClient(openLawConfig.server);
-
    console.log(openLawConfig.userName);
    //const { web3, accounts, contract } = this.props;
    //create an instance of the API client with url as parameter
@@ -89,7 +86,7 @@ export default class HeavenlyInterface extends React.Component {
    console.log("versions..", versions[0], versions.length);
 
    const title = template.title;
-   const id = template.id;
+
 
 
    //Get my compiled Template, for use in rendering the HTML in previewTemplate
@@ -252,12 +249,19 @@ export default class HeavenlyInterface extends React.Component {
    );
  };
 
-
-
  sendContract = async () => {
    alert("Not yet enabled. Waiting for OpenLaw to fix their Deal feature, to issue multiple Contracts at once. ")
  };
 
+
+ payFiat = async () => {
+    alert("Pay Fiat is not yet enabled.")
+ }
+
+
+ payCrypto = async () => {
+   alert("Pay Crypto is not yet enabled.")
+ }
 
 
  onSubmit = async () => {
@@ -276,7 +280,6 @@ export default class HeavenlyInterface extends React.Component {
            openLawConfig.userName,
            openLawConfig.password
          );
-
 
          const OPENLAW_JWT = token.headers.openlaw_jwt;
 
@@ -361,7 +364,7 @@ export default class HeavenlyInterface extends React.Component {
 
                { this.state.showReview ? null
                  :
-                 <Button id="generateButton" className="huge pink ui right labeled icon button createButton bottomMargin " onClick={this.setTemplatePreview}>Generate Formation Agreement<i className="play icon"></i></Button>
+                 <Button id="generateButton" className="huge pink ui right labeled icon button pillButton bottomMargin " onClick={this.setTemplatePreview}>Generate Agreement<i className="play icon"></i></Button>
                }
 
 
@@ -397,26 +400,64 @@ export default class HeavenlyInterface extends React.Component {
     </Card.Content>
     <Card.Content extra>
       <div  onClick={this.sendDraft} className='ui one buttons'>
-        <Button big color='blue' className='large createButton draftButton'>
+        <Button big color='blue' className='large pillButton draftButton'>
           Save Draft
         </Button>
       </div>
     </Card.Content>
   </Card>
+
   <Card className="customCard">
     <Card.Content>
 
-      <Card.Header>MAKE IT SO!</Card.Header>
-      <Card.Meta>Issue Formation Agreement</Card.Meta>
+      <Card.Header>Pay Fiat</Card.Header>
+      <Card.Meta></Card.Meta>
       <Card.Description>
-        <p>You will receive an e-mail requesting your signature to authorize 'Etherize Entities' to begin Forming Entity. </p>
-        <p>No Payment is due until data is Verified.</p>
+
       </Card.Description>
     </Card.Content>
     <Card.Content extra>
       <div className='ui one buttons'>
-        <Button   onClick={this.onSubmit} color='pink' className='large createButton'>
-          Create Entity
+        <Button   onClick={this.payFiat} color='green' className='large pillButton'>
+          Pay Fiat
+        </Button>
+      </div>
+    </Card.Content>
+  </Card>
+
+  <Card className="customCard">
+    <Card.Content>
+
+      <Card.Header>Pay Crypto</Card.Header>
+      <Card.Meta></Card.Meta>
+      <Card.Description>
+
+      </Card.Description>
+    </Card.Content>
+    <Card.Content extra>
+      <div className='ui one buttons'>
+        <Button   onClick={this.payCrypto} color='purple' className='large pillButton'>
+          Pay Crypto
+        </Button>
+      </div>
+    </Card.Content>
+  </Card>
+
+
+  <Card className="customCard">
+    <Card.Content>
+
+      <Card.Header>LET'S DO IT</Card.Header>
+      <Card.Meta>Issue Formation Agreement</Card.Meta>
+      <Card.Description>
+        <p>You will receive an e-mail requesting autorization for 'Etherize Entities' to Form Entity on your behalf. </p>
+        <p>No Payment is due until Entity's viability is Verified.</p>
+      </Card.Description>
+    </Card.Content>
+    <Card.Content extra>
+      <div className='ui one buttons'>
+        <Button   onClick={this.onSubmit} color='pink' className='large pillButton'>
+          Pay Later
         </Button>
       </div>
     </Card.Content>

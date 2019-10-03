@@ -191,12 +191,20 @@ diamond blue
 #BFE2FF
 191 , 226, 255
 
+
+metallic blue Series
+light white blue
+#ebfafc
+light blue
+#78d0fc
+strong blue
+#3d6f89
+grand blue
+#0c3a44
+
+
 */
 @import url('https://fonts.googleapis.com/css?family=Exo+2:400,700|Play&display=swap');
-@import url('https://fontlibrary.org/face/datalegreya');
-@import url('https://fontlibrary.org/face/ouroboros');
-@import url('https://fontlibrary.org/face/florida-project');
-
 @import url('https://fontlibrary.org/face/nemoy');
 
 /* OPENLAW STUFF */
@@ -458,10 +466,26 @@ thead  {
   text-align: center;
 }
 
-.createButton {
+.pillButton {
   font-family: 'Exo 2'!important;
   font-weight: 700;
   border-radius: 30px!important;
+  box-shadow: 5px 10px #888888;
+}
+
+.pillButton.pink:hover {
+  text-shadow: #002e4d 1px 1px 0!important;
+ box-shadow: 0 3px 5px rgba(0, 153, 255, 1)!important;
+}
+
+.pillButton.blue:hover {
+  text-shadow: #ee2990 1px 1px 0!important;
+ box-shadow: 0 3px 5px #fc39df!important;
+}
+
+.pillButton.white:hover {
+  text-shadow: #eeeeee 1px 1px 0!important;
+ box-shadow: 0 3px 5px #ffffff!important;
 }
 
 .bottomMargin {

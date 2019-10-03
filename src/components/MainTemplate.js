@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './MainTemplate.css';
 import BodyWrapper from '../components/BodyWrapper';
 import BannerHeader from '../components/BannerHeader';
@@ -8,7 +9,6 @@ import ice from '../assets/img/ice-pool-beeple.webp';
 
 
 export default class MainTemplate   extends Component  {
-
 //
 // Navbar() {
 //   return (
@@ -48,4 +48,5 @@ render() {
 
   );
 }
+
 }

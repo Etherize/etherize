@@ -1,5 +1,5 @@
 import React, { } from 'react';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // font awesome library and initiation
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -12,12 +12,12 @@ import Tools from './pages/tools';
 // import Vision from './pages/vision';
 import Contact from './pages/contact';
 import Adopt from './pages/adopt';
+import Registry from './pages/registry';
 
 library.add(fas);
 
-
-
 function App() {
+
   return (
         <Router>
           <Template>
@@ -26,6 +26,7 @@ function App() {
               <Route path='/create' component={Create} />
               <Route path='/tools' component={Tools} />
               <Route path='/adopt' component={Adopt} />
+              <Route path='/registry' component={Registry} />
               <Route path='/contact' component={Contact} />
               <Route path='/draft' component={() => {
                    window.location.href = 'https://etherizeit.openlaw.io/template/deal-entity';

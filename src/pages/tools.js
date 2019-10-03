@@ -7,8 +7,6 @@ import './home.css';
 class Tools extends Component {
   render() {
     return (
-
-
       <Grid>
         <Grid.Row>
         </Grid.Row>
@@ -92,14 +90,6 @@ class Tools extends Component {
            </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-          <Grid.Column>
-
-          </Grid.Column>
-          <Grid.Column>
-          </Grid.Column>
-          <Grid.Column>
-          </Grid.Column>
-
           </Grid.Row>
         </Grid>
 
