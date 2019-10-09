@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // importing UI components
 import { Button, Image, Header, Modal, Icon } from 'semantic-ui-react';
-import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstrap/Col';
+// import Form from 'react-bootstrap/Form';
+// import Col from 'react-bootstrap/Col';
 
 
 export class ModalSelector   extends Component  {
