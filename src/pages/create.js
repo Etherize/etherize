@@ -3,7 +3,7 @@ import React, { } from 'react';
 import HeavenlyInterface from "../components/HeavenlyInterface";
 import "openlaw-elements/dist/openlaw-elements.min.css";
 import 'semantic-ui-css/semantic.min.css';
-
+// import './create.css'
 
 
 class Create extends React.Component {

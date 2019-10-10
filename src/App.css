@@ -13,6 +13,21 @@ body > #root > div {
 }
 
 
+
+:root{
+  --primary-color: RGBA(36, 80, 117, .8);
+  --primary-color-trans: RGBA(36, 80, 117, .3);
+  --primary-contrast: white;
+  --text-background: #7A71A9;
+  --text: white;
+  --partial-transparent:RGBA(122, 113, 169, .4);
+  --ornate-font: 'Exo 2';
+
+}
+
+
+
+
 .App {
   text-align: center;
 }

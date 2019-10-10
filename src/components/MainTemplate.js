@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './MainTemplate.css';
+
 import BodyWrapper from '../components/BodyWrapper';
 import BannerHeader from '../components/BannerHeader';
-import ice from '../assets/img/ice-pool-beeple.webp';
-
-
-
+import './MainTemplate.css';
 
 export default class MainTemplate   extends Component  {
 //
@@ -28,23 +24,13 @@ export default class MainTemplate   extends Component  {
 
 render() {
   return (
-
-    <div className="Background" style={{
-        backgroundImage: `url(${ice})`,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed',
-        height: '100%!important',
-    }}>
-
-
-     <BannerHeader/>
-
+      <div className={"mainBackground"}>
+      <BannerHeader/>
       <BodyWrapper>
         {this.props.children}
       </BodyWrapper>
-    </div>
+      </div>
+
 
   );
 }

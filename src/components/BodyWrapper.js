@@ -8,7 +8,7 @@ export default class BodyWrapper extends React.Component {
 
   render () {
     return (
-        <div className="ui bodyWrapper ">
+        <div className="bodyWrapper ">
           {this.props.children}
         </div>
     );

@@ -7,6 +7,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "html-react-parser": "^0.9.1",
+    "mdbreact": "^4.21.0",
     "openlaw": "^0.2.5",
     "openlaw-elements": "^1.0.0-beta.19",
     "react": "^16.8.6",

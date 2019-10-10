@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
 
-
 @media only screen and (max-width: 500px) {
 .hideOnSmallDesktop {
   display: none!important;
@@ -8,11 +7,14 @@
 }
 
 
-
+.navbar{
+  background-color: var(--primary-color-trans);
+  min-height: 6em;
+}
 
 .subTitle{
     font-family: 'Exo 2';
-    font-size: 2vw;
+    font-size: 2em;
     text-shadow: #140C4C 2px 2px 0;
     color: #FFFFFF;
     margin-bottom: 0px;
@@ -22,11 +24,7 @@
     text-shadow: #2E294E 2px 2px 0;
 }
 
-.subSubTitle {
-  margin-top: 0px;
-  margin-left: 85px;
-  font-size: 1vw;
-}
+
 
 .banner {
   min-height: 70px;
@@ -194,7 +192,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99207cca', e
 .logoText {
   color: #FFFFFF;
   font-family: 'NemoyMedium';
-  font-size: 5vmin;
+  font-size: 4vmin;
   padding-left: 18px;
   padding-right: 18px;
   margin-left: 43px;

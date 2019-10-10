@@ -1,51 +1,74 @@
 import React, { } from 'react';
-import { Grid, Sticky, Button, Menu } from 'semantic-ui-react';
-import "./BannerHeader.css";
-import { NavLink} from 'react-router-dom';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
+import './BannerHeader.css'
+import {
+
+    MDBNavbar,
+    MDBNavbarBrand,
+    MDBNavbarNav,
+    MDBNavItem,
+    MDBNavLink,
+    MDBNavbarToggler,
+    MDBCollapse,
+
+} from "mdbreact";
 
 export default class BannerHeader extends React.Component {
+    state = {
+        collapseID: ""
+    };
+
+    toggleCollapse = collapseID => () =>
+        this.setState(prevState => ({
+            collapseID: prevState.collapseID !== collapseID ? collapseID : ""
+        }));
 
   render () {
     return (
-      <div className="banner fullWidth">
-        <Sticky className="fullWidth">
-            <Grid verticalAlign='middle'  columns={3}  className="bannerGrid fullWidth"  centered>
-                  <Grid.Column  floated='left' computer={5} only='computer' className="pill ">
-                      <NavLink className="logoText" activeClassName="activeHeader" exact to="/">Etherize</NavLink>
-                  </Grid.Column>
-                  <Grid.Column  floated='right' className="hideOnSmallDesktop" only='computer' width={4}>
-                      <h1 className="subTitle "> Hybrid Entity Portal</h1>
-                      <h4 className=" subSubTitle"><i>V.01: "Experimental AF" </i></h4>
-                  </Grid.Column>
-                  <Grid.Column only='computer'  floated='left'  width={7}>
-                    <Grid>
-                      <Grid.Row  floated='left'   columns={2}>
-                      <Grid.Column>
-                        <NavLink as={Button} className="fancyButton biggerButton "  activeClassName=" activeLink" to={"/create"}><a class="nudge">CREATE</a></NavLink>
-                        <NavLink as={Button} className="fancyButton biggerButton "  activeClassName=" activeLink" to={"/registry"}><a class="nudge">REGISTRY</a></NavLink>
+        <main>
+        <header>
 
-                        <NavLink as={Button} className="fancyButton biggerButton "  activeClassName=" activeLink" to={"/tools"}><a class="nudge">TOOLS</a></NavLink>
-                        <NavLink as={Button} className="fancyButton biggerButton "  activeClassName=" activeLink" to={"/contact"}><a class="nudge">CONTACT</a></NavLink>
-                      </Grid.Column>
-                      </Grid.Row>
-                      </Grid>
-                  </Grid.Column>
+            <MDBNavbar
+                dark
+                expand="md"
+                scrolling
+            >
+                    <MDBNavbarBrand href={"/"}>
+                        <strong className="logoText">ETHERIZE</strong>
+                    </MDBNavbarBrand>
+                    <MDBNavbarToggler
+                        onClick={this.toggleCollapse("navbarCollapse1")}
+                    />
+                    <MDBCollapse
+                        id="navbarCollapse1"
+                        isOpen={this.state.collapseID}
+                        navbar
+                    >
+                        <MDBNavbarNav left>
+                            <MDBNavItem className={"subTitle"}>
+                                <MDBNavLink to="/create">Create</MDBNavLink>
+                            </MDBNavItem>
+                            <MDBNavItem className={"subTitle"}>
+                                <MDBNavLink to="/registry">Registry</MDBNavLink>
+                            </MDBNavItem>
+                            <MDBNavItem className={"subTitle"}>
+                                <MDBNavLink to="/tools">Tools</MDBNavLink>
+                            </MDBNavItem>
+                            <MDBNavItem className={"subTitle"}>
+                                <MDBNavLink to="/contact">Contact</MDBNavLink>
+                            </MDBNavItem>
+                        </MDBNavbarNav>
+
+                    </MDBCollapse>
+            </MDBNavbar>
 
 
+        </header>
+        </main>
 
-                  <Grid.Row centered floated='left' columns={2} only='mobile tablet'>
-                      <Grid.Column>
-                      <NavLink className="logoText" activeClassName="activeHeader" exact to="/">Etherize</NavLink>
-                      </Grid.Column>
-                      <Grid.Column className='navColumn'>
-                            <NavLink as={Menu.Item} className="fancyButton biggerButton"  activeClassName=" activeLink" to={"/create"}><a class="nudge3">CREATE</a></NavLink>
-                            <NavLink as={Menu.Item} className="fancyButton biggerButton"  activeClassName=" activeLink" to={"/tools"}><a class="nudge3">TOOLS</a></NavLink>
-                            <NavLink as={Menu.Item} className="fancyButton biggerButton"  activeClassName=" activeLink" to={"/contact"}><a class="nudge3">CONTACT</a></NavLink>
-                      </Grid.Column>
-                    </Grid.Row>
-              </Grid>
-          </Sticky>
-      </div>
      )
   }
+
 }

@@ -2,3 +2,13 @@
   width: 500px;
   margin: auto;
 }
+
+.mainBackground{
+
+  background-image:  url('../assets/img/floral.jpg');
+  background-size:  cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+
+}

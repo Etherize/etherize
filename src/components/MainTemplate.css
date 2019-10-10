@@ -230,6 +230,12 @@ grand blue
 
 
 /* WEB STUFF */
+.mainBackground{
+  background-size: cover;
+  background: url('../assets/img/floral.jpg') no-repeat fixed center;
+  height: 100%!important;
+}
+
 h2 h1 {
       text-shadow: #2E294E 1px 1px 0;
 
