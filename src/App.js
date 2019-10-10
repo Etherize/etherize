@@ -1,3 +1,4 @@
+
 import React, { } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // font awesome library and initiation
@@ -18,24 +19,72 @@ library.add(fas);
 
 function App() {
 
-  return (
+    return (
         <Router>
-          <Template>
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/create' component={Create} />
-              <Route path='/tools' component={Tools} />
-              <Route path='/adopt' component={Adopt} />
-              <Route path='/registry' component={Registry} />
-              <Route path='/contact' component={Contact} />
-              <Route path='/draft' component={() => {
-                   window.location.href = 'https://etherizeit.openlaw.io/template/deal-entity';
-                   return null;
-              }}/>
-            </Switch>
-          </Template>
+            <Template>
+                <Switch>
+                    <Route exact path='/' component={Home} />
+                    <Route path='/create' component={Create} />
+                    <Route path='/tools' component={Tools} />
+                    <Route path='/adopt' component={Adopt} />
+                    <Route path='/registry' component={Registry} />
+                    <Route path='/contact' component={Contact} />
+                    <Route path='/draft' component={() => {
+                        window.location.href = 'https://etherizeit.openlaw.io/template/deal-entity';
+                        return null;
+                    }}/>
+                </Switch>
+            </Template>
         </Router>
-  );
+    );
 }
 
 export default App;
+
+
+// import React, { } from 'react';
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// // font awesome library and initiation
+// import { library } from '@fortawesome/fontawesome-svg-core';
+// import { fas } from '@fortawesome/free-solid-svg-icons';
+// // import BodyWrapper from '../components/BodyWrapper';
+// // import './components/MainTemplate.css'
+//
+// import './App.css';
+// import Home from './pages/home';
+// import Create from './pages/create';
+// import Tools from './pages/tools';
+// import Contact from './pages/contact';
+// import Adopt from './pages/adopt';
+// import Registry from './pages/registry';
+//
+// library.add(fas);
+//
+// function App() {
+//
+//   return (
+//         <Router>
+//             <Switch>
+//                 <React.Fragment>
+//
+//                     <div className="bodyWrapper">
+//                         <Route exact path='/' component={Home} />
+//
+//                     <Route path='/create' component={Create} />
+//                     <Route path='/tools' component={Tools} />
+//                     <Route path='/adopt' component={Adopt} />
+//                     <Route path='/registry' component={Registry} />
+//                     <Route path='/contact' component={Contact} />
+//                     <Route path='/draft' component={() => {
+//                        window.location.href = 'https://etherizeit.openlaw.io/template/deal-entity';
+//                        return null;
+//                   }}/>
+//                 </div>
+//
+//                 </React.Fragment>
+//             </Switch>
+//         </Router>
+//   );
+// }
+//
+// export default App;

@@ -228,11 +228,13 @@ grand blue
   background: #7FC5FF;
 }
 
-
-/* WEB STUFF */
+/* TODO: make this target only the homepage */
 .mainBackground{
-  background-size: cover;
-  background: url('../assets/img/floral.jpg') no-repeat fixed center;
+  background-image: url('../assets/img/ice.png');
+  background-size:  cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   height: 100%!important;
 }
 
@@ -241,17 +243,6 @@ h2 h1 {
 
 }
 
-table.ui {
-  background-color: rgba(127, 197, 255, .8)!important;
-  border-radius: 30px!important;
-}
-
-th{
-  background-color: rgba(191 , 226, 255, .7)!important;
-
-  text-align: center!important;
-  font-family: 'syncopate';
-}
 
 .topLeftRadius {
     border-top-left-radius: 30px!important;
@@ -291,10 +282,6 @@ th{
   background: rgba(46, 41, 78, .7)!important;
 }
 
-thead  {
-    background: rgba(41, 137, 216, .2)!important;
-    border: 1px solid transparent!important;
-}
 
 .customButton {
   border-radius: 30px!important;

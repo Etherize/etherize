@@ -8,12 +8,12 @@
 
 
 .navbar{
-  background-color: var(--primary-color-trans);
+  background-color: var(--primary-blue-color-trans);
   min-height: 6em;
 }
 
 .subTitle{
-    font-family: 'Exo 2';
+    font-family: var(--ornate-font);
     font-size: 2em;
     text-shadow: #140C4C 2px 2px 0;
     color: #FFFFFF;
@@ -76,7 +76,7 @@ a.logotext {
 .smallerButton {
   font-size: 4vmin!important;
   font-weight: 700;
-  font-family: 'Exo 2';
+  font-family: var(--ornate-font);
 }
 
 .biggerButton{

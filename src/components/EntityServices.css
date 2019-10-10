@@ -1,21 +1,37 @@
 
-.jumbo-title{
-    font-family: var(--ornate-font);
-    font-size:50px;
 
-}
-
-.mainBackground{
-
+.portalBackground{
     background-image: url('../assets/img/3cpX.gif'), url('../assets/img/ice.png');
     background-size: 140vh 108.45vh, cover;
     background-repeat: repeat-x,no-repeat;
     background-attachment: scroll,fixed;
     background-position: top,center;
     height: 100%!important;
+}
 
+.jumbo-title{
+    font-family: var(--ornate-font);
+    font-size:50px;
 
 }
+
+.jumbo-container{
+    position: absolute;
+    top: 40%;
+    left:50%;
+    transform: translate(-50%,-40%);
+
+}
+
+.jumbotron{
+    padding: 0;
+    background-color: var(--purple-partial-transparent) !important;
+    /*color:var(--text-color);*/
+    min-height: 100vh;
+    height:100vh;
+
+}
+
 
 /*.jumbo-background{*/
     /*background: url('../assets/img/3cpX.gif');*/
@@ -31,34 +47,4 @@
 
 
 
-.jumbo-container{
-    position: absolute;
-    top: 40%;
-    left:50%;
-    transform: translate(-50%,-40%);
-
-}
-
-.jumbotron{
-    padding: 0;
-    background-color: var(--partial-transparent);
-    color:var(--text);
-    min-height: 100vh;
-    height:100vh;
-
-}
-
-.btn-primary{
-    color:var(--primary-contrast);
-    background-color:var(--primary-color) !important;
-}
-
-.card{
-    background-color: var(--text-background);
-    color:var(--text);
-}
-.card .card-body .card-text{
-    background-color: var(--text-background);
-    color:var(--text);
-}
 
