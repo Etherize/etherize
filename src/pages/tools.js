@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { Grid, List } from 'semantic-ui-react'
 import ContentPanel from '../components/ContentPanel';
 import './home.css';
+import BannerHeader from "../components/BannerHeader";
 
 
 class Tools extends Component {
   render() {
     return (
+        <div className={"mainBackground"}>
+            <BannerHeader/>
       <Grid>
         <Grid.Row>
         </Grid.Row>
@@ -93,7 +96,7 @@ class Tools extends Component {
           </Grid.Row>
         </Grid>
 
-
+        </div>
     );
   }
 }

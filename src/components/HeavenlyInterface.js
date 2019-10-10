@@ -12,6 +12,7 @@ import "./HeavenlyInterface.css";
 // importing UI components
 import { Grid, Button, Loader, Card, Container  } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import BannerHeader from "./BannerHeader";
 // configure openlaw
 const URL = "https://etherizeit.openlaw.io";
 // You can change TEMPLATE_NAME to 'articles-of-organization' to make the code work ...
@@ -322,6 +323,8 @@ export default class HeavenlyInterface extends React.Component {
     if (!executionResult) return <Loader active />;
     return (
       <>
+          <div className={"mainBackground"}>
+              <BannerHeader/>
         <Grid stackable={true}>
           <Grid.Row>
 
@@ -477,6 +480,7 @@ export default class HeavenlyInterface extends React.Component {
           </Grid.Row>
 
         </Grid>
+          </div>
       </>
     );
 

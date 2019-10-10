@@ -5,7 +5,7 @@
 
 }
 
-.mainBackground{
+.portalBackground{
 
     background-image: url('../assets/img/3cpX.gif'), url('../assets/img/ice.png');
     background-size: 140vh 108.45vh, cover;
@@ -41,24 +41,11 @@
 
 .jumbotron{
     padding: 0;
-    background-color: var(--partial-transparent);
-    color:var(--text);
+    background-color: var(--purple-partial-transparent);
+    color:var(--text-color);
     min-height: 100vh;
     height:100vh;
 
 }
 
-.btn-primary{
-    color:var(--primary-contrast);
-    background-color:var(--primary-color) !important;
-}
-
-.card{
-    background-color: var(--text-background);
-    color:var(--text);
-}
-.card .card-body .card-text{
-    background-color: var(--text-background);
-    color:var(--text);
-}
 
