@@ -2,21 +2,29 @@
 .jumbo-title{
     font-family: var(--ornate-font);
     font-size:50px;
+}
+
+.jumbotron{
+    padding: 0;
+    background-color: var(--purple-partial-transparent);
+    color:var(--text-color);
+    min-height: Calc(100vh - var(--navbar-height));
 
 }
 
 .portalBackground{
-
-    background-image: url('../assets/img/3cpX.gif'), url('../assets/img/ice.png');
-    background-size: 140vh 108.45vh, cover;
+    background-image: url('../assets/img/3cpX.gif') , url('../assets/img/ice.png');
+    min-height: 100vh;
+    background-size: 140vh 100vh, cover;
     background-repeat: repeat-x,no-repeat;
     background-attachment: scroll,fixed;
     background-position: top,center;
-    height: 100%!important;
-
 
 }
 
+.badge-info{
+    background-color: var(--primary-blue-color) !important;
+}
 /*.jumbo-background{*/
     /*background: url('../assets/img/3cpX.gif');*/
     /*background-size:cover;*/
@@ -30,7 +38,6 @@
 /*}*/
 
 
-
 .jumbo-container{
     position: absolute;
     top: 40%;
@@ -39,13 +46,5 @@
 
 }
 
-.jumbotron{
-    padding: 0;
-    background-color: var(--purple-partial-transparent);
-    color:var(--text-color);
-    min-height: 100vh;
-    height:100vh;
-
-}
 
 

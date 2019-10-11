@@ -19,35 +19,36 @@ body > #root > div {
 :root{
   /* TODO: figure out our color palette*/
   /* Basic color palette */
-  --primary-blue-color: RGBA(36, 80, 117, .8); /* blueish */
+  --primary-blue-color: RGBA(36, 80, 117, 1.0); /* blueish */
   --primary-blue-color-trans: RGBA(36, 80, 117, .3);  /* blueish transparent */
   --primary-contrast: white;
-  --purple-partial-transparent:RGBA(122, 113, 169, .4); /* purpleish transparent */
+  --purple-partial-transparent:RGBA(122, 113, 169, .25); /* purpleish transparent */
   --table-blue-background:RGBA(127, 197, 255, .8);
 
   /* text styles */
-  --text-background: #7A71A9;
+  --text-background: rgba(0,0,0,.7);
   --text-color: white;
   --ornate-font: 'Exo 2';
+  --normal-font-size:1.0rem;
+
 
   /* button styles */
   --button-font-size:1.2rem;
   --pink-button:#e91e63;
   --button-font-weight:700;
   --button-border-radius:50px;
+
+  --navbar-height:6em;
 }
 
 
 .mainBackground{
-
   background-image: url('./assets/img/ice.png');
   background-size:  cover;
   background-repeat:no-repeat;
   background-attachment:fixed;
   background-position: center;
   height: 100%!important;
-
-
 }
 
 
@@ -78,8 +79,9 @@ body > #root > div {
   color:var(--text-color);
 }
 .card .card-body .card-text{
-  background-color: var(--text-background);
+  background-color:transparent;
   color:var(--text-color);
+  font-size: var(--normal-font-size);
 }
 
 /* ***** Tables ***** */

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Rail, Grid} from 'semantic-ui-react';
 import mountain from '../assets/img/mountain-portal.jpg'
 
-import './home.css';
+import '../components/Unused/home.css';
 
 
 

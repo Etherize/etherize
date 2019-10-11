@@ -21,29 +21,30 @@ const EntityServices = () => (
 
 <div className={"portalBackground"}>
   <BannerHeader/>
+
   <MDBJumbotron fluid className={"text-center"} >
     {/*<MDBJumbotron fluid className={"jumbo-background"}/>*/}
     <MDBContainer className={"jumbo-container"}>
 
     <MDBCardTitle className="h1-responsive pt-3 m-5 jumbo-title">
-            Welcome to the Etheric Entity Portal
+            The Portal is Open
           </MDBCardTitle>
     <p className="mx-5 mb-5 h3">
-      Enjoy the legal protections of a Wyoming LLC for your DAO or any member of a DAO
+      Etheric Wyoming entities to provide legal protections for your DAO or any member of a DAO
     </p>
     </MDBContainer>
   </MDBJumbotron>
 
 <MDBContainer>
   {/*spacing*/}
-  <MDBRow className={"mt-2"} />
+  <MDBRow className={"mt-5"} />
 
 
   {/*spacing*/}
-  <MDBRow className={"mt-2"} >
+  <MDBRow className={"mt-5 mb-5"} >
     <MDBCol className={"text-center"}>
     <MDBCardTitle className="h1-responsive pt-3 m-5 white-text">
-      Choose Your Destiny
+      Choose Your Entity
     </MDBCardTitle>
     </MDBCol>
   </MDBRow>
@@ -62,7 +63,7 @@ const EntityServices = () => (
               overlay="white-slight"
           />
           <MDBCardBody cascade>
-            <MDBCardTitle className="text-center" tag="h3">Create New Hybrid Entity</MDBCardTitle>
+            <MDBCardTitle className="text-center" tag="h3">New Hybrid Entity</MDBCardTitle>
             <MDBCardText>
               Create a Hybrid Entity, capable of traversing the "real world" of court rooms and the virtual worlds of Ethereum and other distributed networks.
               <br/> <br/>
@@ -70,10 +71,10 @@ const EntityServices = () => (
               <br/> <br/>
               Consultation may be used towards generating an Operating Agreement, attaining EIN, or advising you and your lawyer on Hybrid Entities.
             </MDBCardText>
-            <h4><MDBBadge className="mr-2 mt-2"> Wyoming, Maine, Delaware </MDBBadge>
-            <MDBBadge className="mr-2 mt-2">  LLC, Series LLC, or Non-Profit </MDBBadge>
-            <MDBBadge className="mr-2 mt-2"> Ethereum (Rinkeby) </MDBBadge></h4>
-            <MDBBtn size="md" href={"/create"} className={"btn-primary"}>
+            <h4><MDBBadge className="mr-2 mt-2 badge-info"> Wyoming, Maine, Delaware </MDBBadge>
+            <MDBBadge className="mr-2 mt-2 badge-info">  LLC, Series LLC, or Non-Profit </MDBBadge>
+            <MDBBadge className="mr-2 mt-2 badge-info"> Ethereum (Rinkeby) </MDBBadge></h4>
+            <MDBBtn size="lg" href={"/create"} className={"btn-primary"}>
               Create
             </MDBBtn>
           </MDBCardBody>
@@ -96,7 +97,7 @@ const EntityServices = () => (
               overlay="white-slight"
           />
           <MDBCardBody cascade>
-            <MDBCardTitle tag="h3" className="text-center">Adopt Pre-Formed Hybrid</MDBCardTitle>
+            <MDBCardTitle tag="h3" className="text-center">Pre-Formed Hybrid</MDBCardTitle>
             <MDBCardText>
               Want a place to park your crypto assets and don't care what to call it? WyDAO LLC has an affordable, rapid solution: Series LLC's available for adoption for applicable parents.
               <br/> <br/>
@@ -104,10 +105,10 @@ const EntityServices = () => (
               <br/> <br/>
               Includes EIN and 1 Year of Registered Agent Service.
             </MDBCardText>
-            <h4><MDBBadge className="mr-2 mt-2"> Wyoming Series LLC </MDBBadge>
-            <MDBBadge className="mr-2 mt-2"> Any blockchain </MDBBadge></h4>
+            <h4><MDBBadge className="mr-2 mt-2 badge-info"> Wyoming Series LLC </MDBBadge>
+            <MDBBadge className="mr-2 mt-2  badge-info"> Any blockchain </MDBBadge></h4>
 
-            <MDBBtn size="md" href={"/adopt"} className={"btn-primary"}>
+            <MDBBtn size="lg" href={"/adopt"} className={"btn-primary"}>
               Adopt
             </MDBBtn>
           </MDBCardBody>
@@ -135,9 +136,9 @@ const EntityServices = () => (
               <br/> <br/>
               Instructions are included for submitting the filings yourself, or for hiring Etherize to do it for you later.
             </MDBCardText>
-            <h4><MDBBadge className="mr-2 mt-2"> Any state LLC </MDBBadge>
-            <MDBBadge className="mr-2 mt-2"> Any blockchain </MDBBadge></h4>
-            <MDBBtn size="md" href={"/draft"} className={"btn-primary"}>
+            <h4><MDBBadge className="mr-2 mt-2 badge-info"> Any state LLC </MDBBadge>
+            <MDBBadge className="mr-2 mt-2 badge-info"> Any blockchain </MDBBadge></h4>
+            <MDBBtn size="lg" href={"/draft"} className={"btn-primary"}>
               Draft
             </MDBBtn>
           </MDBCardBody>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Grid} from 'semantic-ui-react';
 import mountain from '../assets/img/mountain-portal.jpg'
 
-import './home.css';
+import '../components/Unused/home.css';
 
 
 

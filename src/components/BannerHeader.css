@@ -8,8 +8,8 @@
 
 
 .navbar{
-  background-color: var(--primary-color-trans);
-  min-height: 6em;
+  background-color: var(--primary-blue-color-trans);
+  min-height: var(--navbar-height);
 }
 
 .subTitle{
