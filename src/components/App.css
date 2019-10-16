@@ -1,0 +1,152 @@
+
+
+
+@media (max-width: 800px) {
+  .main {
+    flex-direction: column;
+  }
+}
+
+body > #root > div {
+  height: 100%;
+  min-height: 100vh;
+}
+
+
+
+/* ***** Base variables ***** */
+
+:root{
+  /* TODO: figure out our color palette*/
+  /* Basic color palette */
+  --primary-blue-color: RGBA(36, 80, 117, 1.0); /* blueish */
+  --primary-blue-color-trans: RGBA(36, 80, 117, .3);  /* blueish transparent */
+  --primary-contrast: white;
+  --purple-partial-transparent:RGBA(122, 113, 169, .25); /* purpleish transparent */
+  --table-blue-background:RGBA(127, 197, 255, .8);
+
+  /* text styles */
+  --text-background: rgba(0,0,0,.7);
+  --text-color: white;
+  --ornate-font: 'Exo 2';
+  --normal-font-size:1.0rem;
+
+
+  /* button styles */
+  --button-font-size:1.2rem;
+  --pink-button:#e91e63;
+  --button-font-weight:700;
+  --button-border-radius:50px;
+
+  --navbar-height:6em;
+}
+
+
+.mainBackground{
+  background-image: url('../assets/img/ice.png');
+  background-size:  cover;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position: center;
+  height: 100%!important;
+}
+
+
+/* ***** Buttons ***** */
+
+.btn-pink{
+  background-color:var(--pink-button) !important;
+  color:var(--primary-contrast);
+}
+
+.btn-primary{
+  color:var(--primary-contrast);
+  background-color:var(--primary-blue-color) !important;
+}
+.btn{
+  border-radius: var(--button-border-radius);
+  border: none;
+  font-family: var(--ornate-font);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+}
+
+
+/* ***** Cards ***** */
+
+.card{
+  background-color: var(--text-background);
+  color:var(--text-color);
+}
+.card .card-body .card-text{
+  background-color:transparent;
+  color:var(--text-color);
+  font-size: var(--normal-font-size);
+}
+
+/* ***** Tables ***** */
+
+table.ui {
+  background-color: var(--table-blue-background)!important;
+  border-radius: 30px!important;
+}
+
+/* table header */
+th{
+  background-color: rgba(191 , 226, 255, .7)!important;
+  text-align: center!important;
+  font-family:  var(--ornate-font); /*'syncopate'; syncopate looks a little too sci-fi IMO */
+}
+
+/* table header text */
+table th {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+thead  {
+  background: rgba(41, 137, 216, .2)!important;
+  border: 1px solid transparent!important;
+}
+
+/* table data text*/
+table td{
+  font-size: 1.0rem;
+}
+
+
+
+.App {
+  text-align: center;
+}
+
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

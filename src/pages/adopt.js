@@ -1,7 +1,7 @@
   import React, { Component } from 'react';
 // importing UI components
 import { Grid, Button, Table } from 'semantic-ui-react';
-import 'semantic-ui-css/semantic.min.css';
+// import 'semantic-ui-css/semantic.min.css';
 import ContentPanel from '../components/ContentPanel';
 import HeavenlyInterface from "../components/HeavenlyInterface";
 

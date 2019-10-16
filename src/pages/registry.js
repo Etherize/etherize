@@ -14,7 +14,6 @@ import {
     MDBAnimation
 } from "mdbreact";
 import "./registry.css"
-import '../App.css'
 
 import BannerHeader from "../components/BannerHeader";
 
