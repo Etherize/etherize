@@ -9,8 +9,8 @@ import {
   MDBCardTitle, MDBBadge, MDBRow, MDBCol, MDBJumbotron, MDBAnimation
 
 } from "mdbreact";
-
 import "./EntityServices.css";
+import "../App.css"
 
 import self from '../assets/img/self.webp';
 import deconstruct from '../assets/img/deconstruct-beeple.webp';

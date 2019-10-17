@@ -1,7 +1,6 @@
 import React, { Component} from 'react';
 
 import EntityServices from '../components/EntityServices.js';
-import '../components/Unused/home.css';
 
 
 

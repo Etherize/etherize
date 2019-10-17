@@ -8,7 +8,11 @@
     padding: 0;
     background-color: var(--purple-partial-transparent);
     color:var(--text-color);
-    min-height: Calc(100vh - var(--navbar-height));
+    /* TODO: min-height won't properly calculate the subtraction using a variable*/
+    --min-height-subtraction-var: var(--navbar-height);
+    --temp:  6em;
+    min-height: Calc(100vh - var(--min-height-subtraction-var) );
+    /*min-height: Calc( 100vh - 6em);*/
 
 }
 
