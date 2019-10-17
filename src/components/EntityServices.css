@@ -7,7 +7,7 @@
 .jumbotron{
     padding: 0;
     background-color: var(--purple-partial-transparent);
-    color:var(--text-color);
+    color:var(--light-text-color);
     /* TODO: min-height won't properly calculate the subtraction using a variable*/
     --min-height-subtraction-var: var(--navbar-height);
     --temp:  6em;

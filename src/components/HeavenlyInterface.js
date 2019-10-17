@@ -1,17 +1,30 @@
 import React, { } from 'react';
 // import { Link } from 'react-router-dom';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import SelectionPanel from "../components/SelectionPanel";
+// import SubPanel from "../components/SubPanel";
+// importing UI components
+// import { Grid, Button, Card, Container  } from 'semantic-ui-react';
+// import 'semantic-ui-css/semantic.min.css';
+// import "../components/Unused/ContentPanel.css"
+
 // import openlaw
 import { APIClient, Openlaw } from "openlaw";
 import OpenLawForm from "openlaw-elements";
 import AgreementPreview from "../components/AgreementPreview";
-// import SelectionPanel from "../components/SelectionPanel";
-// import SubPanel from "../components/SubPanel";
+import {
+    MDBAnimation, MDBBtn,
+    MDBCard,
+    MDBCardBody,
+    MDBCardHeader, MDBCardText,
+    MDBCol,
+    MDBContainer,
+    MDBRow
+} from "mdbreact";
+
 import "openlaw-elements/dist/openlaw-elements.min.css";
 import "./HeavenlyInterface.css";
-// importing UI components
-import { Grid, Button, Loader, Card, Container  } from 'semantic-ui-react';
-// import 'semantic-ui-css/semantic.min.css';
+
 import BannerHeader from "./BannerHeader";
 // configure openlaw
 const URL = "https://etherizeit.openlaw.io";
@@ -320,168 +333,171 @@ export default class HeavenlyInterface extends React.Component {
       progress,
       progressMessage
     } = this.state;
-    if (!executionResult) return <Loader active />;
+    if (!executionResult) return (
+        // loading spinner:
+        <MDBContainer>
+            <MDBRow className="py-5 mt-5 ">
+                <MDBCol  md="12" className={"text-center"}>
+      <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
+        </div>
+                </MDBCol>
+            </MDBRow>
+        </MDBContainer>
+    );
     return (
       <>
           <div className={"mainBackground"}>
               <BannerHeader/>
-        <Grid stackable={true}>
-          <Grid.Row>
 
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column width={3}>
+              <MDBContainer>
+                  <MDBRow className="py-5 mt-5 ">
+                      <MDBCol md="12">
+                          <MDBAnimation type={"fadeInUp"}>
+                              <MDBCard cascade >
+                                  <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                      <div>
+                                      </div>
+                                      <p className="white-text h1">Define</p>
+                                      <div>
+                                      </div>
+                                  </MDBCardHeader>
+                                  <MDBCardBody className={"text-center"}>
+                                      <OpenLawForm  style={{width: '50%'}}
+                                                    apiClient={apiClient}
+                                                    executionResult={executionResult}
+                                                    parameters={parameters}
+                                                    onChangeFunction={this.onChange}
+                                                    openLaw={Openlaw}
+                                                    variables={variables}
+                                      />
+                                  </MDBCardBody>
+                              </MDBCard>
+                          </MDBAnimation>
+                      </MDBCol>
+                  </MDBRow>
 
-            </Grid.Column>
-            <Grid.Column  width={10}>
-              <div    className="contentPanel ">
-                <div className="ui segment contentHeader ">
-                  <h1 className="contentHeaderText playNormal"><b>DEFINE</b></h1>
-                </div>
+                  <MDBRow className="py-5 mt-5 ">
+                      <MDBCol md="12">
+                          <MDBAnimation type={"fadeInUp"}>
+                              <MDBCard cascade >
+                                  <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                      <div>
+                                      </div>
+                                      <p className="white-text h1">Review</p>
+                                      <div>
+                                      </div>
+                                  </MDBCardHeader>
+                                  <MDBCardBody className={"text-center"}>
+                                     { this.state.showReview ? null
+                                       :
+                                       <MDBBtn id="generateButton" className="huge pink ui right labeled icon button pillButton bottomMargin " onClick={this.setTemplatePreview}>Generate Agreement<i className="play icon">
 
-                <Container textAlign='center'>
-                       <OpenLawForm  style={{width: '50%'}}
-                                   apiClient={apiClient}
-                                   executionResult={executionResult}
-                                   parameters={parameters}
-                                   onChangeFunction={this.onChange}
-                                   openLaw={Openlaw}
-                                   variables={variables}
-                                 /></Container>
-              </div>
-            </Grid.Column>
-            <Grid.Column width={3}>
-            </Grid.Column>
-          </Grid.Row>
-
-          <Grid.Row>
-            <Grid.Column width={3}>
-            </Grid.Column>
-            <Grid.Column width={10}>
-
-
-            <div className="contentPanel minnish ">
-              <div className="ui segment contentHeader ">
-                <h1 className="contentHeaderText playNormal"><b>REVIEW</b></h1>
-              </div>
-
-               { this.state.showReview ? null
-                 :
-                 <Button id="generateButton" className="huge pink ui right labeled icon button pillButton bottomMargin " onClick={this.setTemplatePreview}>Generate Agreement<i className="play icon"></i></Button>
-               }
-
-
-
-               <AgreementPreview  className="subPanel minnish" id="preview" previewHTML={previewHTML} />
-            </div>
-
-
-            </Grid.Column>
-            <Grid.Column width={3}>
-
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column width={3}>
-            </Grid.Column>
-            <Grid.Column width={10}>
-            <div className="contentPanel minnish ">
-
-            <div   className="ui segment contentHeader ">
-              <h1 className="ui playNormal contentHeaderText"><b>FINALIZE</b></h1>
-            </div>
-
-            <Card.Group centered>
-  <Card className="customCard">
-    <Card.Content>
-
-      <Card.Header>MAYBE LATER?</Card.Header>
-      <Card.Meta>Send Draft to Your Email</Card.Meta>
-      <Card.Description>
-         <p>You can forward the Draft to your lawyer or your co-founders. </p><p>You can convert the Draft into a Contract when you are ready to Form Entity.</p>
-      </Card.Description>
-    </Card.Content>
-    <Card.Content extra>
-      <div  onClick={this.sendDraft} className='ui one buttons'>
-        <Button big color='blue' className='large pillButton draftButton'>
-          Save Draft
-        </Button>
-      </div>
-    </Card.Content>
-  </Card>
-
-  <Card className="customCard">
-    <Card.Content>
-
-      <Card.Header>Pay Fiat</Card.Header>
-      <Card.Meta></Card.Meta>
-      <Card.Description>
-
-      </Card.Description>
-    </Card.Content>
-    <Card.Content extra>
-      <div className='ui one buttons'>
-        <Button   onClick={this.payFiat} color='green' className='large pillButton'>
-          Pay Fiat
-        </Button>
-      </div>
-    </Card.Content>
-  </Card>
-
-  <Card className="customCard">
-    <Card.Content>
-
-      <Card.Header>Pay Crypto</Card.Header>
-      <Card.Meta></Card.Meta>
-      <Card.Description>
-
-      </Card.Description>
-    </Card.Content>
-    <Card.Content extra>
-      <div className='ui one buttons'>
-        <Button   onClick={this.payCrypto} color='purple' className='large pillButton'>
-          Pay Crypto
-        </Button>
-      </div>
-    </Card.Content>
-  </Card>
-
-
-  <Card className="customCard">
-    <Card.Content>
-
-      <Card.Header>LET'S DO IT</Card.Header>
-      <Card.Meta>Issue Formation Agreement</Card.Meta>
-      <Card.Description>
-        <p>You will receive an e-mail requesting autorization for 'Etherize Entities' to Form Entity on your behalf. </p>
-        <p>No Payment is due until Entity's viability is Verified.</p>
-      </Card.Description>
-    </Card.Content>
-    <Card.Content extra>
-      <div className='ui one buttons'>
-        <Button   onClick={this.onSubmit} color='pink' className='large pillButton'>
-          Pay Later
-        </Button>
-      </div>
-    </Card.Content>
-  </Card>
-
-</Card.Group>
-)
+                                       </i></MDBBtn>
+                                     }
 
 
 
+                                     <AgreementPreview  className="subPanel minnish" id="preview" previewHTML={previewHTML} />
+                                  </MDBCardBody>
+                              </MDBCard>
+                          </MDBAnimation>
+                      </MDBCol>
+                  </MDBRow>
 
-             </div>
-            </Grid.Column>
-            <Grid.Column width={3}>
+                  {/*spacing*/}
+                  <MDBRow className={"mt-5"} >
 
-            </Grid.Column>
-          </Grid.Row>
 
-        </Grid>
-          </div>
-      </>
+                  {/*spacing*/}
+
+                  {/*<MDBRow className={"mt-5 mb-5"} >*/}
+                      <MDBCol className={"text-center"} md={"12"}>
+                          <MDBAnimation type={"fadeInUp"}>
+                              <MDBCard >
+                                  <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                      <div>
+                                      </div>
+                                      <p className="white-text h1">Finalize</p>
+                                      <div>
+                                      </div>
+                                  </MDBCardHeader>
+
+
+                  {/*begin cards row*/}
+                  <MDBRow className={"mt-2"}>
+
+                      <MDBCol lg="4" className="mb-3">
+                          <MDBAnimation reveal type="fadeInUp">
+                              <MDBCard cascade >
+                                  <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                      <div/>
+                                      <p className="white-text h4">Email Draft</p>
+                                      <div/>
+                                  </MDBCardHeader>
+                                  <MDBCardBody cascade>
+                                      <MDBCardText>
+                                          <p>You can forward the Draft to your lawyer or your co-founders. </p>
+                                          <p>You can convert the Draft into a Contract when you are ready to Form Entity.</p>
+                                      </MDBCardText>
+
+                                      <MDBBtn size="lg" className={"btn-pink"} onClick={this.sendDraft}>
+                                          Save
+                                      </MDBBtn>
+                                  </MDBCardBody>
+                              </MDBCard>
+                          </MDBAnimation>
+                      </MDBCol>
+
+
+
+                      <MDBCol lg="4" className="mb-3">
+                          <MDBAnimation reveal type="fadeInUp">
+                              <MDBCard cascade >
+                                  <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                      <div/>
+                                      <p className="white-text h4">Purchase</p>
+                                      <div/>
+                                  </MDBCardHeader>
+                                  <MDBCardBody cascade>
+                                      <MDBCardText>
+                                          Buy now, pay in fiat.
+                                      </MDBCardText>
+                                      <MDBBtn size="lg" onClick={this.payFiat} className={"btn-pink"}>
+                                          Pay Fiat
+                                      </MDBBtn>
+                                  </MDBCardBody>
+                              </MDBCard>
+                          </MDBAnimation>
+                      </MDBCol>
+
+                      <MDBCol lg="4" className="mb-3">
+                          <MDBAnimation reveal type="fadeInUp">
+                              <MDBCard cascade >
+                                  <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                      <div/>
+                                      <p className="white-text h4">Purchase</p>
+                                      <div/>
+                                  </MDBCardHeader>
+                                  <MDBCardBody cascade>
+                                      <MDBCardText>
+                                          Buy now, pay in crypto.
+                                      </MDBCardText>
+                                      <MDBBtn size="lg" onClick={this.payCrypto} className={"btn-pink"}>
+                                          Pay Crypto
+                                      </MDBBtn>
+                                  </MDBCardBody>
+                              </MDBCard>
+                          </MDBAnimation>
+                      </MDBCol>
+                  </MDBRow>
+              </MDBCard>
+            </MDBAnimation>
+          </MDBCol>
+      </MDBRow>
+  </MDBContainer>
+</div>
+</>
     );
 
 
@@ -489,3 +505,162 @@ export default class HeavenlyInterface extends React.Component {
 
   }
 }
+
+
+
+{/*<Grid stackable={true}>*/}
+{/*<Grid.Row>*/}
+
+{/*</Grid.Row>*/}
+{/*<Grid.Row>*/}
+{/*  <Grid.Column width={3}>*/}
+
+{/*  </Grid.Column>*/}
+{/*  <Grid.Column  width={10}>*/}
+{/*<div    className="contentPanel ">*/}
+{/*  <div className="ui segment contentHeader ">*/}
+{/*    <h1 className="contentHeaderText playNormal"><b>DEFINE</b></h1>*/}
+{/*  </div>*/}
+
+{/*  <Container textAlign='center'>*/}
+{/*         <OpenLawForm  style={{width: '50%'}}*/}
+{/*                     apiClient={apiClient}*/}
+{/*                     executionResult={executionResult}*/}
+{/*                     parameters={parameters}*/}
+{/*                     onChangeFunction={this.onChange}*/}
+{/*                     openLaw={Openlaw}*/}
+{/*                     variables={variables}*/}
+{/*                   /></Container>*/}
+{/*</div>*/}
+{/*  </Grid.Column>*/}
+{/*  <Grid.Column width={3}>*/}
+{/*  </Grid.Column>*/}
+{/*</Grid.Row>*/}
+
+{/*<Grid.Row>*/}
+{/*  <Grid.Column width={3}>*/}
+{/*  </Grid.Column>*/}
+{/*  <Grid.Column width={10}>*/}
+
+
+{/*<div className="contentPanel minnish ">*/}
+{/*  <div className="ui segment contentHeader ">*/}
+{/*    <h1 className="contentHeaderText playNormal"><b>REVIEW</b></h1>*/}
+{/*  </div>*/}
+
+{/*   { this.state.showReview ? null*/}
+{/*     :*/}
+{/*     <Button id="generateButton" className="huge pink ui right labeled icon button pillButton bottomMargin " onClick={this.setTemplatePreview}>Generate Agreement<i className="play icon"></i></Button>*/}
+{/*   }*/}
+
+
+
+{/*   <AgreementPreview  className="subPanel minnish" id="preview" previewHTML={previewHTML} />*/}
+{/*</div>*/}
+
+
+{/*</Grid.Column>*/}
+{/*  <Grid.Column width={3}>*/}
+
+{/*  </Grid.Column>*/}
+{/*</Grid.Row>*/}
+{/*          <Grid.Row>*/}
+{/*            <Grid.Column width={3}>*/}
+{/*            </Grid.Column>*/}
+{/*            <Grid.Column width={10}>*/}
+{/*            <div className="contentPanel minnish ">*/}
+
+{/*            <div   className="ui segment contentHeader ">*/}
+{/*              <h1 className="ui playNormal contentHeaderText"><b>FINALIZE</b></h1>*/}
+{/*            </div>*/}
+
+{/*            <Card.Group centered>*/}
+{/*  <Card className="customCard">*/}
+{/*    <Card.Content>*/}
+
+{/*      <Card.Header>MAYBE LATER?</Card.Header>*/}
+{/*      <Card.Meta>Send Draft to Your Email</Card.Meta>*/}
+{/*      <Card.Description>*/}
+{/*         <p>You can forward the Draft to your lawyer or your co-founders. </p><p>You can convert the Draft into a Contract when you are ready to Form Entity.</p>*/}
+{/*      </Card.Description>*/}
+{/*    </Card.Content>*/}
+{/*    <Card.Content extra>*/}
+{/*      <div  onClick={this.sendDraft} className='ui one buttons'>*/}
+{/*        <Button big color='blue' className='large pillButton draftButton'>*/}
+{/*          Save Draft*/}
+{/*        </Button>*/}
+{/*      </div>*/}
+{/*    </Card.Content>*/}
+{/*  </Card>*/}
+
+{/*  <Card className="customCard">*/}
+{/*    <Card.Content>*/}
+
+{/*      <Card.Header>Pay Fiat</Card.Header>*/}
+{/*      <Card.Meta></Card.Meta>*/}
+{/*      <Card.Description>*/}
+
+{/*      </Card.Description>*/}
+{/*    </Card.Content>*/}
+{/*    <Card.Content extra>*/}
+{/*      <div className='ui one buttons'>*/}
+{/*        <Button   onClick={this.payFiat} color='green' className='large pillButton'>*/}
+{/*          Pay Fiat*/}
+{/*        </Button>*/}
+{/*      </div>*/}
+{/*    </Card.Content>*/}
+{/*  </Card>*/}
+
+{/*  <Card className="customCard">*/}
+{/*    <Card.Content>*/}
+
+{/*      <Card.Header>Pay Crypto</Card.Header>*/}
+{/*      <Card.Meta></Card.Meta>*/}
+{/*      <Card.Description>*/}
+
+{/*      </Card.Description>*/}
+{/*    </Card.Content>*/}
+{/*    <Card.Content extra>*/}
+{/*      <div className='ui one buttons'>*/}
+{/*        <Button   onClick={this.payCrypto} color='purple' className='large pillButton'>*/}
+{/*          Pay Crypto*/}
+{/*        </Button>*/}
+{/*      </div>*/}
+{/*    </Card.Content>*/}
+{/*  </Card>*/}
+
+
+{/*  <Card className="customCard">*/}
+{/*    <Card.Content>*/}
+
+{/*      <Card.Header>LET'S DO IT</Card.Header>*/}
+{/*      <Card.Meta>Issue Formation Agreement</Card.Meta>*/}
+{/*      <Card.Description>*/}
+{/*        <p>You will receive an e-mail requesting autorization for 'Etherize Entities' to Form Entity on your behalf. </p>*/}
+{/*        <p>No Payment is due until Entity's viability is Verified.</p>*/}
+{/*      </Card.Description>*/}
+{/*    </Card.Content>*/}
+{/*    <Card.Content extra>*/}
+{/*      <div className='ui one buttons'>*/}
+{/*        <Button   onClick={this.onSubmit} color='pink' className='large pillButton'>*/}
+{/*          Pay Later*/}
+{/*        </Button>*/}
+{/*      </div>*/}
+{/*    </Card.Content>*/}
+{/*  </Card>*/}
+
+{/*</Card.Group>*/}
+
+
+
+
+
+{/*             </div>*/}
+{/*            </Grid.Column>*/}
+{/*            <Grid.Column width={3}>*/}
+
+{/*            </Grid.Column>*/}
+{/*          </Grid.Row>*/}
+
+{/*        </Grid>*/}
+

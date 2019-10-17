@@ -26,10 +26,12 @@ body > #__next > div {
   --table-blue-background:RGBA(127, 197, 255, .8);
 
   /* text styles */
-  --text-background: rgba(0,0,0,.7);
-  --text-color: white;
+  --text-background: var(--table-blue-background); /* rgba(0,0,0,.7);*/
+  --light-text-color: white;
+  --dark-text-color: dark gray;
   --ornate-font: 'Exo 2';
-  --normal-font-size:1.0rem;
+  --normal-font-size:1.1rem;
+
 
 
   /* button styles */
@@ -41,6 +43,13 @@ body > #__next > div {
   --navbar-height:6em;
 }
 
+/* ***** Basics ***** */
+
+a{
+  color: var(--dark-text-color)
+}
+
+/* ***** Background ***** */
 
 .mainBackground{
   background-image: url('assets/img/ice.png');
@@ -76,19 +85,23 @@ body > #__next > div {
 
 .card{
   background-color: var(--text-background);
-  color:var(--text-color);
+  color:var(--dark-text-color);
 }
 .card .card-body .card-text{
   background-color:transparent;
-  color:var(--text-color);
+  color:var(--dark-text-color);
   font-size: var(--normal-font-size);
 }
 
+
 /* ***** Tables ***** */
 
-table.ui {
+table {
   background-color: var(--table-blue-background)!important;
   border-radius: 30px!important;
+}
+.table{
+  color:var(--dark-text-color)
 }
 
 /* table header */

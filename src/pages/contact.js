@@ -1,44 +1,84 @@
 import React, { Component } from 'react';
-import {Grid, List, Icon} from 'semantic-ui-react';
-import ContentPanel from '../components/ContentPanel';
+// import {Grid, List, Icon} from 'semantic-ui-react';
+// import ContentPanel from '../components/ContentPanel';
 import BannerHeader from "../components/BannerHeader";
+import {
+    MDBRow,
+    MDBCol,
+    MDBCard,
+    MDBCardBody,
+    MDBContainer,
+    MDBCardHeader,
+    MDBAnimation,
+    MDBCardTitle, MDBIcon
+} from "mdbreact";
 
-class Contact extends Component {
+
+export default class Contact extends Component {
   render() {
     return (
         <div className={"mainBackground"}>
             <BannerHeader/>
-      <Grid>
-        <Grid.Row>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column only='tablet computer' computer={5} tablet={1}>
-          </Grid.Column>
-          <Grid.Column  computer={6} tablet={14} mobile={16}>
-            <ContentPanel   header="CONTACT">
-                <List className="contentBuffer">
-                  <List.Item className="listText"
-                    content={<a href='mailto:hello@etherize.io@'><Icon name='mail' />  hello@etherize.io</a>}
-                   />
-                  <List.Item className="listText"
-                    content={<a href='https://twitter.com/aitherick'><Icon name='twitter' />  @aitherick</a>}
-                   />
-                  <List.Item className="listText"
-                    content={<a href='https://t.me/hybridentities'> <Icon name='telegram' /> hybrid entity channel</a>}
-                   />
-                 </List>
-            </ContentPanel>
-
-           </Grid.Column>
-            <Grid.Column  only='tablet computer' computer={5} tablet={1}>
-           </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-
-          </Grid.Row>
-      </Grid>
+            <MDBContainer>
+                <MDBRow className="py-5 mt-5 ">
+                    <MDBCol md="12">
+                        <MDBAnimation type={"fadeInUp"}>
+                            <MDBCard cascade >
+                                <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                    <div>
+                                    </div>
+                                    <p className="white-text h1">Contact</p>
+                                    <div>
+                                    </div>
+                                </MDBCardHeader>
+                                <MDBCardBody>
+                                    <MDBCardTitle className={"text-center h2"} >
+                                        <a color={"white"} href='mailto:hello@etherize.io@'><strong> <MDBIcon far icon='envelope' /> </strong></a>
+                                       hello@etherize.io
+                                        <br/> <br/>
+                                        <a href='https://twitter.com/aitherick'><strong> <MDBIcon fab icon="twitter" /> </strong> </a>
+                                        @aitherick
+                                        <br/> <br/>
+                                        <a href='https://t.me/hybridentities'> <strong> <MDBIcon fab icon="telegram-plane" /> </strong></a>
+                                        hybrid entity channel
+                                    </MDBCardTitle>
+                                </MDBCardBody>
+                            </MDBCard>
+                        </MDBAnimation>
+                    </MDBCol>
+                </MDBRow>
+            </MDBContainer>
         </div>
     );
   }
 }
-export default Contact;
+
+{/*<Grid>*/}
+{/*    <Grid.Row>*/}
+{/*    </Grid.Row>*/}
+{/*    <Grid.Row>*/}
+{/*        <Grid.Column only='tablet computer' computer={5} tablet={1}>*/}
+{/*        </Grid.Column>*/}
+{/*        <Grid.Column  computer={6} tablet={14} mobile={16}>*/}
+{/*            <ContentPanel   header="CONTACT">*/}
+{/*                <List className="contentBuffer">*/}
+{/*                    <List.Item className="listText"*/}
+{/*                               content={<a href='mailto:hello@etherize.io@'><Icon name='mail' />  hello@etherize.io</a>}*/}
+{/*                    />*/}
+{/*                    <List.Item className="listText"*/}
+{/*                               content={<a href='https://twitter.com/aitherick'><Icon name='twitter' />  @aitherick</a>}*/}
+{/*                    />*/}
+{/*                    <List.Item className="listText"*/}
+{/*                               content={<a href='https://t.me/hybridentities'> <Icon name='telegram' /> hybrid entity channel</a>}*/}
+{/*                    />*/}
+{/*                </List>*/}
+{/*            </ContentPanel>*/}
+
+{/*        </Grid.Column>*/}
+{/*        <Grid.Column  only='tablet computer' computer={5} tablet={1}>*/}
+{/*        </Grid.Column>*/}
+{/*    </Grid.Row>*/}
+{/*    <Grid.Row>*/}
+
+{/*    </Grid.Row>*/}
+{/*</Grid>*/}

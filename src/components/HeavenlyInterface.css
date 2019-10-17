@@ -1,3 +1,12 @@
 .Organizer-Signature {
   display: none!important;
 }
+
+.openlaw-el-section__title{
+  font-size: 2em;
+}
+.openlaw-el-field {
+  margin-top: 5px;
+  margin-bottom:5px;
+
+}

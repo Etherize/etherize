@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Header, Segment, TransitionablePortal, Image } from 'semantic-ui-react';
-import portal from '../assets/img/blue-portal2.png';
+import portal from '../../assets/img/blue-portal2.png';
 
 export default class EthericPortal extends Component {
   state = { open: false }

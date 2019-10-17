@@ -7,7 +7,6 @@ import {
   MDBCardImage,
   MDBCardBody,
   MDBCardTitle, MDBBadge, MDBRow, MDBCol, MDBJumbotron, MDBAnimation
-
 } from "mdbreact";
 import "./EntityServices.css";
 
@@ -49,7 +48,7 @@ const EntityServices = () => (
   </MDBRow>
 
   {/*begin cards row*/}
-  <MDBRow center className={"mt-2"}>
+  <MDBRow className={"mt-2"}>
 
     <MDBCol lg="4" className="mb-4">
       <MDBAnimation reveal type="fadeInUp">

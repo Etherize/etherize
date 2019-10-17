@@ -1,7 +1,5 @@
 import React, { } from 'react';
-// import openlaw
 import HeavenlyInterface from "../components/HeavenlyInterface";
-import "openlaw-elements/dist/openlaw-elements.min.css";
 
 
 class Create extends React.Component {
