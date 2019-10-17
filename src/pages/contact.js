@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Grid, List, Icon} from 'semantic-ui-react';
 import ContentPanel from '../components/ContentPanel';
 import BannerHeader from "../components/BannerHeader";
+
 class Contact extends Component {
   render() {
     return (

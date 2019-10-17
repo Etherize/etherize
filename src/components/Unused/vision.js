@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Grid} from 'semantic-ui-react';
-import mountain from '../assets/img/mountain-portal.jpg'
+import mountain from '../../assets/img/mountain-portal.jpg'
 
-import '../components/Unused/home.css';
+import './home.css';
 
 
 

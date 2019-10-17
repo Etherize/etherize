@@ -4,8 +4,21 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
+import 'semantic-ui-css/semantic.min.css';
+
 // we must import the root variables here to supply their values to the rest of the stylesheets
-import "../App.css"
+import "../App.css";
+
+// Start of development-side client routed CSS hack
+import Router from 'next/router';
+Router.events.on('routeChangeComplete', () => {
+    if (process.env.NODE_ENV !== 'production') {
+        const els = document.querySelectorAll('link[href*="/_next/static/css/styles.chunk.css"]');
+        const timestamp = new Date().valueOf();
+        els[0].href = '/_next/static/css/styles.chunk.css?v=' + timestamp;
+    }
+});
+// end hack
 
 export default class MyApp extends App {
 
@@ -26,7 +39,8 @@ export default class MyApp extends App {
         return (
             <Component {...pageProps} />
 
-
         );
     }
 }
+
+
