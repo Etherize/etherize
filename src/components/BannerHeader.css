@@ -6,6 +6,9 @@
   }
 }
 
+.navbar-brand{
+  cursor: pointer;
+}
 
 .navbar{
   background-color: var(--primary-blue-color-trans);

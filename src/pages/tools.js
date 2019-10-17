@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import '../App.css'
-
 import { Grid, List } from 'semantic-ui-react'
 import ContentPanel from '../components/ContentPanel';
 import BannerHeader from "../components/BannerHeader";

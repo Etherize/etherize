@@ -7,7 +7,6 @@ import {
     MDBNavItem,
     MDBNavbarToggler,
     MDBCollapse,
-    MDBFormInline,
 } from "mdbreact";
 
 export default class BannerHeader extends React.Component {
@@ -27,9 +26,13 @@ export default class BannerHeader extends React.Component {
     render () {
         return (
             <MDBNavbar scrolling dark expand="md">
-                <MDBNavbarBrand>
+                <MDBNavItem>
+                <MDBNavbarBrand >
+                    <Link href={"/"}>
                     <strong className="logoText">ETHERIZE</strong>
+                    </Link>
                 </MDBNavbarBrand>
+                </MDBNavItem>
                 <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse1")}/>
                 <MDBCollapse id="navbarCollapse1"
                              isOpen={this.state.collapseID}

@@ -13,8 +13,8 @@ import {
     MDBCardHeader,
     MDBAnimation
 } from "mdbreact";
-import "./registry.css"
 
+import "./registry.css"
 import BannerHeader from "../components/BannerHeader";
 
 class Registry extends React.Component {
