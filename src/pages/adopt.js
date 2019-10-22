@@ -14,8 +14,6 @@ class Adopt extends React.Component {
           <HeavenlyInterface templateName={'Entity Leasing Agreement'}/>
         </React.Fragment>
       )
-
-
   }
 }
 
