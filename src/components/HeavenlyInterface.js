@@ -274,7 +274,8 @@ export default class HeavenlyInterface extends React.Component {
 
 
  payCrypto = async () => {
-   alert("Pay Crypto is not yet enabled.")
+
+
  }
 
 
@@ -349,7 +350,6 @@ export default class HeavenlyInterface extends React.Component {
       <>
           <div className={"mainBackground"}>
               <BannerHeader/>
-
               <MDBContainer>
                   <MDBRow className="py-5 mt-5 ">
                       <MDBCol md="12">
@@ -358,7 +358,7 @@ export default class HeavenlyInterface extends React.Component {
                                   <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                       <div>
                                       </div>
-                                      <p className="white-text h1">Define</p>
+                                      <p className="card-title h1">Define</p>
                                       <div>
                                       </div>
                                   </MDBCardHeader>
@@ -384,7 +384,7 @@ export default class HeavenlyInterface extends React.Component {
                                   <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                       <div>
                                       </div>
-                                      <p className="white-text h1">Review</p>
+                                      <p className="card-title h1">Review</p>
                                       <div>
                                       </div>
                                   </MDBCardHeader>
@@ -418,7 +418,7 @@ export default class HeavenlyInterface extends React.Component {
                                   <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                       <div>
                                       </div>
-                                      <p className="white-text h1">Finalize</p>
+                                      <p className="card-title h1">Finalize</p>
                                       <div>
                                       </div>
                                   </MDBCardHeader>
@@ -432,7 +432,7 @@ export default class HeavenlyInterface extends React.Component {
                               <MDBCard cascade >
                                   <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                       <div/>
-                                      <p className="white-text h4">Email Draft</p>
+                                      <p className="card-title h4">Email Draft</p>
                                       <div/>
                                   </MDBCardHeader>
                                   <MDBCardBody cascade>
@@ -456,7 +456,7 @@ export default class HeavenlyInterface extends React.Component {
                               <MDBCard cascade >
                                   <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                       <div/>
-                                      <p className="white-text h4">Purchase</p>
+                                      <p className="card-title h4">Purchase</p>
                                       <div/>
                                   </MDBCardHeader>
                                   <MDBCardBody cascade>
@@ -476,7 +476,7 @@ export default class HeavenlyInterface extends React.Component {
                               <MDBCard cascade >
                                   <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                       <div/>
-                                      <p className="white-text h4">Purchase</p>
+                                      <p className="card-title h4">Purchase</p>
                                       <div/>
                                   </MDBCardHeader>
                                   <MDBCardBody cascade>

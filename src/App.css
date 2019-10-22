@@ -93,6 +93,10 @@ a{
   font-size: var(--normal-font-size);
 }
 
+.card-title {
+  color:var(--primary-contrast);
+}
+
 
 /* ***** Tables ***** */
 

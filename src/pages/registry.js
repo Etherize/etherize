@@ -168,11 +168,9 @@ class Registry extends React.Component {
                             <MDBAnimation type={"fadeInUp"}>
                                 <MDBCard cascade narrow className={"card-table"}>
                                     <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
-                                        <div>
-                                        </div>
-                                        <p className="white-text h2">WyDao Registry</p>
-                                        <div>
-                                        </div>
+                                        <div/>
+                                        <p className="card-title h2">WyDao Registry</p>
+                                        <div/>
                                     </MDBCardHeader>
                                     <MDBCardBody>
                                         <MDBTable responsive className={"text-center"}>
@@ -191,11 +189,9 @@ class Registry extends React.Component {
                             <MDBAnimation type={"fadeInUp"}>
                                 <MDBCard cascade narrow className={"card-table"}>
                                     <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
-                                        <div>
-                                        </div>
-                                        <p className="white-text h2">WyDao Hybrid Entities</p>
-                                        <div>
-                                        </div>
+                                        <div/>
+                                        <p className="card-title h2">WyDao Hybrid Entities</p>
+                                        <div/>
                                     </MDBCardHeader>
                                     <MDBCardBody>
                                         <MDBTable responsive className={"text-center"}>

@@ -25,12 +25,10 @@ class Tools extends Component {
                         <MDBAnimation type={"fadeInUp"}>
                             <MDBCard cascade >
                                 <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
-                                    <div>
-                                    </div>
-                                    <p className="white-text h1">Tools</p>
-                                    <div>
-                                    </div>
-                                </MDBCardHeader>
+                                    <div/>
+                                    <p className="card-title h1">Tools</p>
+                                    <div/>
+                                    </MDBCardHeader>
                                 <MDBCardBody>
                                     <MDBCardTitle className={"text-center h2"} >
                                         <strong> <MDBIcon icon='rocket' /> </strong>

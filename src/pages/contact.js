@@ -10,7 +10,7 @@ import {
     MDBContainer,
     MDBCardHeader,
     MDBAnimation,
-    MDBCardTitle, MDBIcon
+    MDBCardTitle, MDBIcon, MDBCardText
 } from "mdbreact";
 
 
@@ -25,14 +25,9 @@ export default class Contact extends Component {
                         <MDBAnimation type={"fadeInUp"}>
                             <MDBCard cascade >
                                 <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
-                                    <div>
-                                    </div>
-                                    <p className="white-text h1">Contact</p>
-                                    <div>
-                                    </div>
+                                    <div/> <p className="card-title h1">Contact</p> <div/>
                                 </MDBCardHeader>
-                                <MDBCardBody>
-                                    <MDBCardTitle className={"text-center h2"} >
+                                <MDBCardBody className={"text-center h3"}>
                                         <a color={"white"} href='mailto:hello@etherize.io@'><strong> <MDBIcon far icon='envelope' /> </strong></a>
                                        hello@etherize.io
                                         <br/> <br/>
@@ -41,7 +36,6 @@ export default class Contact extends Component {
                                         <br/> <br/>
                                         <a href='https://t.me/hybridentities'> <strong> <MDBIcon fab icon="telegram-plane" /> </strong></a>
                                         hybrid entity channel
-                                    </MDBCardTitle>
                                 </MDBCardBody>
                             </MDBCard>
                         </MDBAnimation>

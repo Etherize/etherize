@@ -6,7 +6,7 @@ import {
   MDBCard,
   MDBCardImage,
   MDBCardBody,
-  MDBCardTitle, MDBBadge, MDBRow, MDBCol, MDBJumbotron, MDBAnimation
+  MDBCardTitle, MDBBadge, MDBRow, MDBCol, MDBJumbotron, MDBAnimation, MDBCardHeader
 } from "mdbreact";
 import "./EntityServices.css";
 
@@ -21,14 +21,12 @@ const EntityServices = () => (
   <BannerHeader/>
 
   <MDBJumbotron fluid className={"text-center"} >
-    {/*<MDBJumbotron fluid className={"jumbo-background"}/>*/}
     <MDBContainer className={"jumbo-container"}>
-
     <MDBCardTitle className="h1-responsive pt-3 m-5 jumbo-title">
             The Portal is Open
-          </MDBCardTitle>
-    <p className="mx-5 mb-5 h3">
-      Etheric Wyoming entities to provide legal protections for your DAO or any member of a DAO
+    </MDBCardTitle>
+    <p className="h3">
+      Etheric Wyoming LLCs to provide legal protections for your ICO, DAO, or its members
     </p>
     </MDBContainer>
   </MDBJumbotron>
@@ -53,6 +51,9 @@ const EntityServices = () => (
     <MDBCol lg="4" className="mb-4">
       <MDBAnimation reveal type="fadeInUp">
       <MDBCard cascade >
+        <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-2">
+          <div/> <p className="card-title h3">New Hybrid Entity</p> <div/>
+        </MDBCardHeader>
           <MDBCardImage cascade
               src={poly}
               alt=""
@@ -61,7 +62,6 @@ const EntityServices = () => (
               overlay="white-slight"
           />
           <MDBCardBody cascade>
-            <MDBCardTitle className="text-center" tag="h3">New Hybrid Entity</MDBCardTitle>
             <MDBCardText>
               Create a Hybrid Entity, capable of traversing the "real world" of court rooms and the virtual worlds of Ethereum and other distributed networks.
               <br/> <br/>
@@ -86,6 +86,9 @@ const EntityServices = () => (
       <MDBAnimation reveal type="fadeInUp">
 
       <MDBCard cascade >
+        <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-2">
+          <div/> <p className="card-title h3">Pre-Formed Hybrid</p> <div/>
+        </MDBCardHeader>
           <MDBCardImage
               cascade
               src={self}
@@ -95,7 +98,6 @@ const EntityServices = () => (
               overlay="white-slight"
           />
           <MDBCardBody cascade>
-            <MDBCardTitle tag="h3" className="text-center">Pre-Formed Hybrid</MDBCardTitle>
             <MDBCardText>
               Want a place to park your crypto assets and don't care what to call it? WyDAO LLC has an affordable, rapid solution: Series LLC's available for adoption for applicable parents.
               <br/> <br/>
@@ -118,6 +120,9 @@ const EntityServices = () => (
       <MDBAnimation reveal type="fadeInUp">
 
       <MDBCard cascade >
+        <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-2">
+          <div/> <p className="card-title h3">Roll Your Own</p> <div/>
+        </MDBCardHeader>
           <MDBCardImage cascade
               src={deconstruct}
               alt=""
@@ -126,7 +131,6 @@ const EntityServices = () => (
               overlay="white-slight"
           />
           <MDBCardBody cascade>
-            <MDBCardTitle className="text-center" tag="h3">Roll Your Own</MDBCardTitle>
             <MDBCardText>
               Design a Hybrid Entity
               <br/> <br/>
