@@ -19,6 +19,8 @@ import "openlaw-elements/dist/openlaw-elements.min.css";
 import "./HeavenlyInterface.css";
 
 import BannerHeader from "./BannerHeader";
+import API from "./API";
+import ModalPage from "./Modal";
 // import { Link } from 'react-router-dom';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import SelectionPanel from "../components/SelectionPanel";
@@ -58,8 +60,18 @@ export default class HeavenlyInterface extends React.Component {
    ipfsLoading: false,
    success: false,
    progress: 0,
-   progressMessage: ""
+   progressMessage: "",
+
+  modalOpen:false,
+  modalText:"",
+
  };
+
+  constructor(props){
+      super(props);
+      this.Modal = React.createRef();
+      this.payCrypto = this.payCrypto.bind(this);
+  }
 
  fileInputRef = React.createRef();
  componentDidMount = async () => {
@@ -73,7 +85,7 @@ export default class HeavenlyInterface extends React.Component {
    };
 
    // We get the JWT from out backend now instead of logging in via username+password
-   console.log( "api host var: " + process.env.API_HOST);
+   console.log( "api host location: " + process.env.API_HOST);
    const apiClient = new APIClient(openLawConfig.server);
    apiClient.jwt = await API.getJWT();
 
@@ -263,13 +275,8 @@ export default class HeavenlyInterface extends React.Component {
 
  payFiat = async () => {
     alert("Pay Fiat is not yet enabled.")
- }
+ };
 
-
- payCrypto = async () => {
-
-
- }
 
  //
  // onSubmit = async () => {
@@ -314,7 +321,27 @@ export default class HeavenlyInterface extends React.Component {
  //
 
 
-  render () {
+    async payCrypto(cryptoCurrency) {
+        this.Modal.current.ToggleShowing();
+        this.Modal.current.ToggleLoading(true);
+        const json = await API.getCryptoTransaction(cryptoCurrency);
+        
+        if (json["error"] !== "ok") {
+            this.Modal.current.SetTextAndTitle("Error", json["error"]);
+            return;
+        }
+
+        const result = json["result"];
+        const address = result["Address"];
+        const statusUrl = result["status_url"];
+        const explanation = "Please send your " + cryptoCurrency +" to the following address: <br/> <br/>" + address + "<br/> <br/> ";
+        const followingExplanation = "Monitor the status of your payment <a href=" +statusUrl+"> here </a> ";
+        this.Modal.current.SetTextAndTitle("Transaction Created!", explanation + followingExplanation);
+    };
+
+
+
+    render () {
     const {
       apiClient,
       variables,
@@ -332,9 +359,7 @@ export default class HeavenlyInterface extends React.Component {
         <MDBContainer>
             <MDBRow className="py-5 mt-5 ">
                 <MDBCol  md="12" className={"text-center"}>
-      <div className="spinner-border" role="status">
-            <span className="sr-only">Loading...</span>
-        </div>
+                    <div className="spinner-border" role="status"/>
                 </MDBCol>
             </MDBRow>
         </MDBContainer>
@@ -343,6 +368,8 @@ export default class HeavenlyInterface extends React.Component {
       <>
           <div className={"mainBackground"}>
               <BannerHeader/>
+              <ModalPage ref={this.Modal}/>
+
               <MDBContainer>
                   <MDBRow className="py-5 mt-5 ">
                       <MDBCol md="12">
@@ -474,10 +501,13 @@ export default class HeavenlyInterface extends React.Component {
                                   </MDBCardHeader>
                                   <MDBCardBody cascade>
                                       <MDBCardText>
-                                          Buy now, pay in crypto.
+                                          Buy now, pay in Bitcoin or Ether.
                                       </MDBCardText>
-                                      <MDBBtn size="lg" onClick={this.payCrypto} className={"btn-pink"}>
-                                          Pay Crypto
+                                      <MDBBtn size="lg" onClick={()=> this.payCrypto("LTCT")} className={"btn-pink"}>
+                                          Pay in BTC (LTCT)
+                                      </MDBBtn>
+                                      <MDBBtn size="lg" onClick={()=> this.payCrypto("ETH")} className={"btn-pink"}>
+                                          Pay in ETH
                                       </MDBBtn>
                                   </MDBCardBody>
                               </MDBCard>
@@ -499,13 +529,3 @@ export default class HeavenlyInterface extends React.Component {
   }
 }
 
-class API {
-
-    static async getJWT() {
-        const response = await fetch(process.env.API_HOST + process.env.OpenLawEndPoint);
-        const json = await response.json();
-        return json["jwt"];
-    };
-
-
-}
