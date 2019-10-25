@@ -2,8 +2,12 @@ export default class API {
 
     static async getJWT() {
         const response = await fetch(process.env.API_HOST + process.env.OpenLawEndPoint);
+        if (response.status>=300){
+            return ["", "Request to our law template instance failed with status: " + response.statusText +
+            ". Try refreshing!"]
+        }
         const json = await response.json();
-        return json["jwt"];
+        return [json["jwt"], json["error"]];
     };
 
     static async getCryptoTransaction(queryVal){
@@ -14,7 +18,12 @@ export default class API {
             console.log("error from api! " + json["error"]);
         }
         return json;
+    }
 
+    static async getFiatTransaction(){
+        const response = await fetch(process.env.API_HOST + process.env.CreateFiatTransactionEndPoint);
+        const json = await response.json();
+        return json;
     }
 //
 // {

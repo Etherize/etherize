@@ -87,7 +87,12 @@ export default class HeavenlyInterface extends React.Component {
    // We get the JWT from out backend now instead of logging in via username+password
    console.log( "api host location: " + process.env.API_HOST);
    const apiClient = new APIClient(openLawConfig.server);
-   apiClient.jwt = await API.getJWT();
+   const [jwt, err] = await API.getJWT();
+       if (err !== "" || jwt === ""){
+           alert(err);
+           return;
+       }
+    apiClient.jwt = jwt;
 
 
    //Retrieve your OpenLaw template by name, use async/await
@@ -242,8 +247,12 @@ export default class HeavenlyInterface extends React.Component {
        try {
          const { accounts, contract, web3 } = this.props;
 
-
-        apiClient.jwt = await API.getJWT();
+         const [jwt, err] = await API.getJWT();
+         if (err !== "" || jwt === ""){
+             alert(err);
+             return;
+         }
+         apiClient.jwt = jwt;
 
          //add Open Law params to be uploaded
          const uploadParams = await this.buildOpenLawParamsObj(
@@ -273,9 +282,7 @@ export default class HeavenlyInterface extends React.Component {
  };
 
 
- payFiat = async () => {
-    alert("Pay Fiat is not yet enabled.")
- };
+
 
 
  //
@@ -320,6 +327,23 @@ export default class HeavenlyInterface extends React.Component {
  // };
  //
 
+    payFiat = async () => {
+
+        const json = await API.getFiatTransaction();
+        const sessionID = json["id"];
+        const stripe = window.Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+
+        const {error} = await stripe.redirectToCheckout({
+            // Make the id field from the Checkout Session creation API response
+            // available to this file, so you can provide it as parameter here
+            // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
+            sessionId: sessionID
+        })
+// If `redirectToCheckout` fails due to a browser or network
+// error, display the localized error message to your customer
+// using `error.message`.
+
+    };
 
     async payCrypto(cryptoCurrency) {
         this.Modal.current.ToggleShowing();

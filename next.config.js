@@ -1,5 +1,3 @@
-require('dotenv').config();
-// const nextRuntimeDotenv = require('next-runtime-dotenv');
 const withCSS = require('@zeit/next-css');
 const withFonts = require('next-fonts');
 const withImages = require('next-images');
@@ -28,17 +26,3 @@ const nextConfig = {
 
 module.exports = withPlugins([withCSS, withFonts, withImages], nextConfig);
 
-
-// const withConfig = nextRuntimeDotenv({
-//     public: [
-//         'API_HOST',
-//     ],
-// });
-//
-//
-// module.exports = withPlugins([
-//     withConfig,
-//     withCSS,
-//     withFonts,
-//     withImages
-// ]);
