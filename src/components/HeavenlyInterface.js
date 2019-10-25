@@ -363,7 +363,177 @@ export default class HeavenlyInterface extends React.Component {
         this.Modal.current.SetTextAndTitle("Transaction Created!", explanation + followingExplanation);
     };
 
+    loadingSpinner(){
+        return (
+            // loading spinner:
+            <MDBContainer>
+                <MDBRow className="py-5 mt-5 ">
+                    <MDBCol  md="12" className={"text-center"}>
+                        <div className="spinner-border" role="status"/>
+                    </MDBCol>
+                </MDBRow>
+            </MDBContainer>
+        )
+    }
 
+    templatePage(){
+        return(
+            <>
+                <ModalPage ref={this.Modal}/>
+
+                <MDBContainer>
+                    <MDBRow className="py-5 mt-5 ">
+                        <MDBCol md="12">
+                            <MDBAnimation type={"fadeInUp"}>
+                                <MDBCard cascade >
+                                    <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                        <div>
+                                        </div>
+                                        <p className="card-title h1">Define</p>
+                                        <div>
+                                        </div>
+                                    </MDBCardHeader>
+                                    <MDBCardBody className={"text-center"}>
+                                        <OpenLawForm  style={{width: '50%'}}
+                                                      apiClient={apiClient}
+                                                      executionResult={executionResult}
+                                                      parameters={parameters}
+                                                      onChangeFunction={this.onChange}
+                                                      openLaw={Openlaw}
+                                                      variables={variables}
+                                        />
+                                    </MDBCardBody>
+                                </MDBCard>
+                            </MDBAnimation>
+                        </MDBCol>
+                    </MDBRow>
+
+                    <MDBRow className="py-5 mt-5 ">
+                        <MDBCol md="12">
+                            <MDBAnimation type={"fadeInUp"}>
+                                <MDBCard cascade >
+                                    <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                        <div>
+                                        </div>
+                                        <p className="card-title h1">Review</p>
+                                        <div>
+                                        </div>
+                                    </MDBCardHeader>
+                                    <MDBCardBody className={"text-center"}>
+                                        { this.state.showReview ? null
+                                            :
+                                            <MDBBtn id="generateButton" className="huge pink ui right labeled icon button pillButton bottomMargin " onClick={this.setTemplatePreview}>Generate Agreement<i className="play icon">
+
+                                            </i></MDBBtn>
+                                        }
+
+
+
+                                        <AgreementPreview  className="subPanel minnish" id="preview" previewHTML={previewHTML} />
+                                    </MDBCardBody>
+                                </MDBCard>
+                            </MDBAnimation>
+                        </MDBCol>
+                    </MDBRow>
+
+                    {/*spacing*/}
+                    <MDBRow className={"mt-5"} >
+
+
+                        {/*spacing*/}
+
+                        {/*<MDBRow className={"mt-5 mb-5"} >*/}
+                        <MDBCol className={"text-center"} md={"12"}>
+                            <MDBAnimation type={"fadeInUp"}>
+                                <MDBCard >
+                                    <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                        <div>
+                                        </div>
+                                        <p className="card-title h1">Finalize</p>
+                                        <div>
+                                        </div>
+                                    </MDBCardHeader>
+
+
+                                    {/*begin cards row*/}
+                                    <MDBRow className={"mt-2"}>
+
+                                        <MDBCol lg="4" className="mb-3">
+                                            <MDBAnimation reveal type="fadeInUp">
+                                                <MDBCard cascade >
+                                                    <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                                        <div/>
+                                                        <p className="card-title h4">Email Draft</p>
+                                                        <div/>
+                                                    </MDBCardHeader>
+                                                    <MDBCardBody cascade>
+                                                        <MDBCardText>
+                                                            <p>You can forward the Draft to your lawyer or your co-founders. </p>
+                                                            <p>You can convert the Draft into a Contract when you are ready to Form Entity.</p>
+                                                        </MDBCardText>
+
+                                                        <MDBBtn size="lg" className={"btn-pink"} onClick={this.sendDraft}>
+                                                            Save
+                                                        </MDBBtn>
+                                                    </MDBCardBody>
+                                                </MDBCard>
+                                            </MDBAnimation>
+                                        </MDBCol>
+
+
+
+                                        <MDBCol lg="4" className="mb-3">
+                                            <MDBAnimation reveal type="fadeInUp">
+                                                <MDBCard cascade >
+                                                    <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                                        <div/>
+                                                        <p className="card-title h4">Purchase</p>
+                                                        <div/>
+                                                    </MDBCardHeader>
+                                                    <MDBCardBody cascade>
+                                                        <MDBCardText>
+                                                            Buy now, pay in fiat.
+                                                        </MDBCardText>
+                                                        <MDBBtn size="lg" onClick={this.payFiat} className={"btn-pink"}>
+                                                            Pay Fiat
+                                                        </MDBBtn>
+                                                    </MDBCardBody>
+                                                </MDBCard>
+                                            </MDBAnimation>
+                                        </MDBCol>
+
+                                        <MDBCol lg="4" className="mb-3">
+                                            <MDBAnimation reveal type="fadeInUp">
+                                                <MDBCard cascade >
+                                                    <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                                        <div/>
+                                                        <p className="card-title h4">Purchase</p>
+                                                        <div/>
+                                                    </MDBCardHeader>
+                                                    <MDBCardBody cascade>
+                                                        <MDBCardText>
+                                                            Buy now, pay in Bitcoin or Ether.
+                                                        </MDBCardText>
+                                                        <MDBBtn size="lg" onClick={()=> this.payCrypto("LTCT")} className={"btn-pink"}>
+                                                            Pay in BTC (LTCT)
+                                                        </MDBBtn>
+                                                        <MDBBtn size="lg" onClick={()=> this.payCrypto("ETH")} className={"btn-pink"}>
+                                                            Pay in ETH
+                                                        </MDBBtn>
+                                                    </MDBCardBody>
+                                                </MDBCard>
+                                            </MDBAnimation>
+                                        </MDBCol>
+                                    </MDBRow>
+                                </MDBCard>
+                            </MDBAnimation>
+                        </MDBCol>
+                    </MDBRow>
+                </MDBContainer>
+            </>
+
+        )
+    }
 
     render () {
     const {
@@ -378,178 +548,19 @@ export default class HeavenlyInterface extends React.Component {
       progress,
       progressMessage
     } = this.state;
-    if (!executionResult) return (
-        // loading spinner:
-        <MDBContainer>
-            <MDBRow className="py-5 mt-5 ">
-                <MDBCol  md="12" className={"text-center"}>
-                    <div className="spinner-border" role="status"/>
-                </MDBCol>
-            </MDBRow>
-        </MDBContainer>
-    );
+
+
+
     return (
       <>
           <div className={"mainBackground"}>
               <BannerHeader/>
-              <ModalPage ref={this.Modal}/>
-
-              <MDBContainer>
-                  <MDBRow className="py-5 mt-5 ">
-                      <MDBCol md="12">
-                          <MDBAnimation type={"fadeInUp"}>
-                              <MDBCard cascade >
-                                  <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
-                                      <div>
-                                      </div>
-                                      <p className="card-title h1">Define</p>
-                                      <div>
-                                      </div>
-                                  </MDBCardHeader>
-                                  <MDBCardBody className={"text-center"}>
-                                      <OpenLawForm  style={{width: '50%'}}
-                                                    apiClient={apiClient}
-                                                    executionResult={executionResult}
-                                                    parameters={parameters}
-                                                    onChangeFunction={this.onChange}
-                                                    openLaw={Openlaw}
-                                                    variables={variables}
-                                      />
-                                  </MDBCardBody>
-                              </MDBCard>
-                          </MDBAnimation>
-                      </MDBCol>
-                  </MDBRow>
-
-                  <MDBRow className="py-5 mt-5 ">
-                      <MDBCol md="12">
-                          <MDBAnimation type={"fadeInUp"}>
-                              <MDBCard cascade >
-                                  <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
-                                      <div>
-                                      </div>
-                                      <p className="card-title h1">Review</p>
-                                      <div>
-                                      </div>
-                                  </MDBCardHeader>
-                                  <MDBCardBody className={"text-center"}>
-                                     { this.state.showReview ? null
-                                       :
-                                       <MDBBtn id="generateButton" className="huge pink ui right labeled icon button pillButton bottomMargin " onClick={this.setTemplatePreview}>Generate Agreement<i className="play icon">
-
-                                       </i></MDBBtn>
-                                     }
-
-
-
-                                     <AgreementPreview  className="subPanel minnish" id="preview" previewHTML={previewHTML} />
-                                  </MDBCardBody>
-                              </MDBCard>
-                          </MDBAnimation>
-                      </MDBCol>
-                  </MDBRow>
-
-                  {/*spacing*/}
-                  <MDBRow className={"mt-5"} >
-
-
-                  {/*spacing*/}
-
-                  {/*<MDBRow className={"mt-5 mb-5"} >*/}
-                      <MDBCol className={"text-center"} md={"12"}>
-                          <MDBAnimation type={"fadeInUp"}>
-                              <MDBCard >
-                                  <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
-                                      <div>
-                                      </div>
-                                      <p className="card-title h1">Finalize</p>
-                                      <div>
-                                      </div>
-                                  </MDBCardHeader>
-
-
-                  {/*begin cards row*/}
-                  <MDBRow className={"mt-2"}>
-
-                      <MDBCol lg="4" className="mb-3">
-                          <MDBAnimation reveal type="fadeInUp">
-                              <MDBCard cascade >
-                                  <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
-                                      <div/>
-                                      <p className="card-title h4">Email Draft</p>
-                                      <div/>
-                                  </MDBCardHeader>
-                                  <MDBCardBody cascade>
-                                      <MDBCardText>
-                                          <p>You can forward the Draft to your lawyer or your co-founders. </p>
-                                          <p>You can convert the Draft into a Contract when you are ready to Form Entity.</p>
-                                      </MDBCardText>
-
-                                      <MDBBtn size="lg" className={"btn-pink"} onClick={this.sendDraft}>
-                                          Save
-                                      </MDBBtn>
-                                  </MDBCardBody>
-                              </MDBCard>
-                          </MDBAnimation>
-                      </MDBCol>
-
-
-
-                      <MDBCol lg="4" className="mb-3">
-                          <MDBAnimation reveal type="fadeInUp">
-                              <MDBCard cascade >
-                                  <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
-                                      <div/>
-                                      <p className="card-title h4">Purchase</p>
-                                      <div/>
-                                  </MDBCardHeader>
-                                  <MDBCardBody cascade>
-                                      <MDBCardText>
-                                          Buy now, pay in fiat.
-                                      </MDBCardText>
-                                      <MDBBtn size="lg" onClick={this.payFiat} className={"btn-pink"}>
-                                          Pay Fiat
-                                      </MDBBtn>
-                                  </MDBCardBody>
-                              </MDBCard>
-                          </MDBAnimation>
-                      </MDBCol>
-
-                      <MDBCol lg="4" className="mb-3">
-                          <MDBAnimation reveal type="fadeInUp">
-                              <MDBCard cascade >
-                                  <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
-                                      <div/>
-                                      <p className="card-title h4">Purchase</p>
-                                      <div/>
-                                  </MDBCardHeader>
-                                  <MDBCardBody cascade>
-                                      <MDBCardText>
-                                          Buy now, pay in Bitcoin or Ether.
-                                      </MDBCardText>
-                                      <MDBBtn size="lg" onClick={()=> this.payCrypto("LTCT")} className={"btn-pink"}>
-                                          Pay in BTC (LTCT)
-                                      </MDBBtn>
-                                      <MDBBtn size="lg" onClick={()=> this.payCrypto("ETH")} className={"btn-pink"}>
-                                          Pay in ETH
-                                      </MDBBtn>
-                                  </MDBCardBody>
-                              </MDBCard>
-                          </MDBAnimation>
-                      </MDBCol>
-                  </MDBRow>
-              </MDBCard>
-            </MDBAnimation>
-          </MDBCol>
-      </MDBRow>
-  </MDBContainer>
-</div>
-</>
+              { !this.state.executionReult  ? this.loadingSpinner() : this.templatePage() }
+        </div>
+    </>
     );
-
-
-
-
   }
+
+
 }
 
