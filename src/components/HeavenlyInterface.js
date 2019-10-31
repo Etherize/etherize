@@ -41,6 +41,7 @@ export default class HeavenlyInterface extends React.Component {
    finalizeVisible: false,
 
    // State variables for OpenLaw
+      apiClient:null,
    title: "",
    template: "",
    compiledTemplate: null,
@@ -78,7 +79,7 @@ export default class HeavenlyInterface extends React.Component {
    };
 
    // We get the JWT from out backend now instead of logging in via username+password
-   console.log( "api host location: " + process.env.API_HOST);
+   // console.log( "api host location: " + process.env.API_HOST);
    const apiClient = new APIClient(openLawConfig.server);
    const [jwt, err] = await API.getJWT();
        if (err !== "" || jwt === ""){
@@ -86,6 +87,7 @@ export default class HeavenlyInterface extends React.Component {
            return;
        }
     apiClient.jwt = jwt;
+     // console.log( "api jwt: " + apiClient.jwt);
 
 
    //Retrieve your OpenLaw template by name, use async/await
@@ -387,12 +389,12 @@ export default class HeavenlyInterface extends React.Component {
                                     </MDBCardHeader>
                                     <MDBCardBody className={"text-center"}>
                                         <OpenLawForm  style={{width: '50%'}}
-                                                      apiClient={apiClient}
-                                                      executionResult={executionResult}
-                                                      parameters={parameters}
+                                                      apiClient={this.state.apiClient}
+                                                      executionResult={this.state.executionResult}
+                                                      parameters={this.state.parameters}
                                                       onChangeFunction={this.onChange}
                                                       openLaw={Openlaw}
-                                                      variables={variables}
+                                                      variables={this.state.variables}
                                         />
                                     </MDBCardBody>
                                 </MDBCard>
@@ -421,7 +423,7 @@ export default class HeavenlyInterface extends React.Component {
 
 
 
-                                        <AgreementPreview  className="subPanel minnish" id="preview" previewHTML={previewHTML} />
+                                        <AgreementPreview  className="subPanel minnish" id="preview" previewHTML={this.state.previewHTML} />
                                     </MDBCardBody>
                                 </MDBCard>
                             </MDBAnimation>
@@ -460,8 +462,8 @@ export default class HeavenlyInterface extends React.Component {
                                                     </MDBCardHeader>
                                                     <MDBCardBody cascade>
                                                         <MDBCardText>
-                                                            <p>You can forward the Draft to your lawyer or your co-founders. </p>
-                                                            <p>You can convert the Draft into a Contract when you are ready to Form Entity.</p>
+                                                            You can forward the Draft to your lawyer or your co-founders. <br/> <br/>
+                                                            You can convert the Draft into a Contract when you are ready to Form Entity.
                                                         </MDBCardText>
 
                                                         <MDBBtn size="lg" className={"btn-pink"} onClick={this.sendDraft}>
@@ -547,7 +549,7 @@ export default class HeavenlyInterface extends React.Component {
       <>
           <div className={"mainBackground"}>
               <BannerHeader/>
-              { !this.state.executionReult  ? this.loadingSpinner() : this.templatePage() }
+              { !this.state.executionResult  ? this.loadingSpinner() : this.templatePage()}
         </div>
     </>
     );

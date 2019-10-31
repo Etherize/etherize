@@ -37,15 +37,15 @@ class Blog extends Component {
         blogsJson.map(blog =>
             (
                 newBlogPosts.push(
-                    <MDBRow className="mt-3 mb-5">
+                    <MDBRow className="mt-3 mb-5"  key={blog["_id"]} >
                         <MDBCol  md="12" >
-                            <MDBCard key={blog["_id"]}>
+                            <MDBCard>
                                 <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-2">
                                     <div/> <p className="card-title h3">{blog["title"]}</p> <div/>
                                 </MDBCardHeader>
-                                <MDBCardText className={"ml-5"}>
+                                <MDBContainer className={"ml-5"}>
                                     {HTMLReactParser(converter.makeHtml(blog["content"]))}
-                                </MDBCardText>
+                                </MDBContainer>
                                 <MDBCardText className={"ml-3"}>
                                     Published on: {blog["createdAt"]} <br/>
                                     By {blog["author"]["username"]} <br/> </MDBCardText>

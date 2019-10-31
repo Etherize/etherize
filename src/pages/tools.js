@@ -34,7 +34,7 @@ class Tools extends Component {
                                         <strong> <MDBIcon icon='rocket' /> </strong>
                                         Other Hybrid Entities
                                     </MDBCardTitle>
-                                    <MDBCardText className={"text-center"}>
+                                    <MDBContainer className={"text-center"}>
                                         <a href='https://medium.com/openlawofficial/the-lao-a-for-profit-limited-liability-autonomous-organization-9eae89c9669c'>LAO (Moloch Fork/ Delaware LLC)</a><br/>
                                         <a href='http://openesq.tech'>OpenESQ (Aragon DAO/ NY LLC)</a><br/>
                                         <a href='https://github.com/dOrgTech/LL-DAO'>dORG (LL-DAO, Vermont)</a><br/>
@@ -67,7 +67,7 @@ class Tools extends Component {
                                         <br/>
                                         <a href='https://t.me/OpenEsquire'>Open ESQ Announcements</a>
 
-                                    </MDBCardText>
+                                    </MDBContainer>
                                 </MDBCardBody>
                             </MDBCard>
                         </MDBAnimation>
