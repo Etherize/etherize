@@ -32,12 +32,9 @@ const EntityServices = () => (
   </MDBJumbotron>
 
 <MDBContainer>
-  {/*spacing*/}
-  <MDBRow className={"mt-5"} />
 
-
-  {/*spacing*/}
-  <MDBRow className={"mt-5 mb-5"} >
+  {/*Title*/}
+  <MDBRow className={"mb-5"} >
     <MDBCol className={"text-center"}>
     <MDBCardTitle className="h1-responsive pt-3 m-5 white-text">
       Choose Your Entity

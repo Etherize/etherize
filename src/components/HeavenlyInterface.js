@@ -21,14 +21,7 @@ import "./HeavenlyInterface.css";
 import BannerHeader from "./BannerHeader";
 import API from "./API";
 import ModalPage from "./Modal";
-// import { Link } from 'react-router-dom';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import SelectionPanel from "../components/SelectionPanel";
-// import SubPanel from "../components/SubPanel";
-// importing UI components
-// import { Grid, Button, Card, Container  } from 'semantic-ui-react';
-// import 'semantic-ui-css/semantic.min.css';
-// import "../components/Unused/ContentPanel.css"
+
 // configure openlaw
 const URL = "https://etherizeit.openlaw.io";
 // You can change TEMPLATE_NAME to 'articles-of-organization' to make the code work ...
@@ -380,7 +373,6 @@ export default class HeavenlyInterface extends React.Component {
         return(
             <>
                 <ModalPage ref={this.Modal}/>
-
                 <MDBContainer>
                     <MDBRow className="py-5 mt-5 ">
                         <MDBCol md="12">

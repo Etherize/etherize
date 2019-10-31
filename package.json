@@ -20,7 +20,8 @@
     "openlaw": "^0.2.20",
     "openlaw-elements": "^1.0.1",
     "react": "16.10.2",
-    "react-dom": "16.10.2"
+    "react-dom": "16.10.2",
+    "showdown": "^1.9.0"
   },
   "devDependencies": {
     "@types/node": "^12.11.1",
