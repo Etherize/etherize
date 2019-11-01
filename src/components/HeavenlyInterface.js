@@ -79,7 +79,7 @@ export default class HeavenlyInterface extends React.Component {
    };
 
    // We get the JWT from out backend now instead of logging in via username+password
-   // console.log( "api host location: " + process.env.API_HOST);
+   console.log( "api host location: " + process.env.API_HOST);
    const apiClient = new APIClient(openLawConfig.server);
    const [jwt, err] = await API.getJWT();
        if (err !== "" || jwt === ""){
@@ -87,7 +87,7 @@ export default class HeavenlyInterface extends React.Component {
            return;
        }
     apiClient.jwt = jwt;
-     // console.log( "api jwt: " + apiClient.jwt);
+       console.log( "api jwt: " + apiClient.jwt);
 
 
    //Retrieve your OpenLaw template by name, use async/await
@@ -380,7 +380,7 @@ export default class HeavenlyInterface extends React.Component {
                         <MDBCol md="12">
                             <MDBAnimation type={"fadeInUp"}>
                                 <MDBCard cascade >
-                                    <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                    <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                         <div>
                                         </div>
                                         <p className="card-title h1">Define</p>
@@ -406,7 +406,7 @@ export default class HeavenlyInterface extends React.Component {
                         <MDBCol md="12">
                             <MDBAnimation type={"fadeInUp"}>
                                 <MDBCard cascade >
-                                    <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                    <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                         <div>
                                         </div>
                                         <p className="card-title h1">Review</p>
@@ -440,7 +440,7 @@ export default class HeavenlyInterface extends React.Component {
                         <MDBCol className={"text-center"} md={"12"}>
                             <MDBAnimation type={"fadeInUp"}>
                                 <MDBCard >
-                                    <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                    <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                         <div>
                                         </div>
                                         <p className="card-title h1">Finalize</p>
@@ -455,7 +455,7 @@ export default class HeavenlyInterface extends React.Component {
                                         <MDBCol lg="4" className="mb-3">
                                             <MDBAnimation reveal type="fadeInUp">
                                                 <MDBCard cascade >
-                                                    <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                                    <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                                         <div/>
                                                         <p className="card-title h4">Email Draft</p>
                                                         <div/>
@@ -479,7 +479,7 @@ export default class HeavenlyInterface extends React.Component {
                                         <MDBCol lg="4" className="mb-3">
                                             <MDBAnimation reveal type="fadeInUp">
                                                 <MDBCard cascade >
-                                                    <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                                    <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                                         <div/>
                                                         <p className="card-title h4">Purchase</p>
                                                         <div/>
@@ -499,7 +499,7 @@ export default class HeavenlyInterface extends React.Component {
                                         <MDBCol lg="4" className="mb-3">
                                             <MDBAnimation reveal type="fadeInUp">
                                                 <MDBCard cascade >
-                                                    <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                                    <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                                         <div/>
                                                         <p className="card-title h4">Purchase</p>
                                                         <div/>

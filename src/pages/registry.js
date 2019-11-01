@@ -16,6 +16,8 @@ import {
 
 import "./registry.css"
 import BannerHeader from "../components/BannerHeader";
+import Head from "next/head";
+
 
 class Registry extends React.Component {
 
@@ -160,6 +162,12 @@ class Registry extends React.Component {
 
     render() {
         return (
+            <>
+                <Head>
+                    <title>Etherize Registry</title>
+                    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                </Head>
+
             <div className={"mainBackground"}>
                 <BannerHeader/>
                 <MDBContainer>
@@ -167,7 +175,7 @@ class Registry extends React.Component {
                         <MDBCol md="12">
                             <MDBAnimation type={"fadeInUp"}>
                                 <MDBCard cascade narrow className={"card-table"}>
-                                    <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                    <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                         <div/>
                                         <p className="card-title h2">WyDao Registry</p>
                                         <div/>
@@ -188,7 +196,7 @@ class Registry extends React.Component {
                         <MDBCol md="12">
                             <MDBAnimation type={"fadeInUp"}>
                                 <MDBCard cascade narrow className={"card-table"}>
-                                    <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                    <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                         <div/>
                                         <p className="card-title h2">WyDao Hybrid Entities</p>
                                         <div/>
@@ -205,6 +213,7 @@ class Registry extends React.Component {
                     </MDBRow>
                 </MDBContainer>
             </div>
+                </>
         );
     }
 

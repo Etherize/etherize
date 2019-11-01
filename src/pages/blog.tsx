@@ -3,26 +3,36 @@ import Head from 'next/head'
 import BannerHeader from "../components/BannerHeader";
 import {MDBCard, MDBCardText, MDBCol, MDBContainer, MDBRow, MDBCardTitle, MDBCardHeader} from "mdbreact";
 import BlogAPI from "../components/BlogAPI";
-import HTMLReactParser from "html-react-parser";
-let showdown  = require('showdown');
+import Link from 'next/link';
+import BlogPost from "../components/BlogPost";
+import "./blog.css"
+
+
 class Blog extends Component {
 
     state ={
-        blogPosts : []
+        blogPosts : [],
+        recentPosts:[],
     };
 
     componentDidMount = async () => {
+        await this.getAllBlogPosts();
+    };
+
+
+    getAllBlogPosts = async() =>{
         const [blogsJson, err] = await BlogAPI.getBlogs();
         const newBlogPosts = [];
+        const newRecentBlogPosts = [];
         // handle error
         if (err!= null){
             console.log("err: " + err);
             newBlogPosts.push(
-            <MDBCard>
-                <MDBCardText>
-                    {err}
-                </MDBCardText>
-            </MDBCard>
+                <MDBCard>
+                    <MDBCardText>
+                        {err}
+                    </MDBCardText>
+                </MDBCard>
 
             );
             this.setState( {blogPosts : newBlogPosts});
@@ -30,33 +40,39 @@ class Blog extends Component {
 
         }
 
-        // TODO: is there middleware we can use on the strapi side to get html instead of markdown?
-        // https://github.com/strapi/strapi/issues/2950
-        // alternative markdown to react component: https://github.com/rexxars/react-markdown
-        let converter = new showdown.Converter();
-        blogsJson.map(blog =>
-            (
-                newBlogPosts.push(
-                    <MDBRow className="mt-3 mb-5"  key={blog["_id"]} >
-                        <MDBCol  md="12" >
-                            <MDBCard>
-                                <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-2">
-                                    <div/> <p className="card-title h3">{blog["title"]}</p> <div/>
-                                </MDBCardHeader>
-                                <MDBContainer className={"ml-5"}>
-                                    {HTMLReactParser(converter.makeHtml(blog["content"]))}
-                                </MDBContainer>
-                                <MDBCardText className={"ml-3"}>
-                                    Published on: {blog["createdAt"]} <br/>
-                                    By {blog["author"]["username"]} <br/> </MDBCardText>
+        let i=0;
 
-                            </MDBCard>
-                        </MDBCol>
-                    </MDBRow>
-                )
-            ));
+        blogsJson.map(function(blog) {
+
+                newBlogPosts.push(
+                    <BlogPost title={blog["title"]}
+                              author={blog["author"]["username"]}
+                              content={blog["content"]}
+                              created={new Date(Date.parse(blog["createdAt"])).toUTCString()}
+                              id={blog["_id"]}
+                              key={blog["_id"]}
+                    />
+                );
+                if (i<10 ){
+                    newRecentBlogPosts.push(
+                        <MDBContainer  key={blog["_id"]+"recent"}>
+                            <Link href={"/blogposts/[id]"} as={`/blogposts/${blog["_id"]}`}  >
+                                <a className={"h4"}>
+                                    {blog["title"]}
+                                </a>
+                            </Link>
+                            <p> Published: {new Date(Date.parse(blog["createdAt"])).toUTCString()}</p>
+                            <br/> <br/>
+                        </MDBContainer>
+                    );
+                    i+=1;
+                }
+                }
+            );
 
         this.setState( {blogPosts : newBlogPosts});
+        this.setState( {recentPosts : newRecentBlogPosts});
+
     };
 
     render() {
@@ -72,24 +88,35 @@ class Blog extends Component {
                 {/*Title*/}
                  <BannerHeader/>
                     <MDBContainer>
-                        <MDBRow className={"mt-2 mb-2"} >
-                            <MDBCol className={"text-center"}>
-                                <MDBCardTitle className="h1-responsive pt-3 m-5 white-text">
-                                    Welcome to Our Blog
-                                </MDBCardTitle>
+                        <MDBRow className={"mt-1 mb-1"} >
+                            {/*Not sure if we should put a title*/}
+                        {/*    <MDBCol className={"text-center"}>*/}
+                        {/*        <MDBCardTitle className="h1-responsive pt-3 m-5 white-text">*/}
+                        {/*            Welcome to Our Blog*/}
+                        {/*        </MDBCardTitle>*/}
+                        {/*    </MDBCol>*/}
+                        </MDBRow>
+                        {/*Blog post cards*/}
+                        <MDBRow className={"mt-5"}>
+                            <MDBCol lg={"9"}>
+                            {this.state.blogPosts}
+                            </MDBCol>
+                            <MDBCol lg={"3"} className={"mt-3"}>
+                                <MDBCard>
+                                    <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-2">
+                                        <div/> <p className={"card-title h3"}>Recent Posts</p> <div/>
+                                    </MDBCardHeader>
+                                        {this.state.recentPosts}
+                                </MDBCard>
                             </MDBCol>
                         </MDBRow>
-
-                        {/*Blog post cards*/}
-                            {this.state.blogPosts}
-
                     </MDBContainer>
-                    <MDBRow></MDBRow>
+                    <MDBRow/>
                 </div>
             </>
         )
     }
-}
 
+}
 
 export default Blog;

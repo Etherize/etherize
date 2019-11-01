@@ -97,6 +97,10 @@ body > #__next > div {
   color:var(--primary-contrast);
 }
 
+.standard-card-header-gradient{
+  background: linear-gradient(40deg, #45cafc, #303f9f) !important;
+}
+
 
 /* ***** Tables ***** */
 

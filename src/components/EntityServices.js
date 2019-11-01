@@ -26,7 +26,7 @@ const EntityServices = () => (
             The Portal is Open
     </MDBCardTitle>
     <p className="h3">
-      Etheric Wyoming LLCs to provide legal protections for your ICO, DAO, or its members
+      Etheric Business entities designed for any Blockchain business
     </p>
     </MDBContainer>
   </MDBJumbotron>
@@ -48,7 +48,7 @@ const EntityServices = () => (
     <MDBCol lg="4" className="mb-4">
       <MDBAnimation reveal type="fadeInUp">
       <MDBCard cascade >
-        <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-2">
+        <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-2">
           <div/> <p className="card-title h3">New Hybrid Entity</p> <div/>
         </MDBCardHeader>
           <MDBCardImage cascade
@@ -83,7 +83,7 @@ const EntityServices = () => (
       <MDBAnimation reveal type="fadeInUp">
 
       <MDBCard cascade >
-        <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-2">
+        <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-2">
           <div/> <p className="card-title h3">Pre-Formed Hybrid</p> <div/>
         </MDBCardHeader>
           <MDBCardImage
@@ -117,7 +117,7 @@ const EntityServices = () => (
       <MDBAnimation reveal type="fadeInUp">
 
       <MDBCard cascade >
-        <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-2">
+        <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-2">
           <div/> <p className="card-title h3">Roll Your Own</p> <div/>
         </MDBCardHeader>
           <MDBCardImage cascade

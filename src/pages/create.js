@@ -8,7 +8,7 @@ class Create extends React.Component {
     return (
         <React.Fragment>
             <Head>
-                <title>Etherize</title>
+                <title>Etherize Entities</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 <script src="https://js.stripe.com/v3/"/>
             </Head>
