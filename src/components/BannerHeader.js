@@ -25,14 +25,12 @@ export default class BannerHeader extends React.Component {
 
     render () {
         return (
-            <MDBNavbar scrolling dark expand="md">
-                <MDBNavItem>
+            <MDBNavbar scrolling light expand="md">
                 <MDBNavbarBrand >
                     <Link href={"/"}>
                     <strong className="logoText">ETHERIZE</strong>
                     </Link>
                 </MDBNavbarBrand>
-                </MDBNavItem>
                 <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse1")}/>
                 <MDBCollapse id="navbarCollapse1"
                              isOpen={this.state.collapseID}

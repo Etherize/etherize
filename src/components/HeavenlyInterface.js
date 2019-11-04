@@ -416,7 +416,7 @@ export default class HeavenlyInterface extends React.Component {
                                     <MDBCardBody className={"text-center"}>
                                         { this.state.showReview ? null
                                             :
-                                            <MDBBtn id="generateButton" className="huge pink ui right labeled icon button pillButton bottomMargin " onClick={this.setTemplatePreview}>Generate Agreement<i className="play icon">
+                                            <MDBBtn id="generateButton" className="huge pink ui right labeled icon button btn-secondary bottomMargin " onClick={this.setTemplatePreview}>Generate Agreement<i className="play icon">
 
                                             </i></MDBBtn>
                                         }
@@ -466,7 +466,7 @@ export default class HeavenlyInterface extends React.Component {
                                                             You can convert the Draft into a Contract when you are ready to Form Entity.
                                                         </MDBCardText>
 
-                                                        <MDBBtn size="lg" className={"btn-pink"} onClick={this.sendDraft}>
+                                                        <MDBBtn size="lg" className={"btn-secondary"} onClick={this.sendDraft}>
                                                             Save
                                                         </MDBBtn>
                                                     </MDBCardBody>
@@ -488,7 +488,7 @@ export default class HeavenlyInterface extends React.Component {
                                                         <MDBCardText>
                                                             Buy now, pay in fiat.
                                                         </MDBCardText>
-                                                        <MDBBtn size="lg" onClick={this.payFiat} className={"btn-pink"}>
+                                                        <MDBBtn size="lg" onClick={this.payFiat} className={"btn-secondary"}>
                                                             Pay Fiat
                                                         </MDBBtn>
                                                     </MDBCardBody>
@@ -508,10 +508,10 @@ export default class HeavenlyInterface extends React.Component {
                                                         <MDBCardText>
                                                             Buy now, pay in Bitcoin or Ether.
                                                         </MDBCardText>
-                                                        <MDBBtn size="lg" onClick={()=> this.payCrypto("LTCT")} className={"btn-pink"}>
+                                                        <MDBBtn size="lg" onClick={()=> this.payCrypto("LTCT")} className={"btn-secondary"}>
                                                             Pay in BTC (LTCT)
                                                         </MDBBtn>
-                                                        <MDBBtn size="lg" onClick={()=> this.payCrypto("ETH")} className={"btn-pink"}>
+                                                        <MDBBtn size="lg" onClick={()=> this.payCrypto("ETH")} className={"btn-secondary"}>
                                                             Pay in ETH
                                                         </MDBBtn>
                                                     </MDBCardBody>

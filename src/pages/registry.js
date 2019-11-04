@@ -49,7 +49,7 @@ class Registry extends React.Component {
                     heading2:"United States - Wyoming",
                     heading3:"1000 PNK",
                     last: (
-                        <MDBBtn className={"btn-pink"} href={"/adopt"}>
+                        <MDBBtn className={"btn-secondary"} href={"/adopt"}>
                             Purchase
                         </MDBBtn>
                     ),
@@ -60,7 +60,7 @@ class Registry extends React.Component {
                     heading2:"United States - Wyoming",
                     heading3:"1 ETH",
                     last: (
-                        <MDBBtn className={"btn-pink"} href={"/adopt"}>
+                        <MDBBtn className={"btn-secondary"} href={"/adopt"}>
                             Purchase
                         </MDBBtn>
                     ),
@@ -71,7 +71,7 @@ class Registry extends React.Component {
                     heading2:"United States - Wyoming",
                     heading3:"1 Hour Consulting",
                     last: (
-                        <MDBBtn className={"btn-pink"} href={"/adopt"}>
+                        <MDBBtn className={"btn-secondary"} href={"/adopt"}>
                             Purchase
                         </MDBBtn>
                     ),
@@ -82,7 +82,7 @@ class Registry extends React.Component {
                     heading2:"United States - Wyoming",
                     heading3:"N/A",
                     last: (
-                        <MDBBtn className={"btn-pink"} href={"/adopt"}>
+                        <MDBBtn className={"btn-secondary"} href={"/adopt"}>
                             Purchase
                         </MDBBtn>
                     ),
@@ -93,7 +93,7 @@ class Registry extends React.Component {
                     heading2:"United States - Wyoming",
                     heading3:"N/A",
                     last: (
-                        <MDBBtn className={"btn-pink"} href={"/adopt"}>
+                        <MDBBtn className={"btn-secondary"} href={"/adopt"}>
                             Purchase
                         </MDBBtn>
                     ),

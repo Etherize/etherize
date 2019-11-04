@@ -19,19 +19,25 @@ body > #__next > div {
 :root{
   /* TODO: figure out our color palette*/
   /* Basic color palette */
-  --primary-blue-color: RGBA(36, 80, 117, 1.0); /* blueish */
-  --primary-blue-color-trans: RGBA(36, 80, 117, .3);  /* blueish transparent */
-  --primary-contrast: white;
+  --primary-color: var(--light-pink); /*RGBA(36, 80, 117, 1.0); /* blueish */
+  --primary-contrast: dark gray;
+  --primary-color-trans: var(--light-pink-trans);  /* blueish transparent */
+
+  --secondary-primary-color:var(--light-purple);
+  --secondary-primary-contrast:white;
   --purple-partial-transparent:RGBA(122, 113, 169, .25); /* purpleish transparent */
-  --table-blue-background:RGBA(127, 197, 255, .8);
+  --table-blue-background: var(--light-pink-trans); /*RGBA(127, 197, 255, .8);*/
 
   /* text styles */
-  --text-background: var(--table-blue-background); /* rgba(0,0,0,.7);*/
+  --text-background: white;/*var(--light-pink-trans); /* var(--table-blue-background); /* rgba(0,0,0,.7);*/
   --light-text-color: white;
   --dark-text-color: dark gray;
   --ornate-font: 'Exo 2';
   --normal-font-size:1.1rem;
 
+  --light-pink: rgba(252,57,223,0.8);
+  --light-pink-trans: rgba(252,57,223,0.3);
+  --light-purple:#7d7abc;
 
 
   /* button styles */
@@ -45,33 +51,39 @@ body > #__next > div {
 
 /* ***** Basics ***** */
 
-/*a{*/
-/*  color: var(--dark-text-color)*/
-/*}*/
+body{
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
 
 /* ***** Background ***** */
 
 .mainBackground{
-  background-image: url('assets/img/ice.png');
-  background-size:  cover;
-  background-repeat:no-repeat;
-  background-attachment:fixed;
-  background-position: center;
-  height: 100%!important;
+  background: linear-gradient(to right bottom, #ffffff 50%, var(--primary-color-trans) 50%);
+
+  /*background-image: url('assets/img/ice.png');*/
+  /*background-size:  cover;*/
+  /*background-repeat:no-repeat;*/
+  /*background-attachment:fixed;*/
+  /*background-position: center;*/
+  /*height: 100%!important;*/
 }
 
 
 /* ***** Buttons ***** */
 
-.btn-pink{
-  background-color:var(--pink-button) !important;
-  color:var(--primary-contrast);
-}
+
 
 .btn-primary{
   color:var(--primary-contrast);
-  background-color:var(--primary-blue-color) !important;
+  background-color:var(--primary-color) !important;
 }
+
+.btn-secondary{
+  color:var(--secondary-primary-contrast);
+  background-color:var(--secondary-primary-color) !important;
+}
+
 .btn{
   border-radius: var(--button-border-radius);
   border: none;
@@ -91,6 +103,7 @@ body > #__next > div {
   background-color:transparent;
   color:var(--dark-text-color);
   font-size: var(--normal-font-size);
+  line-height: 2;
 }
 
 .card-title {
@@ -98,14 +111,14 @@ body > #__next > div {
 }
 
 .standard-card-header-gradient{
-  background: linear-gradient(40deg, #45cafc, #303f9f) !important;
+  background: transparent /*linear-gradient(40deg, #45cafc, #303f9f)*/ !important;
 }
 
 
 /* ***** Tables ***** */
 
 table {
-  background-color: var(--table-blue-background)!important;
+  background-color: transparent; /*var(--table-blue-background)!important;*/
   border-radius: 30px!important;
 }
 .table{
@@ -114,7 +127,7 @@ table {
 
 /* table header */
 th{
-  background-color: rgba(191 , 226, 255, .7)!important;
+  background-color: var(--primary-contrast) /*rgba(191 , 226, 255, .7) */!important;
   text-align: center!important;
   font-family:  var(--ornate-font); /*'syncopate'; syncopate looks a little too sci-fi IMO */
 }
@@ -126,7 +139,7 @@ table th {
 }
 
 thead  {
-  background: rgba(41, 137, 216, .2)!important;
+  /*background: !important;*/
   border: 1px solid transparent!important;
 }
 
@@ -136,6 +149,10 @@ table td{
 }
 
 
+.row{
+  margin-left:0;
+  margin-right:0;
+}
 
 .App {
   text-align: center;

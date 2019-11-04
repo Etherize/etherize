@@ -4,6 +4,7 @@ const withImages = require('next-images');
 const withPlugins = require("next-compose-plugins");
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
+const withVideos = require('next-videos');
 
 const nextConfig = {
     distDir: 'build',
@@ -24,5 +25,5 @@ const nextConfig = {
     }
 };
 
-module.exports = withPlugins([withCSS, withFonts, withImages], nextConfig);
+module.exports = withPlugins([withCSS, withFonts, withImages, withVideos], nextConfig);
 
