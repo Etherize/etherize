@@ -22,6 +22,7 @@ import BannerHeader from "./BannerHeader";
 import API from "./API";
 import ModalPage from "./Modal";
 import LoadingPortal from "./LoadingPortal";
+import Footer from "./Footer";
 
 // configure openlaw
 const URL = "https://etherizeit.openlaw.io";
@@ -513,6 +514,7 @@ export default class HeavenlyInterface extends React.Component {
                         </MDBCol>
                     </MDBRow>
                 </MDBContainer>
+                <Footer/>
             </>
 
         )

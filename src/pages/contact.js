@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import BannerHeader from "../components/BannerHeader";
 import {
     MDBRow,
@@ -9,9 +8,10 @@ import {
     MDBContainer,
     MDBCardHeader,
     MDBAnimation,
-    MDBCardTitle, MDBIcon, MDBCardText
+    MDBCardTitle, MDBIcon, MDBCardText, MDBCardImage
 } from "mdbreact";
 import Head from "next/head";
+import Footer from "../components/Footer";
 
 
 export default class Contact extends Component {
@@ -48,6 +48,7 @@ export default class Contact extends Component {
                 </MDBRow>
             </MDBContainer>
         </div>
+    <Footer/>
     </>
     );
   }

@@ -6,6 +6,7 @@ import BlogAPI from "../components/BlogAPI";
 import Link from 'next/link';
 import BlogPost from "../components/BlogPost";
 import "./blog.css"
+import Footer from "../components/Footer";
 
 
 class Blog extends Component {
@@ -85,7 +86,6 @@ class Blog extends Component {
                 </Head>
                 <div className={"mainBackground"}>
 
-                {/*Title*/}
                  <BannerHeader/>
                     <MDBContainer>
                         <MDBRow className={"mt-1 mb-1"} >
@@ -113,6 +113,7 @@ class Blog extends Component {
                     </MDBContainer>
                     <MDBRow/>
                 </div>
+                <Footer/>
             </>
         )
     }

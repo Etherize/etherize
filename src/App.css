@@ -23,10 +23,8 @@ body > #__next > div {
   --primary-contrast: dark gray;
   --primary-color-trans: var(--light-pink-trans);  /* blueish transparent */
 
-  --secondary-primary-color:var(--light-purple);
-  --secondary-primary-contrast:white;
-  --purple-partial-transparent:RGBA(122, 113, 169, .25); /* purpleish transparent */
-  --table-blue-background: var(--light-pink-trans); /*RGBA(127, 197, 255, .8);*/
+  --secondary-color:var(--light-purple);
+  --secondary-contrast:white;
 
   /* text styles */
   --text-background: white;/*var(--light-pink-trans); /* var(--table-blue-background); /* rgba(0,0,0,.7);*/
@@ -56,6 +54,14 @@ body{
   font-weight: 300;
 }
 
+footer.page-footer {
+  color: var(--primary-contrast);
+  background-color: var(--secondary-color);
+}
+footer.page-footer a {
+  color: var(--primary-contrast);
+}
+
 /* ***** Background ***** */
 
 .mainBackground{
@@ -80,8 +86,8 @@ body{
 }
 
 .btn-secondary{
-  color:var(--secondary-primary-contrast);
-  background-color:var(--secondary-primary-color) !important;
+  color:var(--secondary-contrast);
+  background-color:var(--secondary-color) !important;
 }
 
 .btn{

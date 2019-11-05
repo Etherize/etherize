@@ -17,6 +17,7 @@ import {
 import "./registry.css"
 import BannerHeader from "../components/BannerHeader";
 import Head from "next/head";
+import Footer from "../components/Footer";
 
 
 class Registry extends React.Component {
@@ -213,7 +214,8 @@ class Registry extends React.Component {
                     </MDBRow>
                 </MDBContainer>
             </div>
-                </>
+            <Footer/>
+        </>
         );
     }
 

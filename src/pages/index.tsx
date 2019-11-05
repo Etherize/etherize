@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import EntityServices from '../components/EntityServices.js';
 import Head from 'next/head'
+import Footer from "../components/Footer";
 
 class Home extends Component {
 
@@ -13,6 +14,7 @@ class Home extends Component {
                 {/*<script src="https://js.stripe.com/v3/"/>*/}
             </Head>
             <EntityServices/>
+            <Footer/>
             </>
         )
     }

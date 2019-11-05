@@ -14,6 +14,7 @@ import {
     MDBRow
 } from "mdbreact";
 import Head from "next/head";
+import Footer from "../components/Footer";
 
 
 class Tools extends Component {
@@ -83,6 +84,7 @@ class Tools extends Component {
                 </MDBRow>
             </MDBContainer>
         </div>
+    <Footer/>
     </>
     );
   }
