@@ -8,7 +8,7 @@ import {
     MDBBtn,
     MDBCard,
     MDBCardBody,
-    MDBCardHeader,
+    MDBCardHeader, MDBCardImage,
     MDBCardText,
     MDBCol,
     MDBContainer,
@@ -21,6 +21,7 @@ import "./HeavenlyInterface.css";
 import BannerHeader from "./BannerHeader";
 import API from "./API";
 import ModalPage from "./Modal";
+import LoadingPortal from "./LoadingPortal";
 
 // configure openlaw
 const URL = "https://etherizeit.openlaw.io";
@@ -79,7 +80,7 @@ export default class HeavenlyInterface extends React.Component {
    };
 
    // We get the JWT from out backend now instead of logging in via username+password
-   console.log( "api host location: " + process.env.API_HOST);
+   // console.log( "api host location: " + process.env.API_HOST);
    const apiClient = new APIClient(openLawConfig.server);
    const [jwt, err] = await API.getJWT();
        if (err !== "" || jwt === ""){
@@ -87,7 +88,7 @@ export default class HeavenlyInterface extends React.Component {
            return;
        }
     apiClient.jwt = jwt;
-       console.log( "api jwt: " + apiClient.jwt);
+   // console.log( "api jwt: " + apiClient.jwt);
 
 
    //Retrieve your OpenLaw template by name, use async/await
@@ -358,18 +359,7 @@ export default class HeavenlyInterface extends React.Component {
         this.Modal.current.SetTextAndTitle("Transaction Created!", explanation + followingExplanation);
     };
 
-    loadingSpinner(){
-        return (
-            // loading spinner:
-            <MDBContainer>
-                <MDBRow className="py-5 mt-5 ">
-                    <MDBCol  md="12" className={"text-center"}>
-                        <div className="spinner-border" role="status"/>
-                    </MDBCol>
-                </MDBRow>
-            </MDBContainer>
-        )
-    }
+
 
     templatePage(){
         return(
@@ -420,7 +410,6 @@ export default class HeavenlyInterface extends React.Component {
 
                                             </i></MDBBtn>
                                         }
-
 
 
                                         <AgreementPreview  className="subPanel minnish" id="preview" previewHTML={this.state.previewHTML} />
@@ -549,12 +538,12 @@ export default class HeavenlyInterface extends React.Component {
       <>
           <div className={"mainBackground"}>
               <BannerHeader/>
-              { !this.state.executionResult  ? this.loadingSpinner() : this.templatePage()}
+              { !this.state.executionResult  ? <LoadingPortal/> : this.templatePage()}
         </div>
     </>
     );
   }
-
-
 }
+
+
 

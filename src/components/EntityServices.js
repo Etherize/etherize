@@ -35,17 +35,11 @@ const EntityServices = () => (
     <source src={portal} type="video/mp4"/>
   </video>
 
-  {/*/!*Title*!/*/}
-  {/*<MDBRow className={"mb-2 cards-background"} >*/}
-  {/*  <MDBCol className={"text-center"}>*/}
-  {/*  <MDBCardTitle className="h1-responsive pt-3 m-5">*/}
-  {/*    Choose Your Entity*/}
-  {/*  </MDBCardTitle>*/}
-  {/*  </MDBCol>*/}
-  {/*</MDBRow>*/}
 
-  {/*begin cards row*/}
+  {/* Products/cards row*/}
+
   <MDBRow className={"mt-1 cards-background fluid"}>
+    {/*/!*Title*!/*/}
     <MDBCol className={"text-center mb-2"} lg={"12"}>
       <MDBCardTitle className="h1-responsive pt-3 m-5">
         Choose Your Entity
