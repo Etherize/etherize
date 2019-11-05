@@ -8,10 +8,11 @@ import {
     MDBNavbarToggler,
     MDBCollapse,
 } from "mdbreact";
-
-export default class BannerHeader extends React.Component {
+import { withRouter } from 'next/router'
+class  BannerHeader extends React.Component {
     constructor(props) {
         super(props);
+        this.url = props.router.asPath;
         this.state = {
             collapseID: ""
         };
@@ -22,6 +23,10 @@ export default class BannerHeader extends React.Component {
         this.setState(prevState => ({
             collapseID: prevState.collapseID !== collapseID ? collapseID : ""
         }));
+
+    determineActive( slug ){
+        return (this.url.endsWith(slug))
+    }
 
     render () {
         return (
@@ -36,27 +41,27 @@ export default class BannerHeader extends React.Component {
                              isOpen={this.state.collapseID}
                              navbar>
                     <MDBNavbarNav left>
-                        <MDBNavItem className={"subTitle"}>
+                        <MDBNavItem className={"subTitle"} active={this.determineActive("create")}>
                             <Link href="/create">
                                 <a className="nav-link">Create</a>
                             </Link>
                         </MDBNavItem>
-                        <MDBNavItem className={"subTitle"}>
+                        <MDBNavItem className={"subTitle"}  active={this.determineActive("registry")} >
                             <Link href="/registry">
                                 <a className="nav-link">Registry</a>
                             </Link>
                         </MDBNavItem>
-                        <MDBNavItem className={"subTitle"}>
+                        <MDBNavItem className={"subTitle"} active={this.determineActive("tools")}>
                             <Link href="/tools">
                                 <a className="nav-link">Tools</a>
                             </Link>
                         </MDBNavItem>
-                        <MDBNavItem className={"subTitle"}>
+                        <MDBNavItem className={"subTitle"} active={this.determineActive("contact")}>
                             <Link href="/contact">
                                 <a className="nav-link">Contact</a>
                             </Link>
                         </MDBNavItem>
-                        <MDBNavItem className={"subTitle"}>
+                        <MDBNavItem className={"subTitle"} active={this.determineActive("blog")}>
                             <Link href="/blog">
                                 <a className="nav-link">Blog</a>
                             </Link>
@@ -70,4 +75,6 @@ export default class BannerHeader extends React.Component {
         )
     }
 
+
 }
+export default withRouter(BannerHeader);

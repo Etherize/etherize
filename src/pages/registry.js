@@ -28,24 +28,32 @@ class Registry extends React.Component {
             columns: [
                 {
                     label: "Legal Name",
+                    key: "a"
                 },
                 {
                     label: "Intended Use",
+                    key: "b"
+
                 },
                 {
                     label: "Country - State",
+                    key: "c"
+
                 },
                 {
                     label: "Included Assets",
+                    key: "d"
+
                 },
                 {
                     label: "Option",
+                    key: "e"
                 }
 
             ],
             rows:[
                 {
-                    heading0:"WyDAO LLC Series 300-399",
+                    key:"WyDAO LLC Series 300-399",
                     heading1:"Kleros Judicants",
                     heading2:"United States - Wyoming",
                     heading3:"1000 PNK",
@@ -56,7 +64,7 @@ class Registry extends React.Component {
                     ),
                 },
                 {
-                    heading0:"WyDAO LLC Series 400-499",
+                    key:"WyDAO LLC Series 400-499",
                     heading1:"DAO Sandbox",
                     heading2:"United States - Wyoming",
                     heading3:"1 ETH",
@@ -67,7 +75,7 @@ class Registry extends React.Component {
                     ),
                 },
                 {
-                    heading0:"WyDAO LLC Series 500-599",
+                    key:"WyDAO LLC Series 500-599",
                     heading1:"Personal Assets",
                     heading2:"United States - Wyoming",
                     heading3:"1 Hour Consulting",
@@ -78,7 +86,7 @@ class Registry extends React.Component {
                     ),
                 },
                 {
-                    heading0:"WyDAO LLC Series 600-699",
+                    key:"WyDAO LLC Series 600-699",
                     heading1:"Non-Profit / Cooperatives",
                     heading2:"United States - Wyoming",
                     heading3:"N/A",
@@ -89,7 +97,7 @@ class Registry extends React.Component {
                     ),
                 },
                 {
-                    heading0:"WyDAO LLC Series 700-799",
+                    key:"WyDAO LLC Series 700-799",
                     heading1:"For Profit",
                     heading2:"United States - Wyoming",
                     heading3:"N/A",
@@ -100,7 +108,7 @@ class Registry extends React.Component {
                     ),
                 },
                 {
-                    heading0:"WyDAO LLC Series 800-899",
+                    key:"WyDAO LLC Series 800-899",
                     heading1:"Etherize / Utilities",
                     heading2:"United States - Wyoming",
                     heading3:"N/A",
@@ -114,42 +122,47 @@ class Registry extends React.Component {
             columns: [
                 {
                     label: "Legal Name",
+                    key: "f"
                 },
                 {
                     label: "Emoji",
+                    key: "g"
                 },
                 {
                     label: "Doing Business As",
+                    key: "h"
+
                 },
                 {
                     label: "Etheric Component",
+                    key: "i"
                 }
 
             ],
             rows:[
                 {
-                    heading0:"WyDAO LLC",
+                    key:"WyDAO LLC",
                     heading1:"🤠",
                     heading2:"WyDAO",
                     heading3:"aragon 🦅 dao: 🌱",
 
                 },
                 {
-                    heading0:"WyDAO LLC Series 999",
+                    key:"WyDAO LLC Series 999",
                     heading1:"🤠🌌",
                     heading2:"Etherize",
                     heading3:"aragon 🦅 etherize ✨",
 
                 },
                 {
-                    heading0:"WyDAO LLC Series 500-599",
+                    key:"WyDAO LLC Series 500-599",
                     heading1:"🤠🌌✨",
                     heading2:"Etherize Entities",
                     heading3:"TBD",
 
                 },
                 {
-                    heading0:"WyDAO LLC Series 600-699",
+                    key:"WyDAO LLC Series 600-699",
                     heading1:"🤠🌌✨🚗",
                     heading2:"Etherize Entities",
                     heading3:"TBD",
@@ -183,8 +196,8 @@ class Registry extends React.Component {
                                     </MDBCardHeader>
                                     <MDBCardBody>
                                         <MDBTable responsive className={"text-center"}>
-                                            <MDBTableHead columns={this.WyDAORegistry.columns} />
-                                            <MDBTableBody rows={this.WyDAORegistry.rows} />
+                                            <MDBTableHead columns={this.WyDAORegistry.columns}  />
+                                            <MDBTableBody rows={this.WyDAORegistry.rows}  />
                                         </MDBTable>
                                     </MDBCardBody>
                                 </MDBCard>

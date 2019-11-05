@@ -43,7 +43,7 @@ export default class Footer extends React.Component{
                             </Link>
                         </MDBCol>
                         <MDBCol md="4" className={"text-center"}>
-                            Connect with us:
+
                             <br/><br/>
                             <a color={"white"} className={"mr-4"} href='mailto:hello@etherize.io@'><strong> <MDBIcon size={"2x"} far icon='envelope' /> </strong></a>
                             <a className={"mr-4"} href='https://twitter.com/aitherick'><strong> <MDBIcon  size={"2x"} fab icon="twitter" /> </strong> </a>
@@ -53,7 +53,7 @@ export default class Footer extends React.Component{
                 </MDBContainer>
                 <div className="footer-copyright text-center py-3">
                     <MDBContainer fluid>
-                        &copy; {new Date().getFullYear()} Copyright: <a href="https://www.etherize.io"> Etherize.io </a>
+                        &copy; {new Date().getFullYear()} <a href="https://www.etherize.io"> Etherize.io </a>
                     </MDBContainer>
                 </div>
             </MDBFooter>
