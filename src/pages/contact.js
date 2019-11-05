@@ -12,6 +12,7 @@ import {
 } from "mdbreact";
 import Head from "next/head";
 import Footer from "../components/Footer";
+import Constants from "../components/Constants";
 
 
 export default class Contact extends Component {
@@ -33,13 +34,13 @@ export default class Contact extends Component {
                                     <div/> <p className="card-title h1">Contact</p> <div/>
                                 </MDBCardHeader>
                                 <MDBCardBody className={"text-center h3"}>
-                                        <a color={"white"} href='mailto:hello@etherize.io@'><strong> <MDBIcon far icon='envelope' /> </strong></a>
+                                        <a color={"white"} href={'mailto:' + Constants.email} ><strong> <MDBIcon far icon='envelope' /> </strong></a>
                                        hello@etherize.io
                                         <br/> <br/>
-                                        <a href='https://twitter.com/aitherick'><strong> <MDBIcon fab icon="twitter" /> </strong> </a>
-                                        @aitherick
+                                        <a  href={Constants.twitter}><strong> <MDBIcon fab icon="twitter" /> </strong> </a>
+                                         @aitherick
                                         <br/> <br/>
-                                        <a href='https://t.me/hybridentities'> <strong> <MDBIcon fab icon="telegram-plane" /> </strong></a>
+                                        <a href={Constants.telegram}> <strong> <MDBIcon fab icon="telegram-plane" /> </strong></a>
                                         hybrid entity channel
                                 </MDBCardBody>
                             </MDBCard>

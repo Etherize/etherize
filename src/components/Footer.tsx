@@ -8,6 +8,7 @@ import {
 } from "mdbreact";
 import Link from "next/link";
 import ethicon from "../assets/img/mountain-portal.png"
+import Constants from "./Constants";
 
 
 export default class Footer extends React.Component{
@@ -45,15 +46,15 @@ export default class Footer extends React.Component{
                         <MDBCol md="4" className={"text-center"}>
 
                             <br/><br/>
-                            <a color={"white"} className={"mr-4"} href='mailto:hello@etherize.io@'><strong> <MDBIcon size={"2x"} far icon='envelope' /> </strong></a>
-                            <a className={"mr-4"} href='https://twitter.com/aitherick'><strong> <MDBIcon  size={"2x"} fab icon="twitter" /> </strong> </a>
-                            <a href='https://t.me/hybridentities'> <strong> <MDBIcon  size={"2x"} fab icon="telegram-plane" /> </strong></a>
+                            <a color={"white"} className={"mr-4"} href={'mailto:' + Constants.email} ><strong> <MDBIcon size={"2x"} far icon='envelope' /> </strong></a>
+                            <a className={"mr-4"} href={Constants.twitter}><strong> <MDBIcon  size={"2x"} fab icon="twitter" /> </strong> </a>
+                            <a href={Constants.telegram}> <strong> <MDBIcon  size={"2x"} fab icon="telegram-plane" /> </strong></a>
                         </MDBCol>
                     </MDBRow>
                 </MDBContainer>
                 <div className="footer-copyright text-center py-3">
                     <MDBContainer fluid>
-                        &copy; {new Date().getFullYear()} <a href="https://www.etherize.io"> Etherize.io </a>
+                        &copy; {new Date().getFullYear()} <a href={Constants.home}> {Constants.home} </a>
                     </MDBContainer>
                 </div>
             </MDBFooter>
