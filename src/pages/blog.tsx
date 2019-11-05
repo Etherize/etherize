@@ -45,7 +45,8 @@ class Blog extends Component {
 
         blogsJson.map(function(blog) {
 
-                newBlogPosts.push(
+            // add blog posts to start of array so that latest is top/start of the list
+                newBlogPosts.unshift(
                     <BlogPost title={blog["title"]}
                               author={blog["author"]["username"]}
                               content={blog["content"]}
@@ -55,7 +56,7 @@ class Blog extends Component {
                     />
                 );
                 if (i<10 ){
-                    newRecentBlogPosts.push(
+                    newRecentBlogPosts.unshift(
                         <MDBContainer  key={blog["_id"]+"recent"}>
                             <Link href={"/blogposts/[id]"} as={`/blogposts/${blog["_id"]}`}  >
                                 <a className={"h4"}>
