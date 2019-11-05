@@ -6,7 +6,15 @@
 If you want payments and hidden openlaw credentials: backend use: https://github.com/IanPhilips/etherizebackend
 
 ## Configure
-open the `.env` file and set `API_HOST` to your backend's IP (localhost for dev)
+Create an `.env` file and add in relevant details:
+
+API_HOST=https://api.etherize.io 
+OpenLawEndPoint=/getOpenlawJWT  
+CreateCryptoTransactionEndPoint=/generateCryptoTransaction  
+CreateFiatTransactionEndPoint=/generateFiatTransaction  
+BlogHost=https://blog.etherize.io  
+BlogsEndpoint=/blogposts  
+
 
 ## Usage
 `npm run dev` to start
