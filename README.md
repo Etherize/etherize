@@ -3,16 +3,17 @@
 ## Installation
 `npm install`
 
-If you want payments and hidden openlaw credentials: backend use: https://github.com/IanPhilips/etherizebackend
+If you want to spin up your own backend use: https://github.com/IanPhilips/etherizebackend
+If you want to spin up your own blog hosting use: https://strapi.io/
 
 ## Configure
 Create an `.env` file and add in relevant details:
 
-API_HOST=https://api.etherize.io 
+API_HOST=<your_backend_api_host> 
 OpenLawEndPoint=/getOpenlawJWT  
 CreateCryptoTransactionEndPoint=/generateCryptoTransaction  
 CreateFiatTransactionEndPoint=/generateFiatTransaction  
-BlogHost=https://blog.etherize.io  
+BlogHost=<your_strapi_host>  
 BlogsEndpoint=/blogposts  
 
 
