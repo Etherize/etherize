@@ -25,9 +25,11 @@ const EntityServices = () => (
     <MDBCol md={"4"} middle={"true"}>
 
       <MDBCard border={"0"} className={"my-auto"}>
+        <MDBAnimation type={"fadeInRight"}>
       <MDBCardTitle className="h1-responsive jumbo-title text-center">
             Portal:
     </MDBCardTitle>
+        </MDBAnimation>
       </MDBCard>
   </MDBCol>
     <MDBCol md={"4"} sm={"4"} xs={"2"}  middle={"true"}>
@@ -41,9 +43,12 @@ const EntityServices = () => (
       <MDBCol md={"4"} sm={"6"} xs={"2"} middle={"true"}>
 
       <MDBCard border={"0"} className={"my-auto"} >
-      <MDBCardTitle className="h1-responsive jumbo-title text-left">
+        <MDBAnimation type={"fadeInLeft"}>
+
+        <MDBCardTitle className="h1-responsive jumbo-title text-left">
         pened
       </MDBCardTitle>
+        </MDBAnimation>
       </MDBCard>
     </MDBCol>
       </MDBRow>
@@ -53,12 +58,13 @@ const EntityServices = () => (
 
   <MDBRow className={"mt-5"}>
     <MDBContainer className={"text-center"}>
-      {/*<MDBCard border={"0"} lg={"12"} >*/}
+      <MDBAnimation type={"fadeInDown"}>
 
-        <p className="h3">
+      <p className="h3">
           Etheric Business entities designed for any Blockchain business
         </p>
-      {/*</MDBCard>*/}
+      </MDBAnimation>
+
     </MDBContainer>
   </MDBRow>
   </MDBJumbotron>
@@ -71,9 +77,12 @@ const EntityServices = () => (
   <MDBRow className={"mt-1 cards-background fluid"}>
     {/*/!*Title*!/*/}
     <MDBCol className={"text-center mb-2"} lg={"12"}>
+      <MDBAnimation reveal type={"fadeInDown"}>
+
       <MDBCardTitle className="h1-responsive pt-3 m-5">
         Choose Your Entity
       </MDBCardTitle>
+      </MDBAnimation>
     </MDBCol>
     <MDBContainer>
       <MDBRow>

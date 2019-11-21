@@ -18,9 +18,9 @@ export default class BlogPost extends React.Component<Props, {}>{
     render(){
         return(
             <MDBRow className="mt-3 mb-5"  key={this.props.id} >
-                <MDBCol >
+                <MDBCol>
                     <MDBCard>
-                        <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-2">
+                        <MDBCardHeader className="text-center view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-2">
                             <div/> <Link href={"/blogposts/[id]"} as={`/blogposts/${this.props.id}`}><a className={"card-title h3"}>{this.props.title}</a></Link><div/>
                         </MDBCardHeader>
                         <MDBContainer >

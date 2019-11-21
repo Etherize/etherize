@@ -1,6 +1,7 @@
 import {MDBCol, MDBContainer, MDBMedia, MDBRow} from "mdbreact";
 import React from "react";
-import loaderSpinner from "../assets/img/loadingPortalSmallSquare.mp4";
+// import loaderSpinner from "../assets/img/loadingPortalSmallSquare.mp4";
+import portal from "../assets/img/SquareWhitePortalSplash.mp4"
 
 export default class LoadingPortal extends React.Component
 {
@@ -10,8 +11,8 @@ export default class LoadingPortal extends React.Component
             <MDBContainer>
                 <MDBRow className="py-5 mt-5 ">
                     <MDBCol  md="12" className={"text-center"}>
-                        <video loop muted id="loadingPortal" autoPlay={true} width={75} height={75} >
-                            <source src={loaderSpinner} type={"video/mp4"}/>
+                        <video loop muted id="loadingPortal" autoPlay={true} width={300} height={300} >
+                            <source src={portal} type={"video/mp4"}/>
                         </video>
                         {/*old spinner: */}
                         {/*<div className="spinner-border" role="status"/>*/}

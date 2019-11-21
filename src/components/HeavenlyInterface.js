@@ -421,7 +421,7 @@ export default class HeavenlyInterface extends React.Component {
                     </MDBRow>
 
                     {/*spacing*/}
-                    <MDBRow className={"mt-5"} >
+                    <MDBRow className={"mt-5 mb-5"} >
 
 
                         {/*spacing*/}
@@ -538,10 +538,22 @@ export default class HeavenlyInterface extends React.Component {
 
     return (
       <>
-          <div className={"mainBackground"}>
-              <BannerHeader/>
-              { !this.state.executionResult  ? <LoadingPortal/> : this.templatePage()}
-        </div>
+
+              { !this.state.executionResult  ?
+                  <div className={"portalBackground"}>
+                      <BannerHeader/>
+                      <LoadingPortal/>
+                  </div>
+                  :
+                  <div className={"mainBackground"}>
+                  <BannerHeader/>
+                      {
+                          this.templatePage()
+                      }
+                  </div>
+
+              }
+
     </>
     );
   }

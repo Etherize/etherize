@@ -27,7 +27,7 @@ body > #__next > div {
   --secondary-contrast:white;
 
   /* text styles */
-  --text-background: white;/*var(--light-pink-trans); /* var(--table-blue-background); /* rgba(0,0,0,.7);*/
+  --text-background: rgba(255,255,255,.7);/* white;/*var(--light-pink-trans); /* var(--table-blue-background); /* rgba(0,0,0,.7);*/
   --light-text-color: white;
   --dark-text-color: dark gray;
   --ornate-font: 'Exo 2';
@@ -65,14 +65,14 @@ footer.page-footer a {
 /* ***** Background ***** */
 
 .mainBackground{
-  background: linear-gradient(to right bottom, #ffffff 50%, var(--primary-color-trans) 50%);
-
-  /*background-image: url('assets/img/ice.png');*/
-  /*background-size:  cover;*/
-  /*background-repeat:no-repeat;*/
-  /*background-attachment:fixed;*/
-  /*background-position: center;*/
-  /*height: 100%!important;*/
+  /*background: linear-gradient(to right bottom, #ffffff 50%, var(--primary-color-trans) 50%);*/
+  background-image: url("assets/img/Untitled-1.png");
+  background-size: 120% ;
+  background-repeat:no-repeat;
+  background-attachment: scroll;
+  background-position: top;
+  /*width: 100%;*/
+  /*height:100vh;*/
 }
 
 

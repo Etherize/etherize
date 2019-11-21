@@ -104,7 +104,7 @@ class Blog extends Component {
                             </MDBCol>
                             <MDBCol lg={"3"} className={"mt-3"}>
                                 <MDBCard>
-                                    <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-2">
+                                    <MDBCardHeader className="text-center view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-2">
                                         <div/> <p className={"card-title h3"}>Recent Posts</p> <div/>
                                     </MDBCardHeader>
                                         {this.state.recentPosts}
