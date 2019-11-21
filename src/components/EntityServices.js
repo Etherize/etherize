@@ -25,7 +25,7 @@ const EntityServices = () => (
     <MDBCol md={"4"} middle={"true"}>
 
       <MDBCard border={"0"} className={"my-auto"}>
-        <MDBAnimation type={"fadeInRight"}>
+        <MDBAnimation type={"fadeInRight"} duration={"2s"}>
       <MDBCardTitle className="h1-responsive jumbo-title text-center">
             Portal:
     </MDBCardTitle>
@@ -33,17 +33,20 @@ const EntityServices = () => (
       </MDBCard>
   </MDBCol>
     <MDBCol md={"4"} sm={"4"} xs={"2"}  middle={"true"}>
+      <MDBAnimation type={"fadeIn"} duration={"2s"}>
 
   <MDBCard border={"0"} className={"my-auto"} >
       <video muted loop id="myVideo" autoPlay={true} >
         <source src={portal} type="video/mp4"/>
       </video>
       </MDBCard>
+      </MDBAnimation>
+
     </MDBCol>
       <MDBCol md={"4"} sm={"6"} xs={"2"} middle={"true"}>
 
       <MDBCard border={"0"} className={"my-auto"} >
-        <MDBAnimation type={"fadeInLeft"}>
+        <MDBAnimation type={"fadeInLeft"} duration={"2s"} >
 
         <MDBCardTitle className="h1-responsive jumbo-title text-left">
         pened
@@ -58,7 +61,7 @@ const EntityServices = () => (
 
   <MDBRow className={"mt-5"}>
     <MDBContainer className={"text-center"}>
-      <MDBAnimation type={"fadeInDown"}>
+      <MDBAnimation type={"fadeInDown"} duration={"2s"}>
 
       <p className="h3">
           Etheric Business entities designed for any Blockchain business
