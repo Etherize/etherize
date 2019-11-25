@@ -47,13 +47,8 @@ class  BannerHeader extends React.Component {
                             </Link>
                         </MDBNavItem>
                         <MDBNavItem className={"subTitle"}  active={this.determineActive("registry")} >
-                            <Link href="/registry">
-                                <a className="nav-link">Registry</a>
-                            </Link>
-                        </MDBNavItem>
-                        <MDBNavItem className={"subTitle"} active={this.determineActive("tools")}>
-                            <Link href="/tools">
-                                <a className="nav-link">Tools</a>
+                            <Link href="/adopt/registry">
+                                <a className="nav-link">Adopt</a>
                             </Link>
                         </MDBNavItem>
                         <MDBNavItem className={"subTitle"} active={this.determineActive("contact")}>

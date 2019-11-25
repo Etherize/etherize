@@ -25,6 +25,12 @@ export default class API {
         const json = await response.json();
         return json;
     }
+
+    // TODO: make endpoint in go to email us, and choose whether we use POST or GET with query
+    static async AdoptEntityDesired(series){
+        const response = await fetch(process.env.API_HOST + process.env.notifyAdoptionWanted);
+
+    }
 //
 // {
 //     "error": "ok",

@@ -58,9 +58,8 @@ export default class HeavenlyInterface extends React.Component {
    progress: 0,
    progressMessage: "",
 
-  modalOpen:false,
-  modalText:"",
-
+    // modal requirements
+    modalOpen:false,
  };
 
   constructor(props){

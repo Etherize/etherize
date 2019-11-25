@@ -16,7 +16,6 @@ class ModalPage extends Component {
             title: newTitle,
             text: newText
         });
-        console.log("text: " + this.state.text);
 
     };
 
@@ -24,7 +23,11 @@ class ModalPage extends Component {
         this.setState({
             isOpen: !this.state.isOpen
         });
-        console.log("open: " + this.state.isOpen);
+    };
+
+    ToggleShowingWithTextAndTitle = (newTitle, newText) =>{
+        this.ToggleShowing();
+        this.SetTextAndTitle(newTitle, newText);
     };
 
 

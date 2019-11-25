@@ -132,7 +132,7 @@ const EntityServices = () => (
             <h4><MDBBadge className="mr-2 mt-2 badge-info"> Wyoming Series LLC </MDBBadge>
             <MDBBadge className="mr-2 mt-2  badge-info"> Any blockchain </MDBBadge></h4>
 
-            <MDBBtn size="lg" href={"/adopt"} className={"btn-secondary"}>
+            <MDBBtn size="lg" href={"/adopt/registry"} className={"btn-secondary"}>
               Adopt
             </MDBBtn>
           </MDBCardBody>

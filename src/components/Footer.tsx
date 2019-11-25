@@ -28,8 +28,8 @@ export default class Footer extends React.Component{
                                 <Link href="/create">
                                     <a className="nav-link">Create</a>
                                 </Link>
-                                <Link href="/registry">
-                                    <a className="nav-link">Registry</a>
+                                <Link href="/adopt/registry">
+                                    <a className="nav-link">Adopt</a>
                                 </Link>
                             <Link href="/tools">
                                 <a className="nav-link">Tools</a>
