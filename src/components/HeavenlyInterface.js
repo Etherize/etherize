@@ -20,12 +20,13 @@ import "./HeavenlyInterface.css";
 
 import BannerHeader from "./BannerHeader";
 import API from "./API";
-import ModalPage from "./Modal";
+import Modal from "./Modal";
 import LoadingPortal from "./LoadingPortal";
 import Footer from "./Footer";
 
 // configure openlaw
-const URL = "https://etherizeit.openlaw.io";
+// const URL = "https://etherizeit.openlaw.io";
+const URL = "https://u0ztgr50os-u0flnq9hwd-openlaw.us-east-2-svcs.kaleido.io";
 // You can change TEMPLATE_NAME to 'articles-of-organization' to make the code work ...
 // Right now, both deal templates on Etherizeit instance are causing the same issue
 // import getConfig from 'next/config'
@@ -58,17 +59,16 @@ export default class HeavenlyInterface extends React.Component {
    progress: 0,
    progressMessage: "",
 
-    // modal requirements
-    modalOpen:false,
+
  };
 
   constructor(props){
       super(props);
-      this.Modal = React.createRef();
+      this.CreateModal = React.createRef();
+      this.PaymentModal = React.createRef();
       this.payCrypto = this.payCrypto.bind(this);
   }
 
- fileInputRef = React.createRef();
  componentDidMount = async () => {
 
    //create config
@@ -88,28 +88,31 @@ export default class HeavenlyInterface extends React.Component {
            return;
        }
     apiClient.jwt = jwt;
-   // console.log( "api jwt: " + apiClient.jwt);
+   console.log( "api jwt: " + apiClient.jwt);
 
 
    //Retrieve your OpenLaw template by name, use async/await
-   const template = await apiClient.getTemplate(openLawConfig.templateName);
+
+   // const template = await apiClient.getTemplate(openLawConfig.templateName);
+     const template = await fetch("http://localhost/passThroughWithBasicAuthToOpenLaw/template/raw/Formation%20Service%20Agreement");
    // console.log(template);
 
 
 
    //Retreive the OpenLaw Template, including MarkDown
    const content = template.content;
+
    // console.log("template..", template);
 
    //Get the most recent version of the OpenLaw API Tutorial Template
-   const versions = await apiClient.getTemplateVersions(
-     openLawConfig.templateName,
-     20,
-     1
-   );
+   // const versions = await apiClient.getTemplateVersions(
+   //   openLawConfig.templateName,
+   //   20,
+   //   1
+   // );
    // console.log("versions..", versions[0], versions.length);
 
-   const title = template.title;
+   const title = "Formation Service Agreement"//template.title;
 
 
 
@@ -341,13 +344,20 @@ export default class HeavenlyInterface extends React.Component {
 
     };
 
+    toggleCreateModal() {
+
+        this.CreateModal.current.ToggleShowing();
+
+    }
+
     async payCrypto(cryptoCurrency) {
-        this.Modal.current.ToggleShowing();
-        this.Modal.current.ToggleLoading(true);
+        this.CreateModal.current.ToggleShowing();
+        this.PaymentModal.current.ToggleShowing();
+        this.PaymentModal.current.ToggleLoading(true);
         const json = await API.getCryptoTransaction(cryptoCurrency);
         
         if (json["error"] !== "ok") {
-            this.Modal.current.SetTextAndTitle("Error", json["error"]);
+            this.PaymentModal.current.SetTextAndTitle("Error", json["error"]);
             return;
         }
 
@@ -356,15 +366,28 @@ export default class HeavenlyInterface extends React.Component {
         const statusUrl = result["status_url"];
         const explanation = "Please send your " + cryptoCurrency +" to the following address: <br/> <br/>" + address + "<br/> <br/> ";
         const followingExplanation = "Monitor the status of your payment <a href=" +statusUrl+"> here </a> ";
-        this.Modal.current.SetTextAndTitle("Transaction Created!", explanation + followingExplanation);
+        this.PaymentModal.current.SetTextAndTitle("Transaction Created!", explanation + followingExplanation);
     };
+
+
 
 
 
     templatePage(){
         return(
             <>
-                <ModalPage ref={this.Modal}/>
+                <Modal ref={this.PaymentModal}/>
+                {/*<Modal ref={this.CreateModal}>*/}
+                {/*    <MDBBtn size="lg" onClick={this.payFiat} className={"btn-secondary"}>*/}
+                {/*        Pay in USD*/}
+                {/*    </MDBBtn>*/}
+                {/*    <MDBBtn size="lg" onClick={()=> this.payCrypto("LTCT")} className={"btn-secondary"}>*/}
+                {/*        Pay in BTC (LTCT)*/}
+                {/*    </MDBBtn>*/}
+                {/*    <MDBBtn size="lg" onClick={()=> this.payCrypto("ETH")} className={"btn-secondary"}>*/}
+                {/*        Pay in ETH*/}
+                {/*    </MDBBtn>*/}
+                {/*</Modal>*/}
                 <MDBContainer>
                     <MDBRow className="py-5 mt-5 ">
                         <MDBCol md="12">
@@ -475,38 +498,17 @@ export default class HeavenlyInterface extends React.Component {
                                                     </MDBCardHeader>
                                                     <MDBCardBody cascade>
                                                         <MDBCardText>
-                                                            Buy now, pay in fiat.
+                                                            Buy now, pay in fiat or crypto.
                                                         </MDBCardText>
-                                                        <MDBBtn size="lg" onClick={this.payFiat} className={"btn-secondary"}>
-                                                            Pay Fiat
+                                                        <MDBBtn size="lg" onClick={this.toggleCreateModal} className={"btn-secondary"}>
+                                                            Create
                                                         </MDBBtn>
                                                     </MDBCardBody>
                                                 </MDBCard>
                                             </MDBAnimation>
                                         </MDBCol>
 
-                                        <MDBCol lg="4" className="mb-3">
-                                            <MDBAnimation reveal type="fadeInUp">
-                                                <MDBCard cascade >
-                                                    <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
-                                                        <div/>
-                                                        <p className="card-title h4">Purchase</p>
-                                                        <div/>
-                                                    </MDBCardHeader>
-                                                    <MDBCardBody cascade>
-                                                        <MDBCardText>
-                                                            Buy now, pay in Bitcoin or Ether.
-                                                        </MDBCardText>
-                                                        <MDBBtn size="lg" onClick={()=> this.payCrypto("LTCT")} className={"btn-secondary"}>
-                                                            Pay in BTC (LTCT)
-                                                        </MDBBtn>
-                                                        <MDBBtn size="lg" onClick={()=> this.payCrypto("ETH")} className={"btn-secondary"}>
-                                                            Pay in ETH
-                                                        </MDBBtn>
-                                                    </MDBCardBody>
-                                                </MDBCard>
-                                            </MDBAnimation>
-                                        </MDBCol>
+
                                     </MDBRow>
                                 </MDBCard>
                             </MDBAnimation>
