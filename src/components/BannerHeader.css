@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+
 
 @media only screen and (max-width: 500px) {
 .hideOnSmallDesktop {
@@ -32,15 +32,13 @@
 
 .subTitle{
     font-family: 'Roboto';
-    font-size: 1.5em;
+    font-size: 2em;
     /*text-shadow: #140C4C 2px 2px 0;*/
     color: var(--primary-contrast);
     margin-bottom: 0px;
 }
 
-.subTitle:hover{
-    text-shadow: #2E294E 2px 2px 0;
-}
+
 .navbar.navbar-dark .navbar-nav .nav-item .nav-link {
   color: var(--primary-contrast);
 }
@@ -213,7 +211,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99207cca', e
 .logoText {
   color: #FFFFFF;
   font-family: 'NemoyMedium';
-  font-size: 4vmin;
+  font-size: 6vmin;
   padding-left: 18px;
   padding-right: 18px;
   margin-left: 43px;

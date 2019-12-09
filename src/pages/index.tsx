@@ -9,7 +9,7 @@ class Home extends Component {
         return (
             <>
             <Head>
-                <title>Etherize Entities</title>
+                <title>Etherize: Formation & Identity Services</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
             <EntityServices/>

@@ -18,6 +18,13 @@ class  BannerHeader extends React.Component {
         };
     }
 
+    switchTheme() {
+      var root = document.querySelector(':root');
+      var rootStyles = getComputedStyle(root);
+      var mainColor = rootStyles.getPropertyValue('--main-color');
+      root.style.setProperty('--light-pink', '#FFFFFF')
+    }
+
 
     toggleCollapse = collapseID => () =>
         this.setState(prevState => ({
@@ -36,24 +43,23 @@ class  BannerHeader extends React.Component {
                     <strong className="logoText">ETHERIZE</strong>
                     </Link>
                 </MDBNavbarBrand>
+                <MDBNavbarBrand right>
+                    <strong className="subTitle">formation portal</strong>
+                </MDBNavbarBrand>
                 <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse1")}/>
                 <MDBCollapse id="navbarCollapse1"
                              isOpen={this.state.collapseID}
                              navbar>
-                    <MDBNavbarNav left>
+                    <MDBNavbarNav right>
                         <MDBNavItem className={"subTitle"} active={this.determineActive("create")}>
                             <Link href="/create">
                                 <a className="nav-link">Create</a>
                             </Link>
                         </MDBNavItem>
-                        <MDBNavItem className={"subTitle"}  active={this.determineActive("registry")} >
-                            <Link href="/adopt/registry">
-                                <a className="nav-link">Adopt</a>
-                            </Link>
-                        </MDBNavItem>
-                        <MDBNavItem className={"subTitle"} active={this.determineActive("contact")}>
-                            <Link href="/contact">
-                                <a className="nav-link">Contact</a>
+                        <MDBNavItem className={"subTitle"} active={this.determineActive("tools")}>
+                            <Link href="/tools">
+                                <a className="nav-link">Source</a>
+
                             </Link>
                         </MDBNavItem>
                         <MDBNavItem className={"subTitle"} active={this.determineActive("blog")}>
@@ -61,8 +67,12 @@ class  BannerHeader extends React.Component {
                                 <a className="nav-link">Blog</a>
                             </Link>
                         </MDBNavItem>
+                        <MDBNavItem className={"subTitle"} active={this.determineActive("contact")}>
+                            <Link href="/contact">
+                                <a className="nav-link">Contact</a>
+                            </Link>
+                        </MDBNavItem>
                     </MDBNavbarNav>
-
                 </MDBCollapse>
             </MDBNavbar>
 

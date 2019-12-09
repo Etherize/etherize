@@ -324,11 +324,9 @@ export default class HeavenlyInterface extends React.Component {
  //
 
     payFiat = async () => {
-
         const json = await API.getFiatTransaction();
         const sessionID = json["id"];
         const stripe = window.Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
-
         const {error} = await stripe.redirectToCheckout({
             // Make the id field from the Checkout Session creation API response
             // available to this file, so you can provide it as parameter here
@@ -338,14 +336,13 @@ export default class HeavenlyInterface extends React.Component {
 // If `redirectToCheckout` fails due to a browser or network
 // error, display the localized error message to your customer
 // using `error.message`.
-
     };
 
     async payCrypto(cryptoCurrency) {
         this.Modal.current.ToggleShowing();
         this.Modal.current.ToggleLoading(true);
         const json = await API.getCryptoTransaction(cryptoCurrency);
-        
+
         if (json["error"] !== "ok") {
             this.Modal.current.SetTextAndTitle("Error", json["error"]);
             return;
@@ -557,6 +554,3 @@ export default class HeavenlyInterface extends React.Component {
     );
   }
 }
-
-
-

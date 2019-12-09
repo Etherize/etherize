@@ -24,6 +24,12 @@
     /*background-color: var(--light-pink-trans);*/
 }
 
+.cards-background2{
+    background: linear-gradient(to right top, #ffffff 50%, var(--primary-color-trans) 50%);
+
+    /*background-color: var(--light-pink-trans);*/
+}
+
 .portalBackground{
     background-color: transparent;
     /* now we load the video in html*/
@@ -60,6 +66,3 @@
     transform: translate(-50%,-40%);
 
 }
-
-
-

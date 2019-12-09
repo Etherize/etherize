@@ -21,8 +21,9 @@ export default class Footer extends React.Component{
                         <MDBCol md="2" className={"text-center"}>
                             <br/>
                             <img alt={"eth icon"} src={ethicon} width={"75"} />
-                            <br/><br/>
-                            Made with   🍳   in Denver, CO
+                            <br/>
+                            Version 1.1 <br/>
+                            Made with   🦄✨  in Denver<br/>
                         </MDBCol>
                         <MDBCol md="3" className={"text-center"}>
                                 <Link href="/create">
@@ -54,7 +55,7 @@ export default class Footer extends React.Component{
                 </MDBContainer>
                 <div className="footer-copyright text-center py-3">
                     <MDBContainer fluid>
-                        &copy; {new Date().getFullYear()} <a href={Constants.home}> {Constants.home} </a>
+                        &copy; {new Date().getFullYear()} <a href={Constants.home}> Etherize Entities LLC </a>  | Code/Legal Templates MIT License |  Art by <a href="https://www.beeple-crap.com/everydays">Beeple</a>
                     </MDBContainer>
                 </div>
             </MDBFooter>

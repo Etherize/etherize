@@ -1,4 +1,6 @@
-
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+@import url('https://fonts.googleapis.com/css?family=Exo+2:400,700|Play&display=swap');
+@import url('https://fontlibrary.org/face/nemoy');
 
 
 @media (max-width: 800px) {
@@ -45,6 +47,12 @@ body > #__next > div {
   --button-border-radius:50px;
 
   --navbar-height:6em;
+}
+
+/* ***** etherize -t ***** */
+
+.bold {
+  font-weight: bold;
 }
 
 /* ***** Basics ***** */
