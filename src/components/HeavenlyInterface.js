@@ -26,7 +26,8 @@ import Footer from "./Footer";
 
 // configure openlaw
 // const URL = "https://etherizeit.openlaw.io";
-const URL = "https://u0ztgr50os-u0flnq9hwd-openlaw.us-east-2-svcs.kaleido.io";
+// const URL = "https://u0ztgr50os-u0flnq9hwd-openlaw.us-east-2-svcs.kaleido.io";
+const URL = "http://localhost/passThroughGETWithBasicAuthToOpenLaw";
 // You can change TEMPLATE_NAME to 'articles-of-organization' to make the code work ...
 // Right now, both deal templates on Etherizeit instance are causing the same issue
 // import getConfig from 'next/config'
@@ -82,21 +83,19 @@ export default class HeavenlyInterface extends React.Component {
    // We get the JWT from out backend now instead of logging in via username+password
    // console.log( "api host location: " + process.env.API_HOST);
    const apiClient = new APIClient(openLawConfig.server);
-   const [jwt, err] = await API.getJWT();
-       if (err !== "" || jwt === ""){
-           alert(err);
-           return;
-       }
-    apiClient.jwt = jwt;
-   console.log( "api jwt: " + apiClient.jwt);
+   // const [jwt, err] = await API.getJWT();
+   //     if (err !== "" || jwt === ""){
+   //         alert(err);
+   //         return;
+   //     }
+   //  apiClient.jwt = jwt;
+   // console.log( "api jwt: " + apiClient.jwt);
 
 
    //Retrieve your OpenLaw template by name, use async/await
+     console.log(URL);
 
-   // const template = await apiClient.getTemplate(openLawConfig.templateName);
-     const template = await fetch("http://localhost/passThroughWithBasicAuthToOpenLaw/template/raw/Formation%20Service%20Agreement");
-   // console.log(template);
-
+   const template = await apiClient.getTemplate(openLawConfig.templateName);
 
 
    //Retreive the OpenLaw Template, including MarkDown
@@ -104,22 +103,22 @@ export default class HeavenlyInterface extends React.Component {
 
    // console.log("template..", template);
 
-   //Get the most recent version of the OpenLaw API Tutorial Template
-   // const versions = await apiClient.getTemplateVersions(
-   //   openLawConfig.templateName,
-   //   20,
-   //   1
-   // );
+   // Get the most recent version of the OpenLaw API Tutorial Template
+   const versions = await apiClient.getTemplateVersions(
+     openLawConfig.templateName,
+     20,
+     1
+   );
    // console.log("versions..", versions[0], versions.length);
 
-   const title = "Formation Service Agreement"//template.title;
+   const title = template.title;
 
 
 
    //Get my compiled Template, for use in rendering the HTML in previewTemplate
    const compiledTemplate = await Openlaw.compileTemplate(content);
    if (compiledTemplate.isError) {
-     throw "template error" + compiledTemplate.errorMessage;
+     throw "template error: " + compiledTemplate.errorMessage;
    }
    // console.log("my compiled template..", compiledTemplate);
 
