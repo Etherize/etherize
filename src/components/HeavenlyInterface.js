@@ -25,9 +25,6 @@ import LoadingPortal from "./LoadingPortal";
 import Footer from "./Footer";
 
 // configure openlaw
-// const URL = "https://etherizeit.openlaw.io";
-// const URL = "https://u0ztgr50os-u0flnq9hwd-openlaw.us-east-2-svcs.kaleido.io";
-const URL = "http://localhost/passThroughGETWithBasicAuthToOpenLaw";
 // You can change TEMPLATE_NAME to 'articles-of-organization' to make the code work ...
 // Right now, both deal templates on Etherizeit instance are causing the same issue
 // import getConfig from 'next/config'
@@ -74,7 +71,7 @@ export default class HeavenlyInterface extends React.Component {
 
    //create config
    const openLawConfig = {
-     server: URL,
+     server: process.env.OpenlawHost,
      templateName: this.props.templateName,
    // username: "SECRET",
    // password: "SECRET_TOO"
@@ -82,21 +79,35 @@ export default class HeavenlyInterface extends React.Component {
 
    // We get the JWT from out backend now instead of logging in via username+password
    // console.log( "api host location: " + process.env.API_HOST);
-   const apiClient = new APIClient(openLawConfig.server);
-   // const [jwt, err] = await API.getJWT();
-   //     if (err !== "" || jwt === ""){
-   //         alert(err);
-   //         return;
-   //     }
-   //  apiClient.jwt = jwt;
+
+   const apiClient = new APIClient({root:openLawConfig.server, auth:{
+       username:process.env.KaleidoUser,
+       password:process.env.KaleidoPass,
+       }});
+
+   const [jwt, err] = await API.getJWT();
+       if (err !== "" || jwt === ""){
+           alert(err);
+           return;
+       }
+    apiClient.jwt = jwt;
    // console.log( "api jwt: " + apiClient.jwt);
 
 
    //Retrieve your OpenLaw template by name, use async/await
-     console.log(URL);
-
+   //   console.log("openlaw instance hosted at: " + openLawConfig.server);
    const template = await apiClient.getTemplate(openLawConfig.templateName);
+     // console.log("template..", template);
 
+    // DEBUGGING the endpoint with fetch:
+    //  const headers = new Headers();
+    //  headers.append('Authorization', 'Basic ' +
+    //      btoa(process.env.KaleidoUser + ':' + process.env.KaleidoPass));
+    //  const url = openLawConfig.server + "/template/raw/" + encodeURI(openLawConfig.templateName);
+    //  console.log(url);
+    // const templateReq = await fetch(url, {headers: headers});
+    // console.log(templateReq.status + " " + templateReq.statusText);
+    // const template = await templateReq.json();
 
    //Retreive the OpenLaw Template, including MarkDown
    const content = template.content;
@@ -414,32 +425,32 @@ export default class HeavenlyInterface extends React.Component {
                         </MDBCol>
                     </MDBRow>
 
-                    <MDBRow className="py-5 mt-5 ">
-                        <MDBCol md="12">
-                            <MDBAnimation type={"fadeInUp"}>
-                                <MDBCard cascade >
-                                    <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
-                                        <div>
-                                        </div>
-                                        <p className="card-title h1">Review</p>
-                                        <div>
-                                        </div>
-                                    </MDBCardHeader>
-                                    <MDBCardBody className={"text-center"}>
-                                        { this.state.showReview ? null
-                                            :
-                                            <MDBBtn id="generateButton" className="huge pink ui right labeled icon button btn-secondary bottomMargin " onClick={this.setTemplatePreview}>Generate Agreement<i className="play icon">
+                    {/*<MDBRow className="py-5 mt-5 ">*/}
+                    {/*    <MDBCol md="12">*/}
+                    {/*        <MDBAnimation type={"fadeInUp"}>*/}
+                    {/*            <MDBCard cascade >*/}
+                    {/*                <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">*/}
+                    {/*                    <div>*/}
+                    {/*                    </div>*/}
+                    {/*                    <p className="card-title h1">Review</p>*/}
+                    {/*                    <div>*/}
+                    {/*                    </div>*/}
+                    {/*                </MDBCardHeader>*/}
+                    {/*                <MDBCardBody className={"text-center"}>*/}
+                    {/*                    { this.state.showReview ? null*/}
+                    {/*                        :*/}
+                    {/*                        <MDBBtn id="generateButton" className="huge pink ui right labeled icon button btn-secondary bottomMargin " onClick={this.setTemplatePreview}>Generate Agreement<i className="play icon">*/}
 
-                                            </i></MDBBtn>
-                                        }
+                    {/*                        </i></MDBBtn>*/}
+                    {/*                    }*/}
 
 
-                                        <AgreementPreview  className="subPanel minnish" id="preview" previewHTML={this.state.previewHTML} />
-                                    </MDBCardBody>
-                                </MDBCard>
-                            </MDBAnimation>
-                        </MDBCol>
-                    </MDBRow>
+                    {/*                    <AgreementPreview  className="subPanel minnish" id="preview" previewHTML={this.state.previewHTML} />*/}
+                    {/*                </MDBCardBody>*/}
+                    {/*            </MDBCard>*/}
+                    {/*        </MDBAnimation>*/}
+                    {/*    </MDBCol>*/}
+                    {/*</MDBRow>*/}
 
                     {/*spacing*/}
                     <MDBRow className={"mt-5 mb-5"} >
@@ -463,7 +474,7 @@ export default class HeavenlyInterface extends React.Component {
                                     {/*begin cards row*/}
                                     <MDBRow className={"mt-2"}>
 
-                                        <MDBCol lg="4" className="mb-3">
+                                        <MDBCol lg="6" className="mb-3">
                                             <MDBAnimation reveal type="fadeInUp">
                                                 <MDBCard cascade >
                                                     <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
@@ -487,7 +498,7 @@ export default class HeavenlyInterface extends React.Component {
 
 
 
-                                        <MDBCol lg="4" className="mb-3">
+                                        <MDBCol lg="6" className="mb-3">
                                             <MDBAnimation reveal type="fadeInUp">
                                                 <MDBCard cascade >
                                                     <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
