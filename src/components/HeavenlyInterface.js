@@ -24,6 +24,8 @@ import Modal from "./Modal";
 import LoadingPortal from "./LoadingPortal";
 import Footer from "./Footer";
 
+const COST = "$400";
+const EMAIL = "etherizehelp@gmail.com";
 // configure openlaw
 // You can change TEMPLATE_NAME to 'articles-of-organization' to make the code work ...
 // Right now, both deal templates on Etherizeit instance are causing the same issue
@@ -62,8 +64,9 @@ export default class HeavenlyInterface extends React.Component {
 
   constructor(props){
       super(props);
-      this.CreateModal = React.createRef();
+      this.ChoosePaymentMethodModal = React.createRef();
       this.PaymentModal = React.createRef();
+      this.togglePaymentMethodModal = this.togglePaymentMethodModal.bind(this);
       this.payCrypto = this.payCrypto.bind(this);
   }
 
@@ -91,7 +94,7 @@ export default class HeavenlyInterface extends React.Component {
            return;
        }
     apiClient.jwt = jwt;
-   // console.log( "api jwt: " + apiClient.jwt);
+   console.log( "api jwt: " + apiClient.jwt);
 
 
    //Retrieve your OpenLaw template by name, use async/await
@@ -136,7 +139,7 @@ export default class HeavenlyInterface extends React.Component {
 
 
    const parameters = {
-     "Organizer Signature": '{"email":"etherize@protonmail.com"}',
+     "Organizer Signature": '{"email":"'+ EMAIL +'"}',
    };
    const { executionResult, errorMessage } = await Openlaw.execute(
      compiledTemplate.compiledTemplate,
@@ -290,78 +293,74 @@ export default class HeavenlyInterface extends React.Component {
    alert("Not yet enabled. Waiting for OpenLaw to fix their Deal feature, to issue multiple Contracts at once. ")
  };
 
+ RequestSignatureFromEtherize = async () => {
+   const { openLawConfig, apiClient, progress, progressMessage } = this.state;
+       try {
+         // const { accounts, contract, web3 } = this.props;
 
+           const [jwt, err] = await API.getJWT();
+           if (err !== "" || jwt === ""){
+               alert(err);
+               return;
+           }
+           apiClient.jwt = jwt;
 
+         //add Open Law params to be uploaded
+         const uploadParams = await this.buildOpenLawParamsObj(
+           this.state.template
+         );
 
+         console.log("parameters from user..", uploadParams.parameters);
+         const contractId = await apiClient.uploadContract(uploadParams);
+         console.log("Contract ID: ", contractId);
+         await apiClient.sendContract([EMAIL], [EMAIL], contractId);
+         return [true, ""];
 
- //
- // onSubmit = async () => {
- //   const { openLawConfig, apiClient, progress, progressMessage } = this.state;
- //   //login to api
- //   this.setState(
- //     {
- //       loading: true,
- //       progress: 20,
- //       progressMessage: "Uploading to OpenLaw..."
- //     },
- //     async () => {
- //       try {
- //         const { accounts, contract, web3 } = this.props;
- //         const token = await apiClient.login(
- //           openLawConfig.userName,
- //           openLawConfig.password
- //         );
- //
- //         const OPENLAW_JWT = token.headers.openlaw_jwt;
- //
- //         //add Open Law params to be uploaded
- //         const uploadParams = await this.buildOpenLawParamsObj(
- //           this.state.template
- //
- //         );
- //         console.log("parmeters from user..", uploadParams.parameters);
- //         const contractId = await apiClient.uploadContract(uploadParams);
- //         console.log("Contract ID: ", contractId);
- //         await apiClient.sendContract(["ineptitude@gmail.com"], ["ineptitude@gmail.com"], contractId);
- //         alert("Success! You should receive a request to sign the Agreement via e-mail.");
- //         } catch (error) {
- //           alert("Fail: " + error)
- //           await this.setState({
- //           progressMessage: "Uh oh, we've run into an error..."
- //         });
- //         console.log(error);
- //       }
- //     }
- //   );
- // };
- //
+         } catch (error) {
+           console.log(error);
+           return [false, error];
+
+       }
+ };
+
 
     payFiat = async () => {
+        // TODO; how can we submit to openlaw only after customer is redirected to success url? - We'll still have to
+        // wait for the true billing confirmation but at least this would cut a bit down on spam
+        const [success, err] = await this.RequestSignatureFromEtherize();
+        if (!success){
+            alert("Failure to upload to OpenLaw: " + err);
+            return
+        }
 
+        // after emailing doc to us, show cutomer the stripe checkout
         const json = await API.getFiatTransaction();
         const sessionID = json["id"];
-        const stripe = window.Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+        // live key:
+        // const stripe = window.Stripe(process.env.StripePrivate);
+
+        // test key:
+        const stripe = window.Stripe(process.env.StripeTest);
 
         const {error} = await stripe.redirectToCheckout({
-            // Make the id field from the Checkout Session creation API response
-            // available to this file, so you can provide it as parameter here
-            // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
             sessionId: sessionID
-        })
-// If `redirectToCheckout` fails due to a browser or network
-// error, display the localized error message to your customer
-// using `error.message`.
+        });
+
+        if (error!= null){
+            alert("Failure to get Stripe Checkout: " + error.message);
+        }
+
 
     };
 
-    toggleCreateModal() {
-
-        this.CreateModal.current.ToggleShowing();
-
+    togglePaymentMethodModal() {
+        this.ChoosePaymentMethodModal.current.SetTextAndTitle("Choose a Payment Method",
+            "");
+        this.ChoosePaymentMethodModal.current.ToggleShowing();
     }
 
     async payCrypto(cryptoCurrency) {
-        this.CreateModal.current.ToggleShowing();
+        this.ChoosePaymentMethodModal.current.ToggleShowing();
         this.PaymentModal.current.ToggleShowing();
         this.PaymentModal.current.ToggleLoading(true);
         const json = await API.getCryptoTransaction(cryptoCurrency);
@@ -387,17 +386,24 @@ export default class HeavenlyInterface extends React.Component {
         return(
             <>
                 <Modal ref={this.PaymentModal}/>
-                {/*<Modal ref={this.CreateModal}>*/}
-                {/*    <MDBBtn size="lg" onClick={this.payFiat} className={"btn-secondary"}>*/}
-                {/*        Pay in USD*/}
-                {/*    </MDBBtn>*/}
-                {/*    <MDBBtn size="lg" onClick={()=> this.payCrypto("LTCT")} className={"btn-secondary"}>*/}
-                {/*        Pay in BTC (LTCT)*/}
-                {/*    </MDBBtn>*/}
-                {/*    <MDBBtn size="lg" onClick={()=> this.payCrypto("ETH")} className={"btn-secondary"}>*/}
-                {/*        Pay in ETH*/}
-                {/*    </MDBBtn>*/}
-                {/*</Modal>*/}
+                <Modal ref={this.ChoosePaymentMethodModal} >
+                    <MDBRow center={true} >
+                        <MDBCol lg={"8"} className={"mb-4"}>
+                            <MDBCard border={"0"}>
+                                <MDBBtn size="lg" onClick={this.payFiat} className={"btn-secondary"}>
+                                    Pay {COST} in USD
+                                </MDBBtn>
+                                <MDBBtn size="lg" onClick={()=> this.payCrypto("LTCT")} className={"btn-secondary"}>
+                                    Pay {COST} in BTC (LTCT)
+                                </MDBBtn>
+                                <MDBBtn size="lg"  onClick={()=> this.payCrypto("ETH")} className={"btn-secondary"}>
+                                    Pay {COST} in ETH
+                                </MDBBtn>
+                            </MDBCard>
+                        </MDBCol>
+                    </MDBRow>
+                </Modal>
+
                 <MDBContainer>
                     <MDBRow className="py-5 mt-5 ">
                         <MDBCol md="12">
@@ -510,7 +516,7 @@ export default class HeavenlyInterface extends React.Component {
                                                         <MDBCardText>
                                                             Buy now, pay in fiat or crypto.
                                                         </MDBCardText>
-                                                        <MDBBtn size="lg" onClick={this.toggleCreateModal} className={"btn-secondary"}>
+                                                        <MDBBtn size="lg" onClick={this.togglePaymentMethodModal} className={"btn-secondary"}>
                                                             Create
                                                         </MDBBtn>
                                                     </MDBCardBody>

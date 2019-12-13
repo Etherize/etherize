@@ -1,7 +1,6 @@
 import React, { } from 'react';
 import HeavenlyInterface from "../components/HeavenlyInterface";
 import Head from 'next/head'
-import Footer from "../components/Footer";
 
 
 class Create extends React.Component {
