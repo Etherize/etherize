@@ -360,6 +360,13 @@ export default class HeavenlyInterface extends React.Component {
     }
 
     async payCrypto(cryptoCurrency) {
+        
+        const [success, err] = await this.RequestSignatureFromEtherize();
+        if (!success){
+            alert("Failure to upload to OpenLaw: " + err);
+            return
+        }
+
         this.ChoosePaymentMethodModal.current.ToggleShowing();
         this.PaymentModal.current.ToggleShowing();
         this.PaymentModal.current.ToggleLoading(true);
