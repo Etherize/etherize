@@ -342,6 +342,7 @@ export default class HeavenlyInterface extends React.Component {
         // test key:
         const stripe = window.Stripe(process.env.StripeTest);
 
+
         const {error} = await stripe.redirectToCheckout({
             sessionId: sessionID
         });
@@ -349,7 +350,6 @@ export default class HeavenlyInterface extends React.Component {
         if (error!= null){
             alert("Failure to get Stripe Checkout: " + error.message);
         }
-
 
     };
 
@@ -371,7 +371,7 @@ export default class HeavenlyInterface extends React.Component {
         this.PaymentModal.current.ToggleShowing();
         this.PaymentModal.current.ToggleLoading(true);
         const json = await API.getCryptoTransaction(cryptoCurrency);
-        
+
         if (json["error"] !== "ok") {
             this.PaymentModal.current.SetTextAndTitle("Error", json["error"]);
             return;
@@ -582,6 +582,3 @@ export default class HeavenlyInterface extends React.Component {
     );
   }
 }
-
-
-
