@@ -44,7 +44,7 @@ class  BannerHeader extends React.Component {
                     </Link>
                 </MDBNavbarBrand>
                 <MDBNavbarBrand right>
-                    <strong className="subTitle">formation portal</strong>
+                    <strong className="subTitle">entity formation spells</strong>
                 </MDBNavbarBrand>
                 <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse1")}/>
                 <MDBCollapse id="navbarCollapse1"
@@ -58,7 +58,7 @@ class  BannerHeader extends React.Component {
                         </MDBNavItem>
                         <MDBNavItem className={"subTitle"} active={this.determineActive("tools")}>
                             <Link href="/tools">
-                                <a className="nav-link">Source</a>
+                                <a className="nav-link">Tools</a>
 
                             </Link>
                         </MDBNavItem>
