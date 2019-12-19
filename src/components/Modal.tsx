@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBCardTitle } from 'mdbreact';
 import HTMLReactParser from "html-react-parser";
 
-class ModalPage extends Component {
+class Modal extends Component {
     state = {
         text:"Explanation for this modal",
         title:"Modal",
@@ -49,6 +49,7 @@ class ModalPage extends Component {
                         {this.state.loading ? <div className={"spinner-border"} role={"status"}/> :
                             HTMLReactParser(this.state.text)}
                     </MDBModalBody>
+                    {this.props.children}
                     <MDBModalFooter>
                         <MDBBtn color="secondary" onClick={this.toggleOpen()}>Close</MDBBtn>
                     </MDBModalFooter>
@@ -64,4 +65,4 @@ class ModalPage extends Component {
 
 }
 
-export default ModalPage;
+export default Modal;

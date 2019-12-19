@@ -18,7 +18,7 @@ import "./registry.css";
 import BannerHeader from "../../components/BannerHeader";
 import Head from "next/head";
 import Footer from "../../components/Footer";
-import ModalPage from "../../components/Modal";
+import Modal from "../../components/Modal";
 import API from "../../components/API"
 
 interface State {
@@ -27,7 +27,7 @@ interface State {
 
 class Registry extends React.Component<{}, State> {
 
-    private Modal = React.createRef<ModalPage>();
+    private Modal = React.createRef<Modal>();
     private WyDAORegistry = {
         columns: [
             {
@@ -208,7 +208,7 @@ class Registry extends React.Component<{}, State> {
                 <div className={"mainBackground"}>
                     <BannerHeader/>
 
-                     <ModalPage ref={this.Modal}/>
+                     <Modal ref={this.Modal}/>
 
 
                     <MDBContainer>
