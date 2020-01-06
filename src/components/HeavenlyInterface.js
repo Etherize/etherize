@@ -83,10 +83,11 @@ export default class HeavenlyInterface extends React.Component {
    // We get the JWT from out backend now instead of logging in via username+password
    // console.log( "api host location: " + process.env.API_HOST);
 
-   const apiClient = new APIClient({root:openLawConfig.server, auth:{
-       username:process.env.KaleidoUser,
-       password:process.env.KaleidoPass,
-       }});
+   const apiClient = new APIClient({root:openLawConfig.server
+       // , auth:{
+       // username:process.env.KaleidoUser,
+       // password:process.env.KaleidoPass, }
+       });
 
    const [jwt, err] = await API.getJWT();
        if (err !== "" || jwt === ""){
