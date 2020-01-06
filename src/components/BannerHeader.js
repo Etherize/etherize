@@ -43,7 +43,7 @@ class  BannerHeader extends React.Component {
                     <strong className="logoText">ETHERIZE</strong>
                     </Link>
                 </MDBNavbarBrand>
-                <MDBNavbarBrand right>
+                <MDBNavbarBrand right={"true"}>
                     <strong className="subTitle">entity formation spells</strong>
                 </MDBNavbarBrand>
                 <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse1")}/>
