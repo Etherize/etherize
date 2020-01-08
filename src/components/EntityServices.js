@@ -165,6 +165,7 @@ class EntityServices extends React.Component {
                                                             your Hybrid Entity using your email or network address. Enjoy
                                                             limited liability, an operating agreement crafted from your
                                                             input & our templates and two consultations with our experts.
+                                                        <div/>
 
                                                         <MDBBadge
                                                             className="mr-2 mt-2 badge-info"> Wyoming</MDBBadge><MDBBadge
@@ -206,7 +207,8 @@ class EntityServices extends React.Component {
                                                             paper - you can add on blockchain components later. Your EIN
                                                             and Formation Certificate will be sent to your inbox. Enjoy
                                                             the lowest taxes and strongest protections in the US. One
-                                                            consultation is included to help you get things rolling
+                                                            consultation is included to help you get things rolling.
+                                                        <div/>
 
                                                         <MDBBadge
                                                             className="mr-2 mt-2 badge-info"> Wyoming</MDBBadge><MDBBadge
@@ -243,7 +245,7 @@ class EntityServices extends React.Component {
                                                     the stars align, sign. Documents include Articles of Incorporation
                                                     and an Operating Agreement. Afterwards you can submit the filings yourself
                                                     or hire Etherize to do it for you later.
-
+                                            <div/>
                                                 <MDBBadge className="mr-2 mt-2 badge-info"> Any
                                                     State</MDBBadge><MDBBadge className="mr-2 mt-2 badge-info">Any Crypto
                                                     Network</MDBBadge><MDBBadge className="mr-2 mt-2 badge-info">Non-Profitor
