@@ -59,7 +59,7 @@ class EntityServices extends React.Component {
                                 <MDBCol md={"4"} middle={"true"}>
                                     <MDBCard border={"0"} className={"my-auto"}>
                                         <MDBAnimation type={"fadeInRight"} duration={"2s"}>
-                                            <MDBCardTitle className="h1-responsive jumbo-title text-center">
+                                            <MDBCardTitle className="jumbo-title text-center">
                                                 conjure hybrid friends
                                             </MDBCardTitle>
                                         </MDBAnimation>
@@ -81,7 +81,7 @@ class EntityServices extends React.Component {
                                     <MDBCard border={"0"} className={"my-auto"}>
                                         <MDBAnimation type={"fadeInLeft"} duration={"2s"}>
 
-                                            <MDBCardTitle className="h1-responsive  text-left">
+                                            <MDBCardTitle className="text-left">
                                                 [LLC/Non-Profit]
                                                 <br/>
                                                 controlled via
@@ -94,8 +94,8 @@ class EntityServices extends React.Component {
                                 <MDBContainer className={"text-center"}>
                                     <MDBAnimation type={"fadeInDown"} duration={"2s"}>
 
-                                        <MDBCardTitle className="h1-responsive title pt-3 m-5">
-                                            <h1 className="entity-type-description bold">The Portal Beckons</h1>
+                                        <MDBCardTitle className="title pt-3 m-5 entity-type-description bold">
+                                            The Portal Beckons
                                         </MDBCardTitle>
 
                                     </MDBAnimation>
@@ -160,12 +160,12 @@ class EntityServices extends React.Component {
                                                     </MDBCardTitle>
 
                                                     <MDBCardText className={"mb-5 mt-5"}>
-                                                        <p> Our team of machine elves🧚‍ will toil until your hybrid entity is
+                                                         Our team of machine elves🧚‍ will toil until your hybrid entity is
                                                             formed and making its first steps on Earth. You can manage
                                                             your Hybrid Entity using your email or network address. Enjoy
                                                             limited liability, an operating agreement crafted from your
                                                             input & our templates and two consultations with our experts.
-                                                        </p>
+
                                                         <MDBBadge
                                                             className="mr-2 mt-2 badge-info"> Wyoming</MDBBadge><MDBBadge
                                                         className="mr-2 mt-2 badge-info">Non-Profit or
@@ -202,12 +202,12 @@ class EntityServices extends React.Component {
                                                     </MDBCardTitle>
 
                                                     <MDBCardText className={"mb-5 mt-5"}>
-                                                        <p> Form your new legal entity without having to sign a single piece of
+                                                        Form your new legal entity without having to sign a single piece of
                                                             paper - you can add on blockchain components later. Your EIN
                                                             and Formation Certificate will be sent to your inbox. Enjoy
                                                             the lowest taxes and strongest protections in the US. One
                                                             consultation is included to help you get things rolling
-                                                        </p>
+
                                                         <MDBBadge
                                                             className="mr-2 mt-2 badge-info"> Wyoming</MDBBadge><MDBBadge
                                                         className="mr-2 mt-2 badge-info">Non-Profit or LLC</MDBBadge>
@@ -239,11 +239,11 @@ class EntityServices extends React.Component {
                                             </MDBCardTitle>
 
                                             <MDBCardText className={"mb-5 mt-5"}>
-                                                <p> Our wizard🧙 generates documents for you & co-founders to review and, if
+                                                 Our wizard🧙 generates documents for you & co-founders to review and, if
                                                     the stars align, sign. Documents include Articles of Incorporation
                                                     and an Operating Agreement. Afterwards you can submit the filings yourself
                                                     or hire Etherize to do it for you later.
-                                                </p>
+
                                                 <MDBBadge className="mr-2 mt-2 badge-info"> Any
                                                     State</MDBBadge><MDBBadge className="mr-2 mt-2 badge-info">Any Crypto
                                                     Network</MDBBadge><MDBBadge className="mr-2 mt-2 badge-info">Non-Profitor
