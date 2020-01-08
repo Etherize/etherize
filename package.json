@@ -23,8 +23,7 @@
     "openlaw-elements": "^1.0.1",
     "react": "16.10.2",
     "react-dom": "16.10.2",
-    "react-markdown": "^4.2.2",
-    "react-png-flipcard": "^1.0.1"
+    "react-markdown": "^4.2.2"
   },
   "devDependencies": {
     "@types/node": "^12.11.1",
