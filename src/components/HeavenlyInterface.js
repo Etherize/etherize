@@ -2,7 +2,7 @@ import React from 'react';
 // import openlaw
 import {APIClient, Openlaw} from "openlaw";
 import OpenLawForm from "openlaw-elements";
-import AgreementPreview from "../components/AgreementPreview";
+// import AgreementPreview from "../components/AgreementPreview";
 import {
     MDBAnimation,
     MDBBtn,
@@ -66,6 +66,7 @@ export default class HeavenlyInterface extends React.Component {
       super(props);
       this.ChoosePaymentMethodModal = React.createRef();
       this.PaymentModal = React.createRef();
+      this.MiscellaneousModal = React.createRef();
       this.togglePaymentMethodModal = this.togglePaymentMethodModal.bind(this);
       this.payCrypto = this.payCrypto.bind(this);
   }
@@ -103,15 +104,6 @@ export default class HeavenlyInterface extends React.Component {
    const template = await apiClient.getTemplate(openLawConfig.templateName);
      // console.log("template..", template);
 
-    // DEBUGGING the endpoint with fetch:
-    //  const headers = new Headers();
-    //  headers.append('Authorization', 'Basic ' +
-    //      btoa(process.env.KaleidoUser + ':' + process.env.KaleidoPass));
-    //  const url = openLawConfig.server + "/template/raw/" + encodeURI(openLawConfig.templateName);
-    //  console.log(url);
-    // const templateReq = await fetch(url, {headers: headers});
-    // console.log(templateReq.status + " " + templateReq.statusText);
-    // const template = await templateReq.json();
 
    //Retreive the OpenLaw Template, including MarkDown
    const content = template.content;
@@ -234,7 +226,7 @@ export default class HeavenlyInterface extends React.Component {
 
 
    const { parameters } = this.state;
-   const object = {
+     return {
      templateId: template.id,
      title: template.title,
      text: template.content,
@@ -244,22 +236,21 @@ export default class HeavenlyInterface extends React.Component {
      agreements: {},
      draftId: ""
    };
-   return object;
+
  };
 
+ // TODO: check to make sure they've filled out the email field
  sendDraft = async () => {
    const { openLawConfig, apiClient, progress, progressMessage } = this.state;
-   //login to api
-   this.setState(
-     {
-       loading: true,
-       progress: 20,
-       progressMessage: "Uploading to OpenLaw..."
-     },
-     async () => {
+
+     this.MiscellaneousModal.current.SetTextAndTitle("Sending Draft",
+         "");
+     this.MiscellaneousModal.current.ToggleShowing();
+     this.MiscellaneousModal.current.ToggleLoading(true);
        try {
          const { accounts, contract, web3 } = this.props;
 
+         //login to api
          const [jwt, err] = await API.getJWT();
          if (err !== "" || jwt === ""){
              alert(err);
@@ -271,23 +262,33 @@ export default class HeavenlyInterface extends React.Component {
          const uploadParams = await this.buildOpenLawParamsObj(
            this.state.template
          );
-         console.log("parmeters from user..", uploadParams.parameters);
+
+         // try to parse their email in the parameters
+         let json = null;
+           try {
+               json = JSON.parse(uploadParams.parameters["Member Signature"]);
+
+           } catch(e) {
+               this.MiscellaneousModal.current.SetTextAndTitle("Error",
+                   "We couldn't parse your email address! Please enter a valid email address.");
+               return
+           }
+
+         const memberEmail = json["email"];
          const contractId = await apiClient.uploadDraft(uploadParams);
-         console.log("Contract ID: ", contractId);
+         // console.log("Contract ID: ", contractId);
          await apiClient.sendDraft([], [], contractId);
 
-         alert("Success! You should receive your Draft via e-mail.");
+         this.MiscellaneousModal.current.SetTextAndTitle("Success!",
+               "You should receive your draft at: " + memberEmail);
 
          } catch (error) {
-           alert(error + ". Did you specify an e-mail address in the 'Define' section?")
-           await this.setState({
-           progressMessage: "Uh oh, we've run into an error..."
-         });
-         console.log(error);
-
+           this.MiscellaneousModal.current.SetTextAndTitle("Error",
+              "We tried to send the draft, but got an error: " + error);
        }
-     }
-   );
+
+
+
  };
 
  sendContract = async () => {
@@ -393,6 +394,7 @@ export default class HeavenlyInterface extends React.Component {
     templatePage(){
         return(
             <>
+                <Modal ref={this.MiscellaneousModal}/>
                 <Modal ref={this.PaymentModal}/>
                 <Modal ref={this.ChoosePaymentMethodModal} >
                     <MDBRow center={true} >
