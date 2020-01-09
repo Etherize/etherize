@@ -303,7 +303,7 @@ export default class HeavenlyInterface extends React.Component {
    const { openLawConfig, apiClient, progress, progressMessage } = this.state;
 
      try {
-         const {accounts, contract, web3} = this.props;
+         // const {accounts, contract, web3} = this.props;
 
          const [jwt, err] = await API.getJWT();
          if (err !== "" || jwt === "") {
@@ -315,12 +315,12 @@ export default class HeavenlyInterface extends React.Component {
 
          //add Open Law params to be uploaded
          const uploadParams = this.buildOpenLawParamsFromState();
-
-
+         
          console.log(uploadParams.parameters);
          const contractId = await apiClient.uploadContract(uploadParams);
          console.log("Contract ID: ", contractId);
 
+        // looks like openlaw automatically sends the email to the member, so just send to us here
          await apiClient.sendContract([EMAIL], [EMAIL], contractId);
          return [true, ""];
 
@@ -362,18 +362,20 @@ export default class HeavenlyInterface extends React.Component {
 
     };
 
+    // TODO: check that ALL fields are filled or we'll get a 400 error from openlaw
     togglePaymentMethodModal() {
 
         // Check for a valid email first
         const uploadParams = this.buildOpenLawParamsFromState();
-        // const [validEmail, memberEmail] = this.uploadParamsHasValidEmail(uploadParams);
-        //
-        // if (!validEmail){
-        //     this.MiscellaneousModal.current.SetTextAndTitle("Error",
-        //         "We couldn't parse your email address! Please enter a valid email address.");
-        //     this.MiscellaneousModal.current.ToggleShowing();
-        //     return
-        // }
+        const [validEmail, memberEmail] = this.uploadParamsHasValidEmail(uploadParams);
+
+
+        if (!validEmail){
+            this.MiscellaneousModal.current.SetTextAndTitle("Error",
+                "We couldn't parse your email address! Please enter a valid email address.");
+            this.MiscellaneousModal.current.ToggleShowing();
+            return
+        }
 
         this.ChoosePaymentMethodModal.current.SetTextAndTitle("Choose a Payment Method",
             "");
