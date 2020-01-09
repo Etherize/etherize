@@ -176,30 +176,51 @@ export default class HeavenlyInterface extends React.Component {
      this.setState(prevState => ({ finalizeVisible: !prevState.finalizeVisible }));
    };
 
+ // slow way:
+    onChange = (key, value) => {
+        const { compiledTemplate } = this.state;
+        const parameters = key
+            ? {
+                ...this.state.parameters,
+                [key]: [key].includes("Email")
+                    ? JSON.stringify({ email: value })
+                    : value
+            }
+            : this.state.parameters;
 
- onChange = (key, value) => {
-   const parameters = key
-     ? {
-         ...this.state.parameters,
-         [key]: [key].includes("Email")
-           ? JSON.stringify({ email: value })
-           : value
-       }
-     : this.state.parameters;
-   this.setState({parameters});
+        const { executionResult, errorMessage } = Openlaw.execute(
+            compiledTemplate.compiledTemplate,
+            {},
+            parameters
+        );
+        const variables = Openlaw.getExecutedVariables(executionResult, {});
+        this.setState({ parameters, variables, executionResult });
+    };
 
-   // ***
-   // Commented out below code and moved it to executeTemplate() as is slows the page down during form filling
-   // ***
-
-   // const { executionResult, errorMessage } = Openlaw.execute(
-   //   compiledTemplate.compiledTemplate,
-   //   {},
-   //   parameters
-   // );
-   // const variables = Openlaw.getExecutedVariables(executionResult, {});
-   //   this.setState({ parameters, variables, executionResult });
- };
+    // fast way:
+ // onChange = (key, value) => {
+ //   const parameters = key
+ //     ? {
+ //         ...this.state.parameters,
+ //         [key]: [key].includes("Email")
+ //           ? JSON.stringify({ email: value })
+ //           : value
+ //       }
+ //     : this.state.parameters;
+ //   this.setState({parameters});
+ //
+ //   // ***
+ //   // Commented out below code and moved it to executeTemplate() as is slows the page down during form filling
+ //   // ***
+ //
+ //   // const { executionResult, errorMessage } = Openlaw.execute(
+ //   //   compiledTemplate.compiledTemplate,
+ //   //   {},
+ //   //   parameters
+ //   // );
+ //   // const variables = Openlaw.getExecutedVariables(executionResult, {});
+ //   //   this.setState({ parameters, variables, executionResult });
+ // };
 
  executeTemplate(){
     const { compiledTemplate } = this.state;
@@ -231,6 +252,24 @@ export default class HeavenlyInterface extends React.Component {
      return [true, memberEmail];
  }
 
+ // slow way:
+    buildOpenLawParamsObj = async template => {
+        const { parameters } = this.state;
+        const object = {
+            templateId: template.id,
+            title: template.title,
+            text: template.content,
+            creator: "Etherize",
+            parameters,
+            overriddenParagraphs: {},
+            agreements: {},
+            draftId: ""
+        };
+        return object;
+    };
+
+
+ // fast way:
  buildOpenLawParamsFromState() {
    const template = this.state.template;
    this.executeTemplate();
@@ -299,38 +338,71 @@ export default class HeavenlyInterface extends React.Component {
    alert("Not yet enabled. Waiting for OpenLaw to fix their Deal feature, to issue multiple Contracts at once. ")
  };
 
- RequestSignatureFromEtherize = async () => {
-   const { openLawConfig, apiClient, progress, progressMessage } = this.state;
+ // slow way:
+    RequestSignatureFromEtherize = async () => {
+        const { openLawConfig, apiClient, progress, progressMessage } = this.state;
+        try {
+            // const { accounts, contract, web3 } = this.props;
 
-     try {
-         const {accounts, contract, web3} = this.props;
+            const [jwt, err] = await API.getJWT();
+            if (err !== "" || jwt === ""){
+                alert(err);
+                return;
+            }
+            apiClient.jwt = jwt;
 
-         const [jwt, err] = await API.getJWT();
-         if (err !== "" || jwt === "") {
-             alert(err);
-             return;
-         }
-         apiClient.jwt = jwt;
+            //add Open Law params to be uploaded
+            const uploadParams = await this.buildOpenLawParamsObj(
+                this.state.template
+            );
 
+            console.log("parameters from user..", uploadParams.parameters);
+            const contractId = await apiClient.uploadContract(uploadParams);
+            console.log("Contract ID: ", contractId);
+            await apiClient.sendContract([EMAIL], [EMAIL], contractId);
+            return [true, ""];
 
-         //add Open Law params to be uploaded
-         const uploadParams = this.buildOpenLawParamsFromState();
+        } catch (error) {
+            console.log(error);
+            return [false, error];
 
-
-         console.log(uploadParams.parameters);
-         const contractId = await apiClient.uploadContract(uploadParams);
-         console.log("Contract ID: ", contractId);
-
-         await apiClient.sendContract([EMAIL], [EMAIL], contractId);
-         return [true, ""];
-
-     } catch (error) {
-         console.log(error);
-         return [false, error];
-     }
+        }
+    };
 
 
- };
+ // fast way:
+ // RequestSignatureFromEtherize = async () => {
+ //   const { openLawConfig, apiClient, progress, progressMessage } = this.state;
+ //
+ //     try {
+ //         const {accounts, contract, web3} = this.props;
+ //
+ //         const [jwt, err] = await API.getJWT();
+ //         if (err !== "" || jwt === "") {
+ //             alert(err);
+ //             return;
+ //         }
+ //         apiClient.jwt = jwt;
+ //
+ //
+ //         //add Open Law params to be uploaded
+ //         const uploadParams = this.buildOpenLawParamsFromState();
+ //
+ //
+ //         console.log(uploadParams.parameters);
+ //         const contractId = await apiClient.uploadContract(uploadParams);
+ //         console.log("Contract ID: ", contractId);
+ //
+ //         await apiClient.sendContract([EMAIL], [EMAIL], contractId);
+ //         return [true, ""];
+ //
+ //     } catch (error) {
+ //         console.log(error);
+ //         return [false, error];
+ //     }
+ //
+ //
+ // };
 
 
     payFiat = async () => {
