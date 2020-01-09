@@ -177,9 +177,7 @@ export default class HeavenlyInterface extends React.Component {
    };
 
 
-
  onChange = (key, value) => {
-   const { compiledTemplate } = this.state;
    const parameters = key
      ? {
          ...this.state.parameters,
@@ -188,45 +186,56 @@ export default class HeavenlyInterface extends React.Component {
            : value
        }
      : this.state.parameters;
+   this.setState({parameters});
 
-   const { executionResult, errorMessage } = Openlaw.execute(
-     compiledTemplate.compiledTemplate,
-     {},
-     parameters
-   );
-   const variables = Openlaw.getExecutedVariables(executionResult, {});
-     this.setState({ parameters, variables, executionResult });
+   // ***
+   // Commented out below code and moved it to executeTemplate() as is slows the page down during form filling
+   // ***
+
+   // const { executionResult, errorMessage } = Openlaw.execute(
+   //   compiledTemplate.compiledTemplate,
+   //   {},
+   //   parameters
+   // );
+   // const variables = Openlaw.getExecutedVariables(executionResult, {});
+   //   this.setState({ parameters, variables, executionResult });
  };
 
- setTemplatePreview = async () => {
-   const { parameters, compiledTemplate } = this.state;
-   // console.log(parameters);
+ executeTemplate(){
+    const { compiledTemplate } = this.state;
 
-   const executionResult = await Openlaw.execute(
-     compiledTemplate.compiledTemplate,
-     {},
-     parameters
-   );
-   const agreements = await Openlaw.getAgreements(
-     executionResult.executionResult
-   );
-   const previewHTML = await Openlaw.renderForReview(
-     agreements[0].agreement,
-     {}
-   );
-   await this.setState({ previewHTML });
-   document.getElementById("preview").scrollIntoView({
-     behavior: "smooth"
-   });
-    this.setState({ showReview: true });
- };
+    const { executionResult, errorMessage } = Openlaw.execute(
+        compiledTemplate.compiledTemplate,
+        {},
+        this.state.parameters
+    );
+    if (errorMessage!== "") {
+        console.log("openlaw execute error: " + errorMessage);
+    }
 
+    const variables = Openlaw.getExecutedVariables(executionResult, {});
+    this.setState({ variables, executionResult });
+ }
 
- buildOpenLawParamsObj = async template => {
+ uploadParamsHasValidEmail(uploadParams){
+     // try to parse their email in the parameters
+     let json = null;
+     try {
+         json = JSON.parse(uploadParams.parameters["Member Signature"]);
 
+     } catch(e) {
+         return [false, ""];
+     }
 
+     const memberEmail = json["email"];
+     return [true, memberEmail];
+ }
+
+ buildOpenLawParamsFromState() {
+   const template = this.state.template;
+   this.executeTemplate();
    const { parameters } = this.state;
-     return {
+   const object = {
      templateId: template.id,
      title: template.title,
      text: template.content,
@@ -236,56 +245,51 @@ export default class HeavenlyInterface extends React.Component {
      agreements: {},
      draftId: ""
    };
+   return object;
 
- };
+ }
 
  // TODO: check to make sure they've filled out the email field
  sendDraft = async () => {
    const { openLawConfig, apiClient, progress, progressMessage } = this.state;
 
-     this.MiscellaneousModal.current.SetTextAndTitle("Sending Draft",
-         "");
-     this.MiscellaneousModal.current.ToggleShowing();
-     this.MiscellaneousModal.current.ToggleLoading(true);
-       try {
-         const { accounts, contract, web3 } = this.props;
+   this.MiscellaneousModal.current.SetTextAndTitle("Sending Draft",
+     "");
+   this.MiscellaneousModal.current.ToggleShowing();
+   this.MiscellaneousModal.current.ToggleLoading(true);
+   try {
 
-         //login to api
-         const [jwt, err] = await API.getJWT();
-         if (err !== "" || jwt === ""){
-             alert(err);
-             return;
-         }
-         apiClient.jwt = jwt;
+     //login to api
+     const [jwt, err] = await API.getJWT();
+     if (err !== "" || jwt === ""){
+         alert(err);
+         return;
+     }
+     apiClient.jwt = jwt;
 
-         //add Open Law params to be uploaded
-         const uploadParams = await this.buildOpenLawParamsObj(
-           this.state.template
-         );
+     //add Open Law params to be uploaded
+     const uploadParams = this.buildOpenLawParamsFromState();
 
-         // try to parse their email in the parameters
-         let json = null;
-           try {
-               json = JSON.parse(uploadParams.parameters["Member Signature"]);
+     const [validEmail, memberEmail] = this.uploadParamsHasValidEmail(uploadParams);
 
-           } catch(e) {
-               this.MiscellaneousModal.current.SetTextAndTitle("Error",
-                   "We couldn't parse your email address! Please enter a valid email address.");
-               return
-           }
+     if (!validEmail){
+        this.MiscellaneousModal.current.SetTextAndTitle("Error",
+            "We couldn't parse your email address! Please enter a valid email address.");
+        return
+     }
 
-         const memberEmail = json["email"];
-         const contractId = await apiClient.uploadDraft(uploadParams);
-         // console.log("Contract ID: ", contractId);
-         await apiClient.sendDraft([], [], contractId);
+     console.log(uploadParams.parameters);
+     const contractId = await apiClient.uploadDraft(uploadParams);
+     // console.log("Contract ID: ", contractId);
+     await apiClient.sendDraft([], [], contractId);
 
-         this.MiscellaneousModal.current.SetTextAndTitle("Success!",
-               "You should receive your draft at: " + memberEmail);
+     this.MiscellaneousModal.current.SetTextAndTitle("Success!",
+           "You should receive your draft at: " + memberEmail);
 
-         } catch (error) {
-           this.MiscellaneousModal.current.SetTextAndTitle("Error",
-              "We tried to send the draft, but got an error: " + error);
-       }
+     } catch (error) {
+       this.MiscellaneousModal.current.SetTextAndTitle("Error",
+          "We tried to send the draft, but got an error: " + error);
+   }
 
 
 
@@ -297,32 +301,35 @@ export default class HeavenlyInterface extends React.Component {
 
  RequestSignatureFromEtherize = async () => {
    const { openLawConfig, apiClient, progress, progressMessage } = this.state;
-       try {
-         // const { accounts, contract, web3 } = this.props;
 
-           const [jwt, err] = await API.getJWT();
-           if (err !== "" || jwt === ""){
-               alert(err);
-               return;
-           }
-           apiClient.jwt = jwt;
+     try {
+         const {accounts, contract, web3} = this.props;
+
+         const [jwt, err] = await API.getJWT();
+         if (err !== "" || jwt === "") {
+             alert(err);
+             return;
+         }
+         apiClient.jwt = jwt;
+
 
          //add Open Law params to be uploaded
-         const uploadParams = await this.buildOpenLawParamsObj(
-           this.state.template
-         );
+         const uploadParams = this.buildOpenLawParamsFromState();
 
-         console.log("parameters from user..", uploadParams.parameters);
+
+         console.log(uploadParams.parameters);
          const contractId = await apiClient.uploadContract(uploadParams);
          console.log("Contract ID: ", contractId);
+
          await apiClient.sendContract([EMAIL], [EMAIL], contractId);
          return [true, ""];
 
-         } catch (error) {
-           console.log(error);
-           return [false, error];
+     } catch (error) {
+         console.log(error);
+         return [false, error];
+     }
 
-       }
+
  };
 
 
@@ -356,10 +363,23 @@ export default class HeavenlyInterface extends React.Component {
     };
 
     togglePaymentMethodModal() {
+
+        // Check for a valid email first
+        const uploadParams = this.buildOpenLawParamsFromState();
+        // const [validEmail, memberEmail] = this.uploadParamsHasValidEmail(uploadParams);
+        //
+        // if (!validEmail){
+        //     this.MiscellaneousModal.current.SetTextAndTitle("Error",
+        //         "We couldn't parse your email address! Please enter a valid email address.");
+        //     this.MiscellaneousModal.current.ToggleShowing();
+        //     return
+        // }
+
         this.ChoosePaymentMethodModal.current.SetTextAndTitle("Choose a Payment Method",
             "");
         this.ChoosePaymentMethodModal.current.ToggleShowing();
     }
+
 
     async payCrypto(cryptoCurrency) {
         
@@ -394,6 +414,7 @@ export default class HeavenlyInterface extends React.Component {
     templatePage(){
         return(
             <>
+                {/*MODALS*/}
                 <Modal ref={this.MiscellaneousModal}/>
                 <Modal ref={this.PaymentModal}/>
                 <Modal ref={this.ChoosePaymentMethodModal} >
@@ -414,6 +435,7 @@ export default class HeavenlyInterface extends React.Component {
                     </MDBRow>
                 </Modal>
 
+                {/*OPENLAW FORM*/}
                 <MDBContainer>
                     <MDBRow className="py-5 mt-5 ">
                         <MDBCol md="12">
