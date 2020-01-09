@@ -4,8 +4,8 @@ import HTMLReactParser from "html-react-parser";
 
 class Modal extends Component {
     state = {
-        text:"Explanation for this modal",
-        title:"Modal",
+        text:"...",
+        title:"Loading...",
         isOpen:false,
         loading:false,
     };
