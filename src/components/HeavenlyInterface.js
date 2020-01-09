@@ -96,7 +96,7 @@ export default class HeavenlyInterface extends React.Component {
             return;
         }
         apiClient.jwt = jwt;
-        console.log( "api jwt: " + apiClient.jwt);
+        // console.log( "api jwt: " + apiClient.jwt);
 
 
         //Retrieve your OpenLaw template by name, use async/await
@@ -223,7 +223,6 @@ export default class HeavenlyInterface extends React.Component {
             }
             return "Please fill all fields, we're missing your " + missingField;
         }
-
 
         const errorArray = Openlaw.validationErrors(validationResult);
         if (errorArray.length>0){
