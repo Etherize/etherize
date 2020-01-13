@@ -96,7 +96,7 @@ export default class HeavenlyInterface extends React.Component {
             return;
         }
         apiClient.jwt = jwt;
-        console.log( "api jwt: " + apiClient.jwt);
+        // console.log( "api jwt: " + apiClient.jwt);
 
 
         //Retrieve your OpenLaw template by name, use async/await
@@ -201,7 +201,7 @@ export default class HeavenlyInterface extends React.Component {
         //   this.setState({ parameters, variables, executionResult });
     };
 
-    executeTemplate(){
+    tryExecuteTemplate(){
         const { compiledTemplate } = this.state;
 
         const { executionResult, errorMessage } = Openlaw.execute(
@@ -211,10 +211,29 @@ export default class HeavenlyInterface extends React.Component {
         );
         if (errorMessage!== "") {
             console.log("openlaw execute error: " + errorMessage);
+            return errorMessage;
+        }
+
+        const validationResult = Openlaw.validateContract(executionResult);
+        const missingInputs = Openlaw.getMissingInputs(validationResult);
+        if (missingInputs.length>0){
+            let missingField =  missingInputs[0];
+            if (missingField === "Member Signature"){
+                missingField = "Member Email"
+            }
+            return "Please fill all fields, we're missing your " + missingField;
+        }
+
+        const errorArray = Openlaw.validationErrors(validationResult);
+        if (errorArray.length>0){
+            console.log("errors:");
+            console.log(errorArray);
+            return errorArray[0];
         }
 
         const variables = Openlaw.getExecutedVariables(executionResult, {});
         this.setState({ variables, executionResult });
+        return null;
     }
 
     uploadParamsHasValidEmail(uploadParams){
@@ -232,8 +251,8 @@ export default class HeavenlyInterface extends React.Component {
     }
 
     buildOpenLawParamsFromState() {
+
         const template = this.state.template;
-        this.executeTemplate();
         const { parameters } = this.state;
         const object = {
             templateId: template.id,
@@ -266,6 +285,13 @@ export default class HeavenlyInterface extends React.Component {
                 return;
             }
             apiClient.jwt = jwt;
+
+            const errorInForm = this.tryExecuteTemplate();
+            if (errorInForm != null){
+                this.MiscellaneousModal.current.SetTextAndTitle("Error",
+                    errorInForm);
+                return;
+            }
 
             //add Open Law params to be uploaded
             const uploadParams = this.buildOpenLawParamsFromState();
@@ -312,6 +338,10 @@ export default class HeavenlyInterface extends React.Component {
             }
             apiClient.jwt = jwt;
 
+            const errorInForm = this.tryExecuteTemplate();
+            if (errorInForm != null){
+                return [false, errorInForm];
+            }
 
             //add Open Law params to be uploaded
             const uploadParams = this.buildOpenLawParamsFromState();
@@ -365,17 +395,16 @@ export default class HeavenlyInterface extends React.Component {
     // TODO: check that ALL fields are filled or we'll get a 400 error from openlaw
     togglePaymentMethodModal() {
 
+        const errorInForm = this.tryExecuteTemplate();
+        if (errorInForm != null){
+            this.MiscellaneousModal.current.SetTextAndTitle("Error",
+                errorInForm);
+            this.MiscellaneousModal.current.ToggleShowing();
+            return;
+        }
+
         // Check for a valid email first
         const uploadParams = this.buildOpenLawParamsFromState();
-        const [validEmail, memberEmail] = this.uploadParamsHasValidEmail(uploadParams);
-
-
-        if (!validEmail){
-            this.MiscellaneousModal.current.SetTextAndTitle("Error",
-                "We couldn't parse your email address! Please enter a valid email address.");
-            this.MiscellaneousModal.current.ToggleShowing();
-            return
-        }
 
         this.ChoosePaymentMethodModal.current.SetTextAndTitle("Choose a Payment Method",
             "");
