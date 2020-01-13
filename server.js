@@ -4,13 +4,15 @@ const next = require('next')
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
+const certbotEndPoint = process.env.certbotendpoint;
+const certbotKey = process.env.certbotkey;
 
 app.prepare()
     .then(() => {
         const server = express();
 
-        server.get(process.env.certbotendpoint, (req, res) => {
-            res.send(process.env.certbotkey);
+        server.get(certbotEndPoint, (req, res) => {
+            res.send(certbotKey);
         });
 
         server.get('*', (req, res) => {
