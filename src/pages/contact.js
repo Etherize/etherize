@@ -27,10 +27,11 @@ export default class Contact extends Component {
             <BannerHeader/>
             <MDBContainer>
                 <MDBRow className="py-5 mt-5 ">
-                    <MDBCol md="12">
+                    <MDBCol md="3"/>
+                    <MDBCol md="6">
                         <MDBAnimation type={"fadeInUp"}>
                             <MDBCard cascade >
-                                <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                                <MDBCardHeader className="cardHeader d-flex justify-content-between align-items-center ">
                                     <div/> <p className="card-title h1">Contact</p> <div/>
                                 </MDBCardHeader>
                                 <MDBCardBody className={"text-center h3"}>
@@ -38,14 +39,15 @@ export default class Contact extends Component {
                                        hello@etherize.io
                                         <br/> <br/>
                                         <a  href={Constants.twitter}><strong> <MDBIcon fab icon="twitter" /> </strong> </a>
-                                         @aitherick
+                                         @EtherizePortal
                                         <br/> <br/>
                                         <a href={Constants.telegram}> <strong> <MDBIcon fab icon="telegram-plane" /> </strong></a>
-                                        hybrid entity channel
+                                        Etherize Channel
                                 </MDBCardBody>
                             </MDBCard>
                         </MDBAnimation>
                     </MDBCol>
+                   <MDBCol md="3"/>
                 </MDBRow>
             </MDBContainer>
         </div>

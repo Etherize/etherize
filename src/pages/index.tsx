@@ -7,6 +7,7 @@ class Home extends Component {
 
     render() {
         return (
+
             <>
             <Head>
                 <title>Etherize: Formation & Identity Services</title>

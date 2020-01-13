@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 276.2 277.48">
+    <defs>
+        <style>.cls-1{mask:url(#mask);filter:url(#luminosity-noclip-2);}.cls-2{mix-blend-mode:multiply;fill:url(#radial-gradient);}.cls-3{mask:url(#mask-2);}.cls-4{fill:#da69a8;}.cls-5,.cls-6,.cls-7{fill-rule:evenodd;}.cls-5{fill:url(#radial-gradient-2);}.cls-6{fill:url(#radial-gradient-3);}.cls-7{fill:url(#radial-gradient-4);}.cls-8{filter:url(#luminosity-noclip);}</style>
+        <filter id="luminosity-noclip" x="0" y="-8107.9" width="276.2" height="32766" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-color="#fff" result="bg" />
+            <feBlend in="SourceGraphic" in2="bg" />
+        </filter>
+        <mask id="mask" x="0" y="-8107.9" width="276.2" height="32766" maskUnits="userSpaceOnUse">
+            <g class="cls-8" />
+        </mask>
+        <radialGradient id="radial-gradient" cx="138.1" cy="139.38" r="138.1" gradientTransform="translate(139 -56.83) rotate(45)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#fff" />
+            <stop offset="1" />
+        </radialGradient>
+        <filter id="luminosity-noclip-2" x="0" y="1.27" width="276.2" height="276.2" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-color="#fff" result="bg" />
+            <feBlend in="SourceGraphic" in2="bg" />
+        </filter>
+        <mask id="mask-2" x="0" y="1.27" width="276.2" height="276.2" maskUnits="userSpaceOnUse">
+            <g class="cls-1">
+                <circle class="cls-2" cx="138.1" cy="139.38" r="138.1" transform="translate(-58.1 138.48) rotate(-45)" />
+            </g>
+        </mask>
+        <radialGradient id="radial-gradient-2" cx="138.1" cy="138.74" r="134.31" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#f3c5dc" />
+            <stop offset="0.43" stop-color="#e692be" stop-opacity="0.7" />
+            <stop offset="0.78" stop-color="#d3489a" />
+            <stop offset="1" stop-color="#da69a8" />
+        </radialGradient>
+        <radialGradient id="radial-gradient-3" cx="143.67" cy="139.77" r="136.64" gradientTransform="translate(0 21.82) scale(1 0.84)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#f3c5dc" />
+            <stop offset="1" stop-color="#da69a8" stop-opacity="0.6" />
+        </radialGradient>
+        <radialGradient id="radial-gradient-4" cx="138.1" cy="138.26" r="55.11" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#f3c5dc" stop-opacity="0.7" />
+            <stop offset="1" stop-color="#f3c5dc" stop-opacity="0.6" />
+        </radialGradient>
+    </defs>
+    <title>portal-matte</title>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="Layer_1-2" data-name="Layer 1">
+            <g class="cls-3">
+                <circle class="cls-4" cx="138.1" cy="139.38" r="138.1" transform="translate(-58.1 138.48) rotate(-45)" />
+            </g>
+            <path class="cls-5" d="M138.08,0c88.55,13.19,143.52,108.54,93.13,182.13-25.47,37.17-72.81,53.36-114.47,34.24,43.76,35.44,110,6,135.6-40.88,18.09-33.08,18.88-71,5.9-106.1,32.84,83.24-22.21,178.5-111.13,171.66-45-3.46-82.62-36.34-86.91-82-8.77,55.63,49.82,98.24,103.18,97,37.75-.86,71-19.16,94.86-47.92-58.52,73.63-174.55,67.95-207.47-18-15.08-39.31-4-84,30.78-108.66C29,101.61,21.39,173.72,49.16,219.3c19.61,32.22,52.08,51.87,88.92,58.18C45,263.63-8,160.29,49.94,88.8c26.5-32.72,70.71-45.45,109.53-27.65-43.76-35.44-110-6-135.61,40.83C5.77,135.11,5,173,18,208.13-14.87,124.85,40.18,29.59,129.1,36.43c45,3.46,82.62,36.38,86.9,82,8.78-55.58-49.82-98.23-103.18-97-37.74.9-70.95,19.2-94.85,48,58.51-73.68,174.54-67.95,207.47,18,15.08,39.31,4,84-30.78,108.7,52.53-20.19,60.16-92.3,32.38-137.88C207.43,26,175,6.35,138.08,0Z" />
+            <path class="cls-6" d="M172.24,55.5c26.87,22,38.4,54.23,29.92,88,8.77,10.13,22.29-16.07,24.6-23.12-2.89,35.69-23.74,64.69-57.82,76.31-5.85,12.49,21.93,11.09,28.77,9.69-57.65,28-93.46-13-97.21-12.86-12.73.41-1,22.33,2.8,27.53-49.57-39-27.89-88.31-29.58-91.56-5.89-11.58-21,8.16-24.27,14.09C57.28,109.73,81.75,85.34,116.2,80c8.08-11.74-19.45-15.74-27.07-15.57,32.84-9.61,65.23-.91,87.64,25,13.6-1.45.13-27.69-4.53-33.92Z" />
+            <path class="cls-7" d="M193.32,138.73A54.23,54.23,0,0,1,143,193.07a55.42,55.42,0,0,1-53.87-80.75l0-.07a55.44,55.44,0,0,1,104.16,26.48Z" />
+        </g>
+    </g>
+</svg>
