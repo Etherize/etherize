@@ -9,6 +9,10 @@ app.prepare()
     .then(() => {
         const server = express();
 
+        server.get(process.env.certbotendpoint, (req, res) => {
+            res.send(process.env.certbotkey);
+        });
+
         server.get('*', (req, res) => {
             return handle(req, res)
         })

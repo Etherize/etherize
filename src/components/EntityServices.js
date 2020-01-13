@@ -56,7 +56,7 @@ class EntityServices extends React.Component {
                     <MDBContainer className={"mt-5"}>
                         <MDBRow>
                             <MDBRow>
-                                <MDBCol md={"4"} middle={"true"}>
+                                <MDBCol md={"4"} middle={true}>
                                     <MDBCard border={"0"} className={"my-auto"}>
                                         <MDBAnimation type={"fadeInRight"} duration={"2s"}>
                                             <MDBCardTitle className="jumbo-title text-center">
@@ -65,7 +65,7 @@ class EntityServices extends React.Component {
                                         </MDBAnimation>
                                     </MDBCard>
                                 </MDBCol>
-                                <MDBCol md={"4"} sm={"4"} xs={"2"} middle={"true"}>
+                                <MDBCol md={"4"} sm={"4"} xs={"2"} middle={true}>
                                     <MDBAnimation type={"fadeIn"} duration={"2s"}>
 
                                         <MDBCard border={"0"} className={"my-auto"}>
@@ -76,7 +76,7 @@ class EntityServices extends React.Component {
                                     </MDBAnimation>
 
                                 </MDBCol>
-                                <MDBCol md={"4"} sm={"6"} xs={"2"} middle={"true"}>
+                                <MDBCol md={"4"} sm={"6"} xs={"2"} middle={true}>
 
                                     <MDBCard border={"0"} className={"my-auto"}>
                                         <MDBAnimation type={"fadeInLeft"} duration={"2s"}>
