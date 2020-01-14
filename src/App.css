@@ -129,6 +129,7 @@ footer.page-footer a {
   background-color: var(--text-background);
   color:var(--dark-text-color);
 }
+
 .card .card-body .card-text{
   background-color:transparent;
   color:var(--dark-text-color);

@@ -3,8 +3,6 @@ import {
     MDBBtn,
     MDBCardText,
     MDBContainer,
-    MDBCard,
-    MDBCardBody,
     MDBCardTitle,
     MDBBadge,
     MDBRow,
@@ -13,7 +11,7 @@ import {
     MDBCol,
     MDBJumbotron,
     MDBAnimation,
-    MDBCardGroup
+
 } from "mdbreact";
 import TypedText from "./TypedText";
 import "./EntityServices.css";
@@ -23,6 +21,8 @@ import sleeping from "../assets/img/sleeping-giant-beeple.webp"
 import self from "../assets/img/self-beeple.webp"
 import BannerHeader from "./BannerHeader";
 import portal from "../assets/img/portal-6.svg"
+import FeatureCard from "./FeatureCard";
+import ProductCard from "./ProductCard";
 
 
 class EntityServices extends React.Component {
@@ -36,20 +36,22 @@ class EntityServices extends React.Component {
                 <MDBJumbotron fluid >
                     <MDBContainer className={"mt-5"}>
                             <MDBRow>
-                                <MDBCol md={"4"} middle={true}>
+
+                                <MDBCol lg={"4"} md={"12"} middle={true}>
                                         <MDBAnimation type={"fadeInRight"} duration={"2s"}>
                                             <MDBCardTitle className="jumbo-title text-center">
                                                 Hybrid Formation Portal
                                             </MDBCardTitle>
                                           </MDBAnimation>
                                 </MDBCol>
-                                <MDBCol md={"4"} sm={"4"} xs={"2"} middle={true}>
-                                    <MDBAnimation type={"fadeIn"} duration={"2s"}>
-                                               <img src={portal} className="img-fluid" alt="" />
-                                    </MDBAnimation>
 
+                                <MDBCol  lg={"4"} md={"6"} sm={"12"} xs={"12"} middle={true} className={"text-center"}>
+                                    <MDBAnimation type={"fadeIn"} duration={"2s"}>
+                                               <img src={portal} style={{maxWidth:"300px"}} className="img-fluid" alt="" />
+                                    </MDBAnimation>
                                 </MDBCol>
-                                <MDBCol md={"4"} sm={"6"} xs={"2"} middle={true}>
+
+                                <MDBCol lg={"4"} md={"6"} sm={"12"} xs={"12"} middle={true}>
                                         <MDBAnimation type={"fadeInLeft"}  duration={"2s"}>
                                             <MDBCardTitle className="text-center">
                                             summon your <br/>
@@ -58,15 +60,12 @@ class EntityServices extends React.Component {
                                                 '^400DAO LLC^5000',
                                                 'Multi-Sig Non-Profit^5000',
                                                 'Hybrid Entity'
-                                              ]}
-                                            />
+                                              ]} />
                                             </MDBCardTitle>
                                         </MDBAnimation>
-
-
                                 </MDBCol>
-                                <MDBContainer className={"text-center"}>
 
+                            <MDBContainer className={"text-center"}>
                                 <MDBCol className={"text-center mb-4 mt-5"} lg={"12"}>
                                     <MDBAnimation type={"fadeIn"} reveal={true}>
                                         <MDBCardTitle>
@@ -74,184 +73,122 @@ class EntityServices extends React.Component {
                                             harness decentralization,
                                             govern towards abundance.
                                         </MDBCardTitle>
-
                                     </MDBAnimation>
 
                                     <MDBAnimation type={"fadeIn"}  reveal={true}>
                                         <MDBCardTitle className={"mt-5"}>
                                             Go ahead,
                                         </MDBCardTitle>
-
                                     </MDBAnimation>
                                 </MDBCol>
                                 <br/>
                                 <MDBCol className={"text-center mb-5"} lg={"12"}>
-
                                     <MDBAnimation type="fadeIn" reveal={true}>
                                         <MDBBtn size="lg" href={"#products"} className={"btn-primary"}>
                                             Open the Portal
                                         </MDBBtn>
-
                                     </MDBAnimation>
                                 </MDBCol>
-                                </MDBContainer>
-
-                                {/*<MDBContainer className={"text-center"}>*/}
-                                {/*  <MDBAnimation delay="66s" type={"fadeOutLeft"}>*/}
-                                {/*    <MDBAnimation delay="28s" type={"fadeInDown"} duration={"2s"}>*/}
-
-                                {/*        <MDBCardTitle className="title pt-3 m-5 entity-type-description bold">*/}
-                                {/*            The Portal Beckons*/}
-                                {/*        </MDBCardTitle>*/}
-
-                                {/*    </MDBAnimation>*/}
-                                {/*      <MDBAnimation delay="31s" type={"fadeIn "} duration={"2s"}>*/}
-                                {/*    <h2> in your mind the words form:</h2>*/}
-                                {/*    <br/>*/}
-                                {/*    </MDBAnimation>*/}
-
-                                {/*    <MDBAnimation type="fadeInLeft" delay="33s" >*/}
-                                {/*    <TypedText*/}
-                                {/*        strings={[*/}
-                                {/*        '^35000are you ready?^4000',*/}
-                                {/*        'to rally your team?^3000',*/}
-                                {/*        'to harness decentralization?^3000',*/}
-                                {/*        'to govern towards abundance?^2000',*/}
-                                {/*        'to govern towards abundance^1000.^10000',*/}
-                                {/*        ''*/}
-
-
-                                {/*      ]}*/}
-                                {/*      typeSpeed={['1s']}*/}
-                                {/*    />*/}
-                                {/*    </MDBAnimation>*/}
-                                {/*    <br/>*/}
-                                {/*    </MDBAnimation>*/}
-                                {/*</MDBContainer>*/}
-
-                                {/* Fun Features row*/}
-
+                            </MDBContainer>
 
                         </MDBRow>
                     </MDBContainer>
                 </MDBJumbotron>
 
-                    <MDBRow className={"mt-1 mainBackground2  fluid"}>
-                        {/*/!*Title*!/*/}
+                    <MDBRow className={"mt-1 mainBackground2 fluid"}>
+
+
+
+                        {/* Fun Features row*/}
+                        <MDBContainer className={"mb-5"}>
+                            <MDBRow className="mb-5 mt-5" id={"features"}>
+                                <FeatureCard title={"Fast"} text={"Our legal automation makes things quick and easy"} icon={<MDBIcon className={"mr-3"} icon="skiing"/>}/>
+                                <FeatureCard title={"Easy"} text={"Creating a company won't take longer than a few minutes"} icon={<MDBIcon className={"mr-3"} far icon="clock"/>}/>
+                                <FeatureCard title={"Secure"} text={"Keep your assets secure with Wyoming's generous statutes"} icon={<MDBIcon className={"mr-3"} icon="lock"/>}/>
+                                <FeatureCard title={"Private"} text={"Create a company using your blockchain wallet address"} icon={<MDBIcon className={"mr-3"} icon="key"/>}/>
+                                <FeatureCard title={"Tamper-Proof"} text={"Interested parties can invest without worrying about fraud"} icon={<MDBIcon className={"mr-3"} icon="fingerprint"/>}/>
+                                <FeatureCard title={"Ready"} text={"Get an EIN and rest assured you can do business in the United States"} icon={<MDBIcon className={"mr-3"} icon="briefcase"/>}/>
+                            </MDBRow>
+                        </MDBContainer>
+
 
 
                         {/*CARDS*/}
                         {/*Card layout/design loosely based on : https://0x.org/launch-kit*/}
+
                         <MDBContainer>
-                            <MDBRow>
+                            <MDBRow id={"products"}>
 
                                 {/*Card */}
-                                <MDBCol lg="12" className="mb-5 mt-5">
-                                    <MDBCardGroup id={"products"}>
-                                        {/*LEFT SIDE*/}
-                                        <MDBCol lg={"6"}>
-                                            <MDBCard cascade className={"text-left h-100"} >
-                                                <MDBCardBody cascade className={"mt-5 mb-5 ml-3"}>
-                                                    <MDBCardTitle className={"mb-3"}>
-                                                        <p className="card-title h1">Form Hybrid Entity</p>
-                                                            {/*from $700 or 5<MDBIcon fab icon="ethereum"/>*/}
-                                                    </MDBCardTitle>
+                                <ProductCard
+                                    title={"Form Hybrid Entity"}
+                                    image={<MDBCardImage className="img-fluid" style={{maxWidth:"125%"}}  src={self}/>}>
 
-                                                    <MDBCardText className={"mb-5 mt-5"}>
-                                                        Bring your own DAO or wallet address, or allow us to help you create one.
-                                                        We will pair it to a legal entity, allowing the same organization to conduct business with both mortals and etheric entities.
-                                                        Our service automates the paperwork involved in forming legal entities and blockchain entities.
-                                                        <br/>
-                                                        <MDBBadge
-                                                            className="mr-2 mt-2 badge-info"> Wyoming</MDBBadge><MDBBadge
-                                                        className="mr-2 mt-2 badge-info">Non-Profit or
-                                                        LLC</MDBBadge><MDBBadge className="mr-2 mt-2 badge-info">Any Crypto
-                                                        Network</MDBBadge>
-
-                                                    </MDBCardText>
-                                                    <MDBBtn size="lg" href={"/create"} className={"btn-secondary"}>
-                                                        Begin <MDBIcon icon="bolt"/>
-                                                    </MDBBtn>
-                                                </MDBCardBody>
-                                            </MDBCard>
-                                        </MDBCol>
-                                        <MDBCol lg={"6"}>
-                                            <MDBCardImage className="img-fluid" style={{maxWidth:"125%"}}  src={self}/>
-                                        </MDBCol>
-                                    </MDBCardGroup>
-                                </MDBCol>
+                                    <MDBCardText className={"mb-5 mt-5"}>
+                                        Bring your own DAO or wallet address, or allow us to help you create one.
+                                        We will pair it to a legal entity, allowing the same organization to conduct
+                                        business with both mortals and etheric entities. Our service automates the
+                                        paperwork involved in forming legal entities and blockchain entities.
+                                        <br/>
+                                        <MDBBadge className="mr-2 mt-2 badge-info"> Wyoming</MDBBadge>
+                                        <MDBBadge className="mr-2 mt-2 badge-info">Non-Profit or LLC</MDBBadge>
+                                        <MDBBadge className="mr-2 mt-2 badge-info">Any Crypto Network</MDBBadge>
+                                    </MDBCardText>
+                                    <MDBBtn size="lg" href={"/create"} className={"btn-secondary"}>
+                                        Begin <MDBIcon icon="bolt"/>
+                                    </MDBBtn>
+                                </ProductCard>
 
 
                                 {/*Card */}
-                                <MDBCol lg="12" className="mb-5 mt-5">
-                                    <MDBCardGroup>
-                                        {/*LEFT SIDE*/}
-                                        <MDBCol lg={"6"}>
-                                            <MDBCard cascade className={"text-left h-100"} >
-                                                <MDBCardBody cascade className={"mt-5 mb-5 ml-3"}>
-                                                    <MDBCardTitle className={"mb-3"}>
-                                                        <p className="card-title h1">Form Legal Entity</p>
-                                                        {/*from $500 | 4 <MDBIcon fab icon="ethereum"/>*/}
-                                                    </MDBCardTitle>
+                                <ProductCard
+                                    title={"Form Legal Entity"}
+                                    image={<MDBCardImage className="img-fluid fullWidth" src={sleeping}/>}>
 
-                                                    <MDBCardText className={"mb-5 mt-5"}>
-                                                      Or, simply place your crypto-tokens in a Wyoming LLC, so that at least your assets are protected if the DAO implodes.
-                                                        Form your new legal entity without having to sign a single piece of
-                                                            paper - you can add on blockchain components later. Your EIN
-                                                            and Formation Certificate will be sent to your inbox. Enjoy
-                                                            the lowest taxes and strongest protections in the US. One
-                                                            consultation is included to help you get things rolling.
-                                                        <br/>
-                                                        <MDBBadge
-                                                            className="mr-2 mt-2 badge-info"> Wyoming</MDBBadge><MDBBadge
-                                                        className="mr-2 mt-2 badge-info">Non-Profit or LLC</MDBBadge>
-                                                    </MDBCardText>
-                                                    <MDBBtn size="lg" href={"/create"} className={"btn-secondary"}>
-                                                        Begin <MDBIcon icon="bolt"/>
-                                                    </MDBBtn>
-                                                </MDBCardBody>
-                                            </MDBCard>
-                                        </MDBCol>
-                                        <MDBCol lg={"6"}>
-                                            <MDBCardImage className="img-fluid fullWidth" src={sleeping}/>
-                                        </MDBCol>
-                                    </MDBCardGroup>
-                                </MDBCol>
+                                    <MDBCardText className={"mb-5 mt-5"}>
+                                      Or, simply place your crypto-tokens in a Wyoming LLC, so that at least your assets are protected if the DAO implodes.
+                                        Form your new legal entity without having to sign a single piece of
+                                            paper - you can add on blockchain components later. Your EIN
+                                            and Formation Certificate will be sent to your inbox. Enjoy
+                                            the lowest taxes and strongest protections in the US. One
+                                            consultation is included to help you get things rolling.
+                                        <br/>
+                                        <MDBBadge
+                                            className="mr-2 mt-2 badge-info"> Wyoming</MDBBadge><MDBBadge
+                                        className="mr-2 mt-2 badge-info">Non-Profit or LLC</MDBBadge>
+                                    </MDBCardText>
+                                    <MDBBtn size="lg" href={"/create"} className={"btn-secondary"}>
+                                        Begin <MDBIcon icon="bolt"/>
+                                    </MDBBtn>
+                                </ProductCard>
 
 
                                 {/*Card */}
-                                <MDBCol lg="12" className="mb-5 mt-5">
-                                    <MDBCardGroup>
-                                    {/*LEFT SIDE*/}
-                                        <MDBCol lg={"6"}>
-                                         <MDBCard cascade className={"text-left h-100"} >
-                                             <MDBCardBody cascade className={"mt-5 mb-5 ml-3"}>
-                                             <MDBCardTitle className={"mb-3"}>
-                                                 <p className="card-title h1">Design Entity</p>
-                                             </MDBCardTitle>
-                                            <MDBCardText className={"mb-5 mt-5"}>
-                                                 Our wizard🧙 generates documents for you & co-founders to review and, if
-                                                    the stars align, sign. Documents include Articles of Incorporation
-                                                    and an Operating Agreement. Afterwards you can submit the filings yourself
-                                                    or hire Etherize to do it for you later.
-                                                <br/>
-                                                <MDBBadge className="mr-2 mt-2 badge-info"> Any
-                                                    State</MDBBadge><MDBBadge className="mr-2 mt-2 badge-info">Any Crypto
-                                                    Network</MDBBadge><MDBBadge className="mr-2 mt-2 badge-info">Non-Profit or
-                                                    LLC</MDBBadge>
+                                <ProductCard
+                                    title={"Design Entity"}
+                                    image={ <MDBCardImage className="img-fluid fullWidth" src={awaken}/> }>
 
-                                            </MDBCardText>
-                                                 <MDBBtn size="lg" href={"/create"} className={"btn-secondary"}>
-                                                     Begin <MDBIcon icon="bolt"/>
-                                                 </MDBBtn>
-                                            </MDBCardBody>
-                                            </MDBCard>
-                                        </MDBCol>
-                                        <MDBCol lg={"6"}>
-                                            <MDBCardImage className="img-fluid fullWidth" src={awaken} />
-                                        </MDBCol>
-                                    </MDBCardGroup>
-                                </MDBCol>
+                                    <MDBCardText className={"mb-5 mt-5"}>
+                                        Our wizard🧙 generates documents for you & co-founders
+                                        to review and, if
+                                        the stars align, sign. Documents include Articles of
+                                        Incorporation
+                                        and an Operating Agreement. Afterwards you can submit
+                                        the filings yourself
+                                        or hire Etherize to do it for you later.
+                                        <br/>
+                                        <MDBBadge className="mr-2 mt-2 badge-info"> Any
+                                            State</MDBBadge><MDBBadge
+                                        className="mr-2 mt-2 badge-info">Any Crypto
+                                        Network</MDBBadge><MDBBadge
+                                        className="mr-2 mt-2 badge-info">Non-Profit or
+                                        LLC</MDBBadge>
+                                    </MDBCardText>
+                                    <MDBBtn size="lg" href={"/create"}
+                                            className={"btn-secondary"}>
+                                        Begin <MDBIcon icon="bolt"/>
+                                    </MDBBtn>
+                                </ProductCard>
 
 
                             </MDBRow>
