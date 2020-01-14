@@ -5,7 +5,7 @@ import {MDBCard, MDBCardText, MDBCol, MDBContainer, MDBRow, MDBCardTitle, MDBCar
 import BlogAPI from "../components/BlogAPI";
 import Link from 'next/link';
 import BlogPost from "../components/BlogPost";
-import "./blog.css"
+// import "./blog.css"
 import Footer from "../components/Footer";
 
 

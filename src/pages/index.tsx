@@ -3,6 +3,9 @@ import EntityServices from '../components/EntityServices.js';
 import Head from 'next/head'
 import Footer from "../components/Footer";
 
+
+
+
 class Home extends Component {
 
     render() {

@@ -14,7 +14,7 @@ import {
 
 } from "mdbreact";
 import TypedText from "./TypedText";
-import "./EntityServices.css";
+// import "./EntityServices.css";
 // import Link from 'next/link';
 import awaken from "../assets/img/awaken-giant-beeple.webp"
 import sleeping from "../assets/img/sleeping-giant-beeple.webp"
@@ -98,19 +98,23 @@ class EntityServices extends React.Component {
                     <MDBRow className={"mt-1 mainBackground2 fluid"}>
 
 
-
                         {/* Fun Features row*/}
                         <MDBContainer className={"mb-5"}>
                             <MDBRow className="mb-5 mt-5" id={"features"}>
-                                <FeatureCard title={"Fast"} text={"Our legal automation makes things quick and easy"} icon={<MDBIcon className={"mr-3"} icon="skiing"/>}/>
-                                <FeatureCard title={"Easy"} text={"Creating a company won't take longer than a few minutes"} icon={<MDBIcon className={"mr-3"} far icon="clock"/>}/>
-                                <FeatureCard title={"Secure"} text={"Keep your assets secure with Wyoming's generous statutes"} icon={<MDBIcon className={"mr-3"} icon="lock"/>}/>
-                                <FeatureCard title={"Private"} text={"Create a company using your blockchain wallet address"} icon={<MDBIcon className={"mr-3"} icon="key"/>}/>
-                                <FeatureCard title={"Tamper-Proof"} text={"Interested parties can invest without worrying about fraud"} icon={<MDBIcon className={"mr-3"} icon="fingerprint"/>}/>
-                                <FeatureCard title={"Ready"} text={"Get an EIN and rest assured you can do business in the United States"} icon={<MDBIcon className={"mr-3"} icon="briefcase"/>}/>
+                                <FeatureCard title={"Fast"} text={"Our legal automation makes things quick and easy"}
+                                             icon={<MDBIcon className={"mb-3"} icon="skiing"/>}/>
+                                <FeatureCard title={"Easy"} text={"Filling out the necessary information won't take longer than a few minutes"}
+                                             icon={<MDBIcon className={"mb-3"} far icon="clock"/>}/>
+                                <FeatureCard title={"Secure"} text={"Keep your assets secure with Wyoming's generous statutes"}
+                                             icon={<MDBIcon className={"mb-3"} icon="lock"/>}/>
+                                <FeatureCard title={"Private"} text={"Create a company using your blockchain wallet address"}
+                                             icon={<MDBIcon className={"mb-3"} icon="key"/>}/>
+                                <FeatureCard title={"Tamper-Proof"} text={"With a single source of truth, investors won't worry about fraud"}
+                                             icon={<MDBIcon className={"mb-3"} icon="fingerprint"/>}/>
+                                <FeatureCard title={"Blockchain Ready"} text={"Incorporate in the most blockchain-friendly state in the U.S."}
+                                             icon={<MDBIcon className={"mb-3"} icon="briefcase"/>}/>
                             </MDBRow>
                         </MDBContainer>
-
 
 
                         {/*CARDS*/}

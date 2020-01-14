@@ -31,8 +31,8 @@ class Tools extends Component {
         <div className={"mainBackground"}>
             <BannerHeader/>
             <MDBContainer>
-                <MDBRow className="py-5 mt-5 ">
-                  <MDBCol md="6">
+                <MDBRow className="py-5 mt-5">
+                  <MDBCol md="6" className={"mt-3"}>
                           <MDBAnimation type={"fadeInLeft"}>
                             <MDBCard cascade >
                                   <MDBCardBody className="lessBottomPadding">
@@ -44,7 +44,7 @@ class Tools extends Component {
                               </MDBCard>
                           </MDBAnimation>
                   </MDBCol>
-                    <MDBCol md="6">
+                    <MDBCol md="6" className={"mt-3"}>
                         <MDBAnimation type={"fadeInRight"}>
                             <MDBCard cascade >
 

@@ -1,4 +1,4 @@
-import './BannerHeader.css'
+// import './BannerHeader.css'
 import Link from 'next/link';
 import {
     MDBNavbar,
@@ -18,12 +18,12 @@ class  BannerHeader extends React.Component {
         };
     }
 
-    switchTheme() {
-      var root = document.querySelector(':root');
-      var rootStyles = getComputedStyle(root);
-      var mainColor = rootStyles.getPropertyValue('--main-color');
-      root.style.setProperty('--light-pink', '#FFFFFF')
-    }
+    // switchTheme() {
+    //   var root = document.querySelector(':root');
+    //   var rootStyles = getComputedStyle(root);
+    //   var mainColor = rootStyles.getPropertyValue('--main-color');
+    //   root.style.setProperty('--light-pink', '#FFFFFF')
+    // }
 
 
     toggleCollapse = collapseID => () =>

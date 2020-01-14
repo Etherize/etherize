@@ -14,7 +14,7 @@
     "html-react-parser": "^0.9.1",
     "isomorphic-unfetch": "^3.0.0",
     "mdbreact": "^4.21.1",
-    "next": "9.1.1",
+    "next": "9.1.7",
     "next-compose-plugins": "^2.2.0",
     "next-fonts": "^0.19.0",
     "next-images": "^1.2.0",

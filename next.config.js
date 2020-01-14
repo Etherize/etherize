@@ -1,4 +1,4 @@
-const withCSS = require('@zeit/next-css');
+// const withCSS = require('@zeit/next-css');
 const withFonts = require('next-fonts');
 const withImages = require('next-images');
 const withPlugins = require("next-compose-plugins");
@@ -8,6 +8,9 @@ const withVideos = require('next-videos');
 
 const nextConfig = {
     distDir: 'build',
+    experimental: {
+        css: true
+    },
     webpack: config => {
         config.plugins = config.plugins || [];
 
@@ -24,6 +27,6 @@ const nextConfig = {
         return config
     }
 };
-
-module.exports = withPlugins([withCSS, withFonts, withImages, withVideos], nextConfig);
+// withCSS,
+module.exports = withPlugins([withFonts, withImages, withVideos], nextConfig);
 

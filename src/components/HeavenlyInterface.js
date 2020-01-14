@@ -15,8 +15,8 @@ import {
     MDBRow
 } from "mdbreact";
 
-import "openlaw-elements/dist/openlaw-elements.min.css";
-import "./HeavenlyInterface.css";
+// import "openlaw-elements/dist/openlaw-elements.min.css";
+// import "./HeavenlyInterface.css";
 
 import BannerHeader from "./BannerHeader";
 import API from "./API";

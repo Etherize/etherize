@@ -1,21 +1,18 @@
-
 .jumbo-title{
-    /*font-family: var(--font);*/
     font-size:60px;
 }
 
 .jumbotron{
     padding: 0;
-    /*background-color: var(--purple-partial-transparent);*/
+
     background-color: transparent;
-    box-shadow:0 0px 0px 0px white;
+    box-shadow:0 0 0 0 white;
 
     color:var(--primary-contrast);
     /* TODO: min-height won't properly calculate the subtraction using a variable*/
     --min-height-subtraction-var: var(--navbar-height);
     --temp:  6em;
-    min-height: Calc(100vh - var(--min-height-subtraction-var) );
-    /*min-height: Calc( 100vh - 6em);*/
+    /*min-height: Calc(100vh - var(--min-height-subtraction-var) );*/
 }
 
 .cards-background{
@@ -42,16 +39,6 @@
     /*background-position: top,center;*/
 }
 
-/* Style the video: 100% width and height to cover the entire window */
-#myVideo {
-    /*left: 50%;*/
-    /*position: absolute;*/
-    /*top: 100%;*/
-    /*transform: translate(-50%, -50%);*/
-    width:100%;
-    /*z-index: -1;*/
-    /*overflow: hidden;*/
-}
 
 
 .badge-info{
