@@ -617,15 +617,14 @@ export default class HeavenlyInterface extends React.Component {
 
 
         return (
-            <>
-
-                { !this.state.executionResult  ?
-                    <div className={"portalBackground"}>
+            <div className={"mainBackground"}>
+                {!this.state.executionResult  ?
+                    <div>
                         <BannerHeader/>
                         <LoadingPortal/>
                     </div>
                     :
-                    <div className={"mainBackground"}>
+                    <div>
                         <BannerHeader/>
                         {
                             this.templatePage()
@@ -634,7 +633,7 @@ export default class HeavenlyInterface extends React.Component {
 
                 }
 
-            </>
-        );
+            </div>
+        )
     }
 }

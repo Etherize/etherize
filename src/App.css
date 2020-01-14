@@ -35,9 +35,9 @@ body > #__next > div {
   --ornate-font: 'Exo 2';
   --normal-font-size:1.1rem;
 
-  --light-pink: rgba(252,57,223,0.8);
-  --light-pink-trans: rgba(252,57,223,0.3);
-  --light-purple:#7d7abc;
+  --light-pink:rgba(229, 102, 183, 1);
+  --light-pink-trans: rgba(229, 102, 183, 0.3);
+  --light-purple:rgba(97, 108, 161, 1);
 
 
   /* button styles */
@@ -74,7 +74,7 @@ footer.page-footer a {
 
 .mainBackground{
   /*background: linear-gradient(to right bottom, #ffffff 50%, var(--primary-color-trans) 50%);*/
-  background-image: linear-gradient(to right bottom, #e566b7, #d476cb, #c084da, #ac91e4, #999ce8, #8b94db, #7d8dcd, #7185bf, #616ca1, #505584, #3f3e69, #2e294e);
+  background-image: linear-gradient(to right bottom, var(--light-pink), #d476cb, #c084da, #ac91e4, #999ce8, #8b94db, #7d8dcd, #7185bf, #616ca1, #505584, #3f3e69, #2e294e);
   background-size: 120% ;
   background-repeat:no-repeat;
   background-attachment: scroll;

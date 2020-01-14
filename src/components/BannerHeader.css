@@ -8,7 +8,7 @@
 
 .navbar.navbar-light .breadcrumb .nav-item.active > .nav-link, .navbar.navbar-light .navbar-nav .nav-item.active > .nav-link {
   color:var(--primary-color);
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 .navbar.navbar-dark .navbar-toggler{
@@ -31,11 +31,11 @@
 }
 
 .subTitle{
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-size: 2em;
     /*text-shadow: #140C4C 2px 2px 0;*/
     color: var(--primary-contrast);
-    margin-bottom: 0px;
+    /*margin-bottom: 0px;*/
 }
 
 

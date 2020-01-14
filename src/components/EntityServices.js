@@ -17,15 +17,10 @@ import {
 } from "mdbreact";
 import TypedText from "./TypedText";
 import "./EntityServices.css";
-import Link from 'next/link';
-// import flower from "../assets/img/floral.jpg"
-// import card1 from "../assets/img/mountain-portal.png"
+// import Link from 'next/link';
 import awaken from "../assets/img/awaken-giant-beeple.webp"
-// import card3 from "../assets/img/mountain-portal.png"
 import sleeping from "../assets/img/sleeping-giant-beeple.webp"
-// import gemini from "../assets/img/gemini-beeple.webp"
 import self from "../assets/img/self-beeple.webp"
-// import catalytic from "../assets/img/catalytic-beeple.webp"
 import BannerHeader from "./BannerHeader";
 import portal from "../assets/img/portal-6.svg"
 
@@ -55,12 +50,12 @@ class EntityServices extends React.Component {
 
                                 </MDBCol>
                                 <MDBCol md={"4"} sm={"6"} xs={"2"} middle={true}>
-                                        <MDBAnimation type={"fadeInLeft"} delay="2" duration={"2s"}>
+                                        <MDBAnimation type={"fadeInLeft"}  duration={"2s"}>
                                             <MDBCardTitle className="text-center">
-                                            make your first <br/>
+                                            summon your <br/>
                                             <TypedText
                                               strings={[
-                                                '^5000DAO LLC^5000',
+                                                '^400DAO LLC^5000',
                                                 'Multi-Sig Non-Profit^5000',
                                                 'Hybrid Entity'
                                               ]}
@@ -72,24 +67,32 @@ class EntityServices extends React.Component {
                                 </MDBCol>
                                 <MDBContainer className={"text-center"}>
 
-                                <MDBCol className={"text-center mb-2 mt-5"} lg={"12"}>
-                                    <MDBAnimation type={"fadeIn"}>
+                                <MDBCol className={"text-center mb-4 mt-5"} lg={"12"}>
+                                    <MDBAnimation type={"fadeIn"} reveal={true}>
                                         <MDBCardTitle>
                                             Rally your team,
                                             harness decentralization,
-                                            govern towards abundance. <br/> <br/>
-                                            Go ahead,
+                                            govern towards abundance.
                                         </MDBCardTitle>
 
                                     </MDBAnimation>
 
-                                    <MDBAnimation type="fadeIn" >
-                                        <MDBBtn size="lg" href={"#products"} className={"btn-primary mt-4"}>
+                                    <MDBAnimation type={"fadeIn"}  reveal={true}>
+                                        <MDBCardTitle className={"mt-5"}>
+                                            Go ahead,
+                                        </MDBCardTitle>
+
+                                    </MDBAnimation>
+                                </MDBCol>
+                                <br/>
+                                <MDBCol className={"text-center mb-5"} lg={"12"}>
+
+                                    <MDBAnimation type="fadeIn" reveal={true}>
+                                        <MDBBtn size="lg" href={"#products"} className={"btn-primary"}>
                                             Open the Portal
                                         </MDBBtn>
 
                                     </MDBAnimation>
-
                                 </MDBCol>
                                 </MDBContainer>
 
