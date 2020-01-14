@@ -1,13 +1,10 @@
-  import React from "react";
+import React from "react";
 import {
     MDBCol,
     MDBContainer,
     MDBRow,
     MDBFooter,
-    MDBIcon,
 } from "mdbreact";
-import Link from "next/link";
-import ethicon from "../assets/img/mountain-portal.png"
 import Constants from "./Constants";
 
 

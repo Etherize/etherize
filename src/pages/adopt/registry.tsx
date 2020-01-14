@@ -14,7 +14,7 @@ import {
     MDBAnimation
 } from "mdbreact";
 
-import "./registry.css";
+// import "./registry.css";
 import BannerHeader from "../../components/BannerHeader";
 import Head from "next/head";
 import Footer from "../../components/Footer";

@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import Head from 'next/head'
 import BannerHeader from "../components/BannerHeader";
-import {MDBCard, MDBCardText, MDBCol, MDBContainer, MDBRow, MDBCardTitle, MDBCardHeader} from "mdbreact";
+import {MDBCard, MDBCardText, MDBCol, MDBContainer, MDBRow, MDBCardHeader} from "mdbreact";
 import BlogAPI from "../components/BlogAPI";
 import Link from 'next/link';
 import BlogPost from "../components/BlogPost";
