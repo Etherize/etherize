@@ -23,6 +23,7 @@ import API from "./API";
 import Modal from "./Modal";
 import LoadingPortal from "./LoadingPortal";
 import Footer from "./Footer";
+import OpenLawExtension from "./OpenLawExtensions";
 
 const COST = "$400";
 const EMAIL = "etherizehelp@gmail.com";
@@ -119,7 +120,6 @@ export default class HeavenlyInterface extends React.Component {
         // console.log("versions..", versions[0], versions.length);
 
         const title = template.title;
-
 
 
         //Get my compiled Template, for use in rendering the HTML in previewTemplate
@@ -268,7 +268,6 @@ export default class HeavenlyInterface extends React.Component {
 
     }
 
-    // TODO: check to make sure they've filled out the email field
     sendDraft = async () => {
         const { openLawConfig, apiClient, progress, progressMessage } = this.state;
 
@@ -293,16 +292,16 @@ export default class HeavenlyInterface extends React.Component {
                 return;
             }
 
+
+
             //add Open Law params to be uploaded
             const uploadParams = this.buildOpenLawParamsFromState();
 
-            const [validEmail, memberEmail] = this.uploadParamsHasValidEmail(uploadParams);
+            // don't need to check for valid email, OpenLaw validateContract + checkMissingInputs does this
+            const [_, memberEmail] = this.uploadParamsHasValidEmail(uploadParams);
 
-            if (!validEmail){
-                this.MiscellaneousModal.current.SetTextAndTitle("Error",
-                    "We couldn't parse your email address! Please enter a valid email address.");
-                return
-            }
+            // send invite to sign up an account
+            OpenLawExtension.sendUsersInviteIfNonexistent(apiClient.jwt, [memberEmail]);
 
             console.log(uploadParams.parameters);
             const contractId = await apiClient.uploadDraft(uploadParams);
@@ -321,9 +320,6 @@ export default class HeavenlyInterface extends React.Component {
 
     };
 
-    sendContract = async () => {
-        alert("Not yet enabled. Waiting for OpenLaw to fix their Deal feature, to issue multiple Contracts at once. ")
-    };
 
     RequestSignatureFromEtherize = async () => {
         const { openLawConfig, apiClient, progress, progressMessage } = this.state;
@@ -345,6 +341,13 @@ export default class HeavenlyInterface extends React.Component {
 
             //add Open Law params to be uploaded
             const uploadParams = this.buildOpenLawParamsFromState();
+
+            // don't need to check for valid email, OpenLaw validateContract + checkMissingInputs does this
+            const [_, memberEmail] = this.uploadParamsHasValidEmail(uploadParams);
+
+            // send invite to sign up an account
+            OpenLawExtension.sendUsersInviteIfNonexistent(apiClient.jwt, [memberEmail]);
+
 
             console.log(uploadParams.parameters);
             const contractId = await apiClient.uploadContract(uploadParams);
@@ -392,7 +395,7 @@ export default class HeavenlyInterface extends React.Component {
 
     };
 
-    // TODO: check that ALL fields are filled or we'll get a 400 error from openlaw
+
     togglePaymentMethodModal() {
 
         const errorInForm = this.tryExecuteTemplate();
@@ -402,9 +405,6 @@ export default class HeavenlyInterface extends React.Component {
             this.MiscellaneousModal.current.ToggleShowing();
             return;
         }
-
-        // Check for a valid email first
-        const uploadParams = this.buildOpenLawParamsFromState();
 
         this.ChoosePaymentMethodModal.current.SetTextAndTitle("Choose a Payment Method",
             "");
@@ -439,7 +439,9 @@ export default class HeavenlyInterface extends React.Component {
     };
 
 
-
+    // sendContract = async () => {
+    //     alert("Not yet enabled. Waiting for OpenLaw to fix their Deal feature, to issue multiple Contracts at once. ")
+    // };
 
 
     templatePage(){
