@@ -29,11 +29,11 @@ body > #__next > div {
   --secondary-contrast:white;
 
   /* text styles */
-  --text-background: rgba(255,255,255,.7);/* white;/*var(--light-pink-trans); /* var(--table-blue-background); /* rgba(0,0,0,.7);*/
+  --text-background: rgba(255,255,255,.6);/* white;/*var(--light-pink-trans); /* var(--table-blue-background); /* rgba(0,0,0,.7);*/
   --light-text-color: white;
   --dark-text-color: dark gray;
   --ornate-font: 'Exo 2';
-  --normal-font-size:1.1rem;
+  --normal-font-size:1.0rem;
 
   --light-pink:rgba(229, 102, 183, 1);
   --light-pink-trans: rgba(229, 102, 183, 0.3);
@@ -130,9 +130,9 @@ footer.page-footer a {
   color:var(--dark-text-color);
 }
 
-.card .card-body .card-text{
-  background-color:transparent;
-  color:var(--dark-text-color);
+.card .card-body .card-text {
+  background-color: transparent;
+  color: var(--dark-text-color);
   font-size: var(--normal-font-size);
   line-height: 2;
 }
