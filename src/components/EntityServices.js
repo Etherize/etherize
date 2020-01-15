@@ -137,7 +137,7 @@ class EntityServices extends React.Component {
                                         <br/>
                                         <MDBBadge className="mr-2 mt-2 badge-info">Wyoming</MDBBadge>
                                         <MDBBadge className="mr-2 mt-2 badge-info">Non-Profit or LLC</MDBBadge>
-                                        <MDBBadge className="mr-2 mt-2 badge-info">Ethereumk</MDBBadge>
+                                        <MDBBadge className="mr-2 mt-2 badge-info">Ethereum</MDBBadge>
                                     </MDBCardText>
                                     <MDBBtn size="lg" href={"/create"} className={"btn-secondary"}>
                                         Begin <MDBIcon icon="bolt"/>
