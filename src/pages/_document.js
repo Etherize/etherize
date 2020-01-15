@@ -12,7 +12,7 @@ class MyDocument extends Document {
                           crossOrigin="anonymous"/>
 
 
-                    <script src="https://kit.fontawesome.com/b0a97412a7.js" crossOrigin="anonymous"></script>
+                    {/*<script src="https://kit.fontawesome.com/b0a97412a7.js" crossOrigin="anonymous"></script>*/}
 
                     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/nemoy" type="text/css"/>
                 </Head>
