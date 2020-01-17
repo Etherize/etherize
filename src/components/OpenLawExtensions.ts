@@ -13,6 +13,9 @@ export default class OpenLawExtensions {
         })
             .then(res => {
                 console.log(res);
-            });
+            }).catch( err =>{
+                console.log("error on invite user! " + err)
+            }
+        )
     }
 }

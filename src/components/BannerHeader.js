@@ -9,6 +9,8 @@ import {
     MDBCollapse,
 } from "mdbreact";
 import { withRouter } from 'next/router'
+
+
 class  BannerHeader extends React.Component {
     constructor(props) {
         super(props);

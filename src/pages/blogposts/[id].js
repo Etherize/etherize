@@ -1,7 +1,6 @@
 import React from "react";
 import BlogPost from "../../components/BlogPost";
 import fetch from 'isomorphic-unfetch';
-// import "../blog.css"
 import BannerHeader from "../../components/BannerHeader";
 import Head from 'next/head'
 import {MDBRow, MDBContainer} from "mdbreact";

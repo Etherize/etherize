@@ -1,29 +1,24 @@
 import React from 'react';
-// import openlaw
-import {APIClient, Openlaw} from "openlaw";
+import {Openlaw} from "openlaw";
 import OpenLawForm from "openlaw-elements";
-// import AgreementPreview from "../components/AgreementPreview";
 import {
     MDBAnimation,
     MDBBtn,
     MDBCard,
     MDBCardBody,
-    MDBCardHeader, MDBCardImage,
+    MDBCardHeader,
     MDBCardText,
     MDBCol,
     MDBContainer,
     MDBRow
 } from "mdbreact";
-
-// import "openlaw-elements/dist/openlaw-elements.min.css";
-// import "./HeavenlyInterface.css";
-
 import BannerHeader from "./BannerHeader";
 import API from "./API";
 import Modal from "./Modal";
 import LoadingPortal from "./LoadingPortal";
 import Footer from "./Footer";
 import OpenLawExtension from "./OpenLawExtensions";
+import Constants, {EntityPrices} from "./Constants";
 
 const COST = "$400";
 const EMAIL = "etherizehelp@gmail.com";
@@ -36,7 +31,6 @@ export default class HeavenlyInterface extends React.Component {
 
     state = {
         // Variables for OpenLaw API
-        openLawConfig: null,
         templateName: null,
 
         //Variables for the UI
@@ -70,39 +64,20 @@ export default class HeavenlyInterface extends React.Component {
         this.MiscellaneousModal = React.createRef();
         this.togglePaymentMethodModal = this.togglePaymentMethodModal.bind(this);
         this.payCrypto = this.payCrypto.bind(this);
+        this.openLawHtmlDoc = React.createRef();
+        this.loadOpenLaw();
+    }
+    componentDidMount = async () =>{
+        // this.insertToolTip()
     }
 
-    componentDidMount = async () => {
+    loadOpenLaw = async () => {
 
-        //create config
-        const openLawConfig = {
-            server: process.env.OpenlawHost,
-            templateName: this.props.templateName,
-            // username: "SECRET",
-            // password: "SECRET_TOO"
-        };
-
-        // We get the JWT from out backend now instead of logging in via username+password
-        // console.log( "api host location: " + process.env.API_HOST);
-
-        const apiClient = new APIClient({root:openLawConfig.server
-            // , auth:{
-            // username:process.env.KaleidoUser,
-            // password:process.env.KaleidoPass, }
-        });
-
-        const [jwt, err] = await API.getJWT();
-        if (err !== "" || jwt === ""){
-            alert(err);
-            return;
-        }
-        apiClient.jwt = jwt;
-        // console.log( "api jwt: " + apiClient.jwt);
-
+        const apiClient = await API.GetOpenLawAPIClient(this.props.templateName);
 
         //Retrieve your OpenLaw template by name, use async/await
         //   console.log("openlaw instance hosted at: " + openLawConfig.server);
-        const template = await apiClient.getTemplate(openLawConfig.templateName);
+        const template = await apiClient.getTemplate(this.props.templateName);
         // console.log("template..", template);
 
 
@@ -113,7 +88,7 @@ export default class HeavenlyInterface extends React.Component {
 
         // Get the most recent version of the OpenLaw API Tutorial Template
         const versions = await apiClient.getTemplateVersions(
-            openLawConfig.templateName,
+            this.props.templateName,
             20,
             1
         );
@@ -127,10 +102,8 @@ export default class HeavenlyInterface extends React.Component {
         if (compiledTemplate.isError) {
             throw "template error: " + compiledTemplate.errorMessage;
         }
+
         // console.log("my compiled template..", compiledTemplate);
-
-
-
         const parameters = {
             "Organizer Signature": '{"email":"'+ EMAIL +'"}',
         };
@@ -151,7 +124,6 @@ export default class HeavenlyInterface extends React.Component {
         // console.log("variables:", variables);
 
         this.setState({
-            openLawConfig,
             apiClient,
             title,
             template,
@@ -162,19 +134,19 @@ export default class HeavenlyInterface extends React.Component {
         });
     };
 
-    showReview() {
-        console.log('Toggle Review');
-    };
-
-    showDefine() {
-        console.log('Toggle Form/Define');
-        this.setState(prevState => ({ formVisible: !prevState.formVisible }));
-    };
-
-    showFinalize() {
-        console.log('Toggle Finalize');
-        this.setState(prevState => ({ finalizeVisible: !prevState.finalizeVisible }));
-    };
+    // showReview() {
+    //     console.log('Toggle Review');
+    // };
+    //
+    // showDefine() {
+    //     console.log('Toggle Form/Define');
+    //     this.setState(prevState => ({ formVisible: !prevState.formVisible }));
+    // };
+    //
+    // showFinalize() {
+    //     console.log('Toggle Finalize');
+    //     this.setState(prevState => ({ finalizeVisible: !prevState.finalizeVisible }));
+    // };
 
 
     onChange = (key, value) => {
@@ -188,17 +160,6 @@ export default class HeavenlyInterface extends React.Component {
             : this.state.parameters;
         this.setState({parameters});
 
-        // ***
-        // Commented out below code and moved it to executeTemplate() as is slows the page down during form filling
-        // ***
-
-        // const { executionResult, errorMessage } = Openlaw.execute(
-        //   compiledTemplate.compiledTemplate,
-        //   {},
-        //   parameters
-        // );
-        // const variables = Openlaw.getExecutedVariables(executionResult, {});
-        //   this.setState({ parameters, variables, executionResult });
     };
 
     tryExecuteTemplate(){
@@ -236,6 +197,7 @@ export default class HeavenlyInterface extends React.Component {
         return null;
     }
 
+
     uploadParamsHasValidEmail(uploadParams){
         // try to parse their email in the parameters
         let json = null;
@@ -250,6 +212,7 @@ export default class HeavenlyInterface extends React.Component {
         return [true, memberEmail];
     }
 
+
     buildOpenLawParamsFromState() {
 
         const template = this.state.template;
@@ -262,14 +225,15 @@ export default class HeavenlyInterface extends React.Component {
             parameters,
             overriddenParagraphs: {},
             agreements: {},
-            draftId: ""
+            draftId: "",
+            // options: {sendNotification: true},
         };
         return object;
-
     }
 
+
     sendDraft = async () => {
-        const { openLawConfig, apiClient, progress, progressMessage } = this.state;
+        const { apiClient } = this.state;
 
         this.MiscellaneousModal.current.SetTextAndTitle("Sending Draft",
             "");
@@ -292,37 +256,44 @@ export default class HeavenlyInterface extends React.Component {
                 return;
             }
 
-
-
             //add Open Law params to be uploaded
             const uploadParams = this.buildOpenLawParamsFromState();
 
             // don't need to check for valid email, OpenLaw validateContract + checkMissingInputs does this
             const [_, memberEmail] = this.uploadParamsHasValidEmail(uploadParams);
 
-            // send invite to sign up an account
-            OpenLawExtension.sendUsersInviteIfNonexistent(apiClient.jwt, [memberEmail]);
+            let modalTitle = "Success!";
+            let signUpIfRequired = "";
 
-            console.log(uploadParams.parameters);
+            // check if they already have an account to view the draft
+            const emailSearchResult = await apiClient.searchUsers(memberEmail, 1, 25);
+            if (emailSearchResult["nbHits"] <= 0){
+                modalTitle = "Sign Up Required!";
+                signUpIfRequired = "In order to view/edit your draft you MUST sign up first." +
+                    " Check your email for a sign up link before you try to open your draft. <br>";
+                // send invite to sign up an account
+                OpenLawExtension.sendUsersInviteIfNonexistent(apiClient.jwt, [memberEmail]);
+
+            }
+
+            // console.log(uploadParams.parameters);
             const contractId = await apiClient.uploadDraft(uploadParams);
             // console.log("Contract ID: ", contractId);
             await apiClient.sendDraft([], [], contractId);
 
-            this.MiscellaneousModal.current.SetTextAndTitle("Success!",
-                "You should receive your draft at: " + memberEmail);
+            this.MiscellaneousModal.current.SetTextAndTitle(modalTitle,
+                signUpIfRequired +"You should receive your draft at: " + memberEmail);
 
         } catch (error) {
             this.MiscellaneousModal.current.SetTextAndTitle("Error",
                 "We tried to send the draft, but got an error: " + error);
         }
 
-
-
     };
 
 
     RequestSignatureFromEtherize = async () => {
-        const { openLawConfig, apiClient, progress, progressMessage } = this.state;
+        const { apiClient } = this.state;
 
         try {
             // const {accounts, contract, web3} = this.props;
@@ -349,9 +320,9 @@ export default class HeavenlyInterface extends React.Component {
             OpenLawExtension.sendUsersInviteIfNonexistent(apiClient.jwt, [memberEmail]);
 
 
-            console.log(uploadParams.parameters);
+            // console.log(uploadParams.parameters);
             const contractId = await apiClient.uploadContract(uploadParams);
-            console.log("Contract ID: ", contractId);
+            // console.log("Contract ID: ", contractId);
 
             // looks like openlaw automatically sends the email to the member, so just send to us here
             await apiClient.sendContract([EMAIL], [EMAIL], contractId);
@@ -361,8 +332,6 @@ export default class HeavenlyInterface extends React.Component {
             console.log(error);
             return [false, error];
         }
-
-
     };
 
 
@@ -375,15 +344,22 @@ export default class HeavenlyInterface extends React.Component {
             return
         }
 
-        // after emailing doc to us, show cutomer the stripe checkout
-        const json = await API.getFiatTransaction();
+        //add Open Law params to be uploaded
+        const uploadParams = this.buildOpenLawParamsFromState();
+
+        // don't need to check for valid email, OpenLaw validateContract + checkMissingInputs does this
+        const [_, memberEmail] = this.uploadParamsHasValidEmail(uploadParams);
+
+        // console.log("email is:" + memberEmail);
+        // after emailing doc to us, show customer the stripe checkout
+        const json = await API.getFiatTransaction(memberEmail, EntityPrices.hybridEntity);
+
         const sessionID = json["id"];
         // live key:
         // const stripe = window.Stripe(process.env.StripePrivate);
 
         // test key:
         const stripe = window.Stripe(process.env.StripeTest);
-
 
         const {error} = await stripe.redirectToCheckout({
             sessionId: sessionID
@@ -444,6 +420,19 @@ export default class HeavenlyInterface extends React.Component {
     // };
 
 
+    async insertToolTip(){
+        const delay = ms => new Promise(res => setTimeout(res, ms));
+        while (!this.state.executionResult){
+            await delay(100);
+        }
+        console.log("yes no fields: " + this.openLawHtmlDoc.current.getElementsByClassName("openlaw-el-field-yesno").length)
+
+        // const node = this.openLawHtmlDoc.current.getElementsByClassName("openlaw-el-field-yesno")[0];
+        // console.log(node);
+        // node.appendChild(<p>lollll!!</p>);
+    }
+
+
     templatePage(){
         return(
             <>
@@ -481,7 +470,9 @@ export default class HeavenlyInterface extends React.Component {
                                         <div>
                                         </div>
                                     </MDBCardHeader>
-                                    <MDBCardBody className={"text-center"}>
+
+                                    <MDBCardBody className={"text-center"}   >
+                                        <div ref={this.openLawHtmlDoc}>
                                         <OpenLawForm  style={{width: '50%'}}
                                                       apiClient={this.state.apiClient}
                                                       executionResult={this.state.executionResult}
@@ -490,6 +481,7 @@ export default class HeavenlyInterface extends React.Component {
                                                       openLaw={Openlaw}
                                                       variables={this.state.variables}
                                         />
+                                        </div>
                                     </MDBCardBody>
                                 </MDBCard>
                             </MDBAnimation>
@@ -555,8 +547,9 @@ export default class HeavenlyInterface extends React.Component {
                                                     </MDBCardHeader>
                                                     <MDBCardBody cascade>
                                                         <MDBCardText>
-                                                            You can forward the Draft to your lawyer or your co-founders. <br/> <br/>
-                                                            You can convert the Draft into a Contract when you are ready to Form Entity.
+                                                            You can forward the Draft to your lawyer or co-founders. <br/> <br/>
+                                                            When you are ready to form your entity, you can convert the
+                                                            Draft into a Contract
                                                         </MDBCardText>
 
                                                         <MDBBtn size="lg" className={"btn-secondary"} onClick={this.sendDraft}>
@@ -597,30 +590,29 @@ export default class HeavenlyInterface extends React.Component {
                     </MDBRow>
                 </MDBContainer>
                 <Footer/>
+
             </>
 
         )
     }
 
     render () {
-        const {
-            apiClient,
-            variables,
-            parameters,
-            executionResult,
-            previewHTML,
-            loading,
-            success,
-            ipfsLoading,
-            progress,
-            progressMessage
-        } = this.state;
-
-
+        // const {
+        //     apiClient,
+        //     variables,
+        //     parameters,
+        //     executionResult,
+        //     previewHTML,
+        //     loading,
+        //     success,
+        //     ipfsLoading,
+        //     progress,
+        //     progressMessage
+        // } = this.state;
 
         return (
             <div className={"mainBackground"}>
-                {!this.state.executionResult  ?
+                {!this.state.executionResult ?
                     <div>
                         <BannerHeader/>
                         <LoadingPortal/>
@@ -634,7 +626,6 @@ export default class HeavenlyInterface extends React.Component {
                     </div>
 
                 }
-
             </div>
         )
     }
