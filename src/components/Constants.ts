@@ -7,6 +7,7 @@ export default class Constants{
         server: process.env.OpenlawHost,
         templateName: "",
     };
+    static ownershipFAQTag="ownership-token"
 }
 
 export enum EntityPrices {

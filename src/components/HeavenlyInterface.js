@@ -86,12 +86,13 @@ export default class HeavenlyInterface extends React.Component {
 
         // console.log("template..", template);
 
-        // Get the most recent version of the OpenLaw API Tutorial Template
-        const versions = await apiClient.getTemplateVersions(
-            this.props.templateName,
-            20,
-            1
-        );
+        // TODO should we use versions?
+        // // Get the most recent version of the OpenLaw API Tutorial Template
+        // const versions = await apiClient.getTemplateVersions(
+        //     this.props.templateName,
+        //     20,
+        //     1
+        // );
         // console.log("versions..", versions[0], versions.length);
 
         const title = template.title;
@@ -480,6 +481,8 @@ export default class HeavenlyInterface extends React.Component {
                                                       onChangeFunction={this.onChange}
                                                       openLaw={Openlaw}
                                                       variables={this.state.variables}
+                                                      inputExtraTextMap={{"Tokenize":<a href={"/FAQ#"+Constants.ownershipFAQTag}>What's a proof of ownership token?</a>}}
+                                                      // inputProps={{'Title':{"children":<a href="http://localhost:8080/travel/t_form.jsp"> userlogin</a>}}}
                                         />
                                         </div>
                                     </MDBCardBody>
