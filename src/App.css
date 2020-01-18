@@ -55,6 +55,19 @@ body > #__next > div {
   font-weight: bold;
 }
 
+.logoText {
+  font-size: 6vmin;
+  max-width: 400px;
+    text-shadow: #e566b7 1px 1px 0;
+    text-shadow: #86a8e7 2px 2px 0;
+}
+
+.ethericText{
+  color: #FFFFFF;
+  margin-bottom: 0;
+  font-family: 'NemoyMedium';
+}
+
 /* ***** Basics ***** */
 
 body{
@@ -120,6 +133,10 @@ footer.page-footer a {
   font-family: var(--ornate-font);
   font-size: var(--button-font-size);
   font-weight: var(--button-font-weight);
+}
+
+.btn-portal{
+
 }
 
 

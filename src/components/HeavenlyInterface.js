@@ -467,7 +467,7 @@ export default class HeavenlyInterface extends React.Component {
                                     <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                         <div>
                                         </div>
-                                        <p className="card-title h1">Define</p>
+                                        <p className="card-title h1">Entity Shapes</p>
                                         <div>
                                         </div>
                                     </MDBCardHeader>
@@ -531,7 +531,7 @@ export default class HeavenlyInterface extends React.Component {
                                     <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                         <div>
                                         </div>
-                                        <p className="card-title h1">Finalize</p>
+                                        <p className="card-title h1">Summoning Spell</p>
                                         <div>
                                         </div>
                                     </MDBCardHeader>

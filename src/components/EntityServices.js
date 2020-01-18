@@ -57,7 +57,7 @@ class EntityServices extends React.Component {
                                             summon your <br/>
                                             <TypedText
                                               strings={[
-                                                '^400DAO LLC^5000',
+                                                '^3000 DAO LLC^5000',
                                                 'Multi-Sig Non-Profit^5000',
                                                 'Hybrid Entity'
                                               ]} />
@@ -69,23 +69,25 @@ class EntityServices extends React.Component {
                                 <MDBCol className={"text-center mb-4 mt-5"} lg={"12"}>
                                     <MDBAnimation type={"fadeIn"} reveal={true}>
                                         <MDBCardTitle>
-                                            Rally your team,
-                                            harness decentralization,
-                                            govern towards abundance.
+                                        <MDBAnimation type={"fadeIn"}  reveal={true}>
+                                            <h4>Rally your team.</h4>
+                                        </MDBAnimation>
+                                        <MDBAnimation type={"fadeIn"}  reveal={true}>
+                                            <h4>Cultivate distributed energy.</h4>
+                                        </MDBAnimation>
+                                        <MDBAnimation type={"fadeIn"}   reveal={true}>
+                                            <h4>Organize with grace - towards abundance.</h4>
+                                        </MDBAnimation>
                                         </MDBCardTitle>
                                     </MDBAnimation>
 
-                                    <MDBAnimation type={"fadeIn"}  reveal={true}>
-                                        <MDBCardTitle className={"mt-5"}>
-                                            Go ahead,
-                                        </MDBCardTitle>
-                                    </MDBAnimation>
+
                                 </MDBCol>
                                 <br/>
                                 <MDBCol className={"text-center mb-5"} lg={"12"}>
-                                    <MDBAnimation type="fadeIn" reveal={true}>
+                                    <MDBAnimation type="fadeIn"   reveal={true}>
                                         <MDBBtn size="lg" href={"#products"} className={"btn-primary"}>
-                                            Open the Portal
+                                            <h2 className="ethericText">select spell</h2>
                                         </MDBBtn>
                                     </MDBAnimation>
                                 </MDBCol>

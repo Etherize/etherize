@@ -208,13 +208,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99207cca', e
   padding-bottom: 15px!important;
 }
 
-.logoText {
-  color: #FFFFFF;
-  font-family: 'NemoyMedium';
-  font-size: 6vmin;
-  max-width: 400px;
-  text-shadow: #86a8e7 2px 2px 0;
-}
+
 
 .secondRow{
   margin-top: 30px!important;
