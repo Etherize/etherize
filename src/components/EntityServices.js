@@ -23,6 +23,7 @@ import BannerHeader from "./BannerHeader";
 import portal from "../assets/img/portal-6.svg"
 import FeatureCard from "./FeatureCard";
 import ProductCard from "./ProductCard";
+import {EntityTypes} from "./Constants";
 
 
 class EntityServices extends React.Component {
@@ -38,7 +39,7 @@ class EntityServices extends React.Component {
                             <MDBRow>
 
                                 <MDBCol lg={"4"} md={"12"} middle={true}>
-                                        <MDBAnimation type={"fadeInRight"} duration={"2s"}>
+                                        <MDBAnimation type={"fadeIn"} duration={"2s"}>
                                             <MDBCardTitle className="jumbo-title text-center">
                                                 Hybrid Formation Portal
                                             </MDBCardTitle>
@@ -52,7 +53,7 @@ class EntityServices extends React.Component {
                                 </MDBCol>
 
                                 <MDBCol lg={"4"} md={"6"} sm={"12"} xs={"12"} middle={true}>
-                                        <MDBAnimation type={"fadeInLeft"}  duration={"2s"}>
+                                        <MDBAnimation type={"fadeIn"}  duration={"0.5s"}>
                                             <MDBCardTitle className="text-center">
                                             summon your <br/>
                                             <TypedText
@@ -141,7 +142,7 @@ class EntityServices extends React.Component {
                                         <MDBBadge className="mr-2 mt-2 badge-info">Non-Profit or LLC</MDBBadge>
                                         <MDBBadge className="mr-2 mt-2 badge-info">Ethereum</MDBBadge>
                                     </MDBCardText>
-                                    <MDBBtn size="lg" href={"/create"} className={"btn-secondary"}>
+                                    <MDBBtn size="lg" href={"/create?type=" + EntityTypes.hybridEntity} className={"btn-secondary"}>
                                         Begin <MDBIcon icon="bolt"/>
                                     </MDBBtn>
                                 </ProductCard>
@@ -163,7 +164,7 @@ class EntityServices extends React.Component {
                                         <MDBBadge className="mr-2 mt-2 badge-info">Wyoming</MDBBadge>
                                         <MDBBadge className="mr-2 mt-2 badge-info">Non-Profit or LLC</MDBBadge>
                                     </MDBCardText>
-                                    <MDBBtn size="lg" href={"/create"} className={"btn-secondary"}>
+                                    <MDBBtn size="lg" href={"/create?type=" + EntityTypes.legalEntity} className={"btn-secondary"}>
                                         Begin <MDBIcon icon="bolt"/>
                                     </MDBBtn>
                                 </ProductCard>

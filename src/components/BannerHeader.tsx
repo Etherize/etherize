@@ -5,11 +5,12 @@ import {
     MDBNavbarNav,
     MDBNavItem,
     MDBNavbarToggler,
-    MDBCollapse,
+    MDBCollapse, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem,
 } from "mdbreact";
 import {Router, withRouter} from 'next/router'
 import React from "react";
 import {bool} from "prop-types";
+import {EntityTypes} from "./Constants";
 
 type Props={
     router: Router
@@ -35,7 +36,7 @@ class  BannerHeader extends React.Component<Props, State> {
         }));
 
     determineActive( slug ){
-        return (this.props.router.asPath.endsWith(slug))
+        return (this.props.router.pathname.endsWith(slug))
     }
 
     render () {
@@ -52,11 +53,24 @@ class  BannerHeader extends React.Component<Props, State> {
                              isOpen={this.state.collapseID}
                              navbar>
                     <MDBNavbarNav right>
-                        <NavbarItem active={this.determineActive("create")} title={"create"} />
+                        <MDBDropdown >
+                            <MDBDropdownToggle nav={true} className={"subTitle nav-link"} >
+                                <MDBNavItem  active={this.determineActive("create")}>Create</MDBNavItem>
+                            </MDBDropdownToggle>
+                            <MDBDropdownMenu >
+                                <MDBDropdownItem>
+                                    <a className={"nav-link"} href={"/create?type=" + EntityTypes.hybridEntity} > Hybrid Entity </a>
+                                </MDBDropdownItem>
+                                <MDBDropdownItem>
+                                    <a className={"nav-link"}  href={"/create?type=" + EntityTypes.legalEntity} > Legal Entity </a>
+                                </MDBDropdownItem>
+                            </MDBDropdownMenu>
+                        </MDBDropdown>
                         <NavbarItem active={this.determineActive("blog")} title={"blog"} />
                         <NavbarItem active={this.determineActive("FAQ")} title={"FAQ"} />
                         <NavbarItem active={this.determineActive("contact")} title={"contact"} />
                         <NavbarItem active={this.determineActive("tools")} title={"tools"} />
+
                     </MDBNavbarNav>
                 </MDBCollapse>
             </MDBNavbar>

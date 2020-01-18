@@ -1,3 +1,8 @@
+export enum EntityTypes {
+    hybridEntity,
+    legalEntity,
+}
+
 export default class Constants{
     static email = "hello@etherize.io";
     static twitter = 'https://twitter.com/EtherizePortal';
@@ -7,10 +12,15 @@ export default class Constants{
         server: process.env.OpenlawHost,
         templateName: "",
     };
-    static ownershipFAQTag="ownership-token"
+    static ownershipFAQTag="ownership-token";
+    static PricesPerEntity = {
+        [EntityTypes.hybridEntity]: 50000,
+        [EntityTypes.legalEntity]: 40000,
+    };
+    static AgreementsPerEntity = {
+        [EntityTypes.hybridEntity]: "Hybrid Formation Service Agreement",
+        [EntityTypes.legalEntity]: "Formation Service Agreement",
+    }
 }
+//
 
-export enum EntityPrices {
-     hybridEntity = 50000,
-     legalEntity = 40000
-}

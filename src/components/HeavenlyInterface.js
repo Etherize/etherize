@@ -18,9 +18,9 @@ import Modal from "./Modal";
 import LoadingPortal from "./LoadingPortal";
 import Footer from "./Footer";
 import OpenLawExtension from "./OpenLawExtensions";
-import Constants, {EntityPrices} from "./Constants";
+import Constants, {EntityTypes} from "./Constants";
 
-const COST = "$400";
+
 const EMAIL = "etherizehelp@gmail.com";
 // configure openlaw
 // You can change TEMPLATE_NAME to 'articles-of-organization' to make the code work ...
@@ -31,12 +31,10 @@ export default class HeavenlyInterface extends React.Component {
 
     state = {
         // Variables for OpenLaw API
-        templateName: null,
-
         //Variables for the UI
-        formVisible: true,
-        reviewVisible: false,
-        finalizeVisible: false,
+        // formVisible: true,
+        // reviewVisible: false,
+        // finalizeVisible: false,
 
         // State variables for OpenLaw
         apiClient:null,
@@ -53,8 +51,7 @@ export default class HeavenlyInterface extends React.Component {
         success: false,
         progress: 0,
         progressMessage: "",
-
-
+        cost:Constants.PricesPerEntity[this.props.entityType]/100,
     };
 
     constructor(props){
@@ -65,20 +62,23 @@ export default class HeavenlyInterface extends React.Component {
         this.togglePaymentMethodModal = this.togglePaymentMethodModal.bind(this);
         this.payCrypto = this.payCrypto.bind(this);
         this.openLawHtmlDoc = React.createRef();
-        this.loadOpenLaw();
+        this.loadOpenLaw(Constants.AgreementsPerEntity[this.props.entityType]);
+        // console.log("entity cost: " + this.state.cost);
     }
+
+
     componentDidMount = async () =>{
         // this.insertToolTip()
     }
 
-    loadOpenLaw = async () => {
+    loadOpenLaw = async (templateName) => {
 
-        const apiClient = await API.GetOpenLawAPIClient(this.props.templateName);
+        const apiClient = await API.GetOpenLawAPIClient(templateName);
 
         //Retrieve your OpenLaw template by name, use async/await
         //   console.log("openlaw instance hosted at: " + openLawConfig.server);
-        const template = await apiClient.getTemplate(this.props.templateName);
-        // console.log("template..", template);
+        console.log("template..", templateName);
+        const template = await apiClient.getTemplate(templateName);
 
 
         //Retreive the OpenLaw Template, including MarkDown
@@ -89,7 +89,7 @@ export default class HeavenlyInterface extends React.Component {
         // TODO should we use versions?
         // // Get the most recent version of the OpenLaw API Tutorial Template
         // const versions = await apiClient.getTemplateVersions(
-        //     this.props.templateName,
+        //     templateName,
         //     20,
         //     1
         // );
@@ -353,7 +353,7 @@ export default class HeavenlyInterface extends React.Component {
 
         // console.log("email is:" + memberEmail);
         // after emailing doc to us, show customer the stripe checkout
-        const json = await API.getFiatTransaction(memberEmail, EntityPrices.hybridEntity);
+        const json = await API.getFiatTransaction(memberEmail, this.props.entityType);
 
         const sessionID = json["id"];
         // live key:
@@ -400,7 +400,7 @@ export default class HeavenlyInterface extends React.Component {
         this.ChoosePaymentMethodModal.current.ToggleShowing();
         this.PaymentModal.current.ToggleShowing();
         this.PaymentModal.current.ToggleLoading(true);
-        const json = await API.getCryptoTransaction(cryptoCurrency);
+        const json = await API.getCryptoTransaction(cryptoCurrency, this.props.entityType);
 
         if (json["error"] !== "ok") {
             this.PaymentModal.current.SetTextAndTitle("Error", json["error"]);
@@ -445,13 +445,13 @@ export default class HeavenlyInterface extends React.Component {
                         <MDBCol lg={"8"} className={"mb-4"}>
                             <MDBCard border={"0"}>
                                 <MDBBtn size="lg" onClick={this.payFiat} className={"btn-secondary"}>
-                                    Pay {COST} in USD
+                                    Pay ${this.state.cost} in USD
                                 </MDBBtn>
                                 <MDBBtn size="lg" onClick={()=> this.payCrypto("LTCT")} className={"btn-secondary"}>
-                                    Pay {COST} in BTC (LTCT)
+                                    Pay ${this.state.cost} in BTC (LTCT)
                                 </MDBBtn>
                                 <MDBBtn size="lg"  onClick={()=> this.payCrypto("ETH")} className={"btn-secondary"}>
-                                    Pay {COST} in ETH
+                                    Pay ${this.state.cost} in ETH
                                 </MDBBtn>
                             </MDBCard>
                         </MDBCol>
@@ -481,7 +481,7 @@ export default class HeavenlyInterface extends React.Component {
                                                       onChangeFunction={this.onChange}
                                                       openLaw={Openlaw}
                                                       variables={this.state.variables}
-                                                      inputExtraTextMap={{"Tokenize":<a href={"/FAQ#"+Constants.ownershipFAQTag}>What's a proof of ownership token?</a>}}
+                                                      // inputExtraTextMap={{"Tokenize":<a href={"/FAQ#"+Constants.ownershipFAQTag}>What's a proof of ownership token?</a>}}
                                                       // inputProps={{'Title':{"children":<a href="http://localhost:8080/travel/t_form.jsp"> userlogin</a>}}}
                                         />
                                         </div>
