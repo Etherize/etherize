@@ -1,4 +1,4 @@
-import Constants, {EntityPrices} from "./Constants";
+import Constants, {EntityTypes} from "./Constants";
 import {APIClient} from "openlaw";
 
 export default class API {
@@ -35,9 +35,11 @@ export default class API {
         return [json["jwt"], json["error"]];
     }
 
-    static async getCryptoTransaction(queryVal){
+    static async getCryptoTransaction(queryVal, type:EntityTypes){
+        const price = Constants.PricesPerEntity[type];
         const response = await fetch(process.env.API_HOST + process.env.CreateCryptoTransactionEndPoint +
-            "?crypto=" + queryVal);
+            "?crypto=" + queryVal +
+            "&price=" + price.toString());
         console.log(response.statusText);
         if (response.status>=300){
             console.log("error from api! " + response.statusText);
@@ -51,7 +53,8 @@ export default class API {
         return json;
     }
 
-    static async getFiatTransaction(email:string, price:EntityPrices){
+    static async getFiatTransaction(email:string, type:EntityTypes){
+        const price = Constants.PricesPerEntity[type];
         // console.log("price is: " + price.toString());
         const response = await fetch(process.env.API_HOST + process.env.CreateFiatTransactionEndPoint +
         "?email=" + email +
