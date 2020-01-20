@@ -77,9 +77,7 @@ export default class HeavenlyInterface extends React.Component {
 
         //Retrieve your OpenLaw template by name, use async/await
         //   console.log("openlaw instance hosted at: " + openLawConfig.server);
-        console.log("template..", templateName);
         const template = await apiClient.getTemplate(templateName);
-
 
         //Retreive the OpenLaw Template, including MarkDown
         const content = template.content;
@@ -391,16 +389,25 @@ export default class HeavenlyInterface extends React.Component {
 
     async payCrypto(cryptoCurrency) {
 
-        const [success, err] = await this.RequestSignatureFromEtherize();
-        if (!success){
-            alert("Failure to upload to OpenLaw: " + err);
-            return
-        }
-
         this.ChoosePaymentMethodModal.current.ToggleShowing();
         this.PaymentModal.current.ToggleShowing();
         this.PaymentModal.current.ToggleLoading(true);
-        const json = await API.getCryptoTransaction(cryptoCurrency, this.props.entityType);
+
+        const [success, err] = await this.RequestSignatureFromEtherize();
+        if (!success){
+            this.PaymentModal.current.SetTextAndTitle("Error", "Failure to upload to OpenLaw: " + err);
+            return;
+        }
+
+        //add Open Law params to be uploaded
+        const uploadParams = this.buildOpenLawParamsFromState();
+
+        console.log(this.state.variables);
+
+        // don't need to check for valid email, OpenLaw validateContract + checkMissingInputs does this
+        const [_, memberEmail] = this.uploadParamsHasValidEmail(uploadParams);
+
+        const json = await API.getCryptoTransaction(cryptoCurrency, this.props.entityType, memberEmail);
 
         if (json["error"] !== "ok") {
             this.PaymentModal.current.SetTextAndTitle("Error", json["error"]);
@@ -481,7 +488,7 @@ export default class HeavenlyInterface extends React.Component {
                                                       onChangeFunction={this.onChange}
                                                       openLaw={Openlaw}
                                                       variables={this.state.variables}
-                                                      // inputExtraTextMap={{"Tokenize":<a href={"/FAQ#"+Constants.ownershipFAQTag}>What's a proof of ownership token?</a>}}
+                                                      // inputExtraTextMap={{"Entity":<a href={"/FAQ#"+Constants.ownershipFAQTag}>What's a proof of ownership token?</a>}}
                                                       // inputProps={{'Title':{"children":<a href="http://localhost:8080/travel/t_form.jsp"> userlogin</a>}}}
                                         />
                                         </div>

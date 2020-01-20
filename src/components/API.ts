@@ -35,11 +35,12 @@ export default class API {
         return [json["jwt"], json["error"]];
     }
 
-    static async getCryptoTransaction(queryVal, type:EntityTypes){
-        const price = Constants.PricesPerEntity[type];
+    static async getCryptoTransaction(cryptoType:string, type:EntityTypes, buyerEmail:string){
+        const price = Constants.PricesPerEntity[type]/100;
         const response = await fetch(process.env.API_HOST + process.env.CreateCryptoTransactionEndPoint +
-            "?crypto=" + queryVal +
-            "&price=" + price.toString());
+            "?crypto=" + cryptoType +
+            "&price=" + price.toString() +
+            "&buyerEmail="+ buyerEmail);
         console.log(response.statusText);
         if (response.status>=300){
             console.log("error from api! " + response.statusText);

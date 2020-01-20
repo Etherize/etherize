@@ -126,9 +126,12 @@ class EntityServices extends React.Component {
                             <MDBRow id={"products"} className={"no-gutters"}>
 
                                 {/*Card */}
+                                {/*YOU MUST MANUALLY RESIZE IMAGE TO FIT CARD ON LEFT*/}
                                 <ProductCard
                                     title={"Form Hybrid Entity"}
-                                    image={<MDBCardImage waves={false} className="img-fluid"  src={self}/>}>
+                                    image={<img  alt={"design"} className={"img-fluid"}  src={self}
+                                                 style={{height:"490px", width:"100%", objectFit:"cover" }}
+                                    />}>
 
                                     <MDBCardText className={"mb-5 mt-3"}>
                                         Bring your own DAO or wallet address, or allow us to help you create one.
@@ -147,9 +150,12 @@ class EntityServices extends React.Component {
 
 
                                 {/*Card */}
+                                {/*YOU MUST MANUALLY RESIZE IMAGE TO FIT CARD ON LEFT*/}
                                 <ProductCard
                                     title={"Form Legal Entity"}
-                                    image={<MDBCardImage waves={false} className="img-fluid fullWidth" src={sleeping}/>}>
+                                    image={<img  alt={"design"} className="img-fluid fullWidth" src={sleeping}
+                                                 style={{height:"551px", width:"100%", objectFit:"cover" }}
+                                    />}>
 
                                     <MDBCardText className={"mb-5 mt-3"}>
                                       Or, simply place your crypto-tokens in a Wyoming LLC, so that at least your assets are protected if the DAO implodes.
@@ -169,9 +175,13 @@ class EntityServices extends React.Component {
 
 
                                 {/*Card */}
+                                {/*YOU MUST MANUALLY RESIZE IMAGE TO FIT CARD ON LEFT*/}
                                 <ProductCard
                                     title={"Design Entity"}
-                                    image={ <MDBCardImage waves={false} className="img-fluid fullWidth" src={awaken}/> }>
+                                    image={ <img  alt={"design"} className="img-fluid fullWidth" src={awaken}
+                                                  style={{height:"455px", width:"100%", objectFit:"cover" }}
+
+                                    /> }>
 
                                     <MDBCardText className={"mb-5 mt-3"}>
                                         Our wizard🧙 generates documents for you & co-founders
