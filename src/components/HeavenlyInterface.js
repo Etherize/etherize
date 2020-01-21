@@ -30,11 +30,6 @@ const EMAIL = "etherizehelp@gmail.com";
 export default class HeavenlyInterface extends React.Component {
 
     state = {
-        // Variables for OpenLaw API
-        //Variables for the UI
-        // formVisible: true,
-        // reviewVisible: false,
-        // finalizeVisible: false,
 
         // State variables for OpenLaw
         apiClient:null,
@@ -44,13 +39,7 @@ export default class HeavenlyInterface extends React.Component {
         parameters: {},
         executionResult: null,
         variables: null,
-        // State variables for preview component
-        previewHTML: null,
-        loading: false,
-        ipfsLoading: false,
-        success: false,
-        progress: 0,
-        progressMessage: "",
+
         cost:Constants.PricesPerEntity[this.props.entityType]/100,
     };
 
@@ -132,20 +121,6 @@ export default class HeavenlyInterface extends React.Component {
             variables
         });
     };
-
-    // showReview() {
-    //     console.log('Toggle Review');
-    // };
-    //
-    // showDefine() {
-    //     console.log('Toggle Form/Define');
-    //     this.setState(prevState => ({ formVisible: !prevState.formVisible }));
-    // };
-    //
-    // showFinalize() {
-    //     console.log('Toggle Finalize');
-    //     this.setState(prevState => ({ finalizeVisible: !prevState.finalizeVisible }));
-    // };
 
 
     onChange = (key, value) => {
@@ -428,17 +403,16 @@ export default class HeavenlyInterface extends React.Component {
     // };
 
 
-    async insertToolTip(){
-        const delay = ms => new Promise(res => setTimeout(res, ms));
-        while (!this.state.executionResult){
-            await delay(100);
-        }
-        console.log("yes no fields: " + this.openLawHtmlDoc.current.getElementsByClassName("openlaw-el-field-yesno").length)
-
-        // const node = this.openLawHtmlDoc.current.getElementsByClassName("openlaw-el-field-yesno")[0];
-        // console.log(node);
-        // node.appendChild(<p>lollll!!</p>);
-    }
+    // async insertToolTip(){
+    //     const delay = ms => new Promise(res => setTimeout(res, ms));
+    //     while (!this.state.executionResult){
+    //         await delay(100);
+    //     }
+    //     // console.log("yes no fields: " + this.openLawHtmlDoc.current.getElementsByClassName("openlaw-el-field-yesno").length)
+    //     // const node = this.openLawHtmlDoc.current.getElementsByClassName("openlaw-el-field-yesno")[0];
+    //     // console.log(node);
+    //     // node.appendChild(<p>lollll!!</p>);
+    // }
 
 
     templatePage(){
@@ -488,6 +462,7 @@ export default class HeavenlyInterface extends React.Component {
                                                       onChangeFunction={this.onChange}
                                                       openLaw={Openlaw}
                                                       variables={this.state.variables}
+                                                      // inputExtraTextMap={{"Entity":<a href={"https://wyobiz.wy.gov/business/filingsearch.aspx"}>Check if your name is available</a>}}
                                                       // inputExtraTextMap={{"Entity":<a href={"/FAQ#"+Constants.ownershipFAQTag}>What's a proof of ownership token?</a>}}
                                                       // inputProps={{'Title':{"children":<a href="http://localhost:8080/travel/t_form.jsp"> userlogin</a>}}}
                                         />
@@ -607,18 +582,6 @@ export default class HeavenlyInterface extends React.Component {
     }
 
     render () {
-        // const {
-        //     apiClient,
-        //     variables,
-        //     parameters,
-        //     executionResult,
-        //     previewHTML,
-        //     loading,
-        //     success,
-        //     ipfsLoading,
-        //     progress,
-        //     progressMessage
-        // } = this.state;
 
         return (
             <div className={"mainBackground"}>
