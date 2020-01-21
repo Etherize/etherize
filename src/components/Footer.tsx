@@ -5,7 +5,7 @@ import {
     MDBRow,
     MDBFooter,
 } from "mdbreact";
-import Constants from "./Constants";
+import Constants, {EntityTypes} from "./Constants";
 
 
 export default class Footer extends React.Component{
@@ -25,7 +25,7 @@ export default class Footer extends React.Component{
                     </MDBCol>
 
                     <MDBCol md="3" className="text-lg-right text-center"  >
-                    Made with   🦄✨  in Denver {/*<img alt={"eth icon"} src={ethicon} width={"50"} /> */}
+                         Made with 🥑 in Denver
                     </MDBCol>
                     </MDBRow>
 

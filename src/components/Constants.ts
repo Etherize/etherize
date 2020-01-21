@@ -1,6 +1,7 @@
 export enum EntityTypes {
     hybridEntity,
     legalEntity,
+    bugEntity
 }
 
 export default class Constants{
@@ -16,11 +17,12 @@ export default class Constants{
     static PricesPerEntity = {
         [EntityTypes.hybridEntity]: 50000,
         [EntityTypes.legalEntity]: 40000,
+        [EntityTypes.bugEntity]: 40000,
     };
     static AgreementsPerEntity = {
         [EntityTypes.hybridEntity]: "Hybrid Formation Service Agreement",
         [EntityTypes.legalEntity]: "Formation Service Agreement",
+        [EntityTypes.bugEntity]: "Registered Agent Service Agreement-bug",
     }
 }
 //
-
