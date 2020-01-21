@@ -21,7 +21,7 @@ import OpenLawExtension from "./OpenLawExtensions";
 import Constants, {EntityTypes} from "./Constants";
 
 
-const EMAIL = "etherizehelp@gmail.com";
+var EMAIL = Constants.legalEmail;
 // configure openlaw
 // You can change TEMPLATE_NAME to 'articles-of-organization' to make the code work ...
 // Right now, both deal templates on Etherizeit instance are causing the same issue
@@ -474,7 +474,7 @@ export default class HeavenlyInterface extends React.Component {
                                     <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                         <div>
                                         </div>
-                                        <p className="card-title h1">Entity Shapes</p>
+                                        <p className="card-title h1">Entity Parameters</p>
                                         <div>
                                         </div>
                                     </MDBCardHeader>
