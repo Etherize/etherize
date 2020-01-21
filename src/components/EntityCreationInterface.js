@@ -20,14 +20,12 @@ import Footer from "./Footer";
 import OpenLawExtension from "./OpenLawExtensions";
 import Constants, {EntityTypes} from "./Constants";
 
-
-var EMAIL = Constants.legalEmail;
 // configure openlaw
 // You can change TEMPLATE_NAME to 'articles-of-organization' to make the code work ...
 // Right now, both deal templates on Etherizeit instance are causing the same issue
 // import getConfig from 'next/config'
 
-export default class HeavenlyInterface extends React.Component {
+export default class EntityCreationInterface extends React.Component {
 
     state = {
 
@@ -93,7 +91,7 @@ export default class HeavenlyInterface extends React.Component {
 
         // console.log("my compiled template..", compiledTemplate);
         const parameters = {
-            "Organizer Signature": '{"email":"'+ EMAIL +'"}',
+            "Organizer Signature": '{"email":"'+ Constants.legalEmail +'"}',
         };
         const { executionResult, errorMessage } = await Openlaw.execute(
             compiledTemplate.compiledTemplate,
@@ -299,7 +297,7 @@ export default class HeavenlyInterface extends React.Component {
             // console.log("Contract ID: ", contractId);
 
             // looks like openlaw automatically sends the email to the member, so just send to us here
-            await apiClient.sendContract([EMAIL], [EMAIL], contractId);
+            await apiClient.sendContract([Constants.legalEmail], [Constants.legalEmail], contractId);
             return [true, ""];
 
         } catch (error) {

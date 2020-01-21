@@ -9,7 +9,7 @@ import "../App.css";
 import "../components/BannerHeader.css"
 import "../components/EntityServices.css";
 import "./blog.css"
-import "../components/HeavenlyInterface.css";
+import "../components/EntityCreationInterface.css";
 import "openlaw-elements/dist/openlaw-elements.min.css";
 
 

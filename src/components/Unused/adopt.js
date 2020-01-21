@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import HeavenlyInterface from "../HeavenlyInterface";
+import EntityCreationInterface from "../EntityCreationInterface";
 
 
 class Adopt extends React.Component {
@@ -7,7 +7,7 @@ class Adopt extends React.Component {
   render() {
     return (
         <React.Fragment>
-          <HeavenlyInterface templateName={'Entity Leasing Agreement'}/>
+          <EntityCreationInterface templateName={'Entity Leasing Agreement'}/>
         </React.Fragment>
       )
   }

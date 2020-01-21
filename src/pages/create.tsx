@@ -1,5 +1,5 @@
 import React, { } from 'react';
-import HeavenlyInterface from "../components/HeavenlyInterface";
+import EntityCreationInterface from "../components/EntityCreationInterface";
 import Head from 'next/head'
 import {Router, withRouter} from "next/router";
 import Constants, {EntityTypes} from "../components/Constants";
@@ -21,9 +21,9 @@ class Create extends React.Component<Props,{}> {
             {this.props.router.asPath.endsWith(EntityTypes.hybridEntity.toString())
 
                 ?
-                <HeavenlyInterface entityType={EntityTypes.hybridEntity}/>
+                <EntityCreationInterface entityType={EntityTypes.hybridEntity}/>
             :
-                <HeavenlyInterface entityType={EntityTypes.legalEntity}/>
+                <EntityCreationInterface entityType={EntityTypes.legalEntity}/>
 
             }
 
