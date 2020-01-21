@@ -128,15 +128,18 @@ class EntityServices extends React.Component {
                             <MDBRow id={"products"} className={"no-gutters"}>
 
                                 {/*Card */}
+                                {/*YOU MUST MANUALLY RESIZE IMAGE TO FIT CARD ON LEFT*/}
                                 <ProductCard
                                     title={"Form Hybrid Entity"}
-                                    image={<MDBCardImage waves={false} className="img-fluid"  src={self}/>}>
-                                    <MDBCardText className={"mb-2  mt-3"}>
-                                        A hybrid entity exists both in our world and some place beyond.<br/>
-                                        Long theorized, yet only recently attainable, they are just as capable of transacting with mortals as they are executing smart contracts.<br/>
-                                        Bring your existing multi-signature wallet, ERC20 token, or DAO; alternatively, allow us to help you deploy one.<br/>
-                                        Our team will form a legal entity to specification, wrapping the experimental organization in the safety of limited liability.
-                                        <br/>
+                                    image={<img  alt={"design"} className={"img-fluid"}  src={self}
+                                                 style={{height:"562px", width:"100%", objectFit:"cover" }}
+                                    />}>
+
+                                    <MDBCardText className={"mb-5 mt-3"}>
+                                    A hybrid entity exists both in our world and some place beyond.<br/>
+                                    Long theorized, yet only recently attainable, they are just as capable of transacting with mortals as they are executing smart contracts.<br/>
+                                    Bring your existing multi-signature wallet, ERC20 token, or DAO; alternatively, allow us to help you deploy one.<br/>
+                                    Our team will form a legal entity to specification, wrapping the experimental organization in the safety of limited liability.
                                         <MDBBadge className="mr-2 mt-2 badge-info">Wyoming: Non-Profit/LLC/Series LLC</MDBBadge>
                                         <MDBBadge className="mr-2 mt-2 badge-info">Ethereum: Multi-Sig, ERC20, DAO</MDBBadge>
                                         <MDBBadge className="mr-2 mt-2 badge-info">Starting at $225</MDBBadge>
@@ -149,9 +152,12 @@ class EntityServices extends React.Component {
 
 
                                 {/*Card */}
+                                {/*YOU MUST MANUALLY RESIZE IMAGE TO FIT CARD ON LEFT*/}
                                 <ProductCard
                                     title={"Form Legal Entity"}
-                                    image={<MDBCardImage waves={false} className="img-fluid fullWidth" src={sleeping}/>}>
+                                    image={<img  alt={"design"} className="img-fluid fullWidth" src={sleeping}
+                                                 style={{height:"498px", width:"100%", objectFit:"cover" }}
+                                    />}>
 
                                     <MDBCardText className={"mb-5 mt-3"}>
                                       Protect your personal assets or rally your team with a new entity. <br/>
@@ -171,9 +177,13 @@ class EntityServices extends React.Component {
 
 
                                 {/*Card */}
+                                {/*YOU MUST MANUALLY RESIZE IMAGE TO FIT CARD ON LEFT*/}
                                 <ProductCard
                                     title={"Design Hybrid Entity"}
-                                    image={ <MDBCardImage waves={false} className="img-fluid fullWidth" src={awaken}/> }>
+                                    image={ <img  alt={"design"} className="img-fluid fullWidth" src={awaken}
+                                                  style={{height:"530px", width:"100%", objectFit:"cover" }}
+
+                                    /> }>
 
                                     <MDBCardText className={"mb-5 mt-3"}>
                                         Curious to play with hybrid entities, but aren't quite ready to call forth from the summoning portal?<br/>
