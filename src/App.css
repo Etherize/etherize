@@ -68,6 +68,10 @@ body > #__next > div {
   font-family: 'NemoyMedium';
 }
 
+.text-right{
+  text-align: right!important;
+}
+
 /* ***** Basics ***** */
 
 body{
