@@ -122,19 +122,6 @@ export default class EntityCreationInterface extends React.Component {
     };
 
 
-    onChange = (key, value) => {
-        const parameters = key
-            ? {
-                ...this.state.parameters,
-                [key]: [key].includes("Email")
-                    ? JSON.stringify({ email: value })
-                    : value
-            }
-            : this.state.parameters;
-        this.setState({parameters});
-
-    };
-
     tryExecuteTemplate(){
         const { compiledTemplate } = this.state;
 
@@ -155,7 +142,7 @@ export default class EntityCreationInterface extends React.Component {
             if (missingField === "Member Signature"){
                 missingField = "Member Email"
             }
-            return "Please fill all fields, we're missing your " + missingField;
+            return "Please fill out all fields, we're missing your " + missingField;
         }
 
         const errorArray = Openlaw.validationErrors(validationResult);
@@ -396,28 +383,10 @@ export default class EntityCreationInterface extends React.Component {
         this.PaymentModal.current.SetTextAndTitle("Transaction Created!", explanation + followingExplanation);
     };
 
-
-    // sendContract = async () => {
-    //     alert("Not yet enabled. Waiting for OpenLaw to fix their Deal feature, to issue multiple Contracts at once. ")
-    // };
-
-
-    // async insertToolTip(){
-    //     const delay = ms => new Promise(res => setTimeout(res, ms));
-    //     while (!this.state.executionResult){
-    //         await delay(100);
-    //     }
-    //     // console.log("yes no fields: " + this.openLawHtmlDoc.current.getElementsByClassName("openlaw-el-field-yesno").length)
-    //     // const node = this.openLawHtmlDoc.current.getElementsByClassName("openlaw-el-field-yesno")[0];
-    //     // console.log(node);
-    //     // node.appendChild(<p>lollll!!</p>);
-    // }
-    // slow way:
     onChange = (key, value) => {
-        if (key !== "Entity Location")
-            return;
-        console.log("onchange key: " + key + " value: " + value );
-        const { compiledTemplate } = this.state;
+        // console.log("onchange key: " + key + " value: " + value );
+
+        // Fill the email param to reference elsewhere
         const parameters = key
             ? {
                 ...this.state.parameters,
@@ -426,7 +395,14 @@ export default class EntityCreationInterface extends React.Component {
                     : value
             }
             : this.state.parameters;
+        this.setState({parameters});
 
+        // Only update form for dynamic keys
+        if (!Constants.OpenLawDynamicFieldKeys.includes(key))
+            return;
+
+        // Here we capture user input to show previously unnecessary forms/fields
+        const { compiledTemplate } = this.state;
         const { executionResult, errorMessage } = Openlaw.execute(
             compiledTemplate.compiledTemplate,
             {},
@@ -434,7 +410,6 @@ export default class EntityCreationInterface extends React.Component {
         );
         const variables = Openlaw.getExecutedVariables(executionResult, {});
         this.setState({ parameters, variables, executionResult });
-        // this.setState({parameters });
     };
 
 

@@ -24,6 +24,14 @@ export default class Constants{
         [EntityTypes.hybridEntity]: "Hybrid Formation Service Agreement",
         [EntityTypes.legalEntity]: "Formation Service Agreement",
         [EntityTypes.bugEntity]: "Registered Agent Service Agreement-bug",
-    }
+    };
+
+    // These keys are used to determine which fields should be watched in case of user input to generate previously
+    // hidden fields, i.e. eth addresses
+    static OpenLawDynamicFieldKeys=[
+        "Deployment",
+        "Entity Location",
+        "Etheric Component",
+    ]
 }
 //

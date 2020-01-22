@@ -1,5 +1,6 @@
 import Constants, {EntityTypes} from "./Constants";
 import {APIClient} from "openlaw";
+require("isomorphic-unfetch");
 
 export default class API {
 
