@@ -92,6 +92,7 @@ export default class EntityCreationInterface extends React.Component {
         // console.log("my compiled template..", compiledTemplate);
         const parameters = {
             "Organizer Signature": '{"email":"'+ Constants.legalEmail +'"}',
+            "Total Price": '{"number: 250"}'
         };
         const { executionResult, errorMessage } = await Openlaw.execute(
             compiledTemplate.compiledTemplate,
@@ -511,7 +512,7 @@ export default class EntityCreationInterface extends React.Component {
                                     <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                         <div>
                                         </div>
-                                        <p className="card-title h1">Summoning Spell</p>
+                                        <p className="card-title h1">Select Spell</p>
                                         <div>
                                         </div>
                                     </MDBCardHeader>
@@ -525,18 +526,17 @@ export default class EntityCreationInterface extends React.Component {
                                                 <MDBCard cascade >
                                                     <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                                         <div/>
-                                                        <p className="card-title h4">Email Draft</p>
+                                                        <p className="card-title h4">Save the Draft</p>
                                                         <div/>
                                                     </MDBCardHeader>
                                                     <MDBCardBody cascade>
                                                         <MDBCardText>
-                                                            You can forward the Draft to your lawyer or co-founders. <br/> <br/>
-                                                            When you are ready to form your entity, you can convert the
-                                                            Draft into a Contract
+                                                            A draft of the Formation Agreement and the specifics of your entity will be sent to you via electronic mail. <br/><br/>
+                                                            Forward the draft to your lawyer or co-founders for review, or to hello@etherize.io when you are ready to Summon.
                                                         </MDBCardText>
 
                                                         <MDBBtn size="lg" className={"btn-secondary"} onClick={this.sendDraft}>
-                                                            Save
+                                                            Draft
                                                         </MDBBtn>
                                                     </MDBCardBody>
                                                 </MDBCard>
@@ -550,15 +550,16 @@ export default class EntityCreationInterface extends React.Component {
                                                 <MDBCard cascade >
                                                     <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                                         <div/>
-                                                        <p className="card-title h4">Purchase</p>
+                                                        <p className="card-title h4">Summon the Entity</p>
                                                         <div/>
                                                     </MDBCardHeader>
                                                     <MDBCardBody cascade>
                                                         <MDBCardText>
-                                                            Buy now, pay in fiat or crypto.
+                                                            Give life to your Entity by infusing it with the currency of your choosing. <br/> <br/>
+                                                            Etherize will verify the viability of your Entity before Forming it on your behalf.
                                                         </MDBCardText>
                                                         <MDBBtn size="lg" onClick={this.togglePaymentMethodModal} className={"btn-secondary"}>
-                                                            Create
+                                                            Summon
                                                         </MDBBtn>
                                                     </MDBCardBody>
                                                 </MDBCard>

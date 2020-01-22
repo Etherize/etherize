@@ -194,6 +194,10 @@ footer.page-footer a {
   color: #2E294E!important;
 }
 
+.cardCorners{
+  border-radius: .25rem;
+}
+
 /* ***** Tables ***** */
 
 table {

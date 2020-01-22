@@ -28,7 +28,7 @@ export default class FAQ extends React.Component<{}, {}>{
                                 <QuestionCard id={Constants.ownershipFAQTag} title={"What is a Proof-of-Ownership token?"} text={<p>Your token can be used to prove that you own a legal entity without revealing your human identity. Your 'public key' can store a limitless number of tokens, which can be examined by anyone on a site such as <a href={"https://www.etherscan.io"}>etherscan</a>.</p>}/>
                                 <QuestionCard title={"What is OpenLaw?"} text={<p>A platform for issuing legally binding contracts. Signatures are requested via e-mail and recorded on a distributed ledger. Legal templates may contain Ethereum smart contracts that may be called after all parties have signed the legal contract.</p>}/>
                                 <QuestionCard title={"What can I do with an OpenLaw account?"} text={<p>Your OpenLaw account will allow you to keep track of Contracts you've signed, as well as edit existing Templates to issue new Drafts and Contracts.</p>}/>
-                                <QuestionCard title={"What is a DAO?"} text={<p>A Decentralized Autonomous Organization is a governance structure placed on a distributed ledger such as Ethereum. It typically has the means to mint crypto-tokens that are used for voting. </p>}/>
+                                <QuestionCard title={"What is a DAO?"} text={<p>A Decentralized Autonomous Organization is a governance structure placed on a distributed ledger such as Ethereum. Typically, a DAO can mint crypto-tokens that are used for voting. Wyoming legislation recognizes that the votes performed by a DAO can control a legal entity. </p>}/>
                                 <QuestionCard title={"Are you Ethereum maximalists?"} text={<p>We believe in the unity of all things, and the harmony of all chains, as foretold by the book of <a href={"https://ceptr.org/whitepapers/"} >Ceptr</a>.</p>}/>
                         </MDBRow>
                     </MDBContainer>
@@ -56,7 +56,7 @@ class QuestionCard extends React.Component<QProps, {}>{
                 <MDBCard className={"text-center "} border={"0"}  >
                     <MDBCardBody className={"mt-5 mb-5 ml-3"} >
                         <MDBCardTitle className={"card-title h2"}> {this.props.title} </MDBCardTitle>
-                        <MDBCardText className={"mt-2"}> 
+                        <MDBCardText className={"mt-2"}>
                             {this.props.text}
                         </MDBCardText>
                     </MDBCardBody>
