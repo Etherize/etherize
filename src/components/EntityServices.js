@@ -131,7 +131,7 @@ class EntityServices extends React.Component {
                                 {/*YOU MUST MANUALLY RESIZE IMAGE TO FIT CARD ON LEFT*/}
                                 <ProductCard
                                     title={"Form Hybrid Entity"}
-                                    image={<img  alt={"design"} className={"img-fluid"}  src={self}
+                                    image={<img  alt={"design"} className={"img-fluid cardCorners"}  src={self}
                                                  style={{height:"562px", width:"100%", objectFit:"cover" }}
                                     />}>
 
@@ -155,7 +155,7 @@ class EntityServices extends React.Component {
                                 {/*YOU MUST MANUALLY RESIZE IMAGE TO FIT CARD ON LEFT*/}
                                 <ProductCard
                                     title={"Form Legal Entity"}
-                                    image={<img  alt={"design"} className="img-fluid fullWidth" src={sleeping}
+                                    image={<img  alt={"design"} className="img-fluid cardCorners fullWidth" src={sleeping}
                                                  style={{height:"498px", width:"100%", objectFit:"cover" }}
                                     />}>
 
@@ -180,7 +180,7 @@ class EntityServices extends React.Component {
                                 {/*YOU MUST MANUALLY RESIZE IMAGE TO FIT CARD ON LEFT*/}
                                 <ProductCard
                                     title={"Design Hybrid Entity"}
-                                    image={ <img  alt={"design"} className="img-fluid fullWidth" src={awaken}
+                                    image={ <img  alt={"design"} className="img-fluid cardCorners fullWidth" src={awaken}
                                                   style={{height:"530px", width:"100%", objectFit:"cover" }}
 
                                     /> }>

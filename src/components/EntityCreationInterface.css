@@ -2,6 +2,11 @@
   display: none!important;
 }
 
+.Total-Price {
+  display: none!important;
+}
+
+
 .openlaw-el-section__title{
   font-size: 2em;
 }
@@ -9,4 +14,20 @@
   margin-top: 5px;
   margin-bottom:5px;
 
+}
+
+.Member-Name{
+  width: 300px!important;
+}
+
+.Entity-Name{
+  width: 300px!important;
+}
+
+.Member-Signature{
+    width: 300px!important;
+}
+
+.Member-Contact{
+  width: 500px!important;
 }
