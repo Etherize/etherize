@@ -411,6 +411,31 @@ export default class EntityCreationInterface extends React.Component {
     //     // console.log(node);
     //     // node.appendChild(<p>lollll!!</p>);
     // }
+    // slow way:
+    onChange = (key, value) => {
+        if (key !== "Entity Location")
+            return;
+        console.log("onchange key: " + key + " value: " + value );
+        const { compiledTemplate } = this.state;
+        const parameters = key
+            ? {
+                ...this.state.parameters,
+                [key]: [key].includes("Email")
+                    ? JSON.stringify({ email: value })
+                    : value
+            }
+            : this.state.parameters;
+
+        const { executionResult, errorMessage } = Openlaw.execute(
+            compiledTemplate.compiledTemplate,
+            {},
+            parameters
+        );
+        const variables = Openlaw.getExecutedVariables(executionResult, {});
+        this.setState({ parameters, variables, executionResult });
+        // this.setState({parameters });
+    };
+
 
 
     templatePage(){
