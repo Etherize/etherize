@@ -19,16 +19,17 @@ import LoadingPortal from "./LoadingPortal";
 import Footer from "./Footer";
 import OpenLawExtension from "./OpenLawExtensions";
 import Constants, {EntityTypes} from "./Constants";
+import {withRouter} from "next/router";
 
 // configure openlaw
 // You can change TEMPLATE_NAME to 'articles-of-organization' to make the code work ...
 // Right now, both deal templates on Etherizeit instance are causing the same issue
 // import getConfig from 'next/config'
 
-export default class EntityCreationInterface extends React.Component {
+class EntityCreationInterface extends React.Component {
+
 
     state = {
-
         // State variables for OpenLaw
         apiClient:null,
         title: "",
@@ -37,7 +38,7 @@ export default class EntityCreationInterface extends React.Component {
         parameters: {},
         executionResult: null,
         variables: null,
-        cost:this.getBasePrice(),
+        cost: this.getBasePrice(),
     };
 
     constructor(props){
@@ -48,18 +49,17 @@ export default class EntityCreationInterface extends React.Component {
         this.calculatePriceThenTogglePaymentModal = this.calculatePriceThenTogglePaymentModal.bind(this);
         this.payCrypto = this.payCrypto.bind(this);
         this.openLawHtmlDoc = React.createRef();
-        this.loadOpenLaw(Constants.AgreementsPerEntity[this.props.entityType]);
-        // console.log("entity cost: " + this.state.cost);
+        this.loadOpenLaw(Constants.AgreementsPerEntity[EntityTypes.hybridEntity]);
     }
-
 
     getBasePrice(){
-        return Constants.PricesPerEntity[this.props.entityType];
+        return 0;
     }
 
-    componentDidMount = async () =>{
-        // this.insertToolTip()
-    }
+    //
+    // componentDidMount = async () =>{
+    //     // this.insertToolTip()
+    // }
 
     loadOpenLaw = async (templateName) => {
 
@@ -439,9 +439,9 @@ export default class EntityCreationInterface extends React.Component {
             : this.state.parameters;
         this.setState({parameters});
 
-  // Only update form for dynamic keys
-          if (!Constants.OpenLawDynamicFieldKeys.includes(key))
-              return;
+        // Only update form for dynamic keys
+        if (!Constants.OpenLawDynamicFieldKeys.includes(key))
+          return;
 
         // Here we capture user input to show previously unnecessary forms/fields
         const { compiledTemplate } = this.state;
@@ -645,3 +645,4 @@ export default class EntityCreationInterface extends React.Component {
         )
     }
 }
+export default withRouter(EntityCreationInterface);

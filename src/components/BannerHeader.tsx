@@ -53,19 +53,7 @@ class  BannerHeader extends React.Component<Props, State> {
                              isOpen={this.state.collapseID}
                              navbar>
                     <MDBNavbarNav right>
-                        <MDBDropdown >
-                            <MDBDropdownToggle nav={true} className={"subTitle nav-link"} >
-                                <MDBNavItem  active={this.determineActive("create")}>Create</MDBNavItem>
-                            </MDBDropdownToggle>
-                            <MDBDropdownMenu >
-                                <MDBDropdownItem>
-                                    <a className={"nav-link"} href={"/create?type=" + EntityTypes.hybridEntity} > Hybrid Entity </a>
-                                </MDBDropdownItem>
-                                <MDBDropdownItem>
-                                    <a className={"nav-link"}  href={"/create?type=" + EntityTypes.legalEntity} > Legal Entity </a>
-                                </MDBDropdownItem>
-                            </MDBDropdownMenu>
-                        </MDBDropdown>
+                        <NavbarItem active={this.determineActive("create")} title={"create"} />
                         <NavbarItem active={this.determineActive("blog")} title={"blog"} />
                         <NavbarItem active={this.determineActive("FAQ")} title={"FAQ"} />
                         <NavbarItem active={this.determineActive("contact")} title={"contact"} />
