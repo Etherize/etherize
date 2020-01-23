@@ -31,7 +31,7 @@ export default class Constants{
     static OpenLawDynamicFieldKeys=[
         "Deployment",
         "Entity Location",
-        "Etheric Component",
+        "Ethereal Component",
     ]
 }
 //

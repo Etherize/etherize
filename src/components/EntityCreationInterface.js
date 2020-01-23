@@ -439,9 +439,9 @@ export default class EntityCreationInterface extends React.Component {
             : this.state.parameters;
         this.setState({parameters});
 
-        // Only update form for dynamic keys
-        if (!Constants.OpenLawDynamicFieldKeys.includes(key))
-            return;
+  // Only update form for dynamic keys
+          if (!Constants.OpenLawDynamicFieldKeys.includes(key))
+              return;
 
         // Here we capture user input to show previously unnecessary forms/fields
         const { compiledTemplate } = this.state;
@@ -568,17 +568,17 @@ export default class EntityCreationInterface extends React.Component {
                                                 <MDBCard cascade >
                                                     <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                                         <div/>
-                                                        <p className="card-title h4">Save the Draft</p>
+                                                        <p className="card-title h4">Save Draft</p>
                                                         <div/>
                                                     </MDBCardHeader>
                                                     <MDBCardBody cascade>
                                                         <MDBCardText>
-                                                            A draft of the Formation Agreement and the specifics of your entity will be sent to you via electronic mail. <br/><br/>
+                                                            A draft of the Formation Agreement and the specifics of the Entity will be sent to you via electronic mail. <br/><br/>
                                                             Forward the draft to your lawyer or co-founders for review, or to hello@etherize.io when you are ready to Summon.
                                                         </MDBCardText>
 
                                                         <MDBBtn size="lg" className={"btn-secondary"} onClick={this.sendDraft}>
-                                                            Draft
+                                                                  <h3 className="ethericText">Draft</h3>
                                                         </MDBBtn>
                                                     </MDBCardBody>
                                                 </MDBCard>
@@ -592,16 +592,17 @@ export default class EntityCreationInterface extends React.Component {
                                                 <MDBCard cascade >
                                                     <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                                         <div/>
-                                                        <p className="card-title h4">Summon the Entity</p>
+                                                        <p className="card-title h4">Summon Entity</p>
                                                         <div/>
                                                     </MDBCardHeader>
                                                     <MDBCardBody cascade>
                                                         <MDBCardText>
-                                                            Give life to your Entity by infusing it with the currency of your choosing. <br/> <br/>
-                                                            Etherize will verify the viability of your Entity before Forming it on your behalf.
+                                                            Etherize will issue a Formation Agreement, verify the viability of the Entity, and confirm with you before Filing. <br/> <br/>
+                                                            Give life to the Entity by infusing it with the currency of your choosing. Full refund if requested before Filing.
                                                         </MDBCardText>
                                                         <MDBBtn size="lg" onClick={this.calculatePriceThenTogglePaymentModal} className={"btn-secondary"}>
-                                                            Summon
+                                                            <h3 className="ethericText">Summon</h3>
+
                                                         </MDBBtn>
                                                     </MDBCardBody>
                                                 </MDBCard>
