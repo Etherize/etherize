@@ -16,8 +16,69 @@
 
 }
 
+.DAO-Support-Threshold{
+  width: 400px!important;
+}
+
+
+.DAO-Quorum-Threshold{
+  width: 400px!important;
+}
+
+
+.DAO-Voting-Period-in-Days{
+  width: 400px  !important;
+}
+
+.Aragon-Voting-Shares_0 + .openlaw-el-collection__button-remove{
+  display: none!important;
+}
+
+.Aragon-Voting-Shares_0 {
+  width: 500px!important;
+}
+
+div + .openlaw-el-button {
+  position:relative;
+  top:-10px;
+}
+
+.openlaw-el-collection__button-remove{
+  position: relative;
+  left: -200px;
+}
+
 .Member-Name{
   width: 300px!important;
+}
+
+.Member-EthAddress{
+  width: 400px!important;
+
+}
+
+.Entity-Address{
+  width: 369px!important;
+}
+
+.Token-Address{
+  width: 410px!important;
+}
+
+.Token-Initial-Amount{
+  width: 300px!important;
+}
+
+.Token-Symbol{
+  width: 300px!important;
+}
+
+.Token-Name{
+  width: 300px!important;
+}
+
+.DAO-Address{
+  width: 400px!important;
 }
 
 .Entity-Name{
@@ -30,4 +91,49 @@
 
 .Member-Contact{
   width: 500px!important;
+}
+
+.openlaw-el-field__input.Daily-Withdrawal-Limit{
+  width: 350px!important;
+}
+
+
+.Owners_0 {
+  width: 500px!important;
+}
+
+.Owners_1 {
+  width: 500px!important;
+}
+
+.Owners_1 {
+  width: 500px!important;
+}
+
+.Owners_2 {
+  width: 500px!important;
+}
+
+.Owners_3 {
+  width: 500px!important;
+}
+
+.Owners_4 {
+  width: 500px!important;
+}
+
+.Owners_5 {
+  width: 500px!important;
+}
+
+.Owners_6 {
+  width: 500px!important;
+}
+
+.Owners_7 {
+  width: 500px!important;
+}
+
+.Required-Signature-Number{
+  width: 350px!important;
 }

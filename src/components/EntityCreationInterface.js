@@ -397,9 +397,9 @@ export default class EntityCreationInterface extends React.Component {
             : this.state.parameters;
         this.setState({parameters});
 
-        // Only update form for dynamic keys
-        if (!Constants.OpenLawDynamicFieldKeys.includes(key))
-            return;
+  // Only update form for dynamic keys
+          if (!Constants.OpenLawDynamicFieldKeys.includes(key))
+              return;
 
         // Here we capture user input to show previously unnecessary forms/fields
         const { compiledTemplate } = this.state;
