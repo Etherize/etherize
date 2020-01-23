@@ -16,9 +16,9 @@ export default class Constants{
     };
     static ownershipFAQTag="ownership-token";
     static PricesPerEntity = {
-        [EntityTypes.hybridEntity]: 50000,
-        [EntityTypes.legalEntity]: 40000,
-        [EntityTypes.bugEntity]: 40000,
+        [EntityTypes.hybridEntity]: 500,
+        [EntityTypes.legalEntity]: 400,
+        [EntityTypes.bugEntity]: 400,
     };
     static AgreementsPerEntity = {
         [EntityTypes.hybridEntity]: "Hybrid Formation Service Agreement",

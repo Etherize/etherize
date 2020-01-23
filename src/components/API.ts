@@ -36,8 +36,7 @@ export default class API {
         return [json["jwt"], json["error"]];
     }
 
-    static async getCryptoTransaction(cryptoType:string, type:EntityTypes, buyerEmail:string){
-        const price = Constants.PricesPerEntity[type]/100;
+    static async getCryptoTransaction(cryptoType:string, price:number, buyerEmail:string){
         const response = await fetch(process.env.API_HOST + process.env.CreateCryptoTransactionEndPoint +
             "?crypto=" + cryptoType +
             "&price=" + price.toString() +
@@ -55,12 +54,11 @@ export default class API {
         return json;
     }
 
-    static async getFiatTransaction(email:string, type:EntityTypes){
-        const price = Constants.PricesPerEntity[type];
-        // console.log("price is: " + price.toString());
+    static async getFiatTransaction(email:string, price:number){
+        // we multiply the price below b/c stripe accepts USD in cents whereas we typically think in dollars
         const response = await fetch(process.env.API_HOST + process.env.CreateFiatTransactionEndPoint +
         "?email=" + email +
-        "&price=" + price.toString());
+        "&price=" + (price*100).toString());
         const json = await response.json();
         return json;
     }

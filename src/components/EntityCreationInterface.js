@@ -37,8 +37,7 @@ export default class EntityCreationInterface extends React.Component {
         parameters: {},
         executionResult: null,
         variables: null,
-
-        cost:Constants.PricesPerEntity[this.props.entityType]/100,
+        cost:this.getBasePrice(),
     };
 
     constructor(props){
@@ -46,13 +45,17 @@ export default class EntityCreationInterface extends React.Component {
         this.ChoosePaymentMethodModal = React.createRef();
         this.PaymentModal = React.createRef();
         this.MiscellaneousModal = React.createRef();
-        this.togglePaymentMethodModal = this.togglePaymentMethodModal.bind(this);
+        this.calculatePriceThenTogglePaymentModal = this.calculatePriceThenTogglePaymentModal.bind(this);
         this.payCrypto = this.payCrypto.bind(this);
         this.openLawHtmlDoc = React.createRef();
         this.loadOpenLaw(Constants.AgreementsPerEntity[this.props.entityType]);
         // console.log("entity cost: " + this.state.cost);
     }
 
+
+    getBasePrice(){
+        return Constants.PricesPerEntity[this.props.entityType];
+    }
 
     componentDidMount = async () =>{
         // this.insertToolTip()
@@ -92,7 +95,7 @@ export default class EntityCreationInterface extends React.Component {
         // console.log("my compiled template..", compiledTemplate);
         const parameters = {
             "Organizer Signature": '{"email":"'+ Constants.legalEmail +'"}',
-            "Total Price": '{"number: 250"}'
+            "Total Price": this.getBasePrice().toString()
         };
         const { executionResult, errorMessage } = await Openlaw.execute(
             compiledTemplate.compiledTemplate,
@@ -312,7 +315,7 @@ export default class EntityCreationInterface extends React.Component {
 
         // console.log("email is:" + memberEmail);
         // after emailing doc to us, show customer the stripe checkout
-        const json = await API.getFiatTransaction(memberEmail, this.props.entityType);
+        const json = await API.getFiatTransaction(memberEmail, this.state.cost);
 
         const sessionID = json["id"];
         // live key:
@@ -332,7 +335,9 @@ export default class EntityCreationInterface extends React.Component {
     };
 
 
-    togglePaymentMethodModal() {
+
+    togglePaymentModal(){
+        console.log("total cost: " + this.state.cost);
 
         const errorInForm = this.tryExecuteTemplate();
         if (errorInForm != null){
@@ -345,6 +350,42 @@ export default class EntityCreationInterface extends React.Component {
         this.ChoosePaymentMethodModal.current.SetTextAndTitle("Choose a Payment Method",
             "");
         this.ChoosePaymentMethodModal.current.ToggleShowing();
+
+    }
+
+
+    calculatePriceThenTogglePaymentModal() {
+        // start from the base price every time
+        let newCost = this.getBasePrice();
+        const startOfPriceString="($";
+
+        // find all prices based on string matching and add them to the new cost
+        for (const key of Object.keys(this.state.parameters)) {
+            // console.log(key);
+            const parameterValue = this.state.parameters[key];
+            // ignore non price values
+            if (!parameterValue.includes(startOfPriceString)) {
+                continue
+            }
+            // parse out price from string
+            const startI = parameterValue.indexOf(startOfPriceString);
+            const endI = parameterValue.indexOf(")",startI);
+            const priceOfService = parameterValue.slice(startI + startOfPriceString.length, endI);
+            console.log(priceOfService);
+            newCost +=  parseInt(priceOfService);
+        }
+
+        // set the new cost on the openlaw form
+        const newParams = this.state.parameters;
+        newParams["Total Price"] = newCost.toString();
+
+        // set the new cost on our state - then toggle the payment modal
+        this.setState({
+            cost:newCost,
+            parameters:newParams,
+            },
+            this.togglePaymentModal
+        )
     }
 
 
@@ -363,12 +404,12 @@ export default class EntityCreationInterface extends React.Component {
         //add Open Law params to be uploaded
         const uploadParams = this.buildOpenLawParamsFromState();
 
-        console.log(this.state.variables);
+        // console.log(this.state.variables);
 
         // don't need to check for valid email, OpenLaw validateContract + checkMissingInputs does this
         const [_, memberEmail] = this.uploadParamsHasValidEmail(uploadParams);
 
-        const json = await API.getCryptoTransaction(cryptoCurrency, this.props.entityType, memberEmail);
+        const json = await API.getCryptoTransaction(cryptoCurrency, this.state.cost, memberEmail);
 
         if (json["error"] !== "ok") {
             this.PaymentModal.current.SetTextAndTitle("Error", json["error"]);
@@ -382,6 +423,7 @@ export default class EntityCreationInterface extends React.Component {
         const followingExplanation = "Monitor the status of your payment <a href=" +statusUrl+"> here </a> ";
         this.PaymentModal.current.SetTextAndTitle("Transaction Created!", explanation + followingExplanation);
     };
+
 
     onChange = (key, value) => {
         // console.log("onchange key: " + key + " value: " + value );
@@ -461,7 +503,7 @@ export default class EntityCreationInterface extends React.Component {
                                                       onChangeFunction={this.onChange}
                                                       openLaw={Openlaw}
                                                       variables={this.state.variables}
-                                                      // inputExtraTextMap={{"Entity":<a href={"https://wyobiz.wy.gov/business/filingsearch.aspx"}>Check if your name is available</a>}}
+                                                      // inputExtraTextMap={{"Entity Name":<a href={"https://wyobiz.wy.gov/business/filingsearch.aspx"}>Check here if your name is available</a>}}
                                                       // inputExtraTextMap={{"Entity":<a href={"/FAQ#"+Constants.ownershipFAQTag}>What's a proof of ownership token?</a>}}
                                                       // inputProps={{'Title':{"children":<a href="http://localhost:8080/travel/t_form.jsp"> userlogin</a>}}}
                                         />
@@ -558,7 +600,7 @@ export default class EntityCreationInterface extends React.Component {
                                                             Give life to your Entity by infusing it with the currency of your choosing. <br/> <br/>
                                                             Etherize will verify the viability of your Entity before Forming it on your behalf.
                                                         </MDBCardText>
-                                                        <MDBBtn size="lg" onClick={this.togglePaymentMethodModal} className={"btn-secondary"}>
+                                                        <MDBBtn size="lg" onClick={this.calculatePriceThenTogglePaymentModal} className={"btn-secondary"}>
                                                             Summon
                                                         </MDBBtn>
                                                     </MDBCardBody>
