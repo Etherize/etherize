@@ -56,6 +56,18 @@
   color: var(--primary-contrast);
 }
 
+.nav-link{
+  font-size: 1.2em!important;
+}
+
+.nav-link:active{
+  color:white;
+}
+
+.nav-item.active{
+  color:white!important;
+}
+
 
 
 .banner {
