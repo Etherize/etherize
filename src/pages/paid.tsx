@@ -15,7 +15,6 @@ import {
 import Footer from "../components/Footer";
 import { withRouter, Router } from 'next/router'
 import API from "../components/API";
-import OpenLawExtensions from "../components/OpenLawExtensions";
 
 
 type Props={
@@ -166,7 +165,8 @@ class Paid extends React.Component<Props, State>{
         }
         const apiClient = await API.GetOpenLawAPIClient("");
 
-        OpenLawExtensions.sendUsersInviteIfNonexistent(apiClient.jwt, [email]);
+        API.SendInviteToUserFromAdminAccount(email);
+        // OpenLawExtensions.sendUsersInviteIfNonexistent(apiClient.jwt, [email]);
 
     }
 }

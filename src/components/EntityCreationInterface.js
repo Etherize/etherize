@@ -17,7 +17,6 @@ import API from "./API";
 import Modal from "./Modal";
 import LoadingPortal from "./LoadingPortal";
 import Footer from "./Footer";
-import OpenLawExtension from "./OpenLawExtensions";
 import Constants, {EntityTypes} from "./Constants";
 import {withRouter} from "next/router";
 
@@ -142,7 +141,7 @@ class EntityCreationInterface extends React.Component {
         const missingInputs = Openlaw.getMissingInputs(validationResult);
         if (missingInputs.length>0){
             let missingField =  missingInputs[0];
-            if (missingField === "Member Signature"){
+            if (missingField === Constants.OpenLawMemberEmailKey){
                 missingField = "Member Email"
             }
             return "Please fill out all fields, we're missing your " + missingField;
@@ -177,9 +176,24 @@ class EntityCreationInterface extends React.Component {
 
 
     buildOpenLawParamsFromState() {
-
         const template = this.state.template;
         const { parameters } = this.state;
+        const object = {
+            templateId: template.id,
+            title: template.title,
+            text: template.content,
+            creator: "Etherize",
+            parameters,
+            overriddenParagraphs: {},
+            agreements: {},
+            draftId: "",
+            // options: {sendNotification: true},
+        };
+        return object;
+    }
+
+    buildOpenLawParamsWithOverload( parameters) {
+        const template = this.state.template;
         const object = {
             templateId: template.id,
             title: template.title,
@@ -202,6 +216,7 @@ class EntityCreationInterface extends React.Component {
             "");
         this.MiscellaneousModal.current.ToggleShowing();
         this.MiscellaneousModal.current.ToggleLoading(true);
+
         try {
 
             //login to api
@@ -235,8 +250,8 @@ class EntityCreationInterface extends React.Component {
                 signUpIfRequired = "In order to view/edit your draft you MUST sign up first." +
                     " Check your email for a sign up link before you try to open your draft. <br>";
                 // send invite to sign up an account
-                OpenLawExtension.sendUsersInviteIfNonexistent(apiClient.jwt, [memberEmail]);
-
+                // OpenLawExtension.sendUsersInviteIfNonexistent(apiClient.jwt, [memberEmail]);
+                API.SendInviteToUserFromAdminAccount(memberEmail);
             }
 
             // console.log(uploadParams.parameters);
@@ -254,58 +269,90 @@ class EntityCreationInterface extends React.Component {
 
     };
 
-
+    // returns [boolean success, string error message]
     RequestSignatureFromEtherize = async () => {
         const { apiClient } = this.state;
+        let contractId = "";
 
+        const errorInForm = this.tryExecuteTemplate();
+        if (errorInForm != null){
+            return [false, errorInForm];
+        }
+        //add Open Law params to be uploaded
+        const uploadParams2 = this.buildOpenLawParamsFromState();
+
+        // if all parameters were parsed correctly, get the JWT and submit to OL
         try {
-            // const {accounts, contract, web3} = this.props;
-
             const [jwt, err] = await API.getJWT();
             if (err !== "" || jwt === "") {
-                alert(err);
-                return;
+                throw err;
             }
             apiClient.jwt = jwt;
 
-            const errorInForm = this.tryExecuteTemplate();
-            if (errorInForm != null){
-                return [false, errorInForm];
-            }
-
-            //add Open Law params to be uploaded
-            const uploadParams = this.buildOpenLawParamsFromState();
-
             // don't need to check for valid email, OpenLaw validateContract + checkMissingInputs does this
-            const [_, memberEmail] = this.uploadParamsHasValidEmail(uploadParams);
+            const [_, memberEmail] = this.uploadParamsHasValidEmail(uploadParams2);
+            console.log("member email: ", memberEmail);
 
             // send invite to sign up an account
-            OpenLawExtension.sendUsersInviteIfNonexistent(apiClient.jwt, [memberEmail]);
-
-
-            // console.log(uploadParams.parameters);
-            const contractId = await apiClient.uploadContract(uploadParams);
-            // console.log("Contract ID: ", contractId);
-
-            // looks like openlaw automatically sends the email to the member, so just send to us here
-            await apiClient.sendContract([Constants.legalEmail], [Constants.legalEmail], contractId);
-            return [true, ""];
+            // OpenLawExtension.sendUsersInviteIfNonexistent(apiClient.jwt, [memberEmail]);
+            API.SendInviteToUserFromAdminAccount(memberEmail);
 
         } catch (error) {
             console.log(error);
             return [false, error];
         }
+
+
+        // Let's try to upload the contract
+        try{
+            contractId = await apiClient.uploadContract(uploadParams2);
+            console.log("Contract ID: ", contractId);
+        }
+
+        // if we fail, send the draft to us
+        catch (error) {
+            console.log(error);
+
+            // we couldn't upload the contract, upload as a draft and send draft to us
+            return await this.uploadAndSendDraftOnContractError(apiClient, contractId);
+        }
+
+        // Let's send the contract after uploading it
+        try{
+            if (contractId === ""){
+                console.log("warning: we didn't get an error from contractID but it is blank");
+                throw "contract id is blank";
+            }
+            // looks like openlaw automatically sends the email to the member, so just send to us here
+            await apiClient.sendContract([Constants.legalEmail], [Constants.legalEmail], contractId);
+            return [true, ""];
+        }
+
+        // if we fail, send the draft to us
+        catch (error) {
+            console.log("error, but we're handling it with a draft upload: " + error);
+            // we couldn't send the contract, upload as a draft and send draft to us
+            return await this.uploadAndSendDraftOnContractError(apiClient, contractId);
+
+        }
     };
 
 
+
+
     payFiat = async () => {
+        this.ChoosePaymentMethodModal.current.ToggleShowing();
+        this.PaymentModal.current.ToggleShowing();
+        this.PaymentModal.current.ToggleLoading(true);
         // TODO; how can we submit to openlaw only after customer is redirected to success url? - We'll still have to
         // wait for the true billing confirmation but at least this would cut a bit down on spam
         const [success, err] = await this.RequestSignatureFromEtherize();
         if (!success){
-            alert("Failure to upload to OpenLaw: " + err);
-            return
+            this.PaymentModal.current.SetTextAndTitle("Error", "Failure to upload to OpenLaw: " + err);
+            return;
         }
+        // hide the payment modal - we're going to stripe's website
+        this.PaymentModal.current.ToggleShowing();
 
         //add Open Law params to be uploaded
         const uploadParams = this.buildOpenLawParamsFromState();
@@ -313,7 +360,7 @@ class EntityCreationInterface extends React.Component {
         // don't need to check for valid email, OpenLaw validateContract + checkMissingInputs does this
         const [_, memberEmail] = this.uploadParamsHasValidEmail(uploadParams);
 
-        // console.log("email is:" + memberEmail);
+        // console.log("member email: " + memberEmail);
         // after emailing doc to us, show customer the stripe checkout
         const json = await API.getFiatTransaction(memberEmail, this.state.cost);
 
@@ -388,6 +435,36 @@ class EntityCreationInterface extends React.Component {
         )
     }
 
+    // returns [boolean success, string error message]
+    async uploadAndSendDraftOnContractError( apiClient, contractId){
+
+        let uploadParams = this.buildOpenLawParamsFromState();
+        const previousEmail = uploadParams.parameters[Constants.OpenLawMemberEmailKey];
+
+        // if they successfully uploaded the contract, rename it to error
+        if (contractId !== ""){
+            apiClient.changeContractAlias( contractId, "Error - discard")
+        }
+
+        // take out their email so they don't get a draft
+        const parametersWithoutUser = this.state.parameters;
+        parametersWithoutUser[Constants.OpenLawMemberEmailKey] = Constants.legalEmail;
+        uploadParams = this.buildOpenLawParamsWithOverload(parametersWithoutUser);
+
+        try {
+            const draftId = await apiClient.uploadDraft(uploadParams);
+            await apiClient.sendDraft([], [], draftId);
+            API.SendEtherizeWarningEmailOfErrorOnFrontEnd("Draft uploaded but contract not sent," +
+            " with draft id: " + draftId);
+            // change email back to original
+            uploadParams.parameters[Constants.OpenLawMemberEmailKey] = previousEmail;
+            return [true, ""];
+        }
+        catch (error) {
+            // TODO: email us about this problem
+            return [false, "We're having trouble communicating with our servers right now"]
+        }
+    }
 
     async payCrypto(cryptoCurrency) {
 
@@ -404,11 +481,10 @@ class EntityCreationInterface extends React.Component {
         //add Open Law params to be uploaded
         const uploadParams = this.buildOpenLawParamsFromState();
 
-        // console.log(this.state.variables);
-
         // don't need to check for valid email, OpenLaw validateContract + checkMissingInputs does this
         const [_, memberEmail] = this.uploadParamsHasValidEmail(uploadParams);
 
+        // console.log("member email: " + memberEmail);
         const json = await API.getCryptoTransaction(cryptoCurrency, this.state.cost, memberEmail);
 
         if (json["error"] !== "ok") {
