@@ -28,6 +28,7 @@ export default class Constants{
         "Deployment",
         "Entity Location",
         "Ethereal Component",
+        "Legal Component"
     ]
     static OpenLawMemberEmailKey = "Member Signature";
 }
