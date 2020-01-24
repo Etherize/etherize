@@ -563,7 +563,7 @@ class EntityCreationInterface extends React.Component {
                                     <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                         <div>
                                         </div>
-                                        <p className="card-title h1">Entity Parameters</p>
+                                        <p className="card-title creation-header h1">Entity Formation</p>
                                         <div>
                                         </div>
                                     </MDBCardHeader>
@@ -599,7 +599,7 @@ class EntityCreationInterface extends React.Component {
                                     <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                         <div>
                                         </div>
-                                        <p className="card-title h1">Select Spell</p>
+                                        <p className="card-title creation-header h1">Select Spell</p>
                                         <div>
                                         </div>
                                     </MDBCardHeader>
@@ -613,7 +613,7 @@ class EntityCreationInterface extends React.Component {
                                                 <MDBCard cascade >
                                                     <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                                         <div/>
-                                                        <p className="card-title h4">Save Draft</p>
+                                                        <p className="card-title creation-subheader h4">Save Draft</p>
                                                         <div/>
                                                     </MDBCardHeader>
                                                     <MDBCardBody cascade>
@@ -637,7 +637,7 @@ class EntityCreationInterface extends React.Component {
                                                 <MDBCard cascade >
                                                     <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
                                                         <div/>
-                                                        <p className="card-title h4">Summon Entity</p>
+                                                        <p className="card-title creation-subheader h4">Summon Entity</p>
                                                         <div/>
                                                     </MDBCardHeader>
                                                     <MDBCardBody cascade>

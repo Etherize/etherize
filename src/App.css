@@ -56,10 +56,13 @@ body > #__next > div {
 }
 
 .logoText {
-  font-size: 6vmin;
+  font-size: 7vmin;
   max-width: 400px;
-    text-shadow: #e566b7 1px 1px 0;
-    text-shadow: #86a8e7 2px 2px 0;
+        text-shadow: #86a8e7 2px 2px 0;
+}
+
+.logoText:hover {
+  text-shadow: #86a8e7 3px 3px 0!important;
 }
 
 .ethericText{

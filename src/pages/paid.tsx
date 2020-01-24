@@ -9,6 +9,7 @@ import {
     MDBCardTitle,
     MDBCol,
     MDBContainer,
+    MDBCardHeader,
     MDBRow
 } from "mdbreact";
 import Footer from "../components/Footer";
@@ -66,10 +67,11 @@ class Paid extends React.Component<Props, State>{
                             <MDBCardBody>
                             <MDBCardTitle className={"card-title h2"}>1. Sign Agreement</MDBCardTitle>
                                 <h5 className={"mt-2"}><i>Required</i></h5>
+
                            <MDBCardText className={"mt-2"}>
                            <br/>
                                Check your inbox for the Formation Agreement from Etherize.<br/><br/>
-                               You can sign using your e-mail or MetaMask as the identifier.<br/><br/>
+                               Your e-mail or MetaMask signature will be recorded to the Rinkeby network.<br/><br/>
                            </MDBCardText>
                        </MDBCardBody>
                        </MDBCard>
@@ -79,11 +81,12 @@ class Paid extends React.Component<Props, State>{
                            <MDBCardBody>
                            <MDBCardTitle className={"card-title h2 "}>2. Confirmation</MDBCardTitle>
                                <h5 className={"mt-2"}><i>Required</i></h5>
+
                           <MDBCardText className={"mt-2"}>
                           <br/>
-                              Our team will assess the viability of your Entity before we submit the paperwork.<br/><br/>
-                              We will confirm with you via e-mail or your specified contact method before we do.<br/><br/>
-                              You may request a full refund before the Confirmation.<br/>
+                              Our team of machine elves will assess the viability of your Entity.<br/><br/>
+                              They will seek Confirmation via the specified contact method.<br/><br/>
+                              You may receive a full refund before the Confirmation by request.<br/>
                           </MDBCardText>
                       </MDBCardBody>
                       </MDBCard>
@@ -91,18 +94,19 @@ class Paid extends React.Component<Props, State>{
                        <MDBCol lg={"4"}  className={"text-center mx-auto"}>
                        <MDBCard cascade={true}>
                            <MDBCardBody>
-                           <MDBCardTitle className={"card-title h2"}>3. Scheldule Call</MDBCardTitle>
+                           <MDBCardTitle className={"card-title h2"}>3. Consult</MDBCardTitle>
                                <h5 className={"mt-2"}><i>Optional</i></h5>
                           <MDBCardText className={"mt-2"}>
-                              <br/>
-                              The Formation Service includes at least one hour of consultation. <br/><br/>
-                              We can help you deploy the blockchain component, or answer any questions on how to work with the Entity.
-                              <br/><br/>
 
+                              <br/>
+                              The Formation Service includes one hour of consultation with our experts. <br/><br/>
+                              Allow us to walk you through deploying an Ethereal component, or answer any other questions on how to work with the Entity.
+                              <br/><br/>
                         </MDBCardText>
                                <MDBBtn size="lg" href={"https://calendly.com/etherize/consultation"} className={"btn-primary"}>
                                    <p className={"ethericText h3"}>Scheldule </p>
                                </MDBBtn>
+
                       </MDBCardBody>
                       </MDBCard>
                        </MDBCol>

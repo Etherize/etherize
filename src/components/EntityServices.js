@@ -16,7 +16,7 @@ import {
 import TypedText from "./TypedText";
 // import "./EntityServices.css";
 // import Link from 'next/link';
-import awaken from "../assets/img/awaken-giant-beeple.webp"
+import gemini from "../assets/img/gemini-beeple.webp"
 import sleeping from "../assets/img/sleeping-giant-beeple.webp"
 import self from "../assets/img/self-beeple.webp"
 import BannerHeader from "./BannerHeader";
@@ -85,7 +85,7 @@ class EntityServices extends React.Component {
 
                                 </MDBCol>
                                 <br/>
-                                <MDBCol className={"text-center mb-5"} lg={"1 2"}>
+                                <MDBCol className={"text-center mb-5"} lg={"12"}>
                                     <MDBAnimation type="fadeIn"   reveal={true}>
                                         <MDBBtn size="lg" href={"#products"} className={"btn-primary"}>
                                             <h2 className="ethericText">summon</h2>
@@ -142,8 +142,8 @@ class EntityServices extends React.Component {
                                     Our team will form a legal entity to specification, wrapping the experimental organization in the safety of limited liability.
                                         <MDBBadge className="mr-2 mt-2 badge-info">Wyoming: Non-Profit/LLC/Series LLC</MDBBadge>
                                         <MDBBadge className="mr-2 mt-2 badge-info">Ethereum: Multi-Sig, ERC20, DAO</MDBBadge>
-                                        <MDBBadge className="mr-2 mt-2 badge-info">Starting at $225</MDBBadge>
-                                        <MDBBadge className="mr-2 mt-2 badge-info">2 hours of consultation</MDBBadge>
+                                        <MDBBadge className="mr-2 mt-2 badge-info">Operating Agreement</MDBBadge>
+                                        <MDBBadge className="mr-2 mt-2 badge-info">EIN</MDBBadge>
                                     </MDBCardText>
                                     <MDBBtn size="lg" href={"/create?type=" + EntityTypes.hybridEntity} className={"btn-secondary"}>
                                         Begin <MDBIcon icon="bolt"/>
@@ -179,12 +179,11 @@ class EntityServices extends React.Component {
                                 {/*Card */}
                                 {/*YOU MUST MANUALLY RESIZE IMAGE TO FIT CARD ON LEFT*/}
                                 <ProductCard
-                                    title={"Design Hybrid Entity"}
-                                    image={ <img  alt={"design"} className="img-fluid cardCorners fullWidth" src={awaken}
+                                    title={"Form Ethereal Entity"}
+                                    image={ <img  alt={"design"} className="img-fluid cardCorners fullWidth" src={gemini}
                                                   style={{height:"530px", width:"100%", objectFit:"cover" }}
 
                                     /> }>
-
                                     <MDBCardText className={"mb-5 mt-3"}>
                                         Curious to play with hybrid entities, but aren't quite ready to call forth from the summoning portal?<br/>
                                         OpenLaw's wizard  will help you generate documents for you & your co-founders

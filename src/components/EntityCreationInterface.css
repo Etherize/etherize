@@ -1,3 +1,18 @@
+
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Mali|Nanum+Gothic|ZCOOL+QingKe+HuangYou&display=swap');
+
+
+.creation-header{
+  font-size: 5em!important;
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+
+.creation-subheader{
+  font-size: 2.5em!important;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: bold;
+}
+
 .Organizer-Signature {
   display: none!important;
 }
@@ -8,12 +23,73 @@
 
 
 .openlaw-el-section__title{
-  font-size: 2em;
+  font-size: 3em;
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  color: #2e294e!important;
 }
+
+
+.openlaw-el-field__select:focus{
+  background-color: #ffffff!important;
+}
+
+.openlaw-el-field__select .option{
+  background-color: #86a8e7!important;
+}
+
+
+
+
 .openlaw-el-field {
   margin-top: 5px;
   margin-bottom:5px;
+  border-radius: 5px!important;
+}
 
+.openlaw-el-field__label-text{
+    font-size: 1.3em;
+  font-family: 'Nanum Gothic', sans-serif;
+  position: relative;
+  top: 6px;
+}
+
+
+.openlaw-el-field__input {
+
+    border-radius: 5px!important;
+    box-shadow: 0 -0.109rem 0 0 #788ac7 inset !important;
+}
+
+.openlaw-el-field__input:hover{
+        box-shadow: 0 -0.209rem 0 0 #788ac7 inset !important;
+}
+
+.openlaw-el-field__input:focus{
+  box-shadow: 0 -0.17rem 0 0 #788ac7 inset !important;
+}
+
+
+
+
+.openlaw-el-field__input:active {
+    border-radius: 5px!important;
+    background-color: #ece8f4;
+    box-shadow: 0 -0.17rem 0 0 #d2489a inset !important;
+}
+
+.openlaw-el-field__select{
+  border-radius: 5px!important;
+  background-color: #ece8f4;
+  box-shadow: 0 -0.109rem 0 0 #788ac7 inset !important;
+}
+.openlaw-el-field__select:hover{
+  box-shadow: 0 -0.209rem 0 0 #788ac7 inset !important;
+}
+
+.openlaw-el-field__select:active{
+border-radius: 5px!important;
+background-color: #86a8e7;
+box-shadow: 0 0.17rem 0 0 #788ac7 inset !important;
 }
 
 .DAO-Support-Threshold{
@@ -90,8 +166,10 @@ div + .openlaw-el-button {
 }
 
 .Member-Contact{
-  width: 500px!important;
+  width: 400px!important;
 }
+
+
 
 .openlaw-el-field__input.Daily-Withdrawal-Limit{
   width: 350px!important;
