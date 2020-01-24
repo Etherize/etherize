@@ -65,8 +65,8 @@ class Paid extends React.Component<Props, State>{
                         <MDBCol lg={"4"}  className={"text-center mx-auto"}>
                         <MDBCard cascade={true}>
                             <MDBCardBody>
-                            <MDBCardTitle className={"card-title h2"}>1. Sign Agreement</MDBCardTitle>
-                                <h5 className={"mt-2"}><i>Required</i></h5>
+                            <MDBCardTitle className={"card-title h2"}>1. Sign </MDBCardTitle>
+                                <h5 className={"mt-2"}><i>Required - Now </i></h5>
 
                            <MDBCardText className={"mt-2"}>
                            <br/>
@@ -79,8 +79,8 @@ class Paid extends React.Component<Props, State>{
                        <MDBCol lg={"4"}  className={"text-center mx-auto"}>
                        <MDBCard cascade={true}>
                            <MDBCardBody>
-                           <MDBCardTitle className={"card-title h2 "}>2. Confirmation</MDBCardTitle>
-                               <h5 className={"mt-2"}><i>Required</i></h5>
+                           <MDBCardTitle className={"card-title h2 "}>2. Confirm</MDBCardTitle>
+                               <h5 className={"mt-2"}><i>Required - Later</i></h5>
 
                           <MDBCardText className={"mt-2"}>
                           <br/>
@@ -95,7 +95,7 @@ class Paid extends React.Component<Props, State>{
                        <MDBCard cascade={true}>
                            <MDBCardBody>
                            <MDBCardTitle className={"card-title h2"}>3. Consult</MDBCardTitle>
-                               <h5 className={"mt-2"}><i>Optional</i></h5>
+                               <h5 className={"mt-2"}><i>Optional - Anytime</i></h5>
                           <MDBCardText className={"mt-2"}>
 
                               <br/>
