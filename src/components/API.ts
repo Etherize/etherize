@@ -1,8 +1,20 @@
-import Constants, {EntityTypes} from "./Constants";
+import Constants from "./Constants";
 import {APIClient} from "openlaw";
 require("isomorphic-unfetch");
 
 export default class API {
+
+    // TODO: email us about this draft being a result of an error
+    static SendEtherizeWarningEmailOfErrorOnFrontEnd(errorMessage:string){
+        // all we get is a draft rn
+        console.log("TODO IMPLEMENT ME ON THE SERVER SIDE")
+    }
+    // TODO: email invite
+    static SendInviteToUserFromAdminAccount(email:string){
+        // this must be done server side so the client doesn't have access to an admin JWT
+        console.log("TODO IMPLEMENT ME ON THE SERVER SIDE")
+        // see: OpenLawExtension.sendUsersInviteIfNonexistent(apiClient.jwt, [memberEmail]);
+    }
 
     static async GetOpenLawAPIClient(templateName:string): APIClient {
 
@@ -41,7 +53,7 @@ export default class API {
             "?crypto=" + cryptoType +
             "&price=" + price.toString() +
             "&buyerEmail="+ buyerEmail);
-        console.log(response.statusText);
+        // console.log(response.statusText);
         if (response.status>=300){
             console.log("error from api! " + response.statusText);
             return {"error": response.statusText}
