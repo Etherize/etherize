@@ -85,10 +85,10 @@ class EntityServices extends React.Component {
 
                                 </MDBCol>
                                 <br/>
-                                <MDBCol className={"text-center mb-5"} lg={"12"}>
+                                <MDBCol className={"text-center mb-5"} lg={"1 2"}>
                                     <MDBAnimation type="fadeIn"   reveal={true}>
                                         <MDBBtn size="lg" href={"#products"} className={"btn-primary"}>
-                                            <h2 className="ethericText">etherize</h2>
+                                            <h2 className="ethericText">summon</h2>
                                         </MDBBtn>
                                     </MDBAnimation>
                                 </MDBCol>
@@ -187,7 +187,7 @@ class EntityServices extends React.Component {
 
                                     <MDBCardText className={"mb-5 mt-3"}>
                                         Curious to play with hybrid entities, but aren't quite ready to call forth from the summoning portal?<br/>
-                                        Our wizard  will help you generate documents for you & your co-founders
+                                        OpenLaw's wizard  will help you generate documents for you & your co-founders
                                         to review and, if the stars align, sign.<br/>
                                         Once the resulting legal contract has been signed, the blockchain component of choice can be easily deployed via MetaMask.<br/>
                                         <br/>
@@ -195,7 +195,7 @@ class EntityServices extends React.Component {
                                         <MDBBadge className="mr-2 mt-2 badge-info">Non-Profit, LLC, Series LLC</MDBBadge>
                                         <MDBBadge className="mr-2 mt-2 badge-info">Free</MDBBadge>
                                     </MDBCardText>
-                                    <MDBBtn size="lg" href={"/create"} className={"btn-secondary"}>
+                                    <MDBBtn size="lg" href={"https://dao.openlaw.io/"} className={"btn-secondary"}>
                                         Begin <MDBIcon icon="bolt"/>
                                     </MDBBtn>
                                 </ProductCard>
