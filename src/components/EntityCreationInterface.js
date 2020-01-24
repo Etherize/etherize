@@ -55,10 +55,10 @@ class EntityCreationInterface extends React.Component {
         return 0;
     }
 
-    //
-    // componentDidMount = async () =>{
-    //     // this.insertToolTip()
-    // }
+    // TODO: compute the correct product name to show on checkout
+    getProductName(){
+        return "Hybrid Legal Entity";
+    }
 
     loadOpenLaw = async (templateName) => {
 
@@ -244,13 +244,12 @@ class EntityCreationInterface extends React.Component {
             let signUpIfRequired = "";
 
             // check if they already have an account to view the draft
-            const emailSearchResult = await apiClient.searchUsers(memberEmail, 1, 25);
-            if (emailSearchResult["nbHits"] <= 0){
+            const userExists = await API.CheckIfUserExists(memberEmail);
+            if (!userExists){
                 modalTitle = "Sign Up Required!";
                 signUpIfRequired = "In order to view/edit your draft you MUST sign up first." +
                     " Check your email for a sign up link before you try to open your draft. <br>";
                 // send invite to sign up an account
-                // OpenLawExtension.sendUsersInviteIfNonexistent(apiClient.jwt, [memberEmail]);
                 API.SendInviteToUserFromAdminAccount(memberEmail);
             }
 
@@ -294,7 +293,6 @@ class EntityCreationInterface extends React.Component {
             console.log("member email: ", memberEmail);
 
             // send invite to sign up an account
-            // OpenLawExtension.sendUsersInviteIfNonexistent(apiClient.jwt, [memberEmail]);
             API.SendInviteToUserFromAdminAccount(memberEmail);
 
         } catch (error) {
@@ -362,7 +360,7 @@ class EntityCreationInterface extends React.Component {
 
         // console.log("member email: " + memberEmail);
         // after emailing doc to us, show customer the stripe checkout
-        const json = await API.getFiatTransaction(memberEmail, this.state.cost);
+        const json = await API.getFiatTransaction(memberEmail, this.state.cost, this.getProductName());
 
         const sessionID = json["id"];
         // live key:
@@ -590,38 +588,9 @@ class EntityCreationInterface extends React.Component {
                         </MDBCol>
                     </MDBRow>
 
-                    {/*<MDBRow className="py-5 mt-5 ">*/}
-                    {/*    <MDBCol md="12">*/}
-                    {/*        <MDBAnimation type={"fadeInUp"}>*/}
-                    {/*            <MDBCard cascade >*/}
-                    {/*                <MDBCardHeader className="view view-cascade gradient-card-header standard-card-header-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">*/}
-                    {/*                    <div>*/}
-                    {/*                    </div>*/}
-                    {/*                    <p className="card-title h1">Review</p>*/}
-                    {/*                    <div>*/}
-                    {/*                    </div>*/}
-                    {/*                </MDBCardHeader>*/}
-                    {/*                <MDBCardBody className={"text-center"}>*/}
-                    {/*                    { this.state.showReview ? null*/}
-                    {/*                        :*/}
-                    {/*                        <MDBBtn id="generateButton" className="huge pink ui right labeled icon button btn-secondary bottomMargin " onClick={this.setTemplatePreview}>Generate Agreement<i className="play icon">*/}
-
-                    {/*                        </i></MDBBtn>*/}
-                    {/*                    }*/}
-
-
-                    {/*                    <AgreementPreview  className="subPanel minnish" id="preview" previewHTML={this.state.previewHTML} />*/}
-                    {/*                </MDBCardBody>*/}
-                    {/*            </MDBCard>*/}
-                    {/*        </MDBAnimation>*/}
-                    {/*    </MDBCol>*/}
-                    {/*</MDBRow>*/}
 
                     {/*spacing*/}
                     <MDBRow className={"mt-5 mb-5"} >
-
-
-                        {/*spacing*/}
 
                         {/*<MDBRow className={"mt-5 mb-5"} >*/}
                         <MDBCol className={"text-center"} md={"12"}>

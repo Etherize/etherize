@@ -4,16 +4,52 @@ require("isomorphic-unfetch");
 
 export default class API {
 
-    // TODO: email us about this draft being a result of an error
+    static async CheckIfUserExists(email:string) : Promise<boolean>{
+         return fetch(process.env.API_HOST + "/checkUserExists?email=" + email)
+            .then(res => {
+                // console.log("user exists result: " + res.statusText);
+                return res.json().then( json=>
+                    {
+                        console.log("user exists result: " + json["userExists"]);
+                        return json["userExists"] as boolean;
+                    }
+                ).catch( err=>{
+                    console.log("error on jsonify check if user exists " + err);
+                    return false;
+                });
+
+
+
+            })
+            .catch( err =>{
+                    console.log("error on check if user exists " + err);
+                    return false;
+                }
+            );
+        // return false;
+    }
+
     static SendEtherizeWarningEmailOfErrorOnFrontEnd(errorMessage:string){
         // all we get is a draft rn
-        console.log("TODO IMPLEMENT ME ON THE SERVER SIDE")
+        const response = fetch(process.env.API_HOST + "/sendAdminsEmail"+
+        "?message=" +errorMessage )
+            .then(res => {
+            console.log("admin message sent: " + res);})
+            .catch( err =>{
+                    console.log("error on email admin! " + err)
+                }
+            );
     }
-    // TODO: email invite
+
     static SendInviteToUserFromAdminAccount(email:string){
-        // this must be done server side so the client doesn't have access to an admin JWT
-        console.log("TODO IMPLEMENT ME ON THE SERVER SIDE")
-        // see: OpenLawExtension.sendUsersInviteIfNonexistent(apiClient.jwt, [memberEmail]);
+        const response =  fetch(process.env.API_HOST + "/inviteNewUser"+
+            "?newUserEmail=" + email )
+            .then(res => {
+                console.log("user invite sent: " + res.statusText);})
+            .catch( err =>{
+                console.log("error on invite user! " + err)
+            }
+        )
     }
 
     static async GetOpenLawAPIClient(templateName:string): APIClient {
@@ -66,11 +102,13 @@ export default class API {
         return json;
     }
 
-    static async getFiatTransaction(email:string, price:number){
+    static async getFiatTransaction(email:string, price:number, product:string){
         // we multiply the price below b/c stripe accepts USD in cents whereas we typically think in dollars
         const response = await fetch(process.env.API_HOST + process.env.CreateFiatTransactionEndPoint +
         "?email=" + email +
-        "&price=" + (price*100).toString());
+        "&price=" + (price*100).toString() +
+        "&product=" + product);
+
         const json = await response.json();
         return json;
     }

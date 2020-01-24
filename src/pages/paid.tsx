@@ -20,14 +20,14 @@ type Props={
     router: Router
 }
 type State = {
-    signUpExplanation: string
+    signUpExplanation: JSX.Element
     title:string
 }
 
 class Paid extends React.Component<Props, State>{
 
     state={
-        signUpExplanation:"",
+        signUpExplanation: null,
         title:""
     };
 
@@ -53,9 +53,9 @@ class Paid extends React.Component<Props, State>{
                       <MDBContainer lg={"16"}>
                           <h1 className="jumbo-title text-center">
                               Success!
-                          </h1><br/>
+                          </h1>
                           <h3 className="text-center"><i>Next Steps:</i></h3>
-                          <br/><br/>
+
                       </MDBContainer>
                     </MDBRow>
 
@@ -64,7 +64,8 @@ class Paid extends React.Component<Props, State>{
                         <MDBCol lg={"4"}  className={"text-center mx-auto"}>
                         <MDBCard cascade={true}>
                             <MDBCardBody>
-                            <MDBCardTitle className={"card-title h4"}><h2>1. Sign Agreement</h2><h5><i>Required</i></h5></MDBCardTitle>
+                            <MDBCardTitle className={"card-title h2"}>1. Sign Agreement</MDBCardTitle>
+                                <h5 className={"mt-2"}><i>Required</i></h5>
                            <MDBCardText className={"mt-2"}>
                            <br/>
                                Check your inbox for the Formation Agreement from Etherize.<br/><br/>
@@ -76,7 +77,8 @@ class Paid extends React.Component<Props, State>{
                        <MDBCol lg={"4"}  className={"text-center mx-auto"}>
                        <MDBCard cascade={true}>
                            <MDBCardBody>
-                           <MDBCardTitle className={"card-title h4"}><h2>2. Confirmation</h2><h5><i>Required</i></h5></MDBCardTitle>
+                           <MDBCardTitle className={"card-title h2 "}>2. Confirmation</MDBCardTitle>
+                               <h5 className={"mt-2"}><i>Required</i></h5>
                           <MDBCardText className={"mt-2"}>
                           <br/>
                               Our team will assess the viability of your Entity before we submit the paperwork.<br/><br/>
@@ -89,35 +91,38 @@ class Paid extends React.Component<Props, State>{
                        <MDBCol lg={"4"}  className={"text-center mx-auto"}>
                        <MDBCard cascade={true}>
                            <MDBCardBody>
-                           <MDBCardTitle className={"card-title h4"}><h2>3. Scheldule Call</h2><h5><i>Optional</i></h5></MDBCardTitle>
+                           <MDBCardTitle className={"card-title h2"}>3. Scheldule Call</MDBCardTitle>
+                               <h5 className={"mt-2"}><i>Optional</i></h5>
                           <MDBCardText className={"mt-2"}>
                               <br/>
                               The Formation Service includes at least one hour of consultation. <br/><br/>
                               We can help you deploy the blockchain component, or answer any questions on how to work with the Entity.
                               <br/><br/>
-                              <MDBBtn size="lg" href={"https://calendly.com/etherize/consultation"} className={"btn-primary"}>
-                                  <h2 className="h5 ethericText">Scheldule</h2>
-                              </MDBBtn>
+
                         </MDBCardText>
+                               <MDBBtn size="lg" href={"https://calendly.com/etherize/consultation"} className={"btn-primary"}>
+                                   <p className={"ethericText h3"}>Scheldule </p>
+                               </MDBBtn>
                       </MDBCardBody>
                       </MDBCard>
+                       </MDBCol>
                             {
-                                this.state.signUpExplanation == "" ?
-                                    <div></div>
+                                this.state.signUpExplanation == null ?
+                                    <div/>
                                     :
-                                    <MDBCard className={"mt-3"}>
+                                    <MDBCol lg={"12"}  className={"text-center mx-auto"}>
+                                    <MDBCard className={"mt-3"} >
                                         <MDBCardBody>
-                                        <MDBCardTitle className={"card-title h4"}>{this.state.title}</MDBCardTitle>
-                                            <MDBCardText className={"mt-2"}>
-                                        {this.state.signUpExplanation}
-                                            </MDBCardText>
+                                        <MDBCardTitle className={"card-title h2"}>{this.state.title}</MDBCardTitle>
+                                                {this.state.signUpExplanation}
                                             <MDBBtn size="lg" onClick={this.resendSignUpLink} className={"btn-secondary"}>
                                                Resend signup link
                                             </MDBBtn>
                                         </MDBCardBody>
                                     </MDBCard>
+                                    </MDBCol>
                             }
-                        </MDBCol>
+
                         </MDBRow>
                     </MDBContainer>
                     <MDBRow/>
@@ -128,20 +133,17 @@ class Paid extends React.Component<Props, State>{
     }
 
     showSignUpBenefitsIfNewUser = async () => {
+        const emailStart = this.props.router.asPath.indexOf("email=");
+        const email = this.props.router.asPath.slice(emailStart+6);
 
-        const email = this.props.router.query.email;
-        if (email == null){
-            return
-        }
-        console.log("email is: " + email);
+        // console.log("email is: " + email);
 
-        const apiClient = await API.GetOpenLawAPIClient("");
         // check if they already have an account to view the draft
-        const emailSearchResult = await apiClient.searchUsers(email, 1, 25);
-        if (emailSearchResult["nbHits"] <= 0) {
-            const explanation = "If you create an account you can see a history of any documents you've interacted " +
-                "with. Check your email for a sign up link. " +
-                "Don't see the sign up link in your email? click the button below";
+        const userExists = await API.CheckIfUserExists(email);
+        if (!userExists){
+            const explanation = <MDBCardText className={"mt-2"}> If you create an account you can see a history of any documents you've interacted
+                with. Check your email for a sign up link. <br/>
+                Don't see the sign up link in your email? click the button below </MDBCardText>;
             this.setState({
                 signUpExplanation: explanation,
                 title: "Dear New User"
@@ -151,15 +153,13 @@ class Paid extends React.Component<Props, State>{
 
     resendSignUpLink = async () => {
         const email = this.props.router.query.email as string;
+        console.log("email is: " + email);
         if (email == null || email == ""){
             console.log("error: no email passed in query parameter ");
             return
         }
         const apiClient = await API.GetOpenLawAPIClient("");
-
         API.SendInviteToUserFromAdminAccount(email);
-        // OpenLawExtensions.sendUsersInviteIfNonexistent(apiClient.jwt, [email]);
-
     }
 }
 export default withRouter(Paid);
