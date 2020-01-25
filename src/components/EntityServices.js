@@ -53,18 +53,18 @@ class EntityServices extends React.Component {
                                 </MDBCol>
 
                                 <MDBCol lg={"4"} md={"6"} sm={"12"} xs={"12"} middle={true}>
-                                        <MDBAnimation type={"fadeIn"}  duration={"0.5s"}>
-                                            <MDBCardTitle className="text-center">
-                                            summon your <br/>
-                                            <TypedText
-                                              strings={[
-                                                '^3000 DAO LLC^5000',
-                                                'Multi-Sig Non-Profit^5000',
-                                                'Hybrid Entity'
-                                              ]} />
-                                            </MDBCardTitle>
-                                        </MDBAnimation>
-                                </MDBCol>
+                                   <MDBAnimation type={"fadeIn"}  duration={"0.5s"}>
+                                       <MDBCardTitle className="text-center overflow">
+                                       summon your <br/>
+                                       <TypedText
+                                         strings={[
+                                           '^3000 DAO LLC^5000',
+                                           'Multi-Sig Non-Profit^5000',
+                                           'Hybrid Entity'
+                                         ]} />
+                                       </MDBCardTitle>
+                                   </MDBAnimation>
+                           </MDBCol>
 
                             <MDBContainer className={"text-center"}>
                                 <MDBCol className={"text-center mb-4 mt-5"} lg={"12"}>
@@ -77,7 +77,7 @@ class EntityServices extends React.Component {
                                             <h4>Cultivate shared incentives.</h4>
                                         </MDBAnimation>
                                         <MDBAnimation type={"fadeIn"}   reveal={true}>
-                                            <h4>Organize legal and etheric forces.</h4>
+                                            <h4>Organize legal and ethereal forces.</h4>
                                         </MDBAnimation>
                                         </MDBCardTitle>
                                     </MDBAnimation>
@@ -125,28 +125,29 @@ class EntityServices extends React.Component {
 
                         <MDBContainer>
                         {/* no gutters for better mobile display: https://getbootstrap.com/docs/4.0/layout/grid/#no-gutters*/}
-                            <MDBRow id={"products"} className={"no-gutters"}>
+                            <MDBRow id={"products"} className={"no-gutters products"}>
 
                                 {/*Card */}
                                 {/*YOU MUST MANUALLY RESIZE IMAGE TO FIT CARD ON LEFT*/}
                                 <ProductCard
                                     title={"Form Hybrid Entity"}
                                     image={<img  alt={"design"} className={"img-fluid cardCorners"}  src={self}
-                                                 style={{height:"562px", width:"100%", objectFit:"cover" }}
+                                                 style={{height:"568px", width:"100%", objectFit:"cover" }}
                                     />}>
 
-                                    <MDBCardText className={"mb-5 mt-3"}>
-                                    A hybrid entity exists both in our world and some place beyond.<br/>
+                                    <MDBCardText className={"mb-2 mt-3"}>
+                                    A Hybrid Entity exists both in our world and some place beyond.<br/>
                                     Long theorized, yet only recently attainable, they are just as capable of transacting with mortals as they are executing smart contracts.<br/>
                                     Bring your existing multi-signature wallet, ERC20 token, or DAO; alternatively, allow us to help you deploy one.<br/>
                                     Our team will form a legal entity to specification, wrapping the experimental organization in the safety of limited liability.
-                                        <MDBBadge className="mr-2 mt-2 badge-info">Wyoming: Non-Profit/LLC/Series LLC</MDBBadge>
+                                        <div className="btn-tags">
+                                        <MDBBadge className="mr-2 mt-2 badge-info">Includes Services Below</MDBBadge>
                                         <MDBBadge className="mr-2 mt-2 badge-info">Ethereum: Multi-Sig, ERC20, DAO</MDBBadge>
-                                        <MDBBadge className="mr-2 mt-2 badge-info">Operating Agreement</MDBBadge>
-                                        <MDBBadge className="mr-2 mt-2 badge-info">EIN</MDBBadge>
+                                        <MDBBadge className="mr-2 mt-2 badge-info">Wyoming: Non-Profit/LLC/Series LLC</MDBBadge>
+                                        </div>
                                     </MDBCardText>
-                                    <MDBBtn size="lg" href={"/create?type=" + EntityTypes.hybridEntity} className={"btn-secondary"}>
-                                        Begin <MDBIcon icon="bolt"/>
+                                    <MDBBtn size="lg" href={"/create?type=" + EntityTypes.hybridEntity} className={"btn-secondary btn-card"}>
+                                        Start <MDBIcon icon="bolt"/>
                                     </MDBBtn>
                                 </ProductCard>
 
@@ -156,22 +157,23 @@ class EntityServices extends React.Component {
                                 <ProductCard
                                     title={"Form Legal Entity"}
                                     image={<img  alt={"design"} className="img-fluid cardCorners fullWidth" src={sleeping}
-                                                 style={{height:"498px", width:"100%", objectFit:"cover" }}
+                                                 style={{height:"504px", width:"100%", objectFit:"cover" }}
                                     />}>
-
-                                    <MDBCardText className={"mb-5 mt-3"}>
-                                      Protect your personal assets or rally your team with a new entity. <br/>
-                                      Form the entity without having to sign a single piece of paper.<br/>
+                                    <MDBCardText className={"mb-2 mt-3"}>
+                                      Protect your personal assets or rally your team around a new entity. <br/>
+                                      Form the Entity without having to sign a single piece of paper.<br/>
                                       The EIN and Formation Certificate will be sent to your inbox. <br/>
                                       Enjoy Wyoming's incredibly low taxes and strong asset protections. <br/>
                                       One hour of consultation is included to help you get things rolling.<br/>
-                                        <br/>
+                                          <div className="btn-tags">
                                         <MDBBadge className="mr-2 mt-2 badge-info">Wyoming:Non-Profit, LLC, Series LLC</MDBBadge>
-                                        <MDBBadge className="mr-2 mt-2 badge-info">Starting at $125</MDBBadge>
+                                        <MDBBadge className="mr-2 mt-2 badge-info">EIN & Filing Receipt</MDBBadge>
                                         <MDBBadge className="mr-2 mt-2 badge-info">1 hour of consultation</MDBBadge>
+                                        <MDBBadge className="mr-2 mt-2 badge-info">Optional: Operating Agreement</MDBBadge>
+                                        </div>
                                     </MDBCardText>
-                                    <MDBBtn size="lg" href={"/create?type=" + EntityTypes.legalEntity} className={"btn-secondary"}>
-                                        Begin <MDBIcon icon="bolt"/>
+                                    <MDBBtn size="lg" href={"/create?type=" + EntityTypes.legalEntity} className={"btn-secondary btn-card"}>
+                                        Start <MDBIcon icon="bolt"/>
                                     </MDBBtn>
                                 </ProductCard>
 
@@ -181,21 +183,23 @@ class EntityServices extends React.Component {
                                 <ProductCard
                                     title={"Form Ethereal Entity"}
                                     image={ <img  alt={"design"} className="img-fluid cardCorners fullWidth" src={gemini}
-                                                  style={{height:"530px", width:"100%", objectFit:"cover" }}
+                                                  style={{height:"536px", width:"100%", objectFit:"cover" }}
 
                                     /> }>
-                                    <MDBCardText className={"mb-5 mt-3"}>
-                                        Curious to play with hybrid entities, but aren't quite ready to call forth from the summoning portal?<br/>
-                                        OpenLaw's wizard  will help you generate documents for you & your co-founders
-                                        to review and, if the stars align, sign.<br/>
-                                        Once the resulting legal contract has been signed, the blockchain component of choice can be easily deployed via MetaMask.<br/>
-                                        <br/>
-                                        <MDBBadge className="mr-2 mt-2 badge-info">Any Blockchain</MDBBadge>
-                                        <MDBBadge className="mr-2 mt-2 badge-info">Non-Profit, LLC, Series LLC</MDBBadge>
-                                        <MDBBadge className="mr-2 mt-2 badge-info">Free</MDBBadge>
+                                    <MDBCardText className={"mb-2 mt-3"}>
+                                        Curious to play with Ethereal matter, but aren't quite ready to call forth a Hybrid from the Summoning Portal?<br/>
+                                        Our form will allow you to issue Crypto-Tokens, around which you & your co-founders' efforts may coalscence.<br/>
+                                        After the 'Entity Information' document is signed, your chosen Ethereal component can be deployed via one click using MetaMask.<br/>
+                                        <div className="btn-tags">
+                                          <MDBBadge className="mr-2 mt-2 badge-info">Free</MDBBadge>
+                                          <MDBBadge className="mr-2 mt-2 badge-info">ERC20 Token Generation</MDBBadge>
+                                          <MDBBadge className="mr-2 mt-2 badge-info">🦅 DAO: Coming Soon</MDBBadge>
+                                          <MDBBadge className="mr-2 mt-2 badge-info">👹 DAO: Coming Soon</MDBBadge>
+                                          <MDBBadge className="mr-2 mt-2 badge-info">🦉 MultiSig: Coming Soon</MDBBadge>
+                                        </div>
                                     </MDBCardText>
-                                    <MDBBtn size="lg" href={"https://dao.openlaw.io/"} className={"btn-secondary"}>
-                                        Begin <MDBIcon icon="bolt"/>
+                                    <MDBBtn size="lg" href={"https://dao.openlaw.io/"} className={"btn-secondary btn-card"}>
+                                        Start <MDBIcon icon="bolt"/>
                                     </MDBBtn>
                                 </ProductCard>
 

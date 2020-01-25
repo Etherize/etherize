@@ -54,11 +54,10 @@ class  BannerHeader extends React.Component<Props, State> {
                              navbar>
                     <MDBNavbarNav right>
                         <NavbarItem active={this.determineActive("create")} title={"create"} />
+                        <NavbarItem active={this.determineActive("tools")} title={"tools"} />
                         <NavbarItem active={this.determineActive("blog")} title={"blog"} />
                         <NavbarItem active={this.determineActive("FAQ")} title={"FAQ"} />
                         <NavbarItem active={this.determineActive("contact")} title={"contact"} />
-                        <NavbarItem active={this.determineActive("tools")} title={"tools"} />
-
                     </MDBNavbarNav>
                 </MDBCollapse>
             </MDBNavbar>

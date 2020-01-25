@@ -52,7 +52,7 @@ class Paid extends React.Component<Props, State>{
 
                     <MDBRow>
                       <MDBContainer lg={"16"}>
-                          <h1 className="jumbo-title text-center">
+                          <h1 className="jumbo-title bold text-center">
                               Success!
                           </h1><br/>
                           <h3 className="text-center"><i>Next Steps:</i></h3>
@@ -65,7 +65,8 @@ class Paid extends React.Component<Props, State>{
                         <MDBCol lg={"4"}  className={"text-center mx-auto"}>
                         <MDBCard cascade={true}>
                             <MDBCardBody>
-                            <MDBCardTitle className={"card-title h4"}><h1>Sign</h1><h5><i>Required</i></h5></MDBCardTitle>
+                            <MDBCardTitle className={"card-title  h1"}>Sign </MDBCardTitle>
+                            <p className={"card-subtitle card-subtitle-success"}>Required</p>
                            <MDBCardText className={"mt-2"}>
                            <br/>
                                Check your inbox for the Formation Agreement from Etherize.<br/><br/>
@@ -78,8 +79,8 @@ class Paid extends React.Component<Props, State>{
                        <MDBCard cascade={true}>
                            <MDBCardBody>
 
-                                       <MDBCardTitle className={"card-title h4"}><h1>Confirm</h1></MDBCardTitle>
-                            <h5><i>Required - Later</i></h5>
+                                       <MDBCardTitle className={"card-title h1"}>Confirm</MDBCardTitle>
+                            <p className={"card-subtitle card-subtitle-success"}>Required - Later</p>
 
 
                           <MDBCardText className={"mt-2"}>
@@ -94,9 +95,8 @@ class Paid extends React.Component<Props, State>{
                        <MDBCol lg={"4"}  className={"text-center mx-auto"}>
                        <MDBCard cascade={true}>
                            <MDBCardBody>
-                             <MDBCardTitle className={"card-title h4"}><h1>Consult</h1></MDBCardTitle>
-
-                             <h5><i>Optional - Whenever</i></h5>
+                             <MDBCardTitle className={"card-title h1"}>Consult</MDBCardTitle>
+  <p className={"card-subtitle card-subtitle-success"}>Optional - Whenever</p>
                              <MDBCardText>
                               <br/>
                               The Formation Service includes one hour of consultation with our experts. <br/><br/>
@@ -110,20 +110,20 @@ class Paid extends React.Component<Props, State>{
                       </MDBCardBody>
                       </MDBCard>
                             {
-                                this.state.signUpExplanation == "" ?
-                                    <div></div>
-                                    :
-                                    <MDBCard className={"mt-3"}>
-                                        <MDBCardBody>
-                                        <MDBCardTitle className={"card-title h4"}>{this.state.title}</MDBCardTitle>
-                                            <MDBCardText className={"mt-2"}>
-                                        {this.state.signUpExplanation}
-                                            </MDBCardText>
-                                            <MDBBtn size="lg" onClick={this.resendSignUpLink} className={"btn-secondary"}>
-                                               Resend signup link
-                                            </MDBBtn>
-                                        </MDBCardBody>
-                                    </MDBCard>
+                              this.state.signUpExplanation == "" ?
+                                  <div></div>
+                                  :
+                                  <MDBCard className={"mt-3"}>
+                                      <MDBCardBody>
+                                      <MDBCardTitle className={"card-title h4"}>{this.state.title}</MDBCardTitle>
+                                          <MDBCardText className={"mt-2"}>
+                                      {this.state.signUpExplanation}
+                                          </MDBCardText>
+                                          <MDBBtn size="lg" onClick={this.resendSignUpLink} className={"btn-secondary"}>
+                                             Resend signup link
+                                          </MDBBtn>
+                                      </MDBCardBody>
+                                  </MDBCard>
                             }
                         </MDBCol>
                         </MDBRow>

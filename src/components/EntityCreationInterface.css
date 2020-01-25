@@ -1,15 +1,21 @@
 
-@import url('https://fonts.googleapis.com/css?family=Inconsolata|Mali|Nanum+Gothic|ZCOOL+QingKe+HuangYou&display=swap');
 
+
+#__next > div > div > div:nth-child(5) > div.row.py-5.mt-5 > div > div > div > div.card-body.text-center > div > div > div:nth-child(1) > span {
+position:relative;
+top:-10px;
+}
+
+#__next > div > div > div:nth-child(5) > div.row.py-5.mt-5 > div > div > div > div.card-body.text-center > div > div > div:nth-child(4) > div:nth-child(6) {
+  display: none!important;
+}
 
 .creation-header{
   font-size: 5em!important;
-  font-family: 'ZCOOL QingKe HuangYou', cursive;
 }
 
 .creation-subheader{
   font-size: 2.5em!important;
-    font-family: 'Nanum Gothic', sans-serif;
     font-weight: bold;
 }
 
@@ -24,7 +30,6 @@
 
 .openlaw-el-section__title{
   font-size: 3em;
-  font-family: 'ZCOOL QingKe HuangYou', cursive;
   color: #2e294e!important;
 }
 
@@ -48,7 +53,6 @@
 
 .openlaw-el-field__label-text{
     font-size: 1.3em;
-  font-family: 'Nanum Gothic', sans-serif;
   position: relative;
   top: 6px;
 }

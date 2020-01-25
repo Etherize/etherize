@@ -90,6 +90,8 @@ footer.page-footer a {
   color: var(--primary-contrast);
 }
 
+
+
 /* ***** Background ***** */
 
 .mainBackground{
@@ -164,6 +166,7 @@ footer.page-footer a {
 .card-title {
   color:var(--primary-contrast);
   margin-bottom: 0!important;
+  font-size: 2.8em;
 }
 
 .standard-card-header-gradient{
@@ -174,7 +177,16 @@ footer.page-footer a {
   font-style: italic;
   text-align: center;
   vertical-align: middle;
-  padding-top: 15px;
+
+}
+
+.card-subtitle-success{
+  font-size: 1.34em!important;
+  padding-top: 5px;
+}
+
+.card-subtitle-padding{
+    padding-top: 15px;
 }
 
 .lessBottomPadding{
@@ -199,6 +211,16 @@ footer.page-footer a {
 
 .cardCorners{
   border-radius: .25rem;
+}
+
+.btn-tags{
+  margin-top: 20px;
+}
+
+.btn-card{
+  margin-top: 50px;
+  font-size: 1.3em!important;
+  font-family:"NemoyMedium"!important;
 }
 
 /* ***** Tables ***** */

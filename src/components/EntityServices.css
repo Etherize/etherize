@@ -45,6 +45,13 @@
     background-color: var(--secondary-color) !important;
 }
 
+.badge-info{
+  font-size: 1em;
+}
+
+.jumbo-title{
+    font-size: 4.2em;
+}
 
 .jumbo-container{
     position: absolute;
@@ -54,4 +61,21 @@
 
 }
 
+.products{
+  margin-top: 70px;
+}
 
+.typedLanding{
+  text-size: 3em!important;
+}
+
+.overflow {
+  overflow: visible;
+}
+#__next > div > div.jumbotron.jumbotron-fluid > div > div > div:nth-child(3) > div > h4 {
+  font-size: 2em;
+}
+
+#__next > div > div.jumbotron.jumbotron-fluid > div > div > div:nth-child(3) > div > h4 > div > div > h1 > span:nth-child(1) {
+  font-size: 1.1em;
+}

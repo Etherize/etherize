@@ -35,7 +35,7 @@ class Tools extends Component {
                             <MDBCard cascade >
                                   <MDBCardBody className="lessBottomPadding">
                                     <MDBCardImage className="img-fluid" src={portal} waves />
-                                    <MDBCardText className="card-subtitle">
+                                    <MDBCardText className="card-subtitle card-subtitle-padding">
                                        may these tools be your guide to the other side
                                     </MDBCardText>
                                   </MDBCardBody>
@@ -52,18 +52,18 @@ class Tools extends Component {
                                     </MDBCardHeader>
                                     <MDBContainer className={"text-center cardContent"}>
                                         <a href='https://medium.com/openlawofficial/the-lao-a-for-profit-limited-liability-autonomous-organization-9eae89c9669c'>LAO (Moloch DAO/Delaware LLC)</a><br/>
-                                        <a href='http://openesq.tech'>OpenESQ (Aragon DAO/NY LLC)</a><br/>
+                                        <a href='https://github.com/open-esq'>OpenESQ (Aragon DAO/NY LLC)</a><br/>
                                         <a href='https://github.com/dOrgTech/LL-DAO'>dORG (LL-DAO, Vermont)</a><br/>
                                     </MDBContainer>
                                     <MDBCardHeader className={"text-center cardHeader shortyCardHeader h2"} >
                                        Templates <MDBIcon far icon='file-alt' />
                                     </MDBCardHeader >
                                       <MDBContainer className={"cardContent text-center"}>
-                                        <a href='https://etherizeit.openlaw.io/template/deal-entity'>Entity Formation Wizard</a> <br/>
-                                        <a href='https://etherizeit.openlaw.io/template/service-argreement-organizer'>Service Agreement: Entity Organizer</a><br/>
-                                        <a href='https://etherizeit.openlaw.io/template/bylaws-dao-non-profit'>Service Agreement: Registered Agent</a><br/>
+                                        <a href='https://github.com/Ro5s/Startup-Starter-Pack'>Startup Starter Pack 🎒</a> <br/>
+                                        <a href='https://dao.openlaw.io/'>OpenLaw: DAO Formation & Usage</a><br/>
+                                        <a href='https://lib.openlaw.io/web/etherizeit/template/Hybrid%20Formation%20Service%20Agreement'>Hybrid Formation Agreement</a><br/>
                                         <a href='https://app.openlaw.io/template/LLC-DAO%20Operating%20Agreement%20(NY)'>Operating Agreement: DAO/LLC (NY)</a><br/>
-                                        <a href='https://etherizeit.openlaw.io/template/bylaws-dao-non-profit'>Operating Agreement: DAO/Series LLC (WY)</a><br/>
+                                        <a href='https://lib.openlaw.io/web/etherizeit/template/bylaws-dao-non-profit'>Bylaws: DAO/Non-Profit</a><br/>
                                         </MDBContainer>
                                         <MDBCardHeader className={"text-center cardHeader shortyCardHeader h2"} >
                                             Code <MDBIcon icon='code' />
@@ -71,9 +71,9 @@ class Tools extends Component {
                                             <MDBContainer className={" cardContent text-center"}>
                                           <a href='http://github.com/jierdin/etherize'> Etherize Github</a>
                                           <br/>
-                                          <a href='https://hack.aragon.org/docs/getting-started'>Aragon Docs (DAO Platform)</a>
+                                          <a href='https://docs.openlaw.io/markup-language/'>OpenLaw Docs (Legal Templating)</a>
                                           <br/>
-                                          <a href='https://github.com/open-esq'>OpenESQ Github (Legal Engineering)</a>
+                                          <a href='https://hack.aragon.org/'>Aragon Docs (DAO Framework)</a>
                                           </MDBContainer>
                                         <MDBCardHeader className={"text-center cardHeader shortyCardHeader h2"} >
 
@@ -84,7 +84,7 @@ class Tools extends Component {
                                           <br/>
                                           <a href='https://t.me/etherize'>Etherize Announcements</a>
                                           <br/>
-                                          <a href='https://t.me/OpenEsquire'>Open ESQ Announcements</a>
+                                          <a href='https://t.me/OpenEsquire'>OpenESQ Announcements</a>
                                           </MDBContainer>
                                 </MDBCardBody>
                             </MDBCard>
