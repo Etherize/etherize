@@ -290,7 +290,7 @@ class EntityCreationInterface extends React.Component {
 
             // don't need to check for valid email, OpenLaw validateContract + checkMissingInputs does this
             const [_, memberEmail] = this.uploadParamsHasValidEmail(uploadParams2);
-            console.log("member email: ", memberEmail);
+            // console.log("member email: ", memberEmail);
 
             // send invite to sign up an account
             API.SendInviteToUserFromAdminAccount(memberEmail);
@@ -304,7 +304,7 @@ class EntityCreationInterface extends React.Component {
         // Let's try to upload the contract
         try{
             contractId = await apiClient.uploadContract(uploadParams2);
-            console.log("Contract ID: ", contractId);
+            // console.log("Contract ID: ", contractId);
         }
 
         // if we fail, send the draft to us
@@ -382,7 +382,7 @@ class EntityCreationInterface extends React.Component {
 
 
     togglePaymentModal(){
-        console.log("total cost: " + this.state.cost);
+        // console.log("total cost: " + this.state.cost);
 
         const errorInForm = this.tryExecuteTemplate();
         if (errorInForm != null){
@@ -391,11 +391,29 @@ class EntityCreationInterface extends React.Component {
             this.MiscellaneousModal.current.ToggleShowing();
             return;
         }
+        if (this.state.cost > 0){
+            this.ChoosePaymentMethodModal.current.SetTextAndTitle("Choose a Payment Method",
+                "");
+            this.ChoosePaymentMethodModal.current.ToggleShowing();
+        }
+        else{
+            this.justSummonNonLegalEntity();
+        }
 
-        this.ChoosePaymentMethodModal.current.SetTextAndTitle("Choose a Payment Method",
-            "");
-        this.ChoosePaymentMethodModal.current.ToggleShowing();
+    }
 
+    async justSummonNonLegalEntity(){
+        this.PaymentModal.current.ToggleShowing();
+        this.PaymentModal.current.ToggleLoading(true);
+
+        const [success, err] = await this.RequestSignatureFromEtherize();
+        if (!success){
+            this.PaymentModal.current.SetTextAndTitle("Error", "Failure to upload to OpenLaw: " + err);
+            return;
+        }
+        this.PaymentModal.current.SetTextAndTitle("Success!",
+            "Check your e-mail for your Entity Information document. After signing it, you will be able to" +
+            " deploy your Ethereal component using MetaMask.");
     }
 
 
@@ -416,7 +434,7 @@ class EntityCreationInterface extends React.Component {
             const startI = parameterValue.indexOf(startOfPriceString);
             const endI = parameterValue.indexOf(")",startI);
             const priceOfService = parameterValue.slice(startI + startOfPriceString.length, endI);
-            console.log(priceOfService);
+            // console.log(priceOfService);
             newCost +=  parseInt(priceOfService);
         }
 

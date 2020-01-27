@@ -41,7 +41,7 @@ class Modal extends Component {
     render() {
         return (
             <MDBContainer>
-                <MDBModal isOpen={this.state.isOpen} toggle={this.toggleOpen()} centered>
+                <MDBModal  isOpen={this.state.isOpen} toggle={this.toggleOpen()} centered>
                     <MDBModalHeader titleClass={"w-100 col-12 text-center"}  toggle={this.toggleOpen()}>
                             {this.state.title}
                     </MDBModalHeader>
@@ -50,8 +50,9 @@ class Modal extends Component {
                             HTMLReactParser(this.state.text)}
                     </MDBModalBody>
                     {this.props.children}
-                    <MDBModalFooter>
+                    <MDBModalFooter className={"text-center mx-auto"}>
                         <MDBBtn color="secondary" onClick={this.toggleOpen()}>Close</MDBBtn>
+
                     </MDBModalFooter>
                 </MDBModal>
             </MDBContainer>
