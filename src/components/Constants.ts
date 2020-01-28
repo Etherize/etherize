@@ -30,7 +30,8 @@ export default class Constants{
         "Entity Location",
         "Ethereal Component",
         "Legal Component"
-    ]
+    ];
     static OpenLawMemberEmailKey = "Member Signature";
+    static VersionNumber = "0.2.0";
 }
 //

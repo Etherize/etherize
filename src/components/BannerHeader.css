@@ -218,8 +218,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99207cca', e
 }
 
 .logoSubText{
+  cursor: pointer;
   padding-left: 20px;
-  font-size: 6vmin!important;
+  font-size: 3vmin!important;
   color: #86a8e7;
   font-style: italic;
   position:relative;

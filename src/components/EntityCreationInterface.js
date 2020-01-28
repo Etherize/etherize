@@ -561,8 +561,8 @@ class EntityCreationInterface extends React.Component {
                                 <MDBBtn size="lg" onClick={this.payFiat} className={"btn-secondary"}>
                                     Pay ${this.state.cost} in USD
                                 </MDBBtn>
-                                <MDBBtn size="lg" onClick={()=> this.payCrypto("LTCT")} className={"btn-secondary"}>
-                                    Pay ${this.state.cost} in BTC (LTCT)
+                                <MDBBtn size="lg" onClick={()=> this.payCrypto("BTC")} className={"btn-secondary"}>
+                                    Pay ${this.state.cost} in BTC
                                 </MDBBtn>
                                 <MDBBtn size="lg"  onClick={()=> this.payCrypto("ETH")} className={"btn-secondary"}>
                                     Pay ${this.state.cost} in ETH
@@ -595,7 +595,7 @@ class EntityCreationInterface extends React.Component {
                                                       onChangeFunction={this.onChange}
                                                       openLaw={Openlaw}
                                                       variables={this.state.variables}
-                                                      // inputExtraTextMap={{"Entity Name":<a href={"https://wyobiz.wy.gov/business/filingsearch.aspx"}>Check here if your name is available</a>}}
+                                                      inputExtraTextMap={{"Entity Name":<a href={"https://wyobiz.wy.gov/business/filingsearch.aspx"}>Check here if your name is available</a>}}
                                                       // inputExtraTextMap={{"Entity":<a href={"/FAQ#"+Constants.ownershipFAQTag}>What's a proof of ownership token?</a>}}
                                                       // inputProps={{'Title':{"children":<a href="http://localhost:8080/travel/t_form.jsp"> userlogin</a>}}}
                                         />

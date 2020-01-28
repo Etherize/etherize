@@ -42,7 +42,7 @@ class Modal extends Component {
         return (
             <MDBContainer>
                 <MDBModal  isOpen={this.state.isOpen} toggle={this.toggleOpen()} centered>
-                    <MDBModalHeader titleClass={"w-100 col-12 text-center"}  toggle={this.toggleOpen()}>
+                    <MDBModalHeader toggle={this.toggleOpen()}>
                             {this.state.title}
                     </MDBModalHeader>
                     <MDBModalBody className={"text-center"}>
@@ -52,7 +52,6 @@ class Modal extends Component {
                     {this.props.children}
                     <MDBModalFooter className={"text-center mx-auto"}>
                         <MDBBtn color="secondary" onClick={this.toggleOpen()}>Close</MDBBtn>
-
                     </MDBModalFooter>
                 </MDBModal>
             </MDBContainer>

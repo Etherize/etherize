@@ -140,12 +140,13 @@ class EntityServices extends React.Component {
                                     Long theorized, yet only recently attainable, they are just as capable of transacting with mortals as they are executing smart contracts.<br/>
                                     Bring your existing multi-signature wallet, ERC20 token, or DAO; alternatively, allow us to help you deploy one.<br/>
                                     Our team will form a legal entity to specification, wrapping the experimental organization in the safety of limited liability.
-                                        <div className="btn-tags">
+                                    </MDBCardText>
+
+                                    <MDBCardText className="btn-tags">
                                         <MDBBadge className="mr-2 mt-2 badge-info">Includes Services Below</MDBBadge>
                                         <MDBBadge className="mr-2 mt-2 badge-info">Ethereum: Multi-Sig, ERC20, DAO</MDBBadge>
                                         <MDBBadge className="mr-2 mt-2 badge-info">Wyoming: Non-Profit/LLC/Series LLC</MDBBadge>
-                                        </div>
-                                    </MDBCardText>
+                                        </MDBCardText>
                                     <MDBBtn size="lg" href={"/create?type=" + EntityTypes.hybridEntity} className={"btn-secondary btn-card"}>
                                         Start <MDBIcon icon="bolt"/>
                                     </MDBBtn>
@@ -165,13 +166,14 @@ class EntityServices extends React.Component {
                                       The EIN and Formation Certificate will be sent to your inbox. <br/>
                                       Enjoy Wyoming's incredibly low taxes and strong asset protections. <br/>
                                       One hour of consultation is included to help you get things rolling.<br/>
-                                          <div className="btn-tags">
+                                    </MDBCardText>
+
+                                    <MDBCardText className="btn-tags">
                                         <MDBBadge className="mr-2 mt-2 badge-info">Wyoming:Non-Profit, LLC, Series LLC</MDBBadge>
                                         <MDBBadge className="mr-2 mt-2 badge-info">EIN & Filing Receipt</MDBBadge>
                                         <MDBBadge className="mr-2 mt-2 badge-info">1 hour of consultation</MDBBadge>
                                         <MDBBadge className="mr-2 mt-2 badge-info">Optional: Operating Agreement</MDBBadge>
-                                        </div>
-                                    </MDBCardText>
+                                        </MDBCardText>
                                     <MDBBtn size="lg" href={"/create?type=" + EntityTypes.legalEntity} className={"btn-secondary btn-card"}>
                                         Start <MDBIcon icon="bolt"/>
                                     </MDBBtn>
@@ -190,13 +192,14 @@ class EntityServices extends React.Component {
                                         Curious to play with Ethereal matter, but aren't quite ready to call forth a Hybrid from the Summoning Portal?<br/>
                                         Our form will allow you to issue Crypto-Tokens, around which you & your co-founders' efforts may coalscence.<br/>
                                         After the 'Entity Information' document is signed, your chosen Ethereal component can be deployed via one click using MetaMask.<br/>
-                                        <div className="btn-tags">
+                                    </MDBCardText>
+
+                                    <MDBCardText className="btn-tags">
                                           <MDBBadge className="mr-2 mt-2 badge-info">Free</MDBBadge>
                                           <MDBBadge className="mr-2 mt-2 badge-info">ERC20 Token Generation</MDBBadge>
                                           <MDBBadge className="mr-2 mt-2 badge-info">🦅 DAO: Coming Soon</MDBBadge>
                                           <MDBBadge className="mr-2 mt-2 badge-info">👹 DAO: Coming Soon</MDBBadge>
                                           <MDBBadge className="mr-2 mt-2 badge-info">🦉 MultiSig: Coming Soon</MDBBadge>
-                                        </div>
                                     </MDBCardText>
                                     <MDBBtn size="lg" href={"https://dao.openlaw.io/"} className={"btn-secondary btn-card"}>
                                         Start <MDBIcon icon="bolt"/>
