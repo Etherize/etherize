@@ -364,10 +364,10 @@ class EntityCreationInterface extends React.Component {
 
         const sessionID = json["id"];
         // live key:
-        // const stripe = window.Stripe(process.env.StripePrivate);
+        const stripe = window.Stripe(process.env.StripeLive);
 
         // test key:
-        const stripe = window.Stripe(process.env.StripeTest);
+        // const stripe = window.Stripe(process.env.StripeTest);
 
         const {error} = await stripe.redirectToCheckout({
             sessionId: sessionID
