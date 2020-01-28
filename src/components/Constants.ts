@@ -15,6 +15,7 @@ export default class Constants{
         templateName: "",
     };
     static ownershipFAQTag="ownership-token";
+    static betaFAQTag="beta";
 
     static AgreementsPerEntity = {
         [EntityTypes.hybridEntity]: "Hybrid Formation Service Agreement",

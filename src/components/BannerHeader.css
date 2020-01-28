@@ -175,6 +175,9 @@ text-shadow: 0 0 1px rgba(36,80,117,0.84), 0 0 3px rgba(36,80,117,0.84), 0 0 5px
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99207cca', endColorstr='#99207cca',GradientType=0 )!important; /* IE6-9 */
 }
 
+.nav-item {
+  font-size: 4vmin!important;
+}
 
 .fancyButton a {
 
@@ -193,7 +196,7 @@ text-shadow: 0 0 1px rgba(36,80,117,0.84), 0 0 3px rgba(36,80,117,0.84), 0 0 5px
   border-radius:50px;
 -moz-border-radius:50px;
 -webkit-border-radius:50px;
-  font-size: 20px;
+  font-size: 3vmin!important;
   border-width:1px;
 border-style:solid;
 border-color:#0F68DD;
@@ -214,19 +217,32 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99207cca', e
 
 }
 
+.logoSubText{
+  padding-left: 20px;
+  font-size: 6vmin!important;
+  color: #86a8e7;
+  font-style: italic;
+  position:relative;
+  left: -30px;
+  top: 10px;
+  transform: rotate(-30deg);
+    text-shadow: #FFFFFF 1px 1px 0;
+}
 
+.logoSubText:hover{
+      text-shadow: #FFFFFF 2px 2px 0;
+}
 
-
-.activeLink {
-  box-shadow: 0px 0px 9px 6px #b1d5f1;
-  color: #BFE2FF!important;
-  background: rgb(190,198,109);
-  background: -moz-linear-gradient(top, rgba(112,176,232,0.6) 0%, rgba(112,176,232,0.63) 2%, rgba(127,184,231,0.73) 10%, rgba(140,191,234,0.8) 15%, rgba(165,206,239,0.9) 25%, rgba(177,213,241,0.9) 30%, rgba(177,213,241,0.9) 70%, rgba(165,206,239,0.9) 75%, rgba(140,191,234,0.8) 85%, rgba(127,184,231,0.73) 90%, rgba(112,176,232,0.6) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, rgba(112,176,232,0.6) 0%,rgba(112,176,232,0.63) 2%,rgba(127,184,231,0.73) 10%,rgba(140,191,234,0.8) 15%,rgba(165,206,239,0.9) 25%,rgba(177,213,241,0.9) 30%,rgba(177,213,241,0.9) 70%,rgba(165,206,239,0.9) 75%,rgba(140,191,234,0.8) 85%,rgba(127,184,231,0.73) 90%,rgba(112,176,232,0.6) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, rgba(112,176,232,0.6) 0%,rgba(112,176,232,0.63) 2%,rgba(127,184,231,0.73) 10%,rgba(140,191,234,0.8) 15%,rgba(165,206,239,0.9) 25%,rgba(177,213,241,0.9) 30%,rgba(177,213,241,0.9) 70%,rgba(165,206,239,0.9) 75%,rgba(140,191,234,0.8) 85%,rgba(127,184,231,0.73) 90%,rgba(112,176,232,0.6) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9970b0e8', endColorstr='#9970b0e8',GradientType=0 ); /* IE6-9 */
+.unused{
+  text-align: center;
+  width: 100%;
+  position:relative;
+  top:-30px;
+      left: -40px;
 
 }
+
+
 
 .pill {
   margin-top: 15px!important;
@@ -247,7 +263,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99207cca', e
   text-shadow: #86a8e7 2px 2px 0, #2e294e 4px 4px 0;
 }
 
-
 .activeHeader {
     box-shadow: 0px 0px 15px 8px #ED5CA7;
+}
+
+
+
+.activeLink {
+  box-shadow: 0px 0px 9px 6px #b1d5f1;
+  color: #BFE2FF!important;
+  background: rgb(190,198,109);
+  background: -moz-linear-gradient(top, rgba(112,176,232,0.6) 0%, rgba(112,176,232,0.63) 2%, rgba(127,184,231,0.73) 10%, rgba(140,191,234,0.8) 15%, rgba(165,206,239,0.9) 25%, rgba(177,213,241,0.9) 30%, rgba(177,213,241,0.9) 70%, rgba(165,206,239,0.9) 75%, rgba(140,191,234,0.8) 85%, rgba(127,184,231,0.73) 90%, rgba(112,176,232,0.6) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(112,176,232,0.6) 0%,rgba(112,176,232,0.63) 2%,rgba(127,184,231,0.73) 10%,rgba(140,191,234,0.8) 15%,rgba(165,206,239,0.9) 25%,rgba(177,213,241,0.9) 30%,rgba(177,213,241,0.9) 70%,rgba(165,206,239,0.9) 75%,rgba(140,191,234,0.8) 85%,rgba(127,184,231,0.73) 90%,rgba(112,176,232,0.6) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(112,176,232,0.6) 0%,rgba(112,176,232,0.63) 2%,rgba(127,184,231,0.73) 10%,rgba(140,191,234,0.8) 15%,rgba(165,206,239,0.9) 25%,rgba(177,213,241,0.9) 30%,rgba(177,213,241,0.9) 70%,rgba(165,206,239,0.9) 75%,rgba(140,191,234,0.8) 85%,rgba(127,184,231,0.73) 90%,rgba(112,176,232,0.6) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9970b0e8', endColorstr='#9970b0e8',GradientType=0 ); /* IE6-9 */
+
 }

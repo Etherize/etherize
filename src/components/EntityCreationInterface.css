@@ -1,6 +1,4 @@
 
-
-
 #__next > div > div > div:nth-child(5) > div.row.py-5.mt-5 > div > div > div > div.card-body.text-center > div > div > div:nth-child(1) > span {
 position:relative;
 top:-10px;
@@ -33,7 +31,6 @@ top:-10px;
   color: #2e294e!important;
   font-size: 5vmin!important;
 }
-
 
 .openlaw-el-field__select:focus{
   background-color: #ffffff!important;

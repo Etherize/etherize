@@ -54,6 +54,7 @@ class Tools extends Component {
                                         <a href='https://medium.com/openlawofficial/the-lao-a-for-profit-limited-liability-autonomous-organization-9eae89c9669c'>LAO (Moloch DAO/Delaware LLC)</a><br/>
                                         <a href='https://github.com/open-esq'>OpenESQ (Aragon DAO/NY LLC)</a><br/>
                                         <a href='https://github.com/dOrgTech/LL-DAO'>dORG (LL-DAO, Vermont)</a><br/>
+                                        <a href='https://github.com/metacartel/MCV/blob/master/Whitepaper.pdf'>MetaCartel Venture DAO (Moloch  DAO/Delaware LLC)</a><br/>
                                     </MDBContainer>
                                     <MDBCardHeader className={"text-center cardHeader shortyCardHeader h2"} >
                                        Templates <MDBIcon far icon='file-alt' />
@@ -63,7 +64,6 @@ class Tools extends Component {
                                         <a href='https://dao.openlaw.io/'>OpenLaw: DAO Formation & Usage</a><br/>
                                         <a href='https://lib.openlaw.io/web/etherizeit/template/Hybrid%20Formation%20Service%20Agreement'>Hybrid Formation Agreement</a><br/>
                                         <a href='https://app.openlaw.io/template/LLC-DAO%20Operating%20Agreement%20(NY)'>Operating Agreement: DAO/LLC (NY)</a><br/>
-                                        <a href='https://lib.openlaw.io/web/etherizeit/template/bylaws-dao-non-profit'>Bylaws: DAO/Non-Profit</a><br/>
                                         </MDBContainer>
                                         <MDBCardHeader className={"text-center cardHeader shortyCardHeader h2"} >
                                             Code <MDBIcon icon='code' />

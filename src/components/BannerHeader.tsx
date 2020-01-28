@@ -5,6 +5,7 @@ import {
     MDBNavbarNav,
     MDBNavItem,
     MDBNavbarToggler,
+    MDBRow,
     MDBCollapse, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem,
 } from "mdbreact";
 import {Router, withRouter} from 'next/router'
@@ -43,11 +44,14 @@ class  BannerHeader extends React.Component<Props, State> {
         return (
 
             <MDBNavbar scrolling light expand="md">
+              <MDBRow>
                 <MDBNavbarBrand >
                     <Link href={"/"}>
                     <strong className="logoText ethericText ml-4">ETHERIZE</strong>
                     </Link>
                 </MDBNavbarBrand>
+                    <Link href={'/FAQ/#beta'}><p className="logoSubText">βeta</p></Link>
+                  </MDBRow>
                 <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse1")}/>
                 <MDBCollapse id="navbarCollapse1"
                              isOpen={this.state.collapseID}
