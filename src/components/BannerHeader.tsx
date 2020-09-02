@@ -50,7 +50,7 @@ class  BannerHeader extends React.Component<Props, State> {
                     <strong className="logoText ethericText ml-4">ETHERIZE</strong>
                     </Link>
                 </MDBNavbarBrand>
-                    <Link href={'/FAQ/#beta'}><p className="logoSubText">βeta</p></Link>
+
                   </MDBRow>
                 <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse1")}/>
                 <MDBCollapse id="navbarCollapse1"
