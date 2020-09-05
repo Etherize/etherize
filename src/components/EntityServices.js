@@ -119,6 +119,19 @@ class EntityServices extends React.Component {
                             </MDBRow>
                         </MDBContainer>
 
+                        {/*Sectional bar for a link to calendy}*/}                 
+                        <MDBContainer className="purple darken-4 rounded-pill" style={{padding: "1rem"}}>
+                            <MDBRow className="w-80 h-100 align-items-center justify-content-center ">
+                                <MDBCol className="text-center"  md="8">
+                                    <h5 style={{color: "white", padding: "10pt"}}>Questions on how to form an Entity?</h5>
+                                </MDBCol >
+                                <MDBCol className="text-center" md="4">
+                                    <MDBBtn tag="a" href="https://calendly.com/etherize/consultation?month=2020-09" target="_blank" role="button" className="btn-primary" style={{margin: "5pt"}}>
+                                        <h6><small>Book a meeting today!</small></h6>
+                                    </MDBBtn>
+                                </MDBCol>
+                            </MDBRow>
+                        </MDBContainer>                    
 
                         {/*CARDS*/}
                         {/*Card layout/design loosely based on : https://0x.org/launch-kit*/}
