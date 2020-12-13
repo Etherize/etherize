@@ -11,7 +11,7 @@ const nextConfig = {
     experimental: {
         css: true
     },
-    assetPrefix:'www.etherize.io/',
+    assetPrefix:'/',
     webpack: config => {
         config.plugins = config.plugins || [];
 
