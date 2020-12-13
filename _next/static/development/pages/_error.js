@@ -1061,7 +1061,7 @@ module.exports = function (NAME, wrapper, methods, common, IS_MAP, IS_WEAK) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.6.10' };
+var core = module.exports = { version: '2.6.11' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -3294,13 +3294,11 @@ var amp_1 = __webpack_require__(/*! ./amp */ "./node_modules/next/dist/next-serv
 function defaultHead() {
   var inAmpMode = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
   var head = [react_1["default"].createElement("meta", {
-    key: "charSet",
     charSet: "utf-8"
   })];
 
   if (!inAmpMode) {
     head.push(react_1["default"].createElement("meta", {
-      key: "viewport",
       name: "viewport",
       content: "width=device-width,minimum-scale=1,initial-scale=1"
     }));
@@ -3344,17 +3342,28 @@ function unique() {
   var metaTypes = new _Set();
   var metaCategories = {};
   return function (h) {
-    if (h.key && typeof h.key !== 'number' && h.key.indexOf('.$') === 0) {
-      if (keys.has(h.key)) return false;
-      keys.add(h.key);
-      return true;
-    }
+    var unique = true;
+
+    if (h.key && typeof h.key !== 'number' && h.key.indexOf('$') > 0) {
+      var key = h.key.slice(h.key.indexOf('$') + 1);
+
+      if (keys.has(key)) {
+        unique = false;
+      } else {
+        keys.add(key);
+      }
+    } // eslint-disable-next-line default-case
+
 
     switch (h.type) {
       case 'title':
       case 'base':
-        if (tags.has(h.type)) return false;
-        tags.add(h.type);
+        if (tags.has(h.type)) {
+          unique = false;
+        } else {
+          tags.add(h.type);
+        }
+
         break;
 
       case 'meta':
@@ -3363,21 +3372,28 @@ function unique() {
           if (!h.props.hasOwnProperty(metatype)) continue;
 
           if (metatype === 'charSet') {
-            if (metaTypes.has(metatype)) return false;
-            metaTypes.add(metatype);
+            if (metaTypes.has(metatype)) {
+              unique = false;
+            } else {
+              metaTypes.add(metatype);
+            }
           } else {
             var category = h.props[metatype];
             var categories = metaCategories[metatype] || new _Set();
-            if (categories.has(category)) return false;
-            categories.add(category);
-            metaCategories[metatype] = categories;
+
+            if (categories.has(category)) {
+              unique = false;
+            } else {
+              categories.add(category);
+              metaCategories[metatype] = categories;
+            }
           }
         }
 
         break;
     }
 
-    return true;
+    return unique;
   };
 }
 /**
@@ -3660,23 +3676,23 @@ var styles = {
 
 /***/ "./node_modules/react/index.js":
 /*!*******************************************************************************************!*\
-  !*** delegated ./node_modules/react/index.js from dll-reference dll_b35e09dc2ca94ac6d9c1 ***!
+  !*** delegated ./node_modules/react/index.js from dll-reference dll_2d548d91c0ce075c3af9 ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_b35e09dc2ca94ac6d9c1 */ "dll-reference dll_b35e09dc2ca94ac6d9c1"))("./node_modules/react/index.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_2d548d91c0ce075c3af9 */ "dll-reference dll_2d548d91c0ce075c3af9"))("./node_modules/react/index.js");
 
 /***/ }),
 
-/***/ "dll-reference dll_b35e09dc2ca94ac6d9c1":
+/***/ "dll-reference dll_2d548d91c0ce075c3af9":
 /*!*******************************************!*\
-  !*** external "dll_b35e09dc2ca94ac6d9c1" ***!
+  !*** external "dll_2d548d91c0ce075c3af9" ***!
   \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = dll_b35e09dc2ca94ac6d9c1;
+module.exports = dll_2d548d91c0ce075c3af9;
 
 /***/ })
 
