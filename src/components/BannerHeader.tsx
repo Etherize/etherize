@@ -6,11 +6,10 @@ import {
     MDBNavItem,
     MDBNavbarToggler,
     MDBRow,
-    MDBCollapse, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem,
+    MDBCollapse
 } from "mdbreact";
 import {Router, withRouter} from 'next/router'
 import React from "react";
-import {bool} from "prop-types";
 import {EntityTypes} from "./Constants";
 
 type Props={
@@ -59,7 +58,6 @@ class  BannerHeader extends React.Component<Props, State> {
                     <MDBNavbarNav right>
                         <NavbarItem active={this.determineActive("create")} title={"create"} />
                         <NavbarItem active={this.determineActive("tools")} title={"tools"} />
-                        <NavbarItem active={this.determineActive("blog")} title={"blog"} />
                         <NavbarItem active={this.determineActive("FAQ")} title={"FAQ"} />
                         <NavbarItem active={this.determineActive("contact")} title={"contact"} />
                     </MDBNavbarNav>
